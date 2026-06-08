@@ -220,5 +220,128 @@ document.addEventListener('DOMContentLoaded', async function() {
 })();
 </script>
 
+<style id="testi-carousel-styles">
+/* Testimonials carousel (idovadya.com) — one active card centered, dimmed peeks, arrows */
+.testi-grid.carousel{
+  position:relative;
+  display:block !important;
+  margin-inline:auto;
+  --testi-shift:320px;
+}
+.testi-grid.carousel .testi-card{
+  position:absolute !important;
+  top:0; left:50%;
+  width:min(440px,86%);
+  margin:0 !important;
+  opacity:0 !important;
+  pointer-events:none;
+  z-index:1;
+  transform:translateX(-50%) scale(.8) !important;
+  transition:transform .5s cubic-bezier(.16,.7,.3,1), opacity .5s ease, filter .5s ease !important;
+}
+.testi-grid.carousel .testi-card.is-active{
+  opacity:1 !important;
+  pointer-events:auto;
+  z-index:3;
+  transform:translateX(-50%) scale(1) !important;
+}
+.testi-grid.carousel .testi-card.is-prev{
+  opacity:.4 !important;
+  filter:brightness(.45) saturate(.85);
+  z-index:2;
+  transform:translateX(calc(-50% - var(--testi-shift))) scale(.84) !important;
+}
+.testi-grid.carousel .testi-card.is-next{
+  opacity:.4 !important;
+  filter:brightness(.45) saturate(.85);
+  z-index:2;
+  transform:translateX(calc(-50% + var(--testi-shift))) scale(.84) !important;
+}
+.testi-nav{
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:46px; height:46px; border-radius:50%;
+  background:rgba(255,255,255,.10);
+  -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.25);
+  color:#fff; padding:0;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; z-index:5;
+  transition:background .2s ease, transform .2s ease;
+}
+.testi-nav:hover{ background:rgba(255,255,255,.22); }
+.testi-nav:active{ transform:translateY(-50%) scale(.92); }
+.testi-nav svg{ width:20px; height:20px; }
+.testi-nav.prev{ right:2%; }
+.testi-nav.next{ left:2%; }
+@media (max-width:720px){
+  .testi-grid.carousel{ overflow:hidden; }
+  .testi-grid.carousel .testi-card{ width:min(440px,88%); }
+  .testi-grid.carousel .testi-card.is-prev,
+  .testi-grid.carousel .testi-card.is-next{ opacity:0 !important; }
+  .testi-nav.prev{ right:0; }
+  .testi-nav.next{ left:0; }
+}
+</style>
+<script>
+/* Testimonials carousel wiring */
+(function () {
+  function init() {
+    var grid = document.querySelector('.testi-grid');
+    if (!grid) return;
+    var cards = Array.prototype.filter.call(grid.children, function (c) {
+      return c.classList && c.classList.contains('testi-card');
+    });
+    var n = cards.length;
+    if (n < 2) return;
+    grid.classList.add('carousel');
+    var idx = 0;
+
+    function arrow(dir) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'testi-nav ' + (dir < 0 ? 'prev' : 'next');
+      b.setAttribute('aria-label', dir < 0 ? 'המלצה קודמת' : 'המלצה הבאה');
+      var pts = dir < 0 ? '9 6 15 12 9 18' : '15 6 9 12 15 18';
+      b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="' + pts + '"/></svg>';
+      b.addEventListener('click', function () { go(dir); });
+      return b;
+    }
+    grid.appendChild(arrow(-1));
+    grid.appendChild(arrow(1));
+
+    function setSize() {
+      var h = 0;
+      cards.forEach(function (c) { if (c.offsetHeight > h) h = c.offsetHeight; });
+      if (h) grid.style.height = h + 'px';
+      var w = cards[idx].offsetWidth || 380;
+      grid.style.setProperty('--testi-shift', Math.min(w * 0.62, window.innerWidth * 0.34) + 'px');
+    }
+    function render() {
+      cards.forEach(function (c, i) {
+        c.classList.remove('is-active', 'is-prev', 'is-next');
+        if (i === idx) c.classList.add('is-active');
+        else if (i === (idx - 1 + n) % n) c.classList.add('is-prev');
+        else if (i === (idx + 1) % n) c.classList.add('is-next');
+      });
+    }
+    function go(d) { idx = (idx + d + n) % n; render(); }
+
+    var x0 = null;
+    grid.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    grid.addEventListener('touchend', function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
+    }, { passive: true });
+
+    window.addEventListener('resize', setSize);
+    window.addEventListener('load', setSize);
+    setTimeout(function () { setSize(); render(); }, 60);
+  }
+  if (document.readyState !== 'loading') init();
+  else document.addEventListener('DOMContentLoaded', init);
+})();
+</script>
+
 </body>
 </html>

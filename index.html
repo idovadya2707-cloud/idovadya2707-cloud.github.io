@@ -214,11 +214,8 @@ document.addEventListener('DOMContentLoaded', async function() {
       fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body: data, keepalive: true });
     } catch (err) {}
 
-    var body = document.getElementById('formBody');
-    var thanks = document.getElementById('thanksBox');
-    if (body) body.style.display = 'none';
-    if (thanks) thanks.classList.add('show');
-    if (thanks && thanks.scrollIntoView) thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    /* hand off to the dedicated thank-you page (keepalive lets the POST finish after navigation) */
+    window.location.href = 'thanks.html';
   }, true);
 })();
 </script>

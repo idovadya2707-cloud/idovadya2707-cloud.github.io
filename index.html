@@ -283,6 +283,10 @@ document.addEventListener('DOMContentLoaded', async function() {
     '.pain-list{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:12px;max-width:680px;}',
     '.pain .pain-list li{position:relative;padding:16px 48px 16px 22px;font-size:18px;font-weight:600;line-height:1.6;color:var(--off) !important;background-color:rgba(255,255,255,.40) !important;border-right:4px solid var(--royal) !important;border-radius:12px !important;box-shadow:0 10px 30px rgba(0,0,0,.35) !important;}',
     '.pain-list li::before{content:"";position:absolute;right:24px;top:50%;transform:translateY(-50%);width:8px;height:8px;border-radius:50%;background:var(--off);}',
+    '.skip-link{position:absolute;right:-9999px;top:0;background:#1f2c5e;color:#fff;padding:12px 20px;border-radius:0 0 10px 0;z-index:100000;text-decoration:none;font-weight:700;}',
+    '.skip-link:focus{right:0;}',
+    '.foot-a11y{margin:10px 0 0;}',
+    '.foot-a11y a{color:rgba(255,255,255,.85);text-decoration:underline;font-size:14px;}',
     '.mid-cta{display:flex;justify-content:center;margin:0 auto;padding:46px 24px;}',
     '.mid-cta a{display:inline-block;text-decoration:none;background-image:linear-gradient(135deg,#34568c,#1f2c5e);color:#fff;padding:18px 46px;border-radius:12px;font-family:Heebo,system-ui,sans-serif;font-weight:700;font-size:18px;box-shadow:0 14px 34px rgba(0,0,0,.42);transition:transform .15s ease,box-shadow .2s ease;}',
     '.mid-cta a:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(0,0,0,.5);}',
@@ -426,7 +430,35 @@ document.addEventListener('DOMContentLoaded', async function() {
     upd();
   }
 
+  /* Accessibility (Israeli law / WCAG 2.0 AA): skip-to-content link + a footer
+     link to the accessibility statement. Runtime-injected and idempotent. */
+  function addSkipLink() {
+    injectCSS();
+    if (document.querySelector('a.skip-link')) return;
+    var main = document.querySelector('header.hero') || document.querySelector('header, section');
+    if (main && !main.id) main.id = 'main-content';
+    var sl = document.createElement('a');
+    sl.className = 'skip-link';
+    sl.href = '#' + (main ? main.id : 'main-content');
+    sl.textContent = 'דלג לתוכן הראשי';
+    document.body.insertBefore(sl, document.body.firstChild);
+  }
+  function addA11yFooterLink() {
+    injectCSS();
+    var foot = document.querySelector('footer .wrap') || document.querySelector('footer');
+    if (!foot || foot.querySelector('.foot-a11y')) return;
+    var p = document.createElement('p');
+    p.className = 'foot-a11y';
+    var a = document.createElement('a');
+    a.href = 'accessibility.html';
+    a.textContent = 'הצהרת נגישות';
+    p.appendChild(a);
+    foot.appendChild(p);
+  }
+
   var builders = [
+    addSkipLink,
+    addA11yFooterLink,
     makeCarousel({ gridSel: '.testi-grid', cardClass: 'testi-card', shiftVar: '--testi-shift', navClass: 'testi-nav', prevLabel: 'המלצה קודמת', nextLabel: 'המלצה הבאה' }),
     makeCarousel({ gridSel: '.about-media', cardClass: 'photo', shiftVar: '--about-shift', navClass: 'about-nav', prevLabel: 'תמונה קודמת', nextLabel: 'תמונה הבאה' }),
     addMidCTAs,

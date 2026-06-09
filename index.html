@@ -283,6 +283,13 @@ document.addEventListener('DOMContentLoaded', async function() {
     '.pain-list{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:12px;max-width:680px;}',
     '.pain .pain-list li{position:relative;padding:16px 48px 16px 22px;font-size:18px;font-weight:600;line-height:1.6;color:var(--off) !important;background-color:rgba(255,255,255,.40) !important;border-right:4px solid var(--royal) !important;border-radius:12px !important;box-shadow:0 10px 30px rgba(0,0,0,.35) !important;}',
     '.pain-list li::before{content:"";position:absolute;right:24px;top:50%;transform:translateY(-50%);width:8px;height:8px;border-radius:50%;background:var(--off);}',
+    '.mid-cta{display:flex;justify-content:center;margin:0 auto;padding:46px 24px;}',
+    '.mid-cta a{display:inline-block;text-decoration:none;background-image:linear-gradient(135deg,#34568c,#1f2c5e);color:#fff;padding:18px 46px;border-radius:12px;font-family:Heebo,system-ui,sans-serif;font-weight:700;font-size:18px;box-shadow:0 14px 34px rgba(0,0,0,.42);transition:transform .15s ease,box-shadow .2s ease;}',
+    '.mid-cta a:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(0,0,0,.5);}',
+    '#sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:9999;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(15,20,40,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 -6px 24px rgba(0,0,0,.35);transform:translateY(130%);transition:transform .28s ease;display:none;}',
+    '#sticky-cta.show{transform:translateY(0);}',
+    '#sticky-cta a{display:block;text-align:center;text-decoration:none;background-image:linear-gradient(135deg,#34568c,#1f2c5e);color:#fff;padding:16px;border-radius:12px;font-family:Heebo,system-ui,sans-serif;font-weight:700;font-size:18px;}',
+    '@media (max-width:720px){#sticky-cta{display:block;}}',
     '.faq .obj-list{display:grid;gap:22px;margin-top:36px;max-width:760px;}',
     '.faq .obj{background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:24px 26px;box-shadow:var(--card-shadow);}',
     '.faq .obj-q{font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--royal-deep);margin:0 0 10px;}',
@@ -374,9 +381,56 @@ document.addEventListener('DOMContentLoaded', async function() {
     return build;
   }
 
+  /* Repeated mid-page CTAs: a ~13-screen page had only the hero CTA, with the
+     form at the very bottom. Insert the same CTA after key sections so anyone
+     convinced mid-scroll has a button. Idempotent by id; survives re-render. */
+  var CTA_LABEL = 'אני רוצה פרטים';
+  function addMidCTAs() {
+    injectCSS();
+    [['.testi', 0], ['.about', 1]].forEach(function (pair) {
+      var sec = document.querySelector(pair[0]);
+      if (!sec) return;
+      var id = 'mid-cta-' + pair[1];
+      if (document.getElementById(id)) return;
+      var a = document.createElement('a');
+      a.href = '#leadform'; a.textContent = CTA_LABEL;
+      var w = document.createElement('div');
+      w.className = 'mid-cta'; w.id = id; w.appendChild(a);
+      sec.parentNode.insertBefore(w, sec.nextSibling);
+    });
+  }
+
+  /* Sticky bottom CTA bar (mobile only via CSS). Shows after the hero scrolls
+     off; hides while the form itself is in view to avoid covering it. */
+  function addStickyCTA() {
+    injectCSS();
+    if (document.getElementById('sticky-cta')) return;
+    var bar = document.createElement('div');
+    bar.id = 'sticky-cta';
+    var a = document.createElement('a');
+    a.href = '#leadform'; a.textContent = CTA_LABEL;
+    bar.appendChild(a);
+    document.body.appendChild(bar);
+    function upd() {
+      var y = window.scrollY || window.pageYOffset || 0;
+      var show = y > 600;
+      var form = document.getElementById('leadform');
+      if (form) {
+        var r = form.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) show = false;
+      }
+      bar.classList.toggle('show', show);
+    }
+    window.addEventListener('scroll', upd, { passive: true });
+    window.addEventListener('resize', upd);
+    upd();
+  }
+
   var builders = [
     makeCarousel({ gridSel: '.testi-grid', cardClass: 'testi-card', shiftVar: '--testi-shift', navClass: 'testi-nav', prevLabel: 'המלצה קודמת', nextLabel: 'המלצה הבאה' }),
-    makeCarousel({ gridSel: '.about-media', cardClass: 'photo', shiftVar: '--about-shift', navClass: 'about-nav', prevLabel: 'תמונה קודמת', nextLabel: 'תמונה הבאה' })
+    makeCarousel({ gridSel: '.about-media', cardClass: 'photo', shiftVar: '--about-shift', navClass: 'about-nav', prevLabel: 'תמונה קודמת', nextLabel: 'תמונה הבאה' }),
+    addMidCTAs,
+    addStickyCTA
   ];
 
   /* Run after the bundle has rendered, then retry a few times so the

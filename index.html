@@ -217,19 +217,47 @@ document.addEventListener('DOMContentLoaded', async function() {
     var consent = document.getElementById('f-consent');
     var consentRow = document.getElementById('consentRow');
 
-    var ok = true;
+    /* a11y: a role="alert" live region announces validation errors to screen readers */
+    var live = document.getElementById('f-error-live');
+    if (!live) {
+      live = document.createElement('p');
+      live.id = 'f-error-live';
+      live.setAttribute('role', 'alert');
+      live.setAttribute('aria-live', 'assertive');
+      live.style.cssText = 'margin:0 0 14px;color:#ffd2cd;font-weight:700;font-size:15px;';
+      form.insertBefore(live, form.firstChild);
+    }
+
+    var ok = true, firstBad = null;
     [name, phone, email].forEach(function (inp) {
-      if (!inp || !inp.value.trim()) {
+      if (!inp) return;
+      if (!inp.value.trim()) {
         ok = false;
-        if (inp) { inp.style.borderColor = '#e2574c'; inp.style.boxShadow = '0 0 0 3px rgba(226,87,76,.18)'; }
+        if (!firstBad) firstBad = inp;
+        inp.setAttribute('aria-invalid', 'true');
+        inp.style.borderColor = '#e2574c'; inp.style.boxShadow = '0 0 0 3px rgba(226,87,76,.18)';
+      } else {
+        inp.setAttribute('aria-invalid', 'false');
+        inp.style.borderColor = ''; inp.style.boxShadow = '';
       }
     });
-    if (!consent || !consent.checked) { ok = false; if (consentRow) consentRow.classList.add('error'); }
+    if (!consent || !consent.checked) {
+      ok = false;
+      if (!firstBad) firstBad = consent;
+      if (consentRow) consentRow.classList.add('error');
+    } else if (consentRow) {
+      consentRow.classList.remove('error');
+    }
 
     /* take over the submit completely: block validation-less redirect to the missing thank-you page */
     e.preventDefault();
     e.stopImmediatePropagation();
-    if (!ok) return;
+    if (!ok) {
+      live.textContent = 'יש למלא את כל שדות החובה ולאשר את קבלת הפרטים.';
+      if (firstBad) try { firstBad.focus(); } catch (err) {}
+      return;
+    }
+    live.textContent = '';
 
     var data = new URLSearchParams();
     data.append('name', name.value.trim());
@@ -454,6 +482,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (document.querySelector('a.skip-link')) return;
     var main = document.querySelector('header.hero') || document.querySelector('header, section');
     if (main && !main.id) main.id = 'main-content';
+    if (main && !main.getAttribute('role')) main.setAttribute('role', 'main');
     var sl = document.createElement('a');
     sl.className = 'skip-link';
     sl.href = '#' + (main ? main.id : 'main-content');

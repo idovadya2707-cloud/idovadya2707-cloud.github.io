@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>עידו עובדיה — קורות חיים</title>
+  <meta name="description" content="עידו עובדיה — יזם, מייסד ומנכ\"ל CoachMind.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://idovadya.com/cv.html">
+  <link rel="icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --navy:#15233f; --slate:#3a4763; --ink:#16202e; --ink-soft:#48526a;
+      --bg:#e9ecf1; --card:#ffffff; --border:#d7dbe4; --line:#1c2c4d; --muted:#8a90a2;
+    }
+    *{box-sizing:border-box;}
+    body{
+      margin:0; background:var(--bg); color:var(--ink);
+      font-family:Heebo,system-ui,-apple-system,sans-serif;
+      line-height:1.6; font-size:15.5px; -webkit-font-smoothing:antialiased;
+    }
+    a{ color:var(--slate); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    .page{
+      max-width:780px; margin:30px auto; background:var(--card);
+      border:1px solid var(--border); border-radius:6px;
+      box-shadow:0 10px 40px rgba(20,30,60,.08); overflow:hidden;
+    }
+
+    /* ---- header ---- */
+    .top{
+      display:flex; align-items:center; gap:24px;
+      padding:32px 40px; border-bottom:2px solid var(--line);
+    }
+    .top img{
+      width:96px; height:96px; border-radius:4px; object-fit:cover;
+      object-position:center top; border:1px solid var(--border); flex:none;
+    }
+    .top h1{ margin:0 0 4px; font-size:31px; font-weight:800; letter-spacing:-.3px; color:var(--navy); }
+    .top .title{ margin:0; color:var(--slate); font-weight:600; font-size:15.5px; }
+    .contacts{
+      display:flex; flex-wrap:wrap; gap:5px 20px; margin-top:13px;
+      font-size:13.5px; color:var(--ink-soft);
+    }
+    .contacts span{ display:inline-flex; align-items:center; gap:5px; }
+
+    /* ---- body ---- */
+    .body{ padding:26px 40px 36px; }
+    section{ margin:0 0 26px; }
+    section:last-child{ margin:0; }
+    h2{
+      font-size:12.5px; font-weight:800; letter-spacing:1.5px; color:var(--navy);
+      text-transform:uppercase; margin:0 0 14px; padding-bottom:6px;
+      border-bottom:1px solid var(--border);
+    }
+    .summary{ color:var(--ink-soft); margin:0; font-size:15.5px; }
+    .summary strong{ color:var(--ink); font-weight:700; }
+
+    /* experience */
+    .exp{ position:relative; padding-inline-start:20px; margin:0 0 18px; }
+    .exp:last-child{ margin:0; }
+    .exp::before{
+      content:""; position:absolute; inset-inline-start:0; top:7px; bottom:-18px;
+      width:1px; background:var(--border);
+    }
+    .exp:last-child::before{ bottom:8px; }
+    .exp::after{
+      content:""; position:absolute; inset-inline-start:-3px; top:6px;
+      width:7px; height:7px; border-radius:50%; background:var(--navy);
+    }
+    .exp-head{ display:flex; flex-wrap:wrap; align-items:baseline; gap:3px 10px; }
+    .exp-role{ font-weight:800; font-size:16px; color:var(--ink); }
+    .exp-org{ color:var(--slate); font-weight:600; font-size:14.5px; }
+    .exp-date{ margin-inline-start:auto; font-size:12.5px; color:var(--muted); font-weight:600; white-space:nowrap; }
+    .exp ul{ margin:6px 0 0; padding-inline-start:18px; color:var(--ink-soft); }
+    .exp li{ margin:0 0 3px; }
+    .exp strong{ color:var(--ink); font-weight:700; }
+
+    /* two-column for certs + skills */
+    .cols{ display:grid; grid-template-columns:1fr 1fr; gap:30px; }
+
+    .cert{ display:flex; gap:12px; align-items:center; margin:0 0 14px; }
+    .cert:last-child{ margin:0; }
+    .cert img{
+      width:52px; height:52px; border-radius:4px; object-fit:cover;
+      border:1px solid var(--border); cursor:zoom-in; flex:none; background:#f3f5fb;
+    }
+    .cert b{ display:block; font-size:14.5px; color:var(--ink); line-height:1.35; font-weight:700; }
+    .cert small{ color:var(--muted); font-size:12.5px; }
+
+    .skill-note{ margin:0 0 12px; color:var(--ink-soft); font-size:14.5px; }
+    .chips{ display:flex; flex-wrap:wrap; gap:7px; }
+    .chip{
+      background:transparent; border:1px solid var(--slate); color:var(--navy);
+      padding:5px 14px; border-radius:3px; font-weight:600; font-size:13.5px;
+    }
+
+    /* lightbox */
+    .lb{ position:fixed; inset:0; background:rgba(12,18,40,.92); display:none;
+      align-items:center; justify-content:center; z-index:200; padding:28px; cursor:zoom-out; }
+    .lb.open{ display:flex; }
+    .lb img{ max-width:100%; max-height:92vh; border-radius:6px; box-shadow:0 20px 60px rgba(0,0,0,.6); }
+
+    @media (max-width:640px){
+      .page{ margin:0; border-radius:0; border:none; }
+      .top{ flex-direction:column; text-align:center; gap:14px; padding:26px 22px; }
+      .contacts{ justify-content:center; }
+      .body{ padding:24px 22px 30px; }
+      .cols{ grid-template-columns:1fr; gap:24px; }
+      .exp-date{ margin-inline-start:0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- HEADER + CONTACTS (single place) -->
+    <header class="top">
+      <img src="profile-ido.png" alt="עידו עובדיה">
+      <div>
+        <h1>עידו עובדיה</h1>
+        <p class="title">יזם · מייסד ומנכ"ל CoachMind</p>
+        <div class="contacts">
+          <span>📍 רמת גן</span>
+          <span>📧 <a href="mailto:idovadya2707@gmail.com">idovadya2707@gmail.com</a></span>
+          <span>📞 <a href="tel:+972506380503">050-6380503</a></span>
+          <span>🔗 <a href="https://www.linkedin.com/in/ido-ovadya-923ab0380" target="_blank" rel="noopener">LinkedIn</a></span>
+        </div>
+      </div>
+    </header>
+
+    <div class="body">
+
+      <!-- SUMMARY -->
+      <section>
+        <h2>תקציר</h2>
+        <p class="summary">
+          יזם בן 24, מייסד ומנכ"ל <strong>CoachMind</strong>. אחרי חמש שנים של פיקוד בצה"ל —
+          סביבה שבה למדתי לקבל החלטות ולתפקד היטב תחת לחץ — אני מתמחה ב<strong>סגירת הפער בין לדעת לבין לבצע</strong>:
+          לזהות את שורש הבעיה אצל אדם, צוות או עסק, ולתרגם אותו לתוצאה. ליוויתי מעל 100 אנשים בתהליכים אישיים,
+          ומוביל היום סטארט-אפ שמנגיש אימון אישי לכולם.
+        </p>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section>
+        <h2>ניסיון</h2>
+
+        <div class="exp">
+          <div class="exp-head">
+            <span class="exp-role">מייסד ומנכ"ל</span>
+            <span class="exp-org">CoachMind</span>
+            <span class="exp-date">2025 – היום</span>
+          </div>
+          <ul>
+            <li>הקמת סטארט-אפ המנגיש אימון אישי 24/7, בעשירית מהעלות ובהתאמה אישית גבוהה.</li>
+            <li>אחריות על חזון, מוצר, גיוס והובלת צוות הפיתוח (כולל CTO); המערכת בפיתוח פעיל.</li>
+          </ul>
+        </div>
+
+        <div class="exp">
+          <div class="exp-head">
+            <span class="exp-role">מאמן מנטלי ו-NLP · יזם עצמאי</span>
+            <span class="exp-org">פרקטיקה עצמאית</span>
+            <span class="exp-date">2024 – 2026</span>
+          </div>
+          <ul>
+            <li>ליווי אישי וסדנאות ל<strong>מעל 100 אנשים</strong> — פרטיים ובעלי עסקים.</li>
+            <li>הקמת "חיילים ביחד" — פלטפורמה חברתית לחיילים בודדים, בשיתוף עמותת "מצמיחים".</li>
+            <li>הנחיית הפודקאסט "לחיות את הפוטנציאל שלך".</li>
+          </ul>
+        </div>
+
+        <div class="exp">
+          <div class="exp-head">
+            <span class="exp-role">מפקד צוות</span>
+            <span class="exp-org">צה"ל — יחידה מיוחדת (מטיל"ן) ופיקוד</span>
+            <span class="exp-date">2019 – 2024</span>
+          </div>
+          <ul>
+            <li>~4 שנות פיקוד; הדרכת מחזורי טירונים ופיקוד על <strong>מעל 200 לוחמים</strong>.</li>
+            <li>מפקד צוות ביחידה מיוחדת — קבלת החלטות והובלה תחת לחץ. סיום עם <strong>תעודות הצטיינות</strong>.</li>
+          </ul>
+        </div>
+
+      </section>
+
+      <!-- CERTS + SKILLS side by side -->
+      <div class="cols">
+
+        <section style="margin:0">
+          <h2>הסמכות</h2>
+          <div class="cert">
+            <img src="cert-coaching.jpg" alt="הסמכת מאמן אישי — OneLife">
+            <div>
+              <b>הכשרת מאמנים אישיים</b>
+              <small>OneLife · 345 שעות · 2025</small>
+            </div>
+          </div>
+          <div class="cert">
+            <img src="cert-stage.jpg" alt="אומנות הבמה — Learn Love Lead">
+            <div>
+              <b>אומנות הבמה — עמידה מול קהל</b>
+              <small>Learn·Love·Lead · 104 שעות · 2025</small>
+            </div>
+          </div>
+        </section>
+
+        <section style="margin:0">
+          <h2>חוזקות</h2>
+          <p class="skill-note">הסביבה שבה אני נותן את המיטב:</p>
+          <div class="chips">
+            <span class="chip">ייעוד</span>
+            <span class="chip">אתגר</span>
+            <span class="chip">השפעה</span>
+            <span class="chip">עבודת צוות</span>
+            <span class="chip">לחץ</span>
+            <span class="chip">מגוון</span>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lb" id="lightbox"><img src="" alt="תעודה מוגדלת" id="lb-img"></div>
+  <script>
+    (function(){
+      var lb=document.getElementById('lightbox'), lbImg=document.getElementById('lb-img');
+      document.querySelectorAll('.cert img').forEach(function(img){
+        img.addEventListener('click',function(){ lbImg.src=img.src; lb.classList.add('open'); });
+      });
+      lb.addEventListener('click',function(){ lb.classList.remove('open'); lbImg.src=''; });
+      document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ lb.classList.remove('open'); lbImg.src=''; }});
+    })();
+  </script>
+</body>
+</html>

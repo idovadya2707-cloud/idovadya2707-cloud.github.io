@@ -81,19 +81,22 @@
     .exp li{ margin:0 0 3px; }
     .exp strong{ color:var(--ink); font-weight:700; }
 
-    /* two-column for certs + skills */
-    .cols{ display:grid; grid-template-columns:1fr 1fr; gap:30px; }
-
-    .cert{ display:flex; gap:12px; align-items:center; margin:0 0 14px; }
-    .cert:last-child{ margin:0; }
-    .cert img{
-      width:52px; height:52px; border-radius:4px; object-fit:cover;
-      border:1px solid var(--border); cursor:zoom-in; flex:none; background:#f3f5fb;
+    /* horizontal cert gallery */
+    .gallery{
+      display:flex; gap:14px; overflow-x:auto; padding-bottom:10px;
+      scroll-snap-type:x proximity; -webkit-overflow-scrolling:touch;
     }
-    .cert b{ display:block; font-size:14.5px; color:var(--ink); line-height:1.35; font-weight:700; }
-    .cert small{ color:var(--muted); font-size:12.5px; }
-
-    .skill-note{ margin:0 0 12px; color:var(--ink-soft); font-size:14.5px; }
+    .gallery::-webkit-scrollbar{ height:7px; }
+    .gallery::-webkit-scrollbar-thumb{ background:var(--border); border-radius:4px; }
+    .gallery::-webkit-scrollbar-track{ background:transparent; }
+    .gcard{ flex:none; width:116px; margin:0; scroll-snap-align:start; }
+    .gcard img{
+      width:116px; height:156px; object-fit:cover; object-position:center top;
+      border-radius:4px; border:1px solid var(--border); cursor:zoom-in;
+      background:#f3f5fb; display:block;
+    }
+    .gcard figcaption{ margin-top:7px; font-size:12.5px; color:var(--ink); font-weight:700; line-height:1.3; }
+    .gcard figcaption small{ display:block; margin-top:2px; color:var(--muted); font-weight:600; font-size:11px; }
     .chips{ display:flex; flex-wrap:wrap; gap:7px; }
     .chip{
       background:transparent; border:1px solid var(--slate); color:var(--navy);
@@ -111,7 +114,6 @@
       .top{ flex-direction:column; text-align:center; gap:14px; padding:26px 22px; }
       .contacts{ justify-content:center; }
       .body{ padding:24px 22px 30px; }
-      .cols{ grid-template-columns:1fr; gap:24px; }
       .exp-date{ margin-inline-start:0; }
     }
   </style>
@@ -189,37 +191,61 @@
 
       </section>
 
-      <!-- CERTS + SKILLS side by side -->
-      <div class="cols">
+      <!-- STRENGTHS -->
+      <section>
+        <h2>חוזקות</h2>
+        <div class="chips">
+          <span class="chip">ניהול ובניית תהליכים</span>
+          <span class="chip">עבודה תחת לחץ</span>
+          <span class="chip">תקשורת בין-אישית גבוהה</span>
+        </div>
+      </section>
 
-        <section style="margin:0">
-          <h2>הסמכות</h2>
-          <div class="cert">
-            <img src="cert-coaching.jpg" alt="הסמכת מאמן אישי — OneLife" loading="lazy" width="52" height="52">
-            <div>
-              <b>הכשרת מאמנים אישיים</b>
-              <small>OneLife · 345 שעות · 2025</small>
-            </div>
-          </div>
-          <div class="cert">
-            <img src="cert-stage.jpg" alt="אומנות הבמה — Learn Love Lead" loading="lazy" width="52" height="52">
-            <div>
-              <b>אומנות הבמה — עמידה מול קהל</b>
-              <small>Learn·Love·Lead · 104 שעות · 2025</small>
-            </div>
-          </div>
-        </section>
+      <!-- PROFESSIONAL CERTS -->
+      <section>
+        <h2>הסמכות מקצועיות</h2>
+        <div class="gallery">
+          <figure class="gcard">
+            <img src="cert-coaching.jpg" alt="הכשרת מאמנים אישיים — OneLife" loading="lazy" width="116" height="156">
+            <figcaption>הכשרת מאמנים אישיים<small>OneLife · 345 שעות · 2025</small></figcaption>
+          </figure>
+          <figure class="gcard">
+            <img src="cert-stage.jpg" alt="אומנות הבמה — Learn Love Lead" loading="lazy" width="116" height="156">
+            <figcaption>אומנות הבמה<small>Learn·Love·Lead · 104 שעות · 2025</small></figcaption>
+          </figure>
+        </div>
+      </section>
 
-        <section style="margin:0">
-          <h2>חוזקות</h2>
-          <div class="chips">
-            <span class="chip">ניהול ובניית תהליכים</span>
-            <span class="chip">עבודה תחת לחץ</span>
-            <span class="chip">תקשורת בין-אישית גבוהה</span>
-          </div>
-        </section>
-
-      </div>
+      <!-- MILITARY CERTS -->
+      <section>
+        <h2>תעודות מהשירות הצבאי</h2>
+        <div class="gallery">
+          <figure class="gcard">
+            <img src="mil-1.jpg" alt="תעודת סיום מצטיין מחלקתי — קורס טירונות מג״ב" loading="lazy" width="116" height="156">
+            <figcaption>מצטיין מחלקתי<small>קורס טירונות מג"ב · 2020</small></figcaption>
+          </figure>
+          <figure class="gcard">
+            <img src="mil-2.jpg" alt="תעודת סיום מצטיין קורסיאלי — קורס סמלים מג״ב" loading="lazy" width="116" height="156">
+            <figcaption>מצטיין קורסיאלי<small>קורס סמלים מג"ב · 2021</small></figcaption>
+          </figure>
+          <figure class="gcard">
+            <img src="mil-3.jpg" alt="תעודת הצטיינות — יום העצמאות ה־75" loading="lazy" width="116" height="156">
+            <figcaption>תעודת הצטיינות<small>יום העצמאות ה-75</small></figcaption>
+          </figure>
+          <figure class="gcard">
+            <img src="mil-4.jpg" alt="תעודת הוקרה — בית הספר לחיילי מג״ב" loading="lazy" width="116" height="156">
+            <figcaption>תעודת הוקרה<small>ביה"ס לחיילי מג"ב</small></figcaption>
+          </figure>
+          <figure class="gcard">
+            <img src="mil-5.jpg" alt="תעודת הערכה — מבצע חיפוש" loading="lazy" width="116" height="156">
+            <figcaption>תעודת הערכה<small>מבצע חיפוש · 2020</small></figcaption>
+          </figure>
+          <figure class="gcard">
+            <img src="mil-6.jpg" alt="תעודת הוקרה — סיכול שוד" loading="lazy" width="116" height="156">
+            <figcaption>תעודת הוקרה<small>סיכול שוד · 2021</small></figcaption>
+          </figure>
+        </div>
+      </section>
 
     </div>
   </div>
@@ -229,7 +255,7 @@
   <script>
     (function(){
       var lb=document.getElementById('lightbox'), lbImg=document.getElementById('lb-img');
-      document.querySelectorAll('.cert img').forEach(function(img){
+      document.querySelectorAll('.gallery img').forEach(function(img){
         img.addEventListener('click',function(){ lbImg.src=img.src; lb.classList.add('open'); });
       });
       lb.addEventListener('click',function(){ lb.classList.remove('open'); lbImg.src=''; });

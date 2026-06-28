@@ -81,6 +81,11 @@
     .exp li{ margin:0 0 3px; }
     .exp strong{ color:var(--ink); font-weight:700; }
 
+    /* two columns: certs (right) + strengths (left) */
+    .cols{ display:grid; grid-template-columns:1fr 1fr; gap:30px; align-items:start; }
+    .col-certs section{ margin:0 0 22px; }
+    .col-certs section:last-child{ margin:0; }
+
     /* cert list (compact) */
     .cert{ display:flex; gap:12px; align-items:center; margin:0 0 14px; cursor:zoom-in; }
     .cert:last-child{ margin:0; }
@@ -120,6 +125,7 @@
       .top{ flex-direction:column; text-align:center; gap:14px; padding:26px 22px; }
       .contacts{ justify-content:center; }
       .body{ padding:24px 22px 30px; }
+      .cols{ grid-template-columns:1fr; gap:24px; }
       .exp-date{ margin-inline-start:0; }
     }
   </style>
@@ -197,46 +203,43 @@
 
       </section>
 
-      <!-- STRENGTHS -->
-      <section>
-        <h2>חוזקות</h2>
-        <div class="chips">
-          <span class="chip">ניהול ובניית תהליכים</span>
-          <span class="chip">עבודה תחת לחץ</span>
-          <span class="chip">תקשורת בין-אישית גבוהה</span>
-        </div>
-      </section>
+      <!-- CERTS (right) + STRENGTHS (left) -->
+      <div class="cols">
 
-      <!-- PROFESSIONAL CERTS -->
-      <section>
-        <h2>הסמכות מקצועיות</h2>
-        <div class="cert" data-group="pro" data-index="0">
-          <img src="cert-coaching.jpg" alt="הכשרת מאמנים אישיים — OneLife" loading="lazy" width="52" height="52">
-          <div>
-            <b>הכשרת מאמנים אישיים</b>
-            <small>OneLife · 345 שעות · 2025</small>
-          </div>
-        </div>
-        <div class="cert" data-group="pro" data-index="1">
-          <img src="cert-stage.jpg" alt="אומנות הבמה — Learn Love Lead" loading="lazy" width="52" height="52">
-          <div>
-            <b>אומנות הבמה — עמידה מול קהל</b>
-            <small>Learn·Love·Lead · 104 שעות · 2025</small>
-          </div>
-        </div>
-      </section>
+        <div class="col-certs">
+          <section>
+            <h2>הסמכות מקצועיות</h2>
+            <div class="cert" data-group="pro" data-index="0">
+              <img src="cert-coaching.jpg" alt="הסמכות מקצועיות" loading="lazy" width="52" height="52">
+              <div>
+                <b>הכשרת מאמנים אישיים ואומנות הבמה</b>
+                <small>2 הסמכות — לחצו לצפייה ולגלילה ›</small>
+              </div>
+            </div>
+          </section>
 
-      <!-- MILITARY CERTS -->
-      <section>
-        <h2>תעודות מהשירות הצבאי</h2>
-        <div class="cert" data-group="mil" data-index="0">
-          <img src="mil-1.jpg" alt="תעודות מהשירות הצבאי" loading="lazy" width="52" height="52">
-          <div>
-            <b>תעודות הצטיינות, סיום והוקרה</b>
-            <small>6 תעודות מהשירות — לחצו לצפייה ולגלילה ›</small>
-          </div>
+          <section>
+            <h2>תעודות מהשירות הצבאי</h2>
+            <div class="cert" data-group="mil" data-index="0">
+              <img src="mil-1.jpg" alt="תעודות מהשירות הצבאי" loading="lazy" width="52" height="52">
+              <div>
+                <b>תעודות הצטיינות, סיום והוקרה</b>
+                <small>6 תעודות מהשירות — לחצו לצפייה ולגלילה ›</small>
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
+
+        <section>
+          <h2>חוזקות</h2>
+          <div class="chips">
+            <span class="chip">ניהול ובניית תהליכים</span>
+            <span class="chip">עבודה תחת לחץ</span>
+            <span class="chip">תקשורת בין-אישית גבוהה</span>
+          </div>
+        </section>
+
+      </div>
 
     </div>
   </div>

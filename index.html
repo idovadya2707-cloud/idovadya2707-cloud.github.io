@@ -11,7 +11,611 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" />
-<script src="./ds-base.js"></script>
+<style id="cm-ds-inline">
+/* ===== tokens/colors.css ===== */
+/* ============================================================
+   CoachMind — Color tokens
+   Brand world: classic, credible blue. Navy + royal blue, calm
+   cool-gray neutrals. Not colorful, not playful. Generous white
+   space; color is used sparingly and with intent.
+   ============================================================ */
+
+:root {
+  /* --- Brand: Navy ("Coach") — pure deep blue, per brand sheet -- */
+  --navy-900: #021a3d;
+  --navy-800: #03224f;
+  --navy-700: #04285e;   /* Coach anchor — brand dot 1 (deep navy) */
+  --navy-600: #06316f;
+  --navy-500: #0a3d85;
+
+  /* --- Brand: Royal Blue ("Mind") — pure, less violet ---------- */
+  --royal-800: #023d96;  /* brand dot 2 — mid royal (slogan color) */
+  --royal-700: #0247aa;
+  --royal-600: #0153d0;  /* Mind anchor — brand dot 3 (bright royal) / accent */
+  --royal-500: #1565e8;
+  --royal-400: #4d8cf5;
+  --royal-300: #88b2fa;
+  --royal-200: #bcd3fc;
+  --royal-100: #ddeafe;
+  --royal-50:  #eef5ff;
+
+  /* The signature wordmark / hero gradient — navy -> mid -> bright,
+     traced from the official brand lockup (the 3 brand dots). */
+  --brand-gradient: linear-gradient(100deg, #04285e 0%, #023d96 50%, #0153d0 100%); /* @kind color */
+  --brand-gradient-soft: linear-gradient(120deg, #f3f6fc 0%, #eef5ff 100%); /* @kind color */
+  /* Wordmark gradient lifted for dark surfaces (navy stays legible on near-black). */
+  --brand-gradient-on-dark: linear-gradient(100deg, #1f5bb0 0%, #1565e8 50%, #5a9bff 100%); /* @kind color */
+
+  /* --- Neutrals: cool gray-blue ------------------------------- */
+  --ink-900: #11162b;   /* near-black, headings on light */
+  --ink-800: #1c2238;
+  --ink-700: #2b3350;   /* primary body text */
+  --ink-600: #404a6b;
+  --ink-500: #5a6480;   /* "dark gray blue" — slogan, secondary text */
+  --ink-400: #828daa;   /* muted / captions */
+  --ink-300: #aab2c8;   /* placeholder, disabled text */
+  --ink-250: #c6cddd;
+  --ink-200: #d9deeb;   /* default borders */
+  --ink-150: #e4e8f1;
+  --ink-100: #edf0f7;   /* hairlines, dividers */
+  --ink-50:  #f4f6fb;   /* subtle fill */
+  --paper:   #ffffff;
+  --canvas:  #fafbfe;   /* app background, faintly cool */
+
+  /* --- Feedback (restrained, professional) -------------------- */
+  --success-600: #1f7a52;
+  --success-500: #1f8a5b;
+  --success-50:  #e8f5ee;
+  --warning-600: #a86717;
+  --warning-500: #c07d1f;
+  --warning-50:  #fbf2e2;
+  --danger-600:  #b23b3b;
+  --danger-500:  #cf4747;
+  --danger-50:   #fbecec;
+  --info-500:    var(--royal-500);
+  --info-50:     var(--royal-50);
+
+  /* ============================================================
+     Semantic aliases — reach for these in components
+     ============================================================ */
+
+  /* Brand */
+  --brand-navy: var(--navy-700);      /* Coach */
+  --brand-royal: var(--royal-600);    /* Mind  */
+  --brand-slogan: var(--royal-800);   /* "Live your potential" — mid royal */
+  --accent: var(--royal-600);
+  --accent-hover: var(--royal-700);
+  --accent-soft: var(--royal-50);
+
+  /* Text */
+  --text-strong: var(--ink-900);
+  --text-body: var(--ink-700);
+  --text-secondary: var(--ink-500);
+  --text-muted: var(--ink-400);
+  --text-placeholder: var(--ink-300);
+  --text-on-brand: #ffffff;
+  --text-link: var(--royal-600);
+
+  /* Surfaces */
+  --surface-canvas: var(--canvas);
+  --surface-card: var(--paper);
+  --surface-subtle: var(--ink-50);
+  --surface-raised: var(--paper);
+  --surface-brand: var(--navy-700);
+  --surface-accent-soft: var(--royal-50);
+
+  /* Borders */
+  --border-subtle: var(--ink-100);
+  --border-default: var(--ink-200);
+  --border-strong: var(--ink-300);
+  --border-brand: var(--royal-300);
+
+  /* Interaction */
+  --focus-ring: 0 0 0 3px var(--royal-200);
+  --focus-ring-strong: 0 0 0 3px rgba(1, 83, 208, 0.35);
+}
+
+
+/* ===== tokens/typography.css ===== */
+/* ============================================================
+   CoachMind — Typography tokens
+   One family (Heebo) carries the whole system. Hierarchy comes
+   from weight, size and tracking — never from a second typeface.
+   - Wordmark / display: 800–900, tight tracking
+   - Headings: 700
+   - Body: 400 / 500
+   - Slogan & eyebrows: 300–400, WIDE tracking, gray-blue
+   Works identically in Hebrew (RTL) and Latin (LTR).
+   ============================================================ */
+
+:root {
+  /* Families */
+  --font-sans: "Heebo", "Segoe UI", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --font-display: "Heebo", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "SFMono-Regular", "Menlo", "Consolas", monospace;
+
+  /* Weights */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+  --weight-black: 900;
+
+  /* Type scale (px) — fluid-friendly, RTL-safe */
+  --text-2xs: 0.6875rem;  /* 11 */
+  --text-xs:  0.75rem;    /* 12 */
+  --text-sm:  0.875rem;   /* 14 */
+  --text-base:1rem;       /* 16 */
+  --text-md:  1.125rem;   /* 18 */
+  --text-lg:  1.375rem;   /* 22 */
+  --text-xl:  1.75rem;    /* 28 */
+  --text-2xl: 2.25rem;    /* 36 */
+  --text-3xl: 3rem;       /* 48 */
+  --text-4xl: 4rem;       /* 64 */
+  --text-5xl: 5.5rem;     /* 88 — hero wordmark */
+
+  /* Line heights */
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+
+  /* Letter spacing */
+  --tracking-tighter: -0.03em;  /* big display / wordmark */
+  --tracking-tight: -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.08em;
+  --tracking-wider: 0.18em;     /* slogan, eyebrows */
+  --tracking-widest: 0.28em;
+
+  /* ---- Semantic role tokens ---- */
+  --font-wordmark: var(--weight-black) var(--text-2xl)/1 var(--font-display);
+  --font-display-1: var(--weight-extrabold) var(--text-4xl)/var(--leading-tight) var(--font-display);
+  --font-display-2: var(--weight-extrabold) var(--text-3xl)/var(--leading-tight) var(--font-display);
+  --font-heading-1: var(--weight-bold) var(--text-2xl)/var(--leading-snug) var(--font-sans);
+  --font-heading-2: var(--weight-bold) var(--text-xl)/var(--leading-snug) var(--font-sans);
+  --font-heading-3: var(--weight-semibold) var(--text-lg)/var(--leading-snug) var(--font-sans);
+  --font-body-lg: var(--weight-regular) var(--text-md)/var(--leading-relaxed) var(--font-sans);
+  --font-body: var(--weight-regular) var(--text-base)/var(--leading-normal) var(--font-sans);
+  --font-body-sm: var(--weight-regular) var(--text-sm)/var(--leading-normal) var(--font-sans);
+  --font-caption: var(--weight-medium) var(--text-xs)/var(--leading-normal) var(--font-sans);
+}
+
+
+/* ===== tokens/spacing.css ===== */
+/* ============================================================
+   CoachMind — Spacing, radii, shadows, motion, layout
+   Calm and generous. 4px base grid. Soft, cool-tinted shadows.
+   Moderate radii — rounded enough to feel humane, never bubbly.
+   ============================================================ */
+
+:root {
+  /* Spacing — 4px base */
+  --space-0: 0;
+  --space-1: 0.25rem;   /* 4  */
+  --space-2: 0.5rem;    /* 8  */
+  --space-3: 0.75rem;   /* 12 */
+  --space-4: 1rem;      /* 16 */
+  --space-5: 1.25rem;   /* 20 */
+  --space-6: 1.5rem;    /* 24 */
+  --space-8: 2rem;      /* 32 */
+  --space-10: 2.5rem;   /* 40 */
+  --space-12: 3rem;     /* 48 */
+  --space-16: 4rem;     /* 64 */
+  --space-20: 5rem;     /* 80 */
+  --space-24: 6rem;     /* 96 */
+
+  /* Radii — moderate, never bubbly */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;    /* buttons, inputs */
+  --radius-lg: 16px;    /* cards */
+  --radius-xl: 24px;    /* panels, large surfaces */
+  --radius-2xl: 32px;
+  --radius-pill: 999px; /* chips, avatars, voice orb */
+
+  /* Borders */
+  --border-width: 1px;
+  --border-width-strong: 1.5px;
+
+  /* Shadows — soft, navy-tinted, low-spread. Used sparingly. */
+  --shadow-xs: 0 1px 2px rgba(17, 22, 43, 0.05);
+  --shadow-sm: 0 1px 3px rgba(17, 22, 43, 0.06), 0 1px 2px rgba(17, 22, 43, 0.04);
+  --shadow-md: 0 4px 12px rgba(17, 22, 43, 0.07), 0 2px 4px rgba(17, 22, 43, 0.04);
+  --shadow-lg: 0 12px 32px rgba(17, 22, 43, 0.10), 0 4px 8px rgba(17, 22, 43, 0.05);
+  --shadow-xl: 0 24px 60px rgba(17, 22, 43, 0.14), 0 8px 16px rgba(17, 22, 43, 0.06);
+  /* Brand glow for the voice / focus moments */
+  --shadow-brand: 0 8px 30px rgba(41, 98, 255, 0.22);
+
+  /* Motion — calm, no bounce. Confident ease, never springy. */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+  --ease-in: cubic-bezier(0.4, 0, 1, 1); /* @kind other */
+  --duration-fast: 120ms; /* @kind other */
+  --duration-base: 200ms; /* @kind other */
+  --duration-slow: 320ms; /* @kind other */
+  --duration-slowest: 600ms; /* @kind other */
+
+  /* Layout */
+  --container-sm: 640px;
+  --container-md: 820px;
+  --container-lg: 1100px;
+  --container-xl: 1280px;
+  --reading-measure: 68ch;
+  --conversation-measure: 720px;  /* chat column max width */
+}
+
+
+/* ===== tokens/base.css ===== */
+/* ============================================================
+   CoachMind — Base layer
+   A light reset plus document defaults. RTL-first: the product is
+   Hebrew-first, so logical properties are used everywhere and
+   `dir="rtl"` is the expected default. Set dir="ltr" on a subtree
+   for English.
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font: var(--font-body);
+  color: var(--text-body);
+  background: var(--surface-canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Hebrew-first defaults. Latin subtrees opt out with dir="ltr". */
+:root { --flow-direction: rtl; /* @kind other */ }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  color: var(--text-strong);
+  font-family: var(--font-sans);
+  line-height: var(--leading-snug);
+  text-wrap: balance;
+}
+p { margin: 0; text-wrap: pretty; }
+
+a {
+  color: var(--text-link);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+a:hover { color: var(--accent-hover); }
+
+button { font-family: inherit; }
+
+:where(button, a, input, textarea, select):focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: var(--radius-sm);
+}
+
+::selection { background: var(--royal-200); color: var(--ink-900); }
+
+/* The signature wordmark gradient text utility. */
+.cm-gradient-text {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+
+/* ===== components.css ===== */
+/* ============================================================
+   CoachMind — Component styles
+   Shipped to consumers. Classes consumed by the React primitives
+   in /components. RTL-first: logical properties throughout
+   (margin-inline, inset-inline, padding-inline) so the same
+   classes serve Hebrew (rtl) and English (ltr).
+   ============================================================ */
+
+/* ---------- Button ---------- */
+.cm-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-sm);
+  line-height: 1;
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-md);
+  padding: 0 var(--space-5);
+  height: 44px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--duration-fast) var(--ease-standard),
+              color var(--duration-fast) var(--ease-standard),
+              border-color var(--duration-fast) var(--ease-standard),
+              box-shadow var(--duration-fast) var(--ease-standard),
+              transform var(--duration-fast) var(--ease-standard);
+  -webkit-user-select: none;
+  user-select: none;
+}
+.cm-btn:active { transform: translateY(0.5px) scale(0.99); }
+.cm-btn:disabled,
+.cm-btn[aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; transform: none; }
+.cm-btn svg { width: 18px; height: 18px; flex: none; }
+
+.cm-btn--primary { background: var(--accent); color: var(--text-on-brand); }
+.cm-btn--primary:hover:not(:disabled) { background: var(--accent-hover); }
+
+.cm-btn--navy { background: var(--navy-700); color: var(--text-on-brand); }
+.cm-btn--navy:hover:not(:disabled) { background: var(--navy-800); }
+
+.cm-btn--gradient { background: var(--brand-gradient); color: var(--text-on-brand); box-shadow: var(--shadow-sm); }
+.cm-btn--gradient:hover:not(:disabled) { box-shadow: var(--shadow-brand); }
+
+.cm-btn--secondary {
+  background: var(--surface-card);
+  color: var(--ink-800);
+  border-color: var(--border-default);
+}
+.cm-btn--secondary:hover:not(:disabled) { border-color: var(--border-strong); background: var(--ink-50); }
+
+.cm-btn--ghost { background: transparent; color: var(--accent); }
+.cm-btn--ghost:hover:not(:disabled) { background: var(--accent-soft); }
+
+.cm-btn--quiet { background: transparent; color: var(--ink-600); }
+.cm-btn--quiet:hover:not(:disabled) { background: var(--ink-50); color: var(--ink-800); }
+
+.cm-btn--sm { height: 36px; font-size: var(--text-xs); padding: 0 var(--space-4); border-radius: var(--radius-sm); }
+.cm-btn--lg { height: 52px; font-size: var(--text-base); padding: 0 var(--space-8); }
+.cm-btn--block { width: 100%; }
+.cm-btn--pill { border-radius: var(--radius-pill); }
+
+/* ---------- Icon button ---------- */
+.cm-iconbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; height: 40px;
+  border-radius: var(--radius-md);
+  border: var(--border-width) solid transparent;
+  background: transparent;
+  color: var(--ink-600);
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-standard),
+              color var(--duration-fast) var(--ease-standard),
+              border-color var(--duration-fast) var(--ease-standard);
+}
+.cm-iconbtn:hover:not(:disabled) { background: var(--ink-50); color: var(--ink-900); }
+.cm-iconbtn:disabled { opacity: 0.4; cursor: not-allowed; }
+.cm-iconbtn svg { width: 20px; height: 20px; }
+.cm-iconbtn--solid { background: var(--accent); color: #fff; }
+.cm-iconbtn--solid:hover:not(:disabled) { background: var(--accent-hover); }
+.cm-iconbtn--bordered { border-color: var(--border-default); }
+.cm-iconbtn--sm { width: 32px; height: 32px; border-radius: var(--radius-sm); }
+.cm-iconbtn--sm svg { width: 16px; height: 16px; }
+.cm-iconbtn--lg { width: 48px; height: 48px; }
+
+/* ---------- Input / Textarea ---------- */
+.cm-field { display: flex; flex-direction: column; gap: var(--space-2); }
+.cm-field__label { font-size: var(--text-sm); font-weight: var(--weight-medium); color: var(--ink-700); }
+.cm-field__hint { font-size: var(--text-xs); color: var(--text-muted); }
+.cm-field__hint--error { color: var(--danger-600); }
+
+.cm-input, .cm-textarea {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  color: var(--ink-900);
+  background: var(--surface-card);
+  border: var(--border-width) solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: 0 var(--space-4);
+  height: 48px;
+  width: 100%;
+  transition: border-color var(--duration-fast) var(--ease-standard),
+              box-shadow var(--duration-fast) var(--ease-standard);
+}
+.cm-textarea { padding: var(--space-3) var(--space-4); height: auto; min-height: 96px; line-height: var(--leading-normal); resize: vertical; }
+.cm-input::placeholder, .cm-textarea::placeholder { color: var(--text-placeholder); }
+.cm-input:hover, .cm-textarea:hover { border-color: var(--border-strong); }
+.cm-input:focus, .cm-textarea:focus { outline: none; border-color: var(--royal-400); box-shadow: var(--focus-ring); }
+.cm-input--error, .cm-textarea--error { border-color: var(--danger-500); }
+.cm-input:disabled, .cm-textarea:disabled { background: var(--ink-50); color: var(--text-muted); cursor: not-allowed; }
+
+/* ---------- Card ---------- */
+.cm-card {
+  background: var(--surface-card);
+  border: var(--border-width) solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+.cm-card--raised { box-shadow: var(--shadow-md); border-color: transparent; }
+.cm-card--flat { box-shadow: none; }
+.cm-card--accent { border-color: var(--border-brand); background: var(--accent-soft); }
+.cm-card--interactive { cursor: pointer; transition: box-shadow var(--duration-base) var(--ease-standard), transform var(--duration-base) var(--ease-standard), border-color var(--duration-base) var(--ease-standard); }
+.cm-card--interactive:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); border-color: var(--border-default); }
+
+/* ---------- Badge ---------- */
+.cm-badge {
+  display: inline-flex; align-items: center; gap: var(--space-1);
+  font-size: var(--text-xs); font-weight: var(--weight-semibold);
+  line-height: 1; padding: var(--space-1) var(--space-3); height: 24px;
+  border-radius: var(--radius-pill);
+  letter-spacing: var(--tracking-tight);
+}
+.cm-badge--neutral { background: var(--ink-100); color: var(--ink-600); }
+.cm-badge--brand { background: var(--royal-50); color: var(--royal-700); }
+.cm-badge--navy { background: var(--navy-700); color: #fff; }
+.cm-badge--success { background: var(--success-50); color: var(--success-600); }
+.cm-badge--warning { background: var(--warning-50); color: var(--warning-600); }
+.cm-badge--outline { background: transparent; border: var(--border-width) solid var(--border-default); color: var(--ink-600); }
+.cm-badge__dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+/* ---------- Chip (suggestion / prompt) ---------- */
+.cm-chip {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  font-size: var(--text-sm); font-weight: var(--weight-medium);
+  color: var(--ink-700); background: var(--surface-card);
+  border: var(--border-width) solid var(--border-default);
+  border-radius: var(--radius-pill);
+  padding: var(--space-2) var(--space-4); height: 38px;
+  cursor: pointer;
+  transition: border-color var(--duration-fast) var(--ease-standard),
+              background var(--duration-fast) var(--ease-standard),
+              color var(--duration-fast) var(--ease-standard);
+}
+.cm-chip:hover { border-color: var(--royal-300); background: var(--royal-50); color: var(--royal-700); }
+.cm-chip svg { width: 16px; height: 16px; color: var(--royal-500); }
+
+/* ---------- Avatar ---------- */
+.cm-avatar {
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-pill); overflow: hidden;
+  font-weight: var(--weight-bold); color: #fff; flex: none;
+  background: var(--brand-gradient);
+  width: 40px; height: 40px; font-size: var(--text-sm);
+}
+.cm-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.cm-avatar--sm { width: 28px; height: 28px; font-size: var(--text-xs); }
+.cm-avatar--lg { width: 56px; height: 56px; font-size: var(--text-md); }
+.cm-avatar--navy { background: var(--navy-700); }
+.cm-avatar--user { background: var(--ink-200); color: var(--ink-700); }
+
+/* ---------- Switch ---------- */
+.cm-switch { position: relative; display: inline-flex; align-items: center; cursor: pointer; }
+.cm-switch input { position: absolute; opacity: 0; width: 0; height: 0; }
+.cm-switch__track {
+  width: 44px; height: 26px; border-radius: var(--radius-pill);
+  background: var(--ink-200); transition: background var(--duration-base) var(--ease-standard);
+}
+.cm-switch__thumb {
+  position: absolute; top: 3px; inset-inline-start: 3px;
+  width: 20px; height: 20px; border-radius: 50%; background: #fff;
+  box-shadow: var(--shadow-sm);
+  transition: inset-inline-start var(--duration-base) var(--ease-out);
+}
+.cm-switch input:checked + .cm-switch__track { background: var(--accent); }
+.cm-switch input:checked + .cm-switch__track + .cm-switch__thumb { inset-inline-start: 21px; }
+.cm-switch input:focus-visible + .cm-switch__track { box-shadow: var(--focus-ring); }
+
+/* ---------- Message bubble ---------- */
+.cm-msg { display: flex; gap: var(--space-3); max-width: 100%; }
+.cm-msg__body { max-width: 78%; }
+.cm-msg__bubble {
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-lg);
+}
+.cm-msg__meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: var(--space-2); }
+
+/* Coach: soft, calm, on the start side */
+.cm-msg--coach .cm-msg__bubble {
+  background: var(--surface-card);
+  color: var(--ink-800);
+  border: var(--border-width) solid var(--border-subtle);
+  border-start-start-radius: var(--radius-xs);
+}
+/* User: royal, on the end side */
+.cm-msg--user { flex-direction: row-reverse; }
+.cm-msg--user .cm-msg__bubble {
+  background: var(--royal-500);
+  color: #fff;
+  border-start-end-radius: var(--radius-xs);
+}
+.cm-msg--user .cm-msg__meta { text-align: end; }
+
+/* ---------- Composer ---------- */
+.cm-composer {
+  display: flex; align-items: flex-end; gap: var(--space-2);
+  background: var(--surface-card);
+  border: var(--border-width) solid var(--border-default);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2) var(--space-2) var(--space-2) var(--space-3);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard);
+}
+.cm-composer:focus-within { border-color: var(--royal-400); box-shadow: var(--focus-ring); }
+.cm-composer__input {
+  flex: 1; border: none; outline: none; resize: none; background: transparent;
+  font-family: var(--font-sans); font-size: var(--text-md); color: var(--ink-900);
+  line-height: var(--leading-normal); padding: var(--space-3) var(--space-2);
+  max-height: 160px;
+}
+.cm-composer__input::placeholder { color: var(--text-placeholder); }
+
+/* ---------- Voice orb ---------- */
+.cm-voice-orb {
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-pill); color: #fff; border: none; cursor: pointer;
+  width: 72px; height: 72px; background: var(--brand-gradient);
+  box-shadow: var(--shadow-brand);
+  position: relative;
+}
+.cm-voice-orb svg { width: 28px; height: 28px; }
+.cm-voice-orb--lg { width: 120px; height: 120px; }
+.cm-voice-orb--lg svg { width: 44px; height: 44px; }
+.cm-voice-orb--listening::before,
+.cm-voice-orb--listening::after {
+  content: ""; position: absolute; inset: 0; border-radius: 50%;
+  border: 2px solid var(--royal-400); opacity: 0;
+  animation: cm-pulse var(--duration-slowest) var(--ease-out) infinite;
+}
+.cm-voice-orb--listening::after { animation-delay: 300ms; }
+@keyframes cm-pulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+
+/* ---------- Wordmark ---------- */
+.cm-wordmark {
+  font-family: var(--font-display);
+  font-weight: var(--weight-black);
+  letter-spacing: var(--tracking-tighter);
+  line-height: 1;
+  display: inline-block;
+}
+.cm-wordmark--gradient {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.cm-wordmark--gradient.cm-wordmark--on-dark {
+  background: var(--brand-gradient-on-dark);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.cm-wordmark__coach { color: var(--navy-700); }
+.cm-wordmark__mind { color: var(--royal-600); }
+.cm-tagline {
+  font-weight: var(--weight-light);
+  letter-spacing: 0.3em;
+  color: var(--brand-slogan);
+  white-space: nowrap;
+}
+
+/* Brand lockup: wordmark with the wide-tracked tagline sitting directly
+   beneath it (the canonical signature, per the brand sheet). Size the tagline
+   so its tracked width sits close to the wordmark width. */
+.cm-lockup {
+  display: inline-flex; flex-direction: column; align-items: flex-start;
+  gap: 0.4em; line-height: 1; text-decoration: none;
+}
+.cm-lockup--on-dark .cm-tagline { color: var(--royal-300); }
+
+</style>
 <style>
   /* ---- critical defaults (prevent flash before DS css loads) ---- */
   :root { --canvas: #fafbfe; }
@@ -705,6 +1309,21 @@
 </style>
 </head>
 <body>
+
+  <template id="__bundler_thumbnail">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="100" rx="20" fill="#04285e"/>
+      <rect width="100" height="100" rx="20" fill="url(#g)"/>
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#04285e"/>
+          <stop offset="0.5" stop-color="#023d96"/>
+          <stop offset="1" stop-color="#0153d0"/>
+        </linearGradient>
+      </defs>
+      <text x="50" y="50" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-family="Heebo, Arial, sans-serif" font-weight="900" font-size="46">C</text>
+    </svg>
+  </template>
 
   <a class="skip-link" href="#main-content">דלג לתוכן הראשי</a>
 

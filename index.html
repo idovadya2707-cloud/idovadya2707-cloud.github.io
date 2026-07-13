@@ -1083,6 +1083,8 @@ button { font-family: inherit; }
     border: 1px solid rgba(255,255,255,0.10);
     box-shadow: none;
   }
+  /* dark brand gradient blends into navy; use the on-dark (lighter) variant so the numbers read */
+  .how .step__num { background: var(--brand-gradient-on-dark); -webkit-background-clip: text; background-clip: text; }
   .how .step__title { color: #fff; }
   .how .step__text { color: rgba(255,255,255,0.72); }
   .how__note { text-align: center; font-size: var(--text-md); font-weight: var(--weight-semibold); color: rgba(255,255,255,0.88); margin-top: var(--space-10); }

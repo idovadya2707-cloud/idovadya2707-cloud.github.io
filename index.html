@@ -1081,6 +1081,20 @@ button { font-family: inherit; }
     font-weight: var(--weight-semibold); line-height: var(--leading-relaxed); text-wrap: balance;
   }
 
+  /* ---- Founders on dark navy (restores the alternating section rhythm) ---- */
+  .founders { background: var(--navy-800); color: #fff; position: relative; overflow: hidden; }
+  .founders::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(120% 90% at 15% 0%, rgba(41,98,255,0.30), transparent 60%);
+  }
+  .founders .wrap { position: relative; z-index: 1; }
+  .founders .eyebrow { color: var(--royal-300); }
+  .founders h2 { color: #fff; }
+  .founders .founder__name { color: #fff; }
+  .founders .founder__role { color: var(--royal-300); }
+  .founders .founder__bio { color: rgba(255,255,255,0.72); }
+  .founders .founders__note p { color: rgba(255,255,255,0.88); }
+
   /* ============================ Form ============================ */
   .signup { background: var(--brand-gradient-soft); }
   .signup__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(var(--space-10), 5vw, var(--space-20)); align-items: center; }
@@ -1700,16 +1714,8 @@ button { font-family: inherit; }
     </div>
   </section>
 
-  <!-- ============================ OBJECTION ============================ -->
-  <section class="section objection">
-    <div class="wrap">
-      <h2>העולם החדש של הפיתוח האישי</h2>
-      <p class="lead">CoachMind נבנתה על ידי מאמנים מוסמכים, על בסיס מתודולוגיות אימון מוכחות: אימון מנטלי, אימון קו־אקטיבי ואימון ממוקד תוצאה, לצד כלים מעולם ה-NLP.</p>
-    </div>
-  </section>
-
   <!-- ============================ FOUNDERS ============================ -->
-  <section class="section">
+  <section class="section founders">
     <div class="wrap">
       <span class="eyebrow">מי מאחורי CoachMind</span>
       <h2>הכירו את המייסדים</h2>

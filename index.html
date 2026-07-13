@@ -654,16 +654,51 @@ button { font-family: inherit; }
   .nav .cm-wordmark { font-size: 23px; }
   .nav .cm-tagline { font-size: 8px; letter-spacing: 0.305em; }
   .nav__actions { display: flex; align-items: center; gap: var(--space-3); }
-  .lang-switch {
+
+  /* Language switcher: a tab that hangs below the nav bar on the right and drops down */
+  .lang-dd { position: absolute; top: 100%; right: var(--space-6); z-index: 45; }
+  .lang-dd__trigger {
     appearance: none; cursor: pointer;
-    border: 1px solid var(--border-strong); background: transparent;
+    display: inline-flex; align-items: center; gap: 6px;
+    border: 1px solid var(--border-strong); border-top: none;
+    background: color-mix(in srgb, var(--paper) 90%, transparent);
+    backdrop-filter: saturate(140%) blur(12px);
     color: var(--ink-700); font-family: var(--font-body); font-weight: var(--weight-semibold);
     font-size: var(--text-sm); line-height: 1; letter-spacing: .02em;
-    padding: 9px 12px; border-radius: var(--radius-pill);
+    padding: 7px 12px 8px; border-radius: 0 0 var(--radius-md) var(--radius-md);
+    box-shadow: var(--shadow-sm);
     transition: background .15s, color .15s, border-color .15s;
   }
-  .lang-switch:hover { background: var(--royal-50); color: var(--royal-600); border-color: var(--royal-200); }
-  .lang-switch:focus-visible { outline: 2px solid var(--royal-600); outline-offset: 2px; }
+  .lang-dd__trigger:hover { background: var(--royal-50); color: var(--royal-600); border-color: var(--royal-200); }
+  .lang-dd__trigger:focus-visible { outline: 2px solid var(--royal-600); outline-offset: 2px; }
+  .lang-dd__globe { width: 15px; height: 15px; flex: none; }
+  .lang-dd__chevron { width: 11px; height: 11px; flex: none; transition: transform .18s; }
+  .lang-dd[data-open] .lang-dd__chevron { transform: rotate(180deg); }
+
+  .lang-dd__menu {
+    position: absolute; top: calc(100% + 6px); right: 0;
+    min-width: 138px;
+    background: var(--paper); border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md); box-shadow: var(--shadow-lg);
+    padding: 5px; display: flex; flex-direction: column; gap: 2px;
+    opacity: 0; transform: translateY(-6px); pointer-events: none;
+    transition: opacity .16s, transform .16s;
+  }
+  .lang-dd[data-open] .lang-dd__menu { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .lang-dd__opt {
+    appearance: none; cursor: pointer; text-align: start;
+    display: flex; align-items: center; gap: 8px;
+    border: none; background: transparent;
+    color: var(--ink-700); font-family: var(--font-body); font-weight: var(--weight-medium);
+    font-size: var(--text-sm); line-height: 1;
+    padding: 9px 10px; border-radius: var(--radius-sm);
+    transition: background .12s, color .12s;
+  }
+  .lang-dd__opt:hover { background: var(--ink-50); }
+  .lang-dd__opt[aria-current="true"] { color: var(--royal-600); font-weight: var(--weight-semibold); }
+  .lang-dd__opt:focus-visible { outline: 2px solid var(--royal-600); outline-offset: 1px; }
+  .lang-dd__check { width: 14px; height: 14px; flex: none; margin-inline-start: auto; opacity: 0; }
+  .lang-dd__opt[aria-current="true"] .lang-dd__check { opacity: 1; }
 
   /* ============================ Hero ============================ */
   .hero { padding: clamp(var(--space-12), 7vw, var(--space-24)) 0 var(--space-20); overflow: hidden; }
@@ -1370,9 +1405,30 @@ button { font-family: inherit; }
         <span class="cm-tagline">Live your potential</span>
       </span>
       <span class="nav__actions">
-        <button type="button" class="lang-switch" id="langSwitch" dir="ltr">EN</button>
         <a class="cm-btn cm-btn--gradient nav-cta" href="#signup" data-en="Get early access">קבל/י גישה מוקדמת</a>
       </span>
+    </div>
+    <div class="lang-dd" id="langDD">
+      <button type="button" class="lang-dd__trigger" id="langDDTrigger" aria-haspopup="true" aria-expanded="false" aria-label="בחר/י שפה" data-en-aria="Choose language">
+        <svg class="lang-dd__globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M3 12h18M12 3c2.5 2.5 2.5 15.5 0 18M12 3c-2.5 2.5-2.5 15.5 0 18"/>
+        </svg>
+        <span class="lang-dd__label" id="langDDLabel" dir="auto">עברית</span>
+        <svg class="lang-dd__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+          <path d="M6 9l6 6 6-6"/>
+        </svg>
+      </button>
+      <div class="lang-dd__menu" role="menu" aria-labelledby="langDDTrigger">
+        <button type="button" class="lang-dd__opt" role="menuitemradio" data-lang="he" dir="rtl">
+          <span>עברית</span>
+          <svg class="lang-dd__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5 9-11"/></svg>
+        </button>
+        <button type="button" class="lang-dd__opt" role="menuitemradio" data-lang="en" dir="ltr">
+          <span>English</span>
+          <svg class="lang-dd__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5 9-11"/></svg>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -1932,13 +1988,16 @@ button { font-family: inherit; }
   <script>
     // ---- i18n: Hebrew ⇄ English ----
     var CM_I18N = {
-      he: { pause: 'השהה מצגת מסכים', play: 'הפעל מצגת מסכים', on: 'פעיל', off: 'כבוי', switchTo: 'EN', switchAria: 'Switch to English' },
-      en: { pause: 'Pause screen slideshow', play: 'Play screen slideshow', on: 'On', off: 'Off', switchTo: 'עברית', switchAria: 'עבור לעברית' }
+      he: { pause: 'השהה מצגת מסכים', play: 'הפעל מצגת מסכים', on: 'פעיל', off: 'כבוי', label: 'עברית' },
+      en: { pause: 'Pause screen slideshow', play: 'Play screen slideshow', on: 'On', off: 'Off', label: 'English' }
     };
     function cmLang() { return document.documentElement.lang === 'en' ? 'en' : 'he'; }
     function cmT(k) { return CM_I18N[cmLang()][k]; }
     (function () {
-      var btn = document.getElementById('langSwitch');
+      var dd = document.getElementById('langDD');
+      var trigger = document.getElementById('langDDTrigger');
+      var label = document.getElementById('langDDLabel');
+      var opts = dd ? Array.prototype.slice.call(dd.querySelectorAll('.lang-dd__opt')) : [];
       function apply(lang) {
         var en = lang === 'en';
         var root = document.documentElement;
@@ -1961,12 +2020,31 @@ button { font-family: inherit; }
           var st = t.querySelector('.state');
           if (st) st.textContent = t.getAttribute('aria-pressed') === 'true' ? cmT('on') : cmT('off');
         });
-        if (btn) { btn.textContent = cmT('switchTo'); btn.setAttribute('aria-label', cmT('switchAria')); }
+        if (label) { label.textContent = cmT('label'); label.setAttribute('dir', en ? 'ltr' : 'rtl'); }
+        opts.forEach(function (o) {
+          var cur = o.getAttribute('data-lang') === lang;
+          if (cur) { o.setAttribute('aria-current', 'true'); o.setAttribute('aria-checked', 'true'); }
+          else { o.removeAttribute('aria-current'); o.setAttribute('aria-checked', 'false'); }
+        });
         try { localStorage.setItem('cm-lang', lang); } catch (e) {}
         if (typeof window.cmRefreshCarousel === 'function') window.cmRefreshCarousel();
       }
       window.cmApplyLang = apply;
-      if (btn) btn.addEventListener('click', function () { apply(cmLang() === 'en' ? 'he' : 'en'); });
+
+      function closeDD() { if (dd) { dd.removeAttribute('data-open'); if (trigger) trigger.setAttribute('aria-expanded', 'false'); } }
+      function openDD() { if (dd) { dd.setAttribute('data-open', ''); if (trigger) trigger.setAttribute('aria-expanded', 'true'); } }
+      if (trigger) {
+        trigger.addEventListener('click', function (e) {
+          e.stopPropagation();
+          if (dd.hasAttribute('data-open')) closeDD(); else openDD();
+        });
+      }
+      opts.forEach(function (o) {
+        o.addEventListener('click', function () { apply(o.getAttribute('data-lang')); closeDD(); });
+      });
+      document.addEventListener('click', function (e) { if (dd && !dd.contains(e.target)) closeDD(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDD(); });
+
       var saved = null;
       try { saved = localStorage.getItem('cm-lang'); } catch (e) {}
       apply(saved === 'en' ? 'en' : 'he');

@@ -1167,7 +1167,12 @@ button { font-family: inherit; }
     .phone-deck .phone[data-pos="1"]  { transform: translate(-50%, -50%) translateX(78px) scale(.5); }
     .founder { flex-direction: row; }
     .founder__photo { width: 84px; height: 84px; }
-    .footer__inner { flex-direction: column; align-items: flex-start; gap: var(--space-5); }
+    /* compact horizontal footer: spread across the width instead of a tall stack */
+    .footer { padding-block: var(--space-8); }
+    .footer__inner { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--space-3) var(--space-5); text-align: center; }
+    .footer .cm-lockup { flex-basis: 100%; display: flex; flex-direction: column; align-items: center; }
+    .footer__links { justify-content: center; }
+    .footer small { flex-basis: 100%; }
     .a11y-fab { inset-block-end: 14px; inset-inline-start: 14px; width: 46px; height: 46px; }
     .a11y-fab svg { width: 22px; height: 22px; }
   }

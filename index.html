@@ -671,17 +671,17 @@ button { font-family: inherit; }
   .nav .cm-tagline { font-size: 8px; letter-spacing: 0.305em; }
   .nav__actions { display: flex; align-items: center; gap: var(--space-3); }
 
-  /* Language switcher: a tab that hangs below the nav bar on the right and drops down */
-  .lang-dd { position: absolute; top: 100%; right: var(--space-6); z-index: 45; }
+  /* Language switcher: a pill in the nav bar, flush left, opposite the CoachMind lockup */
+  .lang-dd { position: relative; z-index: 45; }
   .lang-dd__trigger {
     appearance: none; cursor: pointer;
     display: inline-flex; align-items: center; gap: 6px;
-    border: 1px solid var(--border-strong); border-top: none;
+    border: 1px solid var(--border-strong);
     background: color-mix(in srgb, var(--paper) 90%, transparent);
     backdrop-filter: saturate(140%) blur(12px);
     color: var(--ink-700); font-family: var(--font-body); font-weight: var(--weight-semibold);
     font-size: var(--text-sm); line-height: 1; letter-spacing: .02em;
-    padding: 7px 12px 8px; border-radius: 0 0 var(--radius-md) var(--radius-md);
+    padding: 8px 12px; border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
     transition: background .15s, color .15s, border-color .15s;
   }
@@ -692,7 +692,7 @@ button { font-family: inherit; }
   .lang-dd[data-open] .lang-dd__chevron { transform: rotate(180deg); }
 
   .lang-dd__menu {
-    position: absolute; top: calc(100% + 6px); right: 0;
+    position: absolute; top: calc(100% + 6px); left: 0; right: auto;
     min-width: 138px;
     background: var(--paper); border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md); box-shadow: var(--shadow-lg);
@@ -1439,7 +1439,6 @@ button { font-family: inherit; }
         <span class="cm-wordmark cm-wordmark--gradient">CoachMind</span>
         <span class="cm-tagline">Live your potential</span>
       </span>
-    </div>
     <div class="lang-dd" id="langDD">
       <button type="button" class="lang-dd__trigger" id="langDDTrigger" aria-haspopup="true" aria-expanded="false" aria-label="בחר/י שפה" data-en-aria="Choose language">
         <svg class="lang-dd__globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
@@ -1462,6 +1461,7 @@ button { font-family: inherit; }
         </button>
       </div>
     </div>
+    </div>
   </nav>
 
   <main id="main-content" tabindex="-1">
@@ -1471,12 +1471,9 @@ button { font-family: inherit; }
     <div class="wrap">
       <div class="hero__grid">
         <div class="hero__text">
-          <span class="eyebrow" data-en="The new world of personal development">העולם החדש של הפיתוח האישי</span>
+          <span class="eyebrow" data-en="A new world of personal growth">עולם חדש של התפתחות אישית</span>
           <h1 data-en="Personal coaching <span class=&quot;accent&quot;>in your pocket</span>">אימון אישי <span class="accent">בכף היד</span></h1>
           <p class="hero__sub" data-en="A personal coach of your choice. Gets to know you, available 24/7 in complete discretion, and connects you to a human coach when needed.">מאמן אישי לבחירתך. לומד אותך, זמין לך 24/7 בדיסקרטיות מלאה, ומחבר אותך למאמן אנושי בעת הצורך.</p>
-          <div class="hero__cta">
-            <a class="cm-btn cm-btn--gradient cm-btn--lg" href="#signup" data-en="Get early access">קבל/י גישה מוקדמת</a>
-          </div>
           <div class="hero__count">
             <span class="avatars" aria-hidden="true"><span><img src="assets/waitlist/p1.jpg" alt="" /></span><span><img src="assets/waitlist/p2.jpg" alt="" /></span><span><img src="assets/waitlist/p3.jpg" alt="" /></span><span><img src="assets/waitlist/p4.jpg" alt="" /></span></span>
             <span data-en="Already <span class=&quot;count-num&quot;>dozens</span> of people on the waitlist">כבר <span class="count-num">עשרות</span> אנשים ברשימת ההמתנה</span>

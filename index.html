@@ -720,7 +720,11 @@ button { font-family: inherit; }
   .hero__grid {
     display: grid; grid-template-columns: 1.05fr 0.95fr;
     gap: clamp(var(--space-10), 6vw, var(--space-24)); align-items: center;
+    row-gap: clamp(var(--space-14), 5vw, var(--space-20));
   }
+  .hero__grid > .hero__text { grid-column: 1; grid-row: 1; }
+  .hero__grid > .phone-stage { grid-column: 2; grid-row: 1; }
+  .hero__grid > .helps--in-hero { grid-column: 1 / -1; grid-row: 2; }
   .hero h1 {
     font-family: var(--font-display);
     font-weight: var(--weight-extrabold);
@@ -1101,6 +1105,43 @@ button { font-family: inherit; }
   @media (max-width: 880px) { .inside__grid { grid-template-columns: 1fr; gap: var(--space-6); } }
   .inside__note { text-align: center; font-size: var(--text-md); font-weight: var(--weight-semibold); color: var(--ink-800); margin-top: var(--space-10); text-wrap: balance; }
 
+  /* ============================ Helps (circles, inside hero) ============================ */
+  .helps--in-hero {
+    grid-column: 1 / -1; text-align: center;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .helps--in-hero h2 {
+    font-family: var(--font-display); font-weight: var(--weight-extrabold);
+    font-size: clamp(1.6rem, 3.4vw, var(--text-3xl)); line-height: 1.14;
+    letter-spacing: var(--tracking-tight); color: var(--ink-900); text-wrap: balance;
+    margin-top: var(--space-4);
+  }
+  .helps__grid {
+    list-style: none; margin: var(--space-12) 0 0; padding: 0; width: 100%;
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-8) var(--space-6);
+  }
+  .help { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .help__medallion {
+    width: 104px; height: 104px; border-radius: 50%; flex: none;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--royal-50); border: 1px solid var(--royal-100);
+    box-shadow: 0 10px 24px -14px rgba(1,83,208,0.45), inset 0 0 0 6px #fff;
+    color: var(--royal-600); position: relative;
+  }
+  .help__medallion::after {
+    content: ""; position: absolute; inset: -7px; border-radius: 50%;
+    border: 1.5px solid var(--royal-100); opacity: .7;
+  }
+  .help__medallion svg { width: 42px; height: 42px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .help__title { font-weight: var(--weight-bold); font-size: var(--text-lg); color: var(--ink-900); margin-top: var(--space-5); }
+  .help__text { font-size: var(--text-base); line-height: var(--leading-relaxed); color: var(--ink-600); margin-top: var(--space-2); max-width: 22ch; }
+  @media (max-width: 880px) {
+    .helps__grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-10) var(--space-6); }
+    .help:last-child { grid-column: 1 / -1; }
+    .help__medallion { width: 92px; height: 92px; }
+    .help__medallion svg { width: 38px; height: 38px; }
+  }
+
   /* ============================ How it works — dark ============================ */
   .how { background: var(--navy-800); color: #fff; position: relative; overflow: hidden; }
   .how::before {
@@ -1227,6 +1268,9 @@ button { font-family: inherit; }
   /* ============================ Responsive ============================ */
   @media (max-width: 880px) {
     .hero__grid { grid-template-columns: 1fr; gap: var(--space-12); }
+    .hero__grid > .hero__text,
+    .hero__grid > .phone-stage,
+    .hero__grid > .helps--in-hero { grid-column: auto; grid-row: auto; }
     .steps { grid-template-columns: 1fr; gap: var(--space-6); }
     .founders__grid { grid-template-columns: 1fr; gap: var(--space-10); }
     .signup__grid { grid-template-columns: 1fr; }
@@ -1498,6 +1542,49 @@ button { font-family: inherit; }
             <span class="avatars" aria-hidden="true"><span><img src="assets/waitlist/p1.jpg" alt="" /></span><span><img src="assets/waitlist/p2.jpg" alt="" /></span><span><img src="assets/waitlist/p3.jpg" alt="" /></span><span><img src="assets/waitlist/p4.jpg" alt="" /></span></span>
             <span data-en="Already <span class=&quot;count-num&quot;>dozens</span> of people on the waitlist">כבר <span class="count-num">עשרות</span> אנשים ברשימת ההמתנה</span>
           </div>
+        </div>
+
+        <!-- Where Michael helps (circles) -->
+        <div class="helps helps--in-hero">
+          <span class="eyebrow" data-en="Where Michael helps">במה מייקל עוזר</span>
+          <h2 data-en="In each of these, Michael walks with you toward living your potential.">בכל אחד מאלה, מייקל מלווה אותך לחיות את הפוטנציאל שלך.</h2>
+          <ul class="helps__grid" aria-label="במה מייקל עוזר">
+            <li class="help">
+              <div class="help__medallion">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20l6-6 3 3 8-9"></path><path d="M14 8h6v6"></path></svg>
+              </div>
+              <div class="help__title" data-en="Career">קריירה</div>
+              <p class="help__text" data-en="Pinpoints where you truly want to grow, and builds the next step with you.">מזהה לאן אתה באמת רוצה להתקדם, ובונה איתך את הצעד הבא.</p>
+            </li>
+            <li class="help">
+              <div class="help__medallion">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v6"></path><path d="M12 9l-5 5"></path><path d="M12 9l5 5"></path><circle cx="7" cy="18" r="2.2"></circle><circle cx="17" cy="18" r="2.2"></circle></svg>
+              </div>
+              <div class="help__title" data-en="Decisions">החלטות</div>
+              <p class="help__text" data-en="Helps you leave the back-and-forth with a decision you're at peace with.">עוזר לך לצאת מהתלבטות עם החלטה שאתה שלם איתה.</p>
+            </li>
+            <li class="help">
+              <div class="help__medallion">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path><path d="M4 20h16"></path></svg>
+              </div>
+              <div class="help__title" data-en="Habits">הרגלים</div>
+              <p class="help__text" data-en="Breaks goals down into skills and habits that actually stick.">מפרק מטרות ליכולות ולהרגלים שמחזיקים.</p>
+            </li>
+            <li class="help">
+              <div class="help__medallion">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.3 4.7 5.2.8-3.8 3.7.9 5.1L12 15l-4.6 2.4.9-5.1L4.5 8.5l5.2-.8z"></path></svg>
+              </div>
+              <div class="help__title" data-en="Self-confidence">ביטחון עצמי</div>
+              <p class="help__text" data-en="Works on the inner voice, so you act from confidence, not fear.">עובד איתך על הקול הפנימי, שתפעל מתוך ביטחון ולא פחד.</p>
+            </li>
+            <li class="help">
+              <div class="help__medallion">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"></path><path d="M10 21h4"></path><path d="M12 3a6 6 0 0 1 4 10.5c-.7.6-1 1.2-1 2.1H9c0-.9-.3-1.5-1-2.1A6 6 0 0 1 12 3z"></path></svg>
+              </div>
+              <div class="help__title" data-en="Beliefs & patterns">אמונות ודפוסים</div>
+              <p class="help__text" data-en="Shifts your mindset from within and breaks old beliefs.">משנה לך את המיינדסט מבפנים ושובר אמונות ישנות.</p>
+            </li>
+          </ul>
         </div>
 
         <!-- Phone mockups carousel -->

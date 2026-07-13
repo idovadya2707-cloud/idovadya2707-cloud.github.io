@@ -676,16 +676,15 @@ button { font-family: inherit; }
   .lang-dd__trigger {
     appearance: none; cursor: pointer;
     display: inline-flex; align-items: center; gap: 6px;
-    border: 1px solid var(--border-strong);
-    background: color-mix(in srgb, var(--paper) 90%, transparent);
-    backdrop-filter: saturate(140%) blur(12px);
-    color: var(--ink-700); font-family: var(--font-body); font-weight: var(--weight-semibold);
+    border: 1px solid var(--royal-200);
+    background: var(--royal-50);
+    color: var(--royal-700); font-family: var(--font-body); font-weight: var(--weight-semibold);
     font-size: var(--text-sm); line-height: 1; letter-spacing: .02em;
     padding: 8px 12px; border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
     transition: background .15s, color .15s, border-color .15s;
   }
-  .lang-dd__trigger:hover { background: var(--royal-50); color: var(--royal-600); border-color: var(--royal-200); }
+  .lang-dd__trigger:hover { background: var(--royal-100); color: var(--royal-800); border-color: var(--royal-300); }
   .lang-dd__trigger:focus-visible { outline: 2px solid var(--royal-600); outline-offset: 2px; }
   .lang-dd__globe { width: 15px; height: 15px; flex: none; }
   .lang-dd__chevron { width: 11px; height: 11px; flex: none; transition: transform .18s; }
@@ -1305,7 +1304,7 @@ button { font-family: inherit; }
   }
   .cta-bar .cm-btn { width: 100%; max-width: 560px; }
   /* slide it away while the signup form itself is on screen — its own button takes over */
-  .cta-bar.is-hidden { transform: translateY(120%); opacity: 0; pointer-events: none; }
+  .cta-bar.is-hidden { transform: translateY(120%); pointer-events: none; }
   /* keep the footer clear of the fixed bar */
   .footer { padding-block-end: calc(var(--cta-h, 78px) + var(--space-6)); }
 
@@ -2358,13 +2357,20 @@ button { font-family: inherit; }
       // hide the bar while the signup form is on screen so it doesn't cover the form's own submit
       var signup = document.getElementById('signup');
       var ticking = false;
+      var hidden = false;
       function update() {
         ticking = false;
         if (!signup) return;
         var r = signup.getBoundingClientRect();
         var vh = window.innerHeight;
-        var inView = r.top < vh - 120 && r.bottom > 140;
-        bar.classList.toggle('is-hidden', inView);
+        // hysteresis: hide once the form is well into view, reveal only after it clearly leaves.
+        // the gap between the two thresholds stops the bar from flickering on the boundary.
+        if (!hidden) {
+          if (r.top < vh * 0.55 && r.bottom > 120) hidden = true;
+        } else {
+          if (r.top > vh * 0.72 || r.bottom < 80) hidden = false;
+        }
+        bar.classList.toggle('is-hidden', hidden);
       }
       function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
       window.addEventListener('scroll', onScroll, { passive: true });

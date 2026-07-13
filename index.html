@@ -1218,6 +1218,7 @@ button { font-family: inherit; }
   .signup { background: var(--brand-gradient-soft); }
   .signup__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(var(--space-10), 5vw, var(--space-20)); align-items: center; }
   .signup__copy h2 { font-size: clamp(1.7rem, 3.2vw, var(--text-3xl)); }
+  .signup__lead { font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--ink-600); margin-top: var(--space-5); max-width: 46ch; text-wrap: balance; }
   .signup__perks { list-style: none; padding: 0; margin: var(--space-8) 0 0; display: flex; flex-direction: column; gap: var(--space-4); }
   .signup__perks li { display: flex; align-items: flex-start; gap: var(--space-3); font-size: var(--text-base); color: var(--ink-700); }
   .signup__perks svg { width: 20px; height: 20px; color: var(--royal-500); flex: none; margin-top: 2px; }
@@ -1818,97 +1819,6 @@ button { font-family: inherit; }
     </div>
   </section>
 
-  <!-- ============================ WHAT'S INSIDE ============================ -->
-  <section class="section section--soft">
-    <div class="wrap">
-      <span class="eyebrow" data-en="What's inside">מה מקבלים בפנים</span>
-      <h2 data-en="Everything in one place">הכל במקום אחד</h2>
-      <div class="inside__grid">
-        <div class="feature cm-card cm-card--flat">
-          <div class="feature__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
-          </div>
-          <div class="feature__title" data-en="A coach available 24/7, in your pocket">מאמן זמין 24/7, בכף היד</div>
-          <ul class="feature__list">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span data-en="Jump into a conversation exactly when you need it, no scheduling.">נכנסים לשיחה בדיוק ברגע שצריך, בלי לתאם.</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span data-en="By text or by voice, whenever it suits you.">בכתב או בקול, מתי שנוח לך.</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span data-en="In the middle of the day, or at two in the morning.">גם באמצע היום, גם בשתיים בלילה.</span>
-            </li>
-          </ul>
-        </div>
-        <div class="feature cm-card cm-card--flat">
-          <div class="feature__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="M7 15l4-5 3 3 5-7"></path></svg>
-          </div>
-          <div class="feature__title" data-en="Goals that become tasks. And progress you can see.">מטרות שהופכות למשימות. והתקדמות שרואים.</div>
-          <ul class="feature__list">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span data-en="Every goal is translated into clear actions to take.">כל מטרה מתורגמת לפעולות ברורות לביצוע.</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span data-en="Every step you complete is logged and saved.">כל צעד שהשלמת נרשם ונשמר.</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span data-en="Your progress is shown in black and white.">ההתקדמות שלך מוצגת שחור על גבי לבן.</span>
-            </li>
-          </ul>
-        </div>
-        <div class="feature cm-card cm-card--flat">
-          <div class="feature__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 3v6c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V5l7-3z"></path></svg>
-          </div>
-          <div class="feature__title" data-en="Completely discreet">דיסקרטי לחלוטין</div>
-          <ul class="feature__list">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span data-en="What's said in the conversation stays in the conversation.">מה שנאמר בשיחה נשאר בשיחה.</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span data-en="A space where you can be fully honest.">מרחב שאפשר להיות בו כן לגמרי.</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span data-en="With no sense of judgment.">ללא תחושת שיפוטיות.</span>
-            </li>
-          </ul>
-        </div>
-        <div class="feature cm-card cm-card--flat">
-          <div class="feature__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"></circle><path d="M2.5 20a5.5 5.5 0 0 1 11 0"></path><circle cx="17" cy="9" r="2.5"></circle><path d="M15 20a4 4 0 0 1 6.5-3.1"></path></svg>
-          </div>
-          <div class="feature__title" data-en="A hybrid system">מערכת היברידית</div>
-          <ul class="feature__list">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span data-en="An AI coach that accompanies you day to day.">מאמן AI שמלווה אותך יום יום.</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span data-en="A connection to a personally matched human coach when needed.">חיבור למאמן אנושי מותאם אישית בעת הצורך.</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span data-en="The human coach receives a summary and data with your approval.">המאמן האנושי יקבל סקירה ונתונים באישורך.</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <p class="inside__note" data-en="All you need to do is show up. Michael will know how to take you to your next stage.">כל מה שצריך זה להגיע. מייקל כבר ידע לקחת אותך לשלב הבא שלך.</p>
-    </div>
-  </section>
-
   <!-- ============================ FOUNDERS ============================ -->
   <section class="section founders">
     <div class="wrap">
@@ -1945,6 +1855,7 @@ button { font-family: inherit; }
         <div class="signup__copy">
           <span class="eyebrow" data-en="Leave your details">השאירו פרטים</span>
           <h2 data-en="A free trial week for everyone on the waitlist.">שבוע ניסיון ללא עלות, לנרשמי רשימת ההמתנה.</h2>
+          <p class="signup__lead" data-en="All you need to do is show up. Michael will know how to take you to your next stage.">כל מה שצריך זה להגיע. מייקל כבר ידע לקחת אותך לשלב הבא שלך.</p>
           <ul class="signup__perks">
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>

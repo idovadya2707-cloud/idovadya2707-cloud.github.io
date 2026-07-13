@@ -739,6 +739,22 @@ button { font-family: inherit; }
     max-width: 30em;
     margin-top: var(--space-5);
   }
+  .hero__chips {
+    list-style: none; margin: var(--space-6) 0 0; padding: 0;
+    display: flex; flex-wrap: wrap; gap: var(--space-2);
+  }
+  .hero__chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 12px; border-radius: var(--radius-pill);
+    background: var(--royal-50); border: 1px solid var(--royal-100);
+    color: var(--royal-700); font-size: var(--text-sm); font-weight: var(--weight-semibold);
+    line-height: 1; white-space: nowrap;
+  }
+  .hero__chip svg {
+    width: 15px; height: 15px; flex: none;
+    fill: none; stroke: var(--royal-500); stroke-width: 1.9;
+    stroke-linecap: round; stroke-linejoin: round;
+  }
   .hero__cta { display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; margin-top: var(--space-8); }
   .hero__count {
     display: flex; align-items: center; gap: var(--space-3);
@@ -1225,10 +1241,10 @@ button { font-family: inherit; }
     .nav__inner { padding-inline: var(--space-5); }
     .nav .cm-wordmark { font-size: 20px; }
     .nav__inner .nav-cta { padding-inline: var(--space-4); font-size: var(--text-sm); }
-    .hero { padding-block: var(--space-8) var(--space-14); }
-    /* first fold shows the intro alone; the phone carousel just peeks at the bottom edge */
-    .hero__grid { gap: var(--space-6); }
-    .hero__text { min-height: calc(100svh - 210px); justify-content: center; }
+    .hero { padding-block: var(--space-6) var(--space-14); }
+    /* first fold: compact intro up top, then the phone mockup peeks in to invite a scroll */
+    .hero__grid { gap: var(--space-5); }
+    .hero__text { min-height: 0; justify-content: flex-start; }
     .hero__cta .cm-btn { width: 100%; text-align: center; justify-content: center; }
     .hero__count { justify-content: center; }
     .section { padding-block: var(--space-14); }
@@ -1472,7 +1488,12 @@ button { font-family: inherit; }
         <div class="hero__text">
           <span class="eyebrow" data-en="A new world of personal growth">עולם חדש של התפתחות אישית</span>
           <h1 data-en="Personal coaching <span class=&quot;accent&quot;>in your pocket</span>">אימון אישי <span class="accent">בכף היד</span></h1>
-          <p class="hero__sub" data-en="A personal coach of your choice. Gets to know you, available 24/7 in complete discretion, and connects you to a human coach when needed.">מאמן אישי לבחירתך. לומד אותך, זמין לך 24/7 בדיסקרטיות מלאה, ומחבר אותך למאמן אנושי בעת הצורך.</p>
+          <p class="hero__sub" data-en="A personal coach of your choice — one that gets to know you and connects you to a human coach when needed.">מאמן אישי לבחירתך, שלומד אותך ומחבר אותך למאמן אנושי בעת הצורך.</p>
+          <ul class="hero__chips" aria-label="יכולות עיקריות">
+            <li class="hero__chip"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-en="Available 24/7">זמין 24/7</span></li>
+            <li class="hero__chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg><span data-en="Fully discreet">דיסקרטיות מלאה</span></li>
+            <li class="hero__chip"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="9" r="3"/><path d="M2.5 19a5.5 5.5 0 0 1 11 0"/><path d="M17 8h4M19 6v4"/></svg><span data-en="AI + human coach">AI + מאמן אנושי</span></li>
+          </ul>
           <div class="hero__count">
             <span class="avatars" aria-hidden="true"><span><img src="assets/waitlist/p1.jpg" alt="" /></span><span><img src="assets/waitlist/p2.jpg" alt="" /></span><span><img src="assets/waitlist/p3.jpg" alt="" /></span><span><img src="assets/waitlist/p4.jpg" alt="" /></span></span>
             <span data-en="Already <span class=&quot;count-num&quot;>dozens</span> of people on the waitlist">כבר <span class="count-num">עשרות</span> אנשים ברשימת ההמתנה</span>

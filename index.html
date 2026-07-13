@@ -1252,7 +1252,7 @@ button { font-family: inherit; }
     .footer .cm-lockup { flex-basis: 100%; display: flex; flex-direction: column; align-items: center; }
     .footer__links { justify-content: center; }
     .footer small { flex-basis: 100%; }
-    .a11y-fab { inset-block-end: 14px; inset-inline-start: 14px; width: 46px; height: 46px; }
+    .a11y-fab { inset-block-end: calc(var(--cta-h, 74px) + 12px); inset-inline-start: 14px; width: 46px; height: 46px; }
     .a11y-fab svg { width: 22px; height: 22px; }
   }
   @media (max-width: 380px) {
@@ -1292,9 +1292,26 @@ button { font-family: inherit; }
   .form-row.is-invalid .field-error { display: flex; }
   .cm-input[aria-invalid="true"], .cm-select[aria-invalid="true"] { border-color: var(--danger-500); box-shadow: 0 0 0 3px var(--danger-50); }
 
+  /* ---- Sticky bottom CTA bar (follows the user down the page) ---- */
+  .cta-bar {
+    position: fixed; inset-inline: 0; inset-block-end: 0; z-index: 140;
+    display: flex; justify-content: center;
+    padding: 10px var(--space-4);
+    padding-block-end: calc(10px + env(safe-area-inset-bottom, 0px));
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: saturate(140%) blur(12px);
+    border-top: 1px solid var(--border-subtle);
+    transition: transform var(--duration-base) var(--ease-standard), opacity var(--duration-base) var(--ease-standard);
+  }
+  .cta-bar .cm-btn { width: 100%; max-width: 560px; }
+  /* slide it away while the signup form itself is on screen — its own button takes over */
+  .cta-bar.is-hidden { transform: translateY(120%); opacity: 0; pointer-events: none; }
+  /* keep the footer clear of the fixed bar */
+  .footer { padding-block-end: calc(var(--cta-h, 78px) + var(--space-6)); }
+
   /* ---- Accessibility widget (FAB + menu) ---- */
   .a11y-fab {
-    position: fixed; inset-block-end: 20px; inset-inline-start: 20px; z-index: 150;
+    position: fixed; inset-block-end: calc(var(--cta-h, 78px) + 16px); inset-inline-start: 20px; z-index: 150;
     width: 52px; height: 52px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.85);
     background: var(--navy-800); color: #fff; cursor: pointer;
     display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-lg);
@@ -1303,7 +1320,7 @@ button { font-family: inherit; }
   .a11y-fab:hover { transform: scale(1.06); }
   .a11y-fab svg { width: 26px; height: 26px; }
   .a11y-panel {
-    position: fixed; inset-block-end: 84px; inset-inline-start: 20px; z-index: 151;
+    position: fixed; inset-block-end: calc(var(--cta-h, 78px) + 80px); inset-inline-start: 20px; z-index: 151;
     width: 288px; max-width: calc(100vw - 40px); background: var(--paper);
     border: 1px solid var(--border-default); border-radius: var(--radius-xl);
     box-shadow: var(--shadow-xl); padding: var(--space-5); display: none;
@@ -1421,9 +1438,6 @@ button { font-family: inherit; }
       <span class="cm-lockup" dir="ltr">
         <span class="cm-wordmark cm-wordmark--gradient">CoachMind</span>
         <span class="cm-tagline">Live your potential</span>
-      </span>
-      <span class="nav__actions">
-        <a class="cm-btn cm-btn--gradient nav-cta" href="#signup" data-en="Get early access">קבל/י גישה מוקדמת</a>
       </span>
     </div>
     <div class="lang-dd" id="langDD">
@@ -1911,6 +1925,11 @@ button { font-family: inherit; }
     </div>
   </footer>
 
+  <!-- ============================ STICKY BOTTOM CTA ============================ -->
+  <div class="cta-bar" id="ctaBar">
+    <a class="cm-btn cm-btn--gradient cm-btn--lg cm-btn--block" href="#signup" data-en="Get early access">קבל/י גישה מוקדמת</a>
+  </div>
+
   <!-- ============================ ACCESSIBILITY WIDGET ============================ -->
   <button class="a11y-fab" id="a11yFab" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="a11yPanel" aria-label="תפריט נגישות" data-en-aria="Accessibility menu">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="3.6" r="1.9"></circle><path d="M4 7.5c2.6.9 5.2 1.3 8 1.3s5.4-.4 8-1.3" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"></path><path d="M12 8.2v5.3m0 0l-2.6 6.8m2.6-6.8l2.6 6.8" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"></path></svg>
@@ -2327,6 +2346,33 @@ button { font-family: inherit; }
       }
       wireModal(modal, ['openA11yStatement', 'openA11yStatement2']);
       wireModal(document.getElementById('privacyModal'), ['openPrivacy', 'openPrivacy2']);
+    })();
+
+    // ---- sticky bottom CTA bar: measure height, hide while the signup form is visible ----
+    (function () {
+      var bar = document.getElementById('ctaBar');
+      if (!bar) return;
+      function measure() {
+        document.documentElement.style.setProperty('--cta-h', bar.offsetHeight + 'px');
+      }
+      measure();
+      window.addEventListener('resize', measure);
+      if (window.ResizeObserver) new ResizeObserver(measure).observe(bar);
+      // hide the bar while the signup form is on screen so it doesn't cover the form's own submit
+      var signup = document.getElementById('signup');
+      var ticking = false;
+      function update() {
+        ticking = false;
+        if (!signup) return;
+        var r = signup.getBoundingClientRect();
+        var vh = window.innerHeight;
+        var inView = r.top < vh - 120 && r.bottom > 140;
+        bar.classList.toggle('is-hidden', inView);
+      }
+      function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      update();
     })();
   </script>
 

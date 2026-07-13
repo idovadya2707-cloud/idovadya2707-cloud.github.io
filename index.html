@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CoachMind — קבל/י גישה מוקדמת</title>
+<title data-en="CoachMind — Get early access">CoachMind — קבל/י גישה מוקדמת</title>
 <link rel="icon" href="favicon.ico" sizes="any" />
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -653,6 +653,17 @@ button { font-family: inherit; }
   }
   .nav .cm-wordmark { font-size: 23px; }
   .nav .cm-tagline { font-size: 8px; letter-spacing: 0.305em; }
+  .nav__actions { display: flex; align-items: center; gap: var(--space-3); }
+  .lang-switch {
+    appearance: none; cursor: pointer;
+    border: 1px solid var(--border-strong); background: transparent;
+    color: var(--ink-700); font-family: var(--font-body); font-weight: var(--weight-semibold);
+    font-size: var(--text-sm); line-height: 1; letter-spacing: .02em;
+    padding: 9px 12px; border-radius: var(--radius-pill);
+    transition: background .15s, color .15s, border-color .15s;
+  }
+  .lang-switch:hover { background: var(--royal-50); color: var(--royal-600); border-color: var(--royal-200); }
+  .lang-switch:focus-visible { outline: 2px solid var(--royal-600); outline-offset: 2px; }
 
   /* ============================ Hero ============================ */
   .hero { padding: clamp(var(--space-12), 7vw, var(--space-24)) 0 var(--space-20); overflow: hidden; }
@@ -1349,7 +1360,7 @@ button { font-family: inherit; }
     </svg>
   </template>
 
-  <a class="skip-link" href="#main-content">דלג לתוכן הראשי</a>
+  <a class="skip-link" href="#main-content" data-en="Skip to main content">דלג לתוכן הראשי</a>
 
   <!-- ============================ NAV ============================ -->
   <nav class="nav">
@@ -1358,7 +1369,10 @@ button { font-family: inherit; }
         <span class="cm-wordmark cm-wordmark--gradient">CoachMind</span>
         <span class="cm-tagline">Live your potential</span>
       </span>
-      <a class="cm-btn cm-btn--gradient nav-cta" href="#signup">קבל/י גישה מוקדמת</a>
+      <span class="nav__actions">
+        <button type="button" class="lang-switch" id="langSwitch" dir="ltr">EN</button>
+        <a class="cm-btn cm-btn--gradient nav-cta" href="#signup" data-en="Get early access">קבל/י גישה מוקדמת</a>
+      </span>
     </div>
   </nav>
 
@@ -1369,15 +1383,15 @@ button { font-family: inherit; }
     <div class="wrap">
       <div class="hero__grid">
         <div class="hero__text">
-          <span class="eyebrow">העולם החדש של הפיתוח האישי</span>
-          <h1>אימון אישי <span class="accent">בכף היד</span></h1>
-          <p class="hero__sub">מאמן אישי לבחירתך. לומד אותך, זמין לך 24/7 בדיסקרטיות מלאה, ומחבר אותך למאמן אנושי בעת הצורך.</p>
+          <span class="eyebrow" data-en="The new world of personal development">העולם החדש של הפיתוח האישי</span>
+          <h1 data-en="Personal coaching <span class=&quot;accent&quot;>in your pocket</span>">אימון אישי <span class="accent">בכף היד</span></h1>
+          <p class="hero__sub" data-en="A personal coach of your choice. Learns you, available 24/7 in complete discretion, and connects you to a human coach when needed.">מאמן אישי לבחירתך. לומד אותך, זמין לך 24/7 בדיסקרטיות מלאה, ומחבר אותך למאמן אנושי בעת הצורך.</p>
           <div class="hero__cta">
-            <a class="cm-btn cm-btn--gradient cm-btn--lg" href="#signup">קבל/י גישה מוקדמת</a>
+            <a class="cm-btn cm-btn--gradient cm-btn--lg" href="#signup" data-en="Get early access">קבל/י גישה מוקדמת</a>
           </div>
           <div class="hero__count">
             <span class="avatars" aria-hidden="true"><span><img src="assets/waitlist/p1.jpg" alt="" /></span><span><img src="assets/waitlist/p2.jpg" alt="" /></span><span><img src="assets/waitlist/p3.jpg" alt="" /></span><span><img src="assets/waitlist/p4.jpg" alt="" /></span></span>
-            <span>כבר <span class="count-num">עשרות</span> אנשים ברשימת ההמתנה</span>
+            <span data-en="Already <span class=&quot;count-num&quot;>dozens</span> of people on the waitlist">כבר <span class="count-num">עשרות</span> אנשים ברשימת ההמתנה</span>
           </div>
         </div>
 
@@ -1404,8 +1418,8 @@ button { font-family: inherit; }
                     <div class="sp-tag">Live your potential</div>
                   </div>
                   <div class="sp-foot">
-                    <button class="cm-btn cm-btn--gradient cm-btn--block" type="button">התחל</button>
-                    <a class="sp-link" href="#">כבר יש לי חשבון</a>
+                    <button class="cm-btn cm-btn--gradient cm-btn--block" type="button" data-en="Start">התחל</button>
+                    <a class="sp-link" href="#" data-en="I already have an account">כבר יש לי חשבון</a>
                   </div>
                 </div>
               </div>
@@ -1421,8 +1435,8 @@ button { font-family: inherit; }
                     </span>
                   </div>
                   <div class="os-body">
-                    <h4 class="os-title">גלגל החיים</h4>
-                    <p class="os-sub">סמנו לכל תחום בחייכם את הציון שאתם נותנים לעצמכם במצב הנוכחי.</p>
+                    <h4 class="os-title" data-en="Wheel of Life">גלגל החיים</h4>
+                    <p class="os-sub" data-en="Rate each area of your life as it is right now.">סמנו לכל תחום בחייכם את הציון שאתם נותנים לעצמכם במצב הנוכחי.</p>
                     <div class="os-radar">
                       <svg viewBox="0 0 230 195" xmlns="http://www.w3.org/2000/svg">
                         <g fill="none" stroke="#d5dbe8" stroke-width="1">
@@ -1441,36 +1455,36 @@ button { font-family: inherit; }
                           <circle cx="115" cy="53" r="3"></circle><circle cx="163.5" cy="67" r="3"></circle><circle cx="169.6" cy="126.5" r="3"></circle><circle cx="115" cy="130" r="3"></circle><circle cx="96.8" cy="105.5" r="3"></circle><circle cx="72.6" cy="70.5" r="3"></circle>
                         </g>
                         <g fill="#6b7590" font-family="Heebo, sans-serif" font-size="9.5" font-weight="600" text-anchor="middle">
-                          <text x="115" y="16">קריירה</text>
-                          <text x="188" y="58">בריאות</text>
-                          <text x="178" y="140">מערכות יחסים</text>
-                          <text x="115" y="182">כסף</text>
-                          <text x="48" y="140">פנאי</text>
-                          <text x="46" y="58">אני</text>
+                          <text x="115" y="16" data-en="Career">קריירה</text>
+                          <text x="188" y="58" data-en="Health">בריאות</text>
+                          <text x="178" y="140" data-en="Relationships">מערכות יחסים</text>
+                          <text x="115" y="182" data-en="Money">כסף</text>
+                          <text x="48" y="140" data-en="Leisure">פנאי</text>
+                          <text x="46" y="58" data-en="Self">אני</text>
                         </g>
                       </svg>
                     </div>
-                    <div class="os-toggle"><span>נוכחי</span><span class="os-switch"></span></div>
+                    <div class="os-toggle"><span data-en="Current">נוכחי</span><span class="os-switch"></span></div>
                     <div class="os-sliders">
                       <div class="os-scard">
-                        <div class="os-scard__top"><span class="os-scard__label">קריירה</span><span class="os-scard__val">4</span></div>
+                        <div class="os-scard__top"><span class="os-scard__label" data-en="Career">קריירה</span><span class="os-scard__val">4</span></div>
                         <div class="os-track"><span class="os-track__fill" style="width:40%"></span><span class="os-track__knob" style="inset-inline-start:40%"></span></div>
-                        <span class="os-scard__cap">נוכחי</span>
+                        <span class="os-scard__cap" data-en="Current">נוכחי</span>
                       </div>
                       <div class="os-scard">
-                        <div class="os-scard__top"><span class="os-scard__label">בריאות</span><span class="os-scard__val">7</span></div>
+                        <div class="os-scard__top"><span class="os-scard__label" data-en="Health">בריאות</span><span class="os-scard__val">7</span></div>
                         <div class="os-track"><span class="os-track__fill" style="width:70%"></span><span class="os-track__knob" style="inset-inline-start:70%"></span></div>
-                        <span class="os-scard__cap">נוכחי</span>
+                        <span class="os-scard__cap" data-en="Current">נוכחי</span>
                       </div>
                       <div class="os-scard">
-                        <div class="os-scard__top"><span class="os-scard__label">מערכות יחסים</span><span class="os-scard__val">9</span></div>
+                        <div class="os-scard__top"><span class="os-scard__label" data-en="Relationships">מערכות יחסים</span><span class="os-scard__val">9</span></div>
                         <div class="os-track"><span class="os-track__fill" style="width:90%"></span><span class="os-track__knob" style="inset-inline-start:90%"></span></div>
-                        <span class="os-scard__cap">נוכחי</span>
+                        <span class="os-scard__cap" data-en="Current">נוכחי</span>
                       </div>
                     </div>
                   </div>
                   <div class="os-continue">
-                    <button class="cm-btn cm-btn--gradient" type="button">המשך</button>
+                    <button class="cm-btn cm-btn--gradient" type="button" data-en="Continue">המשך</button>
                   </div>
                 </div>
               </div>
@@ -1486,22 +1500,22 @@ button { font-family: inherit; }
                     </span>
                   </div>
                   <div class="os-voice__head">
-                    <div class="os-voice__name">מייקל</div>
-                    <div class="os-voice__status"><span class="dot"></span>מקשיב</div>
+                    <div class="os-voice__name" data-en="Michael">מייקל</div>
+                    <div class="os-voice__status" data-en="&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Listening"><span class="dot"></span>מקשיב</div>
                   </div>
                   <div class="os-voice__center">
                     <div class="os-orb"></div>
                   </div>
                   <div class="os-voice__foot">
-                    <p class="os-voice__quote">איך תדע שהגעת לשם?</p>
+                    <p class="os-voice__quote" data-en="How will you know you've arrived?">איך תדע שהגעת לשם?</p>
                     <div class="os-voice__controls">
-                      <button class="os-ctrl os-ctrl--end" type="button" aria-label="סיים">
+                      <button class="os-ctrl os-ctrl--end" type="button" aria-label="סיים" data-en-aria="End">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
                       </button>
-                      <button class="os-ctrl" type="button" aria-label="השהה">
+                      <button class="os-ctrl" type="button" aria-label="השהה" data-en-aria="Pause">
                         <svg viewBox="0 0 24 24" fill="currentColor"><rect x="7" y="6" width="3.4" height="12" rx="1.4"></rect><rect x="13.6" y="6" width="3.4" height="12" rx="1.4"></rect></svg>
                       </button>
-                      <button class="os-ctrl" type="button" aria-label="השתק">
+                      <button class="os-ctrl" type="button" aria-label="השתק" data-en-aria="Mute">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M5 11a7 7 0 0 0 14 0"></path><path d="M12 18v4"></path><path d="M3 3l18 18"></path></svg>
                       </button>
                     </div>
@@ -1521,53 +1535,53 @@ button { font-family: inherit; }
                   </div>
                   <div class="hc-nav">
                     <span class="hc-nav__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path></svg></span>
-                    <span class="hc-nav__title">מאמנים אנושיים</span>
+                    <span class="hc-nav__title" data-en="Human coaches">מאמנים אנושיים</span>
                     <span class="hc-nav__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></span>
                   </div>
                   <div class="hc-scroll">
                     <div class="hc-hero">
-                      <div class="hc-hero__eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg>התאמה חכמה</div>
-                      <div class="hc-hero__title">שנמצא לך את המאמן הנכון?</div>
-                      <p class="hc-hero__text">מייקל ינתח את השיחות שלך עד כה, את גלגל החיים והערכים — וימליץ על המאמן האנושי שהכי מתאים לך ולמה שעליו את/ה עובד/ת כרגע.</p>
-                      <button class="hc-hero__btn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H4"></path><path d="M10 6l-6 6 6 6"></path></svg>מצא לי התאמה</button>
+                      <div class="hc-hero__eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg><span data-en="Smart match">התאמה חכמה</span></div>
+                      <div class="hc-hero__title" data-en="Shall we find you the right coach?">שנמצא לך את המאמן הנכון?</div>
+                      <p class="hc-hero__text" data-en="Michael will analyze your conversations so far, your Wheel of Life and values — and recommend the human coach best suited to you and what you're working on right now.">מייקל ינתח את השיחות שלך עד כה, את גלגל החיים והערכים — וימליץ על המאמן האנושי שהכי מתאים לך ולמה שעליו את/ה עובד/ת כרגע.</p>
+                      <button class="hc-hero__btn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H4"></path><path d="M10 6l-6 6 6 6"></path></svg><span data-en="Find my match">מצא לי התאמה</span></button>
                     </div>
                     <div>
-                      <div class="hc-sec"><span class="hc-sec__title">מומלצים עבורך</span><span class="hc-sec__sub">לפי הפרופיל שלך</span></div>
+                      <div class="hc-sec"><span class="hc-sec__title" data-en="Recommended for you">מומלצים עבורך</span><span class="hc-sec__sub" data-en="Based on your profile">לפי הפרופיל שלך</span></div>
                       <div class="hc-list">
                         <div class="hc-coach hc-coach--rec">
                           <div class="hc-coach__photo"><img src="assets/waitlist/coach-maya-opt.jpg" width="54" height="54" decoding="async" alt="" /></div>
                           <div class="hc-coach__body">
-                            <div class="hc-coach__top"><span class="hc-coach__name">ד"ר מאיה לוין</span><span class="hc-match">★ 96% התאמה</span></div>
-                            <div class="hc-coach__spec">מאמנת מנטלית · CBT ומיינדפולנס</div>
-                            <div class="hc-coach__meta"><span class="hc-tag hc-tag--mental">מנטלי</span><span class="hc-rating">דירוג <span class="hc-dots"><i></i><i></i><i></i><i></i><i></i></span></span></div>
+                            <div class="hc-coach__top"><span class="hc-coach__name" data-en="Dr. Maya Levin">ד"ר מאיה לוין</span><span class="hc-match" data-en="★ 96% match">★ 96% התאמה</span></div>
+                            <div class="hc-coach__spec" data-en="Mental coach · CBT &amp; mindfulness">מאמנת מנטלית · CBT ומיינדפולנס</div>
+                            <div class="hc-coach__meta"><span class="hc-tag hc-tag--mental" data-en="Mental">מנטלי</span><span class="hc-rating"><span data-en="Rating">דירוג</span> <span class="hc-dots"><i></i><i></i><i></i><i></i><i></i></span></span></div>
                           </div>
                           <span class="hc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></span>
                         </div>
                         <div class="hc-coach hc-coach--rec">
                           <div class="hc-coach__photo"><img src="assets/waitlist/p1.jpg" alt="" /></div>
                           <div class="hc-coach__body">
-                            <div class="hc-coach__top"><span class="hc-coach__name">יונתן בר</span><span class="hc-match">★ 91% התאמה</span></div>
-                            <div class="hc-coach__spec">מטפל NLP · דפוסי חשיבה והחלטות</div>
-                            <div class="hc-coach__meta"><span class="hc-tag hc-tag--nlp">NLP</span><span class="hc-rating">דירוג <span class="hc-dots"><i></i><i></i><i></i><i></i><i class="off"></i></span></span></div>
+                            <div class="hc-coach__top"><span class="hc-coach__name" data-en="Yonatan Bar">יונתן בר</span><span class="hc-match" data-en="★ 91% match">★ 91% התאמה</span></div>
+                            <div class="hc-coach__spec" data-en="NLP therapist · thought patterns &amp; decisions">מטפל NLP · דפוסי חשיבה והחלטות</div>
+                            <div class="hc-coach__meta"><span class="hc-tag hc-tag--nlp">NLP</span><span class="hc-rating"><span data-en="Rating">דירוג</span> <span class="hc-dots"><i></i><i></i><i></i><i></i><i class="off"></i></span></span></div>
                           </div>
                           <span class="hc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></span>
                         </div>
                       </div>
                     </div>
                     <div>
-                      <div class="hc-sec"><span class="hc-sec__title">כל המאמנים</span><span class="hc-sec__sub">28 זמינים</span></div>
+                      <div class="hc-sec"><span class="hc-sec__title" data-en="All coaches">כל המאמנים</span><span class="hc-sec__sub" data-en="28 available">28 זמינים</span></div>
                       <div class="hc-filters">
-                        <span class="hc-chip hc-chip--active">הכל</span>
-                        <span class="hc-chip">מאמנים מנטליים</span>
+                        <span class="hc-chip hc-chip--active" data-en="All">הכל</span>
+                        <span class="hc-chip" data-en="Mental coaches">מאמנים מנטליים</span>
                         <span class="hc-chip">NLP</span>
                       </div>
                       <div class="hc-list">
                         <div class="hc-coach">
                           <div class="hc-coach__photo"><img src="assets/waitlist/p4.jpg" alt="" /></div>
                           <div class="hc-coach__body">
-                            <div class="hc-coach__top"><span class="hc-coach__name">נועה שלו</span></div>
-                            <div class="hc-coach__spec">מטפלת רגשית · EFT וטיפול בזוגיות</div>
-                            <div class="hc-coach__meta"><span class="hc-tag hc-tag--emo">רגשי</span><span class="hc-rating">דירוג <span class="hc-dots"><i></i><i></i><i></i><i></i><i></i></span></span></div>
+                            <div class="hc-coach__top"><span class="hc-coach__name" data-en="Noa Shalev">נועה שלו</span></div>
+                            <div class="hc-coach__spec" data-en="Emotional therapist · EFT &amp; couples therapy">מטפלת רגשית · EFT וטיפול בזוגיות</div>
+                            <div class="hc-coach__meta"><span class="hc-tag hc-tag--emo" data-en="Emotional">רגשי</span><span class="hc-rating"><span data-en="Rating">דירוג</span> <span class="hc-dots"><i></i><i></i><i></i><i></i><i></i></span></span></div>
                           </div>
                           <span class="hc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></span>
                         </div>
@@ -1581,10 +1595,10 @@ button { font-family: inherit; }
 
             </div>
             <div class="carousel-dots" id="phoneDots">
-              <button type="button" class="active" data-go="0" aria-label="פתיחה"></button>
-              <button type="button" data-go="1" aria-label="גלגל החיים"></button>
-              <button type="button" data-go="2" aria-label="שיחה קולית"></button>
-              <button type="button" data-go="3" aria-label="מאמנים אנושיים"></button>
+              <button type="button" class="active" data-go="0" aria-label="פתיחה" data-en-aria="Intro"></button>
+              <button type="button" data-go="1" aria-label="גלגל החיים" data-en-aria="Wheel of Life"></button>
+              <button type="button" data-go="2" aria-label="שיחה קולית" data-en-aria="Voice call"></button>
+              <button type="button" data-go="3" aria-label="מאמנים אנושיים" data-en-aria="Human coaches"></button>
             </div>
           </div>
         </div>
@@ -1595,52 +1609,52 @@ button { font-family: inherit; }
   <!-- ============================ HOW IT WORKS ============================ -->
   <section class="section how">
     <div class="wrap">
-      <span class="eyebrow">איך זה עובד</span>
-      <h2>מהשיחה הראשונה מבינים שזה משהו אחר.</h2>
+      <span class="eyebrow" data-en="How it works">איך זה עובד</span>
+      <h2 data-en="From the very first conversation, you'll feel it's different.">מהשיחה הראשונה מבינים שזה משהו אחר.</h2>
       <div class="steps">
         <div class="step cm-card cm-card--flat">
           <div class="step__num">01</div>
-          <div class="step__title">בוחרים על מה לעבוד</div>
-          <p class="step__text">קריירה, זוגיות, ביטחון, כסף — ואם את/ה לא בטוח/ה מה מציק, מייקל יודע לשאול את השאלות שמגלות את זה יחד איתך. מגדירים לאן את/ה רוצה להגיע, ויוצאים לדרך.</p>
+          <div class="step__title" data-en="Choose what to work on">בוחרים על מה לעבוד</div>
+          <p class="step__text" data-en="Career, relationships, confidence, money — and if you're not sure what's bothering you, Michael knows how to ask the questions that uncover it together with you. Define where you want to get to, and set off.">קריירה, זוגיות, ביטחון, כסף — ואם את/ה לא בטוח/ה מה מציק, מייקל יודע לשאול את השאלות שמגלות את זה יחד איתך. מגדירים לאן את/ה רוצה להגיע, ויוצאים לדרך.</p>
         </div>
         <div class="step cm-card cm-card--flat">
           <div class="step__num">02</div>
-          <div class="step__title">מדברים, ומשהו זז</div>
-          <p class="step__text">מייקל שואל את מה שאף אחד לא שאל. בלי שיפוטיות, בלי להסביר את עצמך מהתחלה. שיחה איתו לא נגמרת ב“מעניין” — היא נגמרת בהבנה חדשה ובצעד ברור שלך לביצוע.</p>
+          <div class="step__title" data-en="You talk, and something shifts">מדברים, ומשהו זז</div>
+          <p class="step__text" data-en="Michael asks what no one else asked. No judgment, no explaining yourself from scratch. A conversation with him doesn't end with &ldquo;interesting&rdquo; — it ends with a new understanding and a clear next step for you to take.">מייקל שואל את מה שאף אחד לא שאל. בלי שיפוטיות, בלי להסביר את עצמך מהתחלה. שיחה איתו לא נגמרת ב“מעניין” — היא נגמרת בהבנה חדשה ובצעד ברור שלך לביצוע.</p>
         </div>
         <div class="step cm-card cm-card--flat">
           <div class="step__num">03</div>
-          <div class="step__title">תהליך שזוכר אותך. לא שיחה חד פעמית.</div>
-          <p class="step__text">כל שיחה נגמרת בצעד לביצוע, והצעד הזה לא נעלם. השיחה הבאה נפתחת בדיוק מאיפה שעצרתם: מה עבד, איפה נתקעת, ומה הלאה. ככה התקדמות נבנית, שיחה אחרי שיחה.</p>
+          <div class="step__title" data-en="A process that remembers you. Not a one-off conversation.">תהליך שזוכר אותך. לא שיחה חד פעמית.</div>
+          <p class="step__text" data-en="Every conversation ends with a step to take, and that step doesn't disappear. The next conversation picks up exactly where you left off: what worked, where you got stuck, and what's next. That's how progress is built, conversation after conversation.">כל שיחה נגמרת בצעד לביצוע, והצעד הזה לא נעלם. השיחה הבאה נפתחת בדיוק מאיפה שעצרתם: מה עבד, איפה נתקעת, ומה הלאה. ככה התקדמות נבנית, שיחה אחרי שיחה.</p>
         </div>
       </div>
-      <p class="how__note">עוד ידע לא יפתור לך את הבעיה. מייקל יודע לגעת במיינדסט שיצר אותה.</p>
+      <p class="how__note" data-en="More knowledge won't solve your problem. Michael knows how to reach the mindset that created it.">עוד ידע לא יפתור לך את הבעיה. מייקל יודע לגעת במיינדסט שיצר אותה.</p>
     </div>
   </section>
 
   <!-- ============================ WHAT'S INSIDE ============================ -->
   <section class="section section--soft">
     <div class="wrap">
-      <span class="eyebrow">מה מקבלים בפנים</span>
-      <h2>הכל במקום אחד</h2>
+      <span class="eyebrow" data-en="What's inside">מה מקבלים בפנים</span>
+      <h2 data-en="Everything in one place">הכל במקום אחד</h2>
       <div class="inside__grid">
         <div class="feature cm-card cm-card--flat">
           <div class="feature__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
           </div>
-          <div class="feature__title">מאמן זמין 24/7, בכף היד</div>
+          <div class="feature__title" data-en="A coach available 24/7, in your pocket">מאמן זמין 24/7, בכף היד</div>
           <ul class="feature__list">
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span>נכנסים לשיחה בדיוק ברגע שצריך, בלי לתאם.</span>
+              <span data-en="Jump into a conversation exactly when you need it, no scheduling.">נכנסים לשיחה בדיוק ברגע שצריך, בלי לתאם.</span>
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span>בכתב או בקול, מתי שנוח לך.</span>
+              <span data-en="By text or by voice, whenever suits you.">בכתב או בקול, מתי שנוח לך.</span>
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span>גם באמצע היום, גם בשתיים בלילה.</span>
+              <span data-en="In the middle of the day, or at two in the morning.">גם באמצע היום, גם בשתיים בלילה.</span>
             </li>
           </ul>
         </div>
@@ -1648,19 +1662,19 @@ button { font-family: inherit; }
           <div class="feature__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="M7 15l4-5 3 3 5-7"></path></svg>
           </div>
-          <div class="feature__title">מטרות שהופכות למשימות. והתקדמות שרואים.</div>
+          <div class="feature__title" data-en="Goals that become tasks. And progress you can see.">מטרות שהופכות למשימות. והתקדמות שרואים.</div>
           <ul class="feature__list">
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span>כל מטרה מתורגמת לפעולות ברורות לביצוע.</span>
+              <span data-en="Every goal is translated into clear actions to take.">כל מטרה מתורגמת לפעולות ברורות לביצוע.</span>
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span>כל צעד שהשלמת נרשם ונשמר.</span>
+              <span data-en="Every step you complete is logged and saved.">כל צעד שהשלמת נרשם ונשמר.</span>
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span>ההתקדמות שלך מוצגת שחור על גבי לבן.</span>
+              <span data-en="Your progress is shown in black and white.">ההתקדמות שלך מוצגת שחור על גבי לבן.</span>
             </li>
           </ul>
         </div>
@@ -1668,19 +1682,19 @@ button { font-family: inherit; }
           <div class="feature__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 3v6c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V5l7-3z"></path></svg>
           </div>
-          <div class="feature__title">דיסקרטי לחלוטין</div>
+          <div class="feature__title" data-en="Completely discreet">דיסקרטי לחלוטין</div>
           <ul class="feature__list">
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span>מה שנאמר בשיחה נשאר בשיחה.</span>
+              <span data-en="What's said in the conversation stays in the conversation.">מה שנאמר בשיחה נשאר בשיחה.</span>
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span>מרחב שאפשר להיות בו כן לגמרי.</span>
+              <span data-en="A space where you can be fully honest.">מרחב שאפשר להיות בו כן לגמרי.</span>
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span>ללא תחושת שיפוטיות.</span>
+              <span data-en="With no sense of judgment.">ללא תחושת שיפוטיות.</span>
             </li>
           </ul>
         </div>
@@ -1688,52 +1702,52 @@ button { font-family: inherit; }
           <div class="feature__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"></circle><path d="M2.5 20a5.5 5.5 0 0 1 11 0"></path><circle cx="17" cy="9" r="2.5"></circle><path d="M15 20a4 4 0 0 1 6.5-3.1"></path></svg>
           </div>
-          <div class="feature__title">מערכת היברידית</div>
+          <div class="feature__title" data-en="A hybrid system">מערכת היברידית</div>
           <ul class="feature__list">
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span>מאמן AI שמלווה אותך יום יום.</span>
+              <span data-en="An AI coach that accompanies you day to day.">מאמן AI שמלווה אותך יום יום.</span>
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span>חיבור למאמן אנושי מותאם אישית בעת הצורך.</span>
+              <span data-en="A connection to a personally matched human coach when needed.">חיבור למאמן אנושי מותאם אישית בעת הצורך.</span>
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span>המאמן האנושי יקבל סקירה ונתונים באישורך.</span>
+              <span data-en="The human coach receives a summary and data with your approval.">המאמן האנושי יקבל סקירה ונתונים באישורך.</span>
             </li>
           </ul>
         </div>
       </div>
-      <p class="inside__note">כל מה שצריך זה להגיע. מייקל כבר ידע לקחת אותך לשלב הבא שלך.</p>
+      <p class="inside__note" data-en="All you need to do is show up. Michael will know how to take you to your next stage.">כל מה שצריך זה להגיע. מייקל כבר ידע לקחת אותך לשלב הבא שלך.</p>
     </div>
   </section>
 
   <!-- ============================ FOUNDERS ============================ -->
   <section class="section founders">
     <div class="wrap">
-      <span class="eyebrow">מי מאחורי CoachMind</span>
-      <h2>הכירו את המייסדים</h2>
+      <span class="eyebrow" data-en="Who's behind CoachMind">מי מאחורי CoachMind</span>
+      <h2 data-en="Meet the founders">הכירו את המייסדים</h2>
       <div class="founders__grid">
         <div class="founder">
           <div class="founder__photo"><img src="assets/founders/ido.jpg" width="240" height="320" loading="lazy" decoding="async" alt="עידו עובדיה" /></div>
           <div>
-            <div class="founder__name">עידו עובדיה</div>
-            <div class="founder__role">מייסד ומנכ"ל</div>
-            <p class="founder__bio">בוגר הכשרת מאמנים מנטליים מאת OneLife, ליווה עשרות לקוחות בתהליכי צמיחה. מפקד לוחם לשעבר ומייסד פלטפורמת "חיילים ביחד". את CoachMind בניתי מתוך הרצון לנגיש אימון אישי ומקצועי לכל אחד.</p>
+            <div class="founder__name" data-en="Ido Ovadia">עידו עובדיה</div>
+            <div class="founder__role" data-en="Founder &amp; CEO">מייסד ומנכ"ל</div>
+            <p class="founder__bio" data-en="A graduate of OneLife's mental coaching program, he has guided dozens of clients through growth journeys. A former combat commander and founder of the &ldquo;Soldiers Together&rdquo; platform. I built CoachMind out of a desire to make personal, professional coaching accessible to everyone.">בוגר הכשרת מאמנים מנטליים מאת OneLife, ליווה עשרות לקוחות בתהליכי צמיחה. מפקד לוחם לשעבר ומייסד פלטפורמת "חיילים ביחד". את CoachMind בניתי מתוך הרצון לנגיש אימון אישי ומקצועי לכל אחד.</p>
           </div>
         </div>
         <div class="founder">
           <div class="founder__photo"><img src="assets/founders/shahar.jpg" width="226" height="320" loading="lazy" decoding="async" alt="שחר מלמד" /></div>
           <div>
-            <div class="founder__name">שחר מלמד</div>
-            <div class="founder__role">מייסד וסמנכ"ל טכנולוגיות</div>
-            <p class="founder__bio">מהנדס (B.Sc.) בוגר הכשרת מאמנים מנטליים מאת OneLife, מוביל פרויקטים טכניים מורכבים. האיש שמחבר בין מתודולוגיית אימון לטכנולוגיה שמבינה אותך.</p>
+            <div class="founder__name" data-en="Shahar Melamed">שחר מלמד</div>
+            <div class="founder__role" data-en="Co-founder &amp; CTO">מייסד וסמנכ"ל טכנולוגיות</div>
+            <p class="founder__bio" data-en="A B.Sc. engineer and graduate of OneLife's mental coaching program, leading complex technical projects. The person who bridges coaching methodology with technology that understands you.">מהנדס (B.Sc.) בוגר הכשרת מאמנים מנטליים מאת OneLife, מוביל פרויקטים טכניים מורכבים. האיש שמחבר בין מתודולוגיית אימון לטכנולוגיה שמבינה אותך.</p>
           </div>
         </div>
       </div>
       <div class="founders__note">
-        <p>את המתודולוגיה של CoachMind בנינו יחד עם מאמנים בכירים נוספים מעולם האימון המנטלי וה-NLP.</p>
+        <p data-en="We built CoachMind's methodology together with additional senior coaches from the world of mental coaching and NLP.">את המתודולוגיה של CoachMind בנינו יחד עם מאמנים בכירים נוספים מעולם האימון המנטלי וה-NLP.</p>
       </div>
     </div>
   </section>
@@ -1743,20 +1757,20 @@ button { font-family: inherit; }
     <div class="wrap">
       <div class="signup__grid">
         <div class="signup__copy">
-          <span class="eyebrow">השאירו פרטים</span>
-          <h2>שבוע ניסיון ללא עלות, לנרשמי רשימת ההמתנה.</h2>
+          <span class="eyebrow" data-en="Leave your details">השאירו פרטים</span>
+          <h2 data-en="A free trial week for everyone on the waitlist.">שבוע ניסיון ללא עלות, לנרשמי רשימת ההמתנה.</h2>
           <ul class="signup__perks">
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span>שבוע ניסיון מלא ללא עלות.</span>
+              <span data-en="A full trial week at no cost.">שבוע ניסיון מלא ללא עלות.</span>
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span>בלי התחייבות ובלי כרטיס אשראי.</span>
+              <span data-en="No commitment and no credit card.">בלי התחייבות ובלי כרטיס אשראי.</span>
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span>גישה ראשונה למערכת, לפני הפתיחה לציבור.</span>
+              <span data-en="First access to the system, before the public launch.">גישה ראשונה למערכת, לפני הפתיחה לציבור.</span>
             </li>
           </ul>
         </div>
@@ -1764,43 +1778,43 @@ button { font-family: inherit; }
         <div class="form-card">
           <form id="waitForm" novalidate>
             <div class="form-row">
-              <label for="f-name">שם מלא</label>
-              <input class="cm-input" id="f-name" name="name" type="text" autocomplete="name" placeholder="איך קוראים לך?" required aria-describedby="err-name" />
-              <p class="field-error" id="err-name">נא להזין שם מלא.</p>
+              <label for="f-name" data-en="Full name">שם מלא</label>
+              <input class="cm-input" id="f-name" name="name" type="text" autocomplete="name" placeholder="איך קוראים לך?" data-en-ph="What's your name?" required aria-describedby="err-name" />
+              <p class="field-error" id="err-name" data-en="Please enter your full name.">נא להזין שם מלא.</p>
             </div>
             <div class="form-row">
-              <label for="f-email">אימייל</label>
+              <label for="f-email" data-en="Email">אימייל</label>
               <input class="cm-input" id="f-email" name="email" type="email" autocomplete="email" placeholder="name@example.com" required aria-describedby="err-email" />
-              <p class="field-error" id="err-email">נא להזין כתובת אימייל תקינה.</p>
+              <p class="field-error" id="err-email" data-en="Please enter a valid email address.">נא להזין כתובת אימייל תקינה.</p>
             </div>
             <div class="form-row">
-              <label for="f-area">איזה תחום בחייך היית רוצה לשפר עכשיו?</label>
+              <label for="f-area" data-en="Which area of your life would you like to improve right now?">איזה תחום בחייך היית רוצה לשפר עכשיו?</label>
               <select class="cm-select" id="f-area" name="area" required aria-describedby="err-area">
-                <option value="" disabled selected>בחר/י תחום…</option>
-                <option>קריירה ועסק</option>
-                <option>כסף וביטחון כלכלי</option>
-                <option>זוגיות ויחסים</option>
-                <option>איזון ובהירות</option>
-                <option>ביטחון עצמי</option>
-                <option>אחר</option>
+                <option value="" disabled selected data-en="Choose an area…">בחר/י תחום…</option>
+                <option data-en="Career &amp; business">קריירה ועסק</option>
+                <option data-en="Money &amp; financial security">כסף וביטחון כלכלי</option>
+                <option data-en="Relationships">זוגיות ויחסים</option>
+                <option data-en="Balance &amp; clarity">איזון ובהירות</option>
+                <option data-en="Self-confidence">ביטחון עצמי</option>
+                <option data-en="Other">אחר</option>
               </select>
-              <p class="field-error" id="err-area">נא לבחור תחום.</p>
+              <p class="field-error" id="err-area" data-en="Please choose an area.">נא לבחור תחום.</p>
             </div>
             <label class="form-consent" for="f-consent">
               <input type="checkbox" id="f-consent" name="consent" />
-              <span>אני מאשר/ת לקבל תכנים שיווקיים ועדכונים מטעם CoachMind.</span>
+              <span data-en="I agree to receive marketing content and updates from CoachMind.">אני מאשר/ת לקבל תכנים שיווקיים ועדכונים מטעם CoachMind.</span>
             </label>
-            <p class="form-consent-note">לא חובה. אפשר להסיר את ההסכמה בכל עת.</p>
-            <button class="cm-btn cm-btn--gradient cm-btn--lg cm-btn--block" type="submit">קבל/י גישה מוקדמת</button>
-            <p class="form-fine">הפרטים שיימסרו ישמשו ליצירת קשר לגבי הגישה המוקדמת ל-CoachMind ולא יועברו לגורם שלישי. <a href="#" id="openPrivacy">מדיניות פרטיות</a></p>
+            <p class="form-consent-note" data-en="Optional. You can withdraw consent at any time.">לא חובה. אפשר להסיר את ההסכמה בכל עת.</p>
+            <button class="cm-btn cm-btn--gradient cm-btn--lg cm-btn--block" type="submit" data-en="Get early access">קבל/י גישה מוקדמת</button>
+            <p class="form-fine"><span data-en="The details you provide will be used to contact you about early access to CoachMind and won't be shared with third parties. ">הפרטים שיימסרו ישמשו ליצירת קשר לגבי הגישה המוקדמת ל-CoachMind ולא יועברו לגורם שלישי. </span><a href="#" id="openPrivacy" data-en="Privacy policy">מדיניות פרטיות</a></p>
           </form>
 
           <div class="form-success" id="formSuccess" role="status" aria-live="polite">
             <div class="check">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
             </div>
-            <h3>את/ה ברשימה.</h3>
-            <p>ניצור איתך קשר ברגע שהגישה המוקדמת נפתחת — שים/י עין על המייל.</p>
+            <h3 data-en="You're on the list.">את/ה ברשימה.</h3>
+            <p data-en="We'll reach out the moment early access opens — keep an eye on your email.">ניצור איתך קשר ברגע שהגישה המוקדמת נפתחת — שים/י עין על המייל.</p>
           </div>
         </div>
       </div>
@@ -1815,42 +1829,42 @@ button { font-family: inherit; }
         <span class="cm-wordmark cm-wordmark--gradient cm-wordmark--on-dark" style="font-size:25px;">CoachMind</span>
         <span class="cm-tagline footer__tag">Live your potential</span>
       </span>
-      <nav class="footer__links" aria-label="קישורי תחתית">
-        <a href="#" id="openPrivacy2">מדיניות פרטיות</a>
-        <a href="#" id="openA11yStatement">הצהרת נגישות</a>
+      <nav class="footer__links" aria-label="קישורי תחתית" data-en-aria="Footer links">
+        <a href="#" id="openPrivacy2" data-en="Privacy policy">מדיניות פרטיות</a>
+        <a href="#" id="openA11yStatement" data-en="Accessibility statement">הצהרת נגישות</a>
       </nav>
-      <small>© 2026 CoachMind · כל הזכויות שמורות</small>
+      <small data-en="© 2026 CoachMind · All rights reserved">© 2026 CoachMind · כל הזכויות שמורות</small>
     </div>
   </footer>
 
   <!-- ============================ ACCESSIBILITY WIDGET ============================ -->
-  <button class="a11y-fab" id="a11yFab" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="a11yPanel" aria-label="תפריט נגישות">
+  <button class="a11y-fab" id="a11yFab" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="a11yPanel" aria-label="תפריט נגישות" data-en-aria="Accessibility menu">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="3.6" r="1.9"></circle><path d="M4 7.5c2.6.9 5.2 1.3 8 1.3s5.4-.4 8-1.3" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"></path><path d="M12 8.2v5.3m0 0l-2.6 6.8m2.6-6.8l2.6 6.8" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"></path></svg>
   </button>
 
   <div class="a11y-panel" id="a11yPanel" role="dialog" aria-modal="false" aria-labelledby="a11yPanelTitle">
-    <h2 id="a11yPanelTitle">הגדרות נגישות</h2>
-    <p class="a11y-sub">ההגדרות נשמרות למשך הביקור הנוכחי בלבד.</p>
+    <h2 id="a11yPanelTitle" data-en="Accessibility settings">הגדרות נגישות</h2>
+    <p class="a11y-sub" data-en="Settings are saved for the current visit only.">ההגדרות נשמרות למשך הביקור הנוכחי בלבד.</p>
 
     <div class="a11y-group">
-      <span class="a11y-group__label" id="a11yTextLbl">גודל טקסט</span>
+      <span class="a11y-group__label" id="a11yTextLbl" data-en="Text size">גודל טקסט</span>
       <div class="a11y-seg" role="group" aria-labelledby="a11yTextLbl">
-        <button type="button" data-text="0" aria-pressed="true">רגיל</button>
-        <button type="button" data-text="1" aria-pressed="false">גדול</button>
-        <button type="button" data-text="2" aria-pressed="false">גדול יותר</button>
-        <button type="button" data-text="3" aria-pressed="false">הכי גדול</button>
+        <button type="button" data-text="0" aria-pressed="true" data-en="Normal">רגיל</button>
+        <button type="button" data-text="1" aria-pressed="false" data-en="Large">גדול</button>
+        <button type="button" data-text="2" aria-pressed="false" data-en="Larger">גדול יותר</button>
+        <button type="button" data-text="3" aria-pressed="false" data-en="Largest">הכי גדול</button>
       </div>
     </div>
 
     <div class="a11y-group">
-      <button type="button" class="a11y-toggle" data-toggle="a11y-contrast" aria-pressed="false">ניגודיות גבוהה <span class="state">כבוי</span></button>
-      <button type="button" class="a11y-toggle" data-toggle="a11y-links" aria-pressed="false">הדגשת קישורים <span class="state">כבוי</span></button>
-      <button type="button" class="a11y-toggle" data-toggle="a11y-noanim" aria-pressed="false">עצירת אנימציות <span class="state">כבוי</span></button>
+      <button type="button" class="a11y-toggle" data-toggle="a11y-contrast" aria-pressed="false"><span data-en="High contrast">ניגודיות גבוהה</span> <span class="state">כבוי</span></button>
+      <button type="button" class="a11y-toggle" data-toggle="a11y-links" aria-pressed="false"><span data-en="Highlight links">הדגשת קישורים</span> <span class="state">כבוי</span></button>
+      <button type="button" class="a11y-toggle" data-toggle="a11y-noanim" aria-pressed="false"><span data-en="Stop animations">עצירת אנימציות</span> <span class="state">כבוי</span></button>
     </div>
 
     <div class="a11y-panel__foot">
-      <button type="button" class="a11y-reset" id="a11yReset">איפוס כל ההגדרות</button>
-      <a href="#" id="openA11yStatement2">הצהרת הנגישות המלאה</a>
+      <button type="button" class="a11y-reset" id="a11yReset" data-en="Reset all settings">איפוס כל ההגדרות</button>
+      <a href="#" id="openA11yStatement2" data-en="Full accessibility statement">הצהרת הנגישות המלאה</a>
     </div>
   </div>
 
@@ -1858,28 +1872,28 @@ button { font-family: inherit; }
   <div class="a11y-modal" id="a11yModal" role="dialog" aria-modal="true" aria-labelledby="a11yModalTitle">
     <div class="a11y-modal__backdrop" data-close></div>
     <div class="a11y-modal__card">
-      <button type="button" class="a11y-modal__close" data-close aria-label="סגור">
+      <button type="button" class="a11y-modal__close" data-close aria-label="סגור" data-en-aria="Close">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18"></path><path d="M6 6l12 12"></path></svg>
       </button>
-      <h2 id="a11yModalTitle">הצהרת נגישות</h2>
-      <p>אנו ב-CoachMind רואים חשיבות רבה במתן שירות שוויוני ונגיש לכלל המשתמשים, ובכלל זה אנשים עם מוגבלות. אתר זה הונגש בהתאם לתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע"ג 2013, ולתקן הישראלי ת"י 5568 ברמה AA, המבוסס על הנחיות WCAG.</p>
-      <h3>התאמות הנגישות באתר</h3>
+      <h2 id="a11yModalTitle" data-en="Accessibility statement">הצהרת נגישות</h2>
+      <p data-en="At CoachMind we place great importance on providing an equal and accessible service to all users, including people with disabilities. This site was made accessible in accordance with the Israeli Equal Rights for Persons with Disabilities Regulations (Service Accessibility Adjustments), 5773-2013, and the Israeli Standard SI 5568 at level AA, based on the WCAG guidelines.">אנו ב-CoachMind רואים חשיבות רבה במתן שירות שוויוני ונגיש לכלל המשתמשים, ובכלל זה אנשים עם מוגבלות. אתר זה הונגש בהתאם לתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע"ג 2013, ולתקן הישראלי ת"י 5568 ברמה AA, המבוסס על הנחיות WCAG.</p>
+      <h3 data-en="Accessibility features on this site">התאמות הנגישות באתר</h3>
       <ul>
-        <li>תמיכה מלאה בניווט מקלדת</li>
-        <li>תאימות לקוראי מסך</li>
-        <li>ניגודיות צבעים תקנית</li>
-        <li>אפשרות הגדלת טקסט</li>
-        <li>תפריט נגישות ייעודי</li>
-        <li>טפסים נגישים עם תוויות והודעות שגיאה ברורות</li>
+        <li data-en="Full keyboard navigation support">תמיכה מלאה בניווט מקלדת</li>
+        <li data-en="Screen reader compatibility">תאימות לקוראי מסך</li>
+        <li data-en="Standard color contrast">ניגודיות צבעים תקנית</li>
+        <li data-en="Text enlargement option">אפשרות הגדלת טקסט</li>
+        <li data-en="Dedicated accessibility menu">תפריט נגישות ייעודי</li>
+        <li data-en="Accessible forms with clear labels and error messages">טפסים נגישים עם תוויות והודעות שגיאה ברורות</li>
       </ul>
-      <h3>נתקלתם בבעיית נגישות?</h3>
-      <p>נשמח לשמוע ולתקן. ניתן לפנות לרכז הנגישות שלנו:</p>
-      <p class="a11y-contact">
+      <h3 data-en="Encountered an accessibility issue?">נתקלתם בבעיית נגישות?</h3>
+      <p data-en="We'd be glad to hear about it and fix it. You can contact our accessibility coordinator:">נשמח לשמוע ולתקן. ניתן לפנות לרכז הנגישות שלנו:</p>
+      <p class="a11y-contact" data-en="Name: Ido Ovadia<br>Email: ccoachmind@gmail.com<br>Phone: 050-6380503">
         שם: עידו עובדיה<br />
         אימייל: ccoachmind@gmail.com<br />
         טלפון: 050-6380503
       </p>
-      <p class="a11y-contact">תאריך עדכון ההצהרה: 09/07/2026</p>
+      <p class="a11y-contact" data-en="Statement last updated: 09/07/2026">תאריך עדכון ההצהרה: 09/07/2026</p>
     </div>
   </div>
 
@@ -1887,35 +1901,77 @@ button { font-family: inherit; }
   <div class="a11y-modal" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyModalTitle">
     <div class="a11y-modal__backdrop" data-close></div>
     <div class="a11y-modal__card">
-      <button type="button" class="a11y-modal__close" data-close aria-label="סגור">
+      <button type="button" class="a11y-modal__close" data-close aria-label="סגור" data-en-aria="Close">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18"></path><path d="M6 6l12 12"></path></svg>
       </button>
-      <h2 id="privacyModalTitle">מדיניות פרטיות — רשימת המתנה CoachMind</h2>
-      <h3>מי אחראי על המידע</h3>
-      <p>האחראי על המידע: עידו עובדיה, מייסד CoachMind. לפניות בנושא פרטיות: <a href="mailto:ccoachmind@gmail.com">ccoachmind@gmail.com</a>, טלפון 050-6380503.</p>
-      <h3>מה אנחנו אוספים</h3>
-      <p>שם, כתובת אימייל, והתחום שבחרת. מסירת הפרטים אינה חובה על פי חוק ותלויה ברצונך בלבד.</p>
-      <h3>למה</h3>
-      <p>כדי לעדכן אותך על פתיחת הגישה המוקדמת ל-CoachMind. תכנים שיווקיים יישלחו רק אם סימנת הסכמה בטופס, ואפשר להסיר את ההסכמה בכל עת בפנייה אלינו או בקישור ההסרה שבכל הודעה.</p>
-      <h3>איפה זה נשמר</h3>
-      <p>במאגר מאובטח באיחוד האירופי. הפרטים לא נמכרים ולא מועברים לצדדים שלישיים למטרותיהם, למעט ספקי שירות הפועלים מטעמנו לצורך אחסון ודיוור.</p>
-      <h3>העברת מידע מחוץ לישראל</h3>
-      <p>המידע נשמר בשרתים באיחוד האירופי, הכפוף לרמת הגנה על פרטיות המוכרת כנאותה. בהשארת הפרטים את/ה מאשר/ת את העברתם ואחסונם כמתואר.</p>
-      <h3>כמה זמן</h3>
-      <p>עד השקת המוצר או עד שתבקש/י להימחק, המוקדם מביניהם.</p>
-      <h3>הזכויות שלך</h3>
-      <p>בכל שלב אפשר לבקש לעיין בפרטים, לתקן אותם או למחוק אותם לגמרי, בפנייה ל-<a href="mailto:ccoachmind@gmail.com">ccoachmind@gmail.com</a>. נענה בהקדם.</p>
-      <h3>עוגיות ומדידה</h3>
-      <p>האתר עשוי לעשות שימוש בעוגיות (cookies) ובכלי מדידה בסיסיים לצורך תפעול הדף ושיפורו. אפשר לחסום עוגיות דרך הגדרות הדפדפן.</p>
-      <h3>קטינים</h3>
-      <p>השירות מיועד לבגירים (גיל 18 ומעלה). איננו אוספים ביודעין פרטים של קטינים.</p>
-      <h3>שינויים במדיניות</h3>
-      <p>ניתן לעדכן מדיניות זו מעת לעת. הנוסח המעודכן יוצג בעמוד זה, ומועד העדכון יצוין בתחתיתו.</p>
-      <p class="a11y-contact">עודכן: יולי 2026</p>
+      <h2 id="privacyModalTitle" data-en="Privacy Policy — CoachMind Waitlist">מדיניות פרטיות — רשימת המתנה CoachMind</h2>
+      <h3 data-en="Who is responsible for the data">מי אחראי על המידע</h3>
+      <p data-en="Data controller: Ido Ovadia, founder of CoachMind. For privacy matters: <a href=&quot;mailto:ccoachmind@gmail.com&quot;>ccoachmind@gmail.com</a>, phone 050-6380503.">האחראי על המידע: עידו עובדיה, מייסד CoachMind. לפניות בנושא פרטיות: <a href="mailto:ccoachmind@gmail.com">ccoachmind@gmail.com</a>, טלפון 050-6380503.</p>
+      <h3 data-en="What we collect">מה אנחנו אוספים</h3>
+      <p data-en="Name, email address, and the area you selected. Providing these details is not legally required and depends solely on your choice.">שם, כתובת אימייל, והתחום שבחרת. מסירת הפרטים אינה חובה על פי חוק ותלויה ברצונך בלבד.</p>
+      <h3 data-en="Why">למה</h3>
+      <p data-en="To update you about the opening of early access to CoachMind. Marketing content will be sent only if you checked consent in the form, and you can withdraw consent at any time by contacting us or via the unsubscribe link in every message.">כדי לעדכן אותך על פתיחת הגישה המוקדמת ל-CoachMind. תכנים שיווקיים יישלחו רק אם סימנת הסכמה בטופס, ואפשר להסיר את ההסכמה בכל עת בפנייה אלינו או בקישור ההסרה שבכל הודעה.</p>
+      <h3 data-en="Where it is stored">איפה זה נשמר</h3>
+      <p data-en="In a secure database in the European Union. The details are not sold and not transferred to third parties for their own purposes, except for service providers acting on our behalf for storage and mailing.">במאגר מאובטח באיחוד האירופי. הפרטים לא נמכרים ולא מועברים לצדדים שלישיים למטרותיהם, למעט ספקי שירות הפועלים מטעמנו לצורך אחסון ודיוור.</p>
+      <h3 data-en="Transfer of data outside Israel">העברת מידע מחוץ לישראל</h3>
+      <p data-en="The data is stored on servers in the European Union, which is subject to a level of privacy protection recognized as adequate. By leaving your details you approve their transfer and storage as described.">המידע נשמר בשרתים באיחוד האירופי, הכפוף לרמת הגנה על פרטיות המוכרת כנאותה. בהשארת הפרטים את/ה מאשר/ת את העברתם ואחסונם כמתואר.</p>
+      <h3 data-en="How long">כמה זמן</h3>
+      <p data-en="Until the product launches or until you ask to be deleted, whichever comes first.">עד השקת המוצר או עד שתבקש/י להימחק, המוקדם מביניהם.</p>
+      <h3 data-en="Your rights">הזכויות שלך</h3>
+      <p data-en="At any stage you can request to review your details, correct them, or delete them entirely, by contacting <a href=&quot;mailto:ccoachmind@gmail.com&quot;>ccoachmind@gmail.com</a>. We will respond promptly.">בכל שלב אפשר לבקש לעיין בפרטים, לתקן אותם או למחוק אותם לגמרי, בפנייה ל-<a href="mailto:ccoachmind@gmail.com">ccoachmind@gmail.com</a>. נענה בהקדם.</p>
+      <h3 data-en="Cookies and analytics">עוגיות ומדידה</h3>
+      <p data-en="The site may use cookies and basic analytics tools to operate and improve the page. You can block cookies through your browser settings.">האתר עשוי לעשות שימוש בעוגיות (cookies) ובכלי מדידה בסיסיים לצורך תפעול הדף ושיפורו. אפשר לחסום עוגיות דרך הגדרות הדפדפן.</p>
+      <h3 data-en="Minors">קטינים</h3>
+      <p data-en="The service is intended for adults (age 18 and over). We do not knowingly collect details of minors.">השירות מיועד לבגירים (גיל 18 ומעלה). איננו אוספים ביודעין פרטים של קטינים.</p>
+      <h3 data-en="Changes to this policy">שינויים במדיניות</h3>
+      <p data-en="This policy may be updated from time to time. The updated version will be displayed on this page, and the update date will be noted at the bottom.">ניתן לעדכן מדיניות זו מעת לעת. הנוסח המעודכן יוצג בעמוד זה, ומועד העדכון יצוין בתחתיתו.</p>
+      <p class="a11y-contact" data-en="Updated: July 2026">עודכן: יולי 2026</p>
     </div>
   </div>
 
   <script>
+    // ---- i18n: Hebrew ⇄ English ----
+    var CM_I18N = {
+      he: { pause: 'השהה מצגת מסכים', play: 'הפעל מצגת מסכים', on: 'פעיל', off: 'כבוי', switchTo: 'EN', switchAria: 'Switch to English' },
+      en: { pause: 'Pause screen slideshow', play: 'Play screen slideshow', on: 'On', off: 'Off', switchTo: 'עברית', switchAria: 'עבור לעברית' }
+    };
+    function cmLang() { return document.documentElement.lang === 'en' ? 'en' : 'he'; }
+    function cmT(k) { return CM_I18N[cmLang()][k]; }
+    (function () {
+      var btn = document.getElementById('langSwitch');
+      function apply(lang) {
+        var en = lang === 'en';
+        var root = document.documentElement;
+        root.lang = en ? 'en' : 'he';
+        root.dir = en ? 'ltr' : 'rtl';
+        document.querySelectorAll('[data-en]').forEach(function (el) {
+          if (!el.hasAttribute('data-he')) el.setAttribute('data-he', el.innerHTML);
+          el.innerHTML = en ? el.getAttribute('data-en') : el.getAttribute('data-he');
+        });
+        document.querySelectorAll('[data-en-ph]').forEach(function (el) {
+          if (!el.hasAttribute('data-he-ph')) el.setAttribute('data-he-ph', el.getAttribute('placeholder') || '');
+          el.setAttribute('placeholder', en ? el.getAttribute('data-en-ph') : el.getAttribute('data-he-ph'));
+        });
+        document.querySelectorAll('[data-en-aria]').forEach(function (el) {
+          if (!el.hasAttribute('data-he-aria')) el.setAttribute('data-he-aria', el.getAttribute('aria-label') || '');
+          el.setAttribute('aria-label', en ? el.getAttribute('data-en-aria') : el.getAttribute('data-he-aria'));
+        });
+        // keep the a11y toggle state labels in the current language
+        document.querySelectorAll('.a11y-toggle').forEach(function (t) {
+          var st = t.querySelector('.state');
+          if (st) st.textContent = t.getAttribute('aria-pressed') === 'true' ? cmT('on') : cmT('off');
+        });
+        if (btn) { btn.textContent = cmT('switchTo'); btn.setAttribute('aria-label', cmT('switchAria')); }
+        try { localStorage.setItem('cm-lang', lang); } catch (e) {}
+        if (typeof window.cmRefreshCarousel === 'function') window.cmRefreshCarousel();
+      }
+      window.cmApplyLang = apply;
+      if (btn) btn.addEventListener('click', function () { apply(cmLang() === 'en' ? 'he' : 'en'); });
+      var saved = null;
+      try { saved = localStorage.getItem('cm-lang'); } catch (e) {}
+      apply(saved === 'en' ? 'en' : 'he');
+    })();
+
     // ---- phone carousel (chat / voice / …) ----
     (function () {
       const deck = document.getElementById('phoneDeck');
@@ -1955,7 +2011,7 @@ button { font-family: inherit; }
         if (shouldRun()) timer = setInterval(function () { active = (active + 1) % n; render(); }, 4000);
         if (playBtn) {
           playBtn.classList.toggle('is-paused', !engaged());
-          playBtn.setAttribute('aria-label', engaged() ? 'השהה מצגת מסכים' : 'הפעל מצגת מסכים');
+          playBtn.setAttribute('aria-label', engaged() ? cmT('pause') : cmT('play'));
         }
       }
 
@@ -2018,6 +2074,7 @@ button { font-family: inherit; }
         io.observe(deck);
       }
 
+      window.cmRefreshCarousel = schedule;
       render();
       schedule();
     })();
@@ -2137,7 +2194,7 @@ button { font-family: inherit; }
           const cls = t.getAttribute('data-toggle');
           const on = root.classList.toggle(cls);
           t.setAttribute('aria-pressed', String(on));
-          const st = t.querySelector('.state'); if (st) st.textContent = on ? 'פעיל' : 'כבוי';
+          const st = t.querySelector('.state'); if (st) st.textContent = on ? cmT('on') : cmT('off');
         });
       });
 
@@ -2145,7 +2202,7 @@ button { font-family: inherit; }
       document.getElementById('a11yReset').addEventListener('click', function () {
         root.classList.remove('a11y-text-1', 'a11y-text-2', 'a11y-text-3', 'a11y-contrast', 'a11y-links', 'a11y-noanim');
         textBtns.forEach(function (x) { x.setAttribute('aria-pressed', String(x.getAttribute('data-text') === '0')); });
-        toggles.forEach(function (t) { t.setAttribute('aria-pressed', 'false'); const st = t.querySelector('.state'); if (st) st.textContent = 'כבוי'; });
+        toggles.forEach(function (t) { t.setAttribute('aria-pressed', 'false'); const st = t.querySelector('.state'); if (st) st.textContent = cmT('off'); });
       });
 
       // --- statement + privacy modals ---

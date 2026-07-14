@@ -1899,18 +1899,6 @@ button { font-family: inherit; }
               <input class="cm-input" id="f-email" name="email" type="email" autocomplete="email" placeholder="name@example.com" required aria-describedby="err-email" />
               <p class="field-error" id="err-email" data-en="Please enter a valid email address.">נא להזין כתובת אימייל תקינה.</p>
             </div>
-            <div class="form-row">
-              <label for="f-area" data-en="Which area would you like to improve? (optional)">איזה תחום היית רוצה לשפר? (לא חובה)</label>
-              <select class="cm-select" id="f-area" name="area">
-                <option value="" selected data-en="Choose an area…">בחר/י תחום…</option>
-                <option data-en="Career &amp; business">קריירה ועסק</option>
-                <option data-en="Money &amp; financial security">כסף וביטחון כלכלי</option>
-                <option data-en="Relationships">זוגיות ויחסים</option>
-                <option data-en="Balance &amp; clarity">איזון ובהירות</option>
-                <option data-en="Self-confidence">ביטחון עצמי</option>
-                <option data-en="Other">אחר</option>
-              </select>
-            </div>
             <label class="form-consent" for="f-consent">
               <input type="checkbox" id="f-consent" name="consent" />
               <span data-en="I agree to receive marketing content and updates from CoachMind.">אני מאשר/ת לקבל תכנים שיווקיים ועדכונים מטעם CoachMind.</span>
@@ -2024,7 +2012,7 @@ button { font-family: inherit; }
       <h3 data-en="Who is responsible for the data">מי אחראי על המידע</h3>
       <p data-en="Data controller: Ido Ovadia, founder of CoachMind. For privacy matters: <a href=&quot;mailto:ccoachmind@gmail.com&quot;>ccoachmind@gmail.com</a>, phone 050-6380503.">האחראי על המידע: עידו עובדיה, מייסד CoachMind. לפניות בנושא פרטיות: <a href="mailto:ccoachmind@gmail.com">ccoachmind@gmail.com</a>, טלפון 050-6380503.</p>
       <h3 data-en="What we collect">מה אנחנו אוספים</h3>
-      <p data-en="Name, email address, and the area you selected. Providing these details is not legally required and depends solely on your choice.">שם, כתובת אימייל, והתחום שבחרת. מסירת הפרטים אינה חובה על פי חוק ותלויה ברצונך בלבד.</p>
+      <p data-en="Name and email address. Providing these details is not legally required and depends solely on your choice.">שם וכתובת אימייל. מסירת הפרטים אינה חובה על פי חוק ותלויה ברצונך בלבד.</p>
       <h3 data-en="Why">למה</h3>
       <p data-en="To update you about the opening of early access to CoachMind. Marketing content will be sent only if you checked consent in the form, and you can withdraw consent at any time by contacting us or via the unsubscribe link in every message.">כדי לעדכן אותך על פתיחת הגישה המוקדמת ל-CoachMind. תכנים שיווקיים יישלחו רק אם סימנת הסכמה בטופס, ואפשר להסיר את ההסכמה בכל עת בפנייה אלינו או בקישור ההסרה שבכל הודעה.</p>
       <h3 data-en="Where it is stored">איפה זה נשמר</h3>
@@ -2251,13 +2239,12 @@ button { font-family: inherit; }
 
         // ---- real submission → Google Apps Script (idovadya.com lead sheet) ----
         var ENDPOINT = 'https://script.google.com/macros/s/AKfycby6pE7aaHBwj5WZlPOtcZTGBHUAW6TDrf6tb5LAYw2WAquCRoXGv-ssT2AQ9DosgK9B5w/exec';
-        var areaEl = document.getElementById('f-area');
         var consentEl = document.getElementById('f-consent');
         var data = new URLSearchParams();
         data.append('name', document.getElementById('f-name').value.trim());
         data.append('phone', '');
         data.append('email', document.getElementById('f-email').value.trim());
-        data.append('message', 'תחום: ' + (areaEl ? areaEl.value : '') + ' · שיווקי: ' + (consentEl && consentEl.checked ? 'כן' : 'לא'));
+        data.append('message', 'שיווקי: ' + (consentEl && consentEl.checked ? 'כן' : 'לא'));
         try {
           fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body: data, keepalive: true });
         } catch (err) {}

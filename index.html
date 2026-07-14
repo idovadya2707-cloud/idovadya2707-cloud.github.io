@@ -1355,8 +1355,8 @@ button { font-family: inherit; }
   .cta-bar .cm-btn { width: 100%; max-width: 560px; }
   /* slide it away while the signup form itself is on screen — its own button takes over */
   .cta-bar.is-hidden { transform: translateY(120%); pointer-events: none; }
-  /* keep the footer clear of the fixed bar */
-  .footer { padding-block-end: calc(var(--cta-h, 78px) + var(--space-6)); }
+  /* keep the footer clear of the fixed bar (the bar is hidden at the very bottom, so a slim clearance is enough) */
+  .footer { padding-block-end: calc(var(--cta-h, 78px) * 0.5); }
 
   /* ---- Accessibility widget (FAB + menu) ---- */
   .a11y-fab {
@@ -2024,6 +2024,10 @@ button { font-family: inherit; }
   </div>
 
   <script>
+    // ---- always open at the top: stop the browser from restoring a previous scroll position ----
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.addEventListener('load', function () { window.scrollTo(0, 0); });
+
     // ---- i18n: Hebrew ⇄ English ----
     var CM_I18N = {
       he: { pause: 'השהה מצגת מסכים', play: 'הפעל מצגת מסכים', on: 'פעיל', off: 'כבוי', label: 'עברית' },

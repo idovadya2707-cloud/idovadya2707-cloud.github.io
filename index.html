@@ -758,6 +758,18 @@ button { font-family: inherit; }
     fill: none; stroke: var(--royal-500); stroke-width: 1.9;
     stroke-linecap: round; stroke-linejoin: round;
   }
+  .hero__offer {
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    margin-top: var(--space-5); padding: 8px 14px; border-radius: var(--radius-pill);
+    background: var(--royal-50); border: 1px solid var(--royal-100);
+    color: var(--royal-700); font-size: var(--text-sm); font-weight: var(--weight-semibold);
+    line-height: 1; white-space: nowrap; width: fit-content;
+  }
+  .hero__offer svg {
+    width: 16px; height: 16px; flex: none;
+    fill: none; stroke: var(--royal-600); stroke-width: 2.4;
+    stroke-linecap: round; stroke-linejoin: round;
+  }
   .hero__cta { display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; margin-top: var(--space-8); }
   .hero__count {
     display: flex; align-items: center; gap: var(--space-3);
@@ -1523,6 +1535,10 @@ button { font-family: inherit; }
           <span class="eyebrow" data-en="A new world of personal growth">עולם חדש של התפתחות אישית</span>
           <h1 data-en="Personal coaching <span class=&quot;accent&quot;>in your pocket</span>">אימון אישי <span class="accent">בכף היד</span></h1>
           <p class="hero__sub" data-en="A personal mental coach, available 24/7, who learns you and connects you to a human coach when you need it.">מאמן מנטלי אישי, זמין 24/7, שלומד אותך ומחבר למאמן אנושי כשצריך.</p>
+          <p class="hero__offer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
+            <span data-en="Free trial week · No credit card">שבוע ניסיון חינם · בלי כרטיס אשראי</span>
+          </p>
           <div class="hero__count">
             <span class="avatars" aria-hidden="true"><span><img src="assets/waitlist/p1.jpg" alt="" /></span><span><img src="assets/waitlist/p2.jpg" alt="" /></span><span><img src="assets/waitlist/p3.jpg" alt="" /></span><span><img src="assets/waitlist/p4.jpg" alt="" /></span></span>
             <span data-en="Already <span class=&quot;count-num&quot;>dozens</span> of people on the waitlist">כבר <span class="count-num">עשרות</span> אנשים ברשימת ההמתנה</span>

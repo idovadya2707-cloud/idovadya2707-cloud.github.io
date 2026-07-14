@@ -789,6 +789,11 @@ button { font-family: inherit; }
   .avatars span:last-child:not(:has(img)) { background: var(--brand-gradient); }
   .count-num { font-weight: var(--weight-bold); color: var(--ink-800); }
   .hero__count { display: flex; align-items: center; gap: var(--space-2); }
+  .hero__cap {
+    margin-top: var(--space-2);
+    font-size: var(--text-sm); font-weight: var(--weight-semibold);
+    color: var(--royal-700);
+  }
   .count-dot { width: 9px; height: 9px; border-radius: 50%; flex: none; background: var(--success-500); box-shadow: 0 0 0 4px var(--success-50); }
 
   /* ---- Hero ambient glow ---- */
@@ -1299,6 +1304,7 @@ button { font-family: inherit; }
     .hero__text { min-height: 54vh; justify-content: center; }
     .hero__cta .cm-btn { width: 100%; text-align: center; justify-content: center; }
     .hero__count { justify-content: center; }
+    .hero__cap { text-align: center; }
     .section { padding-block: var(--space-14); }
     .section h2 { margin-top: var(--space-3); }
     .founders__note { margin-top: var(--space-10); }
@@ -1547,8 +1553,9 @@ button { font-family: inherit; }
           </p>
           <div class="hero__count">
             <span class="avatars" aria-hidden="true"><span><img src="assets/waitlist/p1.jpg" alt="" /></span><span><img src="assets/waitlist/p2.jpg" alt="" /></span><span><img src="assets/waitlist/p3.jpg" alt="" /></span><span><img src="assets/waitlist/p4.jpg" alt="" /></span></span>
-            <span data-en="Already <span class=&quot;count-num&quot;>240+</span> signed up · the pilot is limited to 1,000 spots">כבר <span class="count-num">240+</span> נרשמו · הפיילוט מוגבל ל-1,000 מקומות</span>
+            <span data-en="Already <span class=&quot;count-num&quot;>240+</span> signed up">כבר <span class="count-num">240+</span> נרשמו</span>
           </div>
+          <p class="hero__cap" data-en="The pilot is limited to 1,000 spots only">הפיילוט מוגבל ל-1,000 מקומות בלבד</p>
         </div>
 
         <!-- Phone mockups carousel -->

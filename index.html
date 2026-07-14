@@ -1877,9 +1877,9 @@ button { font-family: inherit; }
               <p class="field-error" id="err-email" data-en="Please enter a valid email address.">נא להזין כתובת אימייל תקינה.</p>
             </div>
             <div class="form-row">
-              <label for="f-area" data-en="Which area of your life would you like to improve right now?">איזה תחום בחייך היית רוצה לשפר עכשיו?</label>
-              <select class="cm-select" id="f-area" name="area" required aria-describedby="err-area">
-                <option value="" disabled selected data-en="Choose an area…">בחר/י תחום…</option>
+              <label for="f-area" data-en="Which area would you like to improve? (optional)">איזה תחום היית רוצה לשפר? (לא חובה)</label>
+              <select class="cm-select" id="f-area" name="area">
+                <option value="" selected data-en="Choose an area…">בחר/י תחום…</option>
                 <option data-en="Career &amp; business">קריירה ועסק</option>
                 <option data-en="Money &amp; financial security">כסף וביטחון כלכלי</option>
                 <option data-en="Relationships">זוגיות ויחסים</option>
@@ -1887,7 +1887,6 @@ button { font-family: inherit; }
                 <option data-en="Self-confidence">ביטחון עצמי</option>
                 <option data-en="Other">אחר</option>
               </select>
-              <p class="field-error" id="err-area" data-en="Please choose an area.">נא לבחור תחום.</p>
             </div>
             <label class="form-consent" for="f-consent">
               <input type="checkbox" id="f-consent" name="consent" />
@@ -2205,8 +2204,7 @@ button { font-family: inherit; }
       const success = document.getElementById('formSuccess');
       const fields = [
         { el: document.getElementById('f-name'), test: function (v) { return v.trim().length > 0; } },
-        { el: document.getElementById('f-email'), test: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); } },
-        { el: document.getElementById('f-area'), test: function (v) { return v !== ''; } }
+        { el: document.getElementById('f-email'), test: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); } }
       ];
       function setError(field, invalid) {
         const row = field.el.closest('.form-row');

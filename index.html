@@ -1898,6 +1898,11 @@ button { font-family: inherit; }
               <input class="cm-input" id="f-email" name="email" type="email" autocomplete="email" placeholder="name@example.com" required aria-describedby="err-email" />
               <p class="field-error" id="err-email" data-en="Please enter a valid email address.">נא להזין כתובת אימייל תקינה.</p>
             </div>
+            <div class="form-row">
+              <label for="f-phone" data-en="Phone">טלפון</label>
+              <input class="cm-input" id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="050-0000000" data-en-ph="050-0000000" required aria-describedby="err-phone" />
+              <p class="field-error" id="err-phone" data-en="Please enter a valid phone number.">נא להזין מספר טלפון תקין.</p>
+            </div>
             <label class="form-consent" for="f-consent">
               <input type="checkbox" id="f-consent" name="consent" />
               <span data-en="I agree to receive marketing content and updates from CoachMind.">אני מאשר/ת לקבל תכנים שיווקיים ועדכונים מטעם CoachMind.</span>
@@ -2011,7 +2016,7 @@ button { font-family: inherit; }
       <h3 data-en="Who is responsible for the data">מי אחראי על המידע</h3>
       <p data-en="Data controller: Ido Ovadia, founder of CoachMind. For privacy matters: <a href=&quot;mailto:ccoachmind@gmail.com&quot;>ccoachmind@gmail.com</a>, phone 050-6380503.">האחראי על המידע: עידו עובדיה, מייסד CoachMind. לפניות בנושא פרטיות: <a href="mailto:ccoachmind@gmail.com">ccoachmind@gmail.com</a>, טלפון 050-6380503.</p>
       <h3 data-en="What we collect">מה אנחנו אוספים</h3>
-      <p data-en="Name and email address. Providing these details is not legally required and depends solely on your choice.">שם וכתובת אימייל. מסירת הפרטים אינה חובה על פי חוק ותלויה ברצונך בלבד.</p>
+      <p data-en="Name, email address, and phone number. Providing these details is not legally required and depends solely on your choice.">שם, כתובת אימייל ומספר טלפון. מסירת הפרטים אינה חובה על פי חוק ותלויה ברצונך בלבד.</p>
       <h3 data-en="Why">למה</h3>
       <p data-en="To update you about the opening of early access to CoachMind. Marketing content will be sent only if you checked consent in the form, and you can withdraw consent at any time by contacting us or via the unsubscribe link in every message.">כדי לעדכן אותך על פתיחת הגישה המוקדמת ל-CoachMind. תכנים שיווקיים יישלחו רק אם סימנת הסכמה בטופס, ואפשר להסיר את ההסכמה בכל עת בפנייה אלינו או בקישור ההסרה שבכל הודעה.</p>
       <h3 data-en="Where it is stored">איפה זה נשמר</h3>
@@ -2214,7 +2219,8 @@ button { font-family: inherit; }
       const success = document.getElementById('formSuccess');
       const fields = [
         { el: document.getElementById('f-name'), test: function (v) { return v.trim().length > 0; } },
-        { el: document.getElementById('f-email'), test: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); } }
+        { el: document.getElementById('f-email'), test: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); } },
+        { el: document.getElementById('f-phone'), test: function (v) { return /^0\d{8,9}$/.test(v.replace(/[\s-]/g, '')); } }
       ];
       function setError(field, invalid) {
         const row = field.el.closest('.form-row');
@@ -2241,7 +2247,7 @@ button { font-family: inherit; }
         var consentEl = document.getElementById('f-consent');
         var data = new URLSearchParams();
         data.append('name', document.getElementById('f-name').value.trim());
-        data.append('phone', '');
+        data.append('phone', document.getElementById('f-phone').value.trim());
         data.append('email', document.getElementById('f-email').value.trim());
         data.append('message', 'שיווקי: ' + (consentEl && consentEl.checked ? 'כן' : 'לא'));
         try {

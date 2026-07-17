@@ -2301,6 +2301,10 @@ button { font-family: inherit; }
           fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body: data, keepalive: true });
         } catch (err) {}
 
+        // ---- conversion tracking: fire a lead event to GA4 + Clarity ----
+        try { if (window.gtag) gtag('event', 'generate_lead', { form: 'waitlist' }); } catch (err) {}
+        try { if (window.clarity) clarity('event', 'lead_submitted'); } catch (err) {}
+
         form.style.display = 'none';
         success.style.display = 'flex';
       });

@@ -2321,6 +2321,14 @@ button { font-family: inherit; }
       });
     });
 
+    // ---- CTA click tracking (GA4 + Clarity) ----
+    document.querySelectorAll('a[href="#signup"]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        try { if (window.gtag) gtag('event', 'cta_click', { location: 'sticky_bar' }); } catch (e) {}
+        try { if (window.clarity) clarity('event', 'cta_click'); } catch (e) {}
+      });
+    });
+
     // ---- accessibility widget + statement modal ----
     (function () {
       const root = document.documentElement;

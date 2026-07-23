@@ -4,19 +4,44 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<!-- Microsoft Clarity -->
-<script type="text/javascript">
+<!-- Consent Mode v2 + gated analytics (no tracking cookies until the user opts in) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  // Deny by default so Google Analytics sets no cookies until consent is granted.
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+  // Microsoft Clarity is loaded only after explicit consent.
+  window.cmLoadClarity = function () {
+    if (window.__cmClarityLoaded) return;
+    window.__cmClarityLoaded = true;
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "xnvp5j5o99");
+  };
+  // Re-apply a previously stored "granted" choice as early as possible.
+  try {
+    if (localStorage.getItem('cm-cookie-consent') === 'granted') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });
+      window.cmLoadClarity();
+    }
+  } catch (e) {}
 </script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-72VSDTH8HK"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-72VSDTH8HK');
 </script>
@@ -1421,6 +1446,31 @@ button { font-family: inherit; }
   /* keep the footer clear of the fixed bar (the bar is hidden at the very bottom, so a slim clearance is enough) */
   .footer { padding-block-end: calc(var(--cta-h, 78px) * 0.5); }
 
+  /* ---- Cookie consent banner ---- */
+  .cookie-banner {
+    position: fixed; z-index: 250;
+    inset-block-end: calc(var(--cta-h, 78px) + 16px);
+    inset-inline-end: 20px; inset-inline-start: auto;
+    width: min(430px, calc(100vw - 40px));
+    background: var(--paper); border: 1px solid var(--border-default);
+    border-radius: var(--radius-xl); box-shadow: var(--shadow-xl);
+    padding: var(--space-5);
+  }
+  .cookie-banner[hidden] { display: none; }
+  .cookie-banner__text {
+    font-size: var(--text-sm); line-height: var(--leading-relaxed);
+    color: var(--ink-700); margin: 0 0 var(--space-4);
+  }
+  .cookie-banner__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
+  .cookie-banner__link { font-size: var(--text-sm); color: var(--accent); margin-inline-end: auto; }
+  .cookie-banner .cm-btn { height: 40px; padding: 0 var(--space-4); font-size: var(--text-sm); }
+  @media (max-width: 560px) {
+    .cookie-banner {
+      inset-inline: 12px; width: auto;
+      inset-block-end: calc(var(--cta-h, 78px) + 74px);
+    }
+  }
+
   /* ---- Accessibility widget (FAB + menu) ---- */
   .a11y-fab {
     position: fixed; inset-block-end: calc(var(--cta-h, 78px) + 16px); inset-inline-start: 20px; z-index: 150;
@@ -1995,6 +2045,16 @@ button { font-family: inherit; }
     </div>
   </footer>
 
+  <!-- ============================ COOKIE CONSENT ============================ -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="הודעת עוגיות" data-en-aria="Cookie notice" hidden>
+    <p class="cookie-banner__text" data-en="We use cookies to run the site and to measure and improve it (Google Analytics and Microsoft Clarity). You can accept or decline.">אנחנו משתמשים בעוגיות כדי להפעיל את האתר, למדוד ולשפר אותו (Google Analytics ו-Microsoft Clarity). אפשר לאשר או לדחות.</p>
+    <div class="cookie-banner__actions">
+      <a class="cookie-banner__link" href="#" id="openPrivacy3" data-en="Privacy policy">מדיניות פרטיות</a>
+      <button type="button" class="cm-btn cm-btn--ghost" id="cookieDecline" data-en="Decline">דחייה</button>
+      <button type="button" class="cm-btn cm-btn--gradient" id="cookieAccept" data-en="Accept">אישור</button>
+    </div>
+  </div>
+
   <!-- ============================ STICKY BOTTOM CTA ============================ -->
   <div class="cta-bar" id="ctaBar">
     <a class="cm-btn cm-btn--gradient cm-btn--lg cm-btn--block" href="#signup" data-en="Save my spot →">שמרו לי מקום →</a>
@@ -2430,7 +2490,43 @@ button { font-family: inherit; }
         });
       }
       wireModal(modal, ['openA11yStatement', 'openA11yStatement2']);
-      wireModal(document.getElementById('privacyModal'), ['openPrivacy', 'openPrivacy2']);
+      wireModal(document.getElementById('privacyModal'), ['openPrivacy', 'openPrivacy2', 'openPrivacy3']);
+    })();
+
+    // ---- cookie consent banner ----
+    (function () {
+      var banner = document.getElementById('cookieBanner');
+      if (!banner) return;
+      var KEY = 'cm-cookie-consent';
+      var stored;
+      try { stored = localStorage.getItem(KEY); } catch (e) { stored = null; }
+      // Show the banner only when the visitor hasn't chosen yet.
+      if (stored !== 'granted' && stored !== 'denied') { banner.hidden = false; }
+
+      function save(choice) { try { localStorage.setItem(KEY, choice); } catch (e) {} }
+
+      var acceptBtn = document.getElementById('cookieAccept');
+      var declineBtn = document.getElementById('cookieDecline');
+
+      if (acceptBtn) acceptBtn.addEventListener('click', function () {
+        save('granted');
+        if (typeof gtag === 'function') {
+          gtag('consent', 'update', {
+            'ad_storage': 'granted',
+            'ad_user_data': 'granted',
+            'ad_personalization': 'granted',
+            'analytics_storage': 'granted'
+          });
+        }
+        if (typeof window.cmLoadClarity === 'function') window.cmLoadClarity();
+        banner.hidden = true;
+      });
+
+      if (declineBtn) declineBtn.addEventListener('click', function () {
+        save('denied');
+        // consent stays denied (set as default in <head>); Clarity is never loaded.
+        banner.hidden = true;
+      });
     })();
 
     // ---- sticky bottom CTA bar: measure height, hide while the signup form is visible ----

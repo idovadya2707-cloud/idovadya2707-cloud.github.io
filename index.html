@@ -818,6 +818,11 @@ button { font-family: inherit; }
   .hero__sub-line { white-space: nowrap; }
   @media (max-width: 480px) { .hero__sub-line { white-space: normal; } }
   /* trust line above the offer pill (credibility signal near the CTA, quiet — no filled pill) */
+  /* trust + offer badges in one compact row */
+  .hero__badges { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-6); }
+  .hero__badges .hero__trust, .hero__badges .hero__offer { margin-top: 0; padding: 6px 11px; font-size: var(--text-xs); }
+  .hero__badges .hero__trust svg, .hero__badges .hero__offer svg { width: 14px; height: 14px; }
+  @media (max-width: 900px) { .hero__badges { justify-content: center; } }
   .hero__trust {
     display: inline-flex; align-items: center; gap: var(--space-2);
     margin-top: var(--space-5); padding: 8px 14px; border-radius: var(--radius-pill);
@@ -1664,14 +1669,16 @@ button { font-family: inherit; }
         <div class="hero__text">
           <h1 data-en="Personal coaching <span class=&quot;accent&quot;>in your pocket</span>">אימון אישי <span class="accent">בכף היד</span></h1>
           <p class="hero__sub" data-en="A mental coach in your pocket, available 24/7, that learns you, removes the beliefs and patterns holding you back, and leads you to results.">מאמן מנטלי בכף היד, זמין 24/7, שלומד אותך, מסיר אמונות ודפוסים מעכבים ומוביל אותך לתוצאות.</p>
-          <span class="hero__trust">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-            <span data-en="Developed with senior mental coaches">פותח עם מאמנים מנטליים בכירים</span>
-          </span>
-          <p class="hero__offer">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-            <span data-en="Free trial week · No credit card">שבוע ניסיון חינם · בלי כרטיס אשראי</span>
-          </p>
+          <div class="hero__badges">
+            <span class="hero__trust">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
+              <span data-en="Developed with senior mental coaches">פותח עם מאמנים מנטליים בכירים</span>
+            </span>
+            <p class="hero__offer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
+              <span data-en="Free trial week · No credit card">שבוע ניסיון חינם · בלי כרטיס אשראי</span>
+            </p>
+          </div>
           <div class="hero__cta">
             <a class="cm-btn cm-btn--gradient cm-btn--lg" href="#signup" id="heroCta" data-cta-location="hero" data-en="Save my spot for the free week">שמרו לי מקום לשבוע החינם</a>
           </div>

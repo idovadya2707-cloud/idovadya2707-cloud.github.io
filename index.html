@@ -813,10 +813,6 @@ button { font-family: inherit; }
     max-width: 30em;
     margin-top: var(--space-5);
   }
-  /* keep the second sentence unbroken on one line; allow wrapping only on phones
-     (below ~480px it would be clipped by the page's overflow-x:hidden) */
-  .hero__sub-line { white-space: nowrap; }
-  @media (max-width: 480px) { .hero__sub-line { white-space: normal; } }
   /* trust line above the offer pill (credibility signal near the CTA, quiet — no filled pill) */
   /* trust + offer badges in one compact row */
   .hero__badges { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-6); }
@@ -1271,7 +1267,6 @@ button { font-family: inherit; }
   .objection .wrap { position: relative; z-index: 1; max-width: var(--container-md); text-align: center; display: flex; flex-direction: column; align-items: center; }
   .objection h2 { color: #fff; }
   .objection__sub { font-size: var(--text-md); line-height: var(--leading-relaxed); font-weight: var(--weight-regular); color: rgba(255,255,255,0.85); max-width: 48ch; margin-top: var(--space-6); text-wrap: balance; }
-  .objection .lead { color: rgba(255,255,255,0.82); max-width: 60ch; }
   .objection__chips { display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: center; margin-top: var(--space-10); }
   .ochip {
     display: inline-flex; align-items: center; gap: var(--space-2);

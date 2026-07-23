@@ -1332,6 +1332,16 @@ button { font-family: inherit; }
   .form-success h3 { font-size: var(--text-xl); color: var(--ink-900); }
   .form-success p { font-size: var(--text-base); color: var(--ink-600); max-width: 34ch; }
 
+  /* ---- Share block (thank-you) ---- */
+  .share-block { width: 100%; margin-top: var(--space-5); padding-top: var(--space-5); border-top: 1px solid var(--border-subtle); }
+  .share-block__title { font-size: var(--text-sm); font-weight: var(--weight-semibold); color: var(--ink-700); margin: 0 0 var(--space-4); max-width: none; }
+  .share-block__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: center; }
+  .share-block__actions .cm-btn { gap: var(--space-2); }
+  .share-block__actions .cm-btn svg { width: 18px; height: 18px; }
+  .cm-btn--wa { background: #25d366; color: #fff; border-color: transparent; }
+  .cm-btn--wa:hover:not(:disabled) { background: #1ebe5a; box-shadow: var(--shadow-sm); }
+  .cm-btn.is-copied { background: var(--success-50); color: var(--success-600); border-color: var(--success-500); }
+
   /* ============================ Footer ============================ */
   .footer { background: var(--navy-900); color: rgba(255,255,255,0.7); padding: var(--space-6) 0; }
   .footer__inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); flex-wrap: wrap; }
@@ -1635,11 +1645,14 @@ button { font-family: inherit; }
         <div class="hero__text">
           <span class="eyebrow" data-en="A new world of personal growth">עולם חדש של התפתחות אישית</span>
           <h1 data-en="Personal coaching <span class=&quot;accent&quot;>in your pocket</span>">אימון אישי <span class="accent">בכף היד</span></h1>
-          <p class="hero__sub" data-en="A personal mental coach, available 24/7, who learns you and leads you from insight to action.">מאמן מנטלי אישי, זמין 24/7, שלומד אותך ומוביל אותך מתובנה לפעולה.</p>
+          <p class="hero__sub" data-en="An AI-based mental coach, developed with senior coaches. Available 24/7, learns you, and leads you from insight to action.">מאמן מנטלי מבוסס AI, שפותח עם מאמנים בכירים. זמין 24/7, לומד אותך, ומוביל אותך מתובנה לפעולה.</p>
           <p class="hero__offer">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
             <span data-en="Free trial week · No credit card">שבוע ניסיון חינם · בלי כרטיס אשראי</span>
           </p>
+          <div class="hero__cta">
+            <a class="cm-btn cm-btn--gradient cm-btn--lg" href="#signup" id="heroCta" data-cta-location="hero" data-en="Save my spot for the free week">שמרו לי מקום לשבוע החינם</a>
+          </div>
           <div class="hero__count">
             <span data-en="Already <span class=&quot;count-num&quot;>240+</span> signed up">כבר <span class="count-num">240+</span> נרשמו</span>
           </div>
@@ -1861,7 +1874,7 @@ button { font-family: inherit; }
   <section class="section objection">
     <div class="wrap">
       <span class="eyebrow eyebrow--on-dark" data-en="The problem">הבעיה</span>
-      <h2 data-en="Coaching works — but it's expensive, scarce, and absent in the moments that matter.">אימון עובד — אבל הוא יקר, נדיר, ונעדר ברגעים שבאמת חשובים.</h2>
+      <h2 data-en="Coaching works — but it's expensive, and not there in the moments that matter.">אימון עובד — אבל הוא יקר, ולא שם ברגעים שבאמת חשובים.</h2>
       <p class="objection__sub" data-en="A single session with a human coach costs more than a full month of CoachMind.">סשן בודד עם מאמן אנושי עולה יותר מחודש שלם של CoachMind.</p>
       <p class="lead" data-en="We believe everyone deserves to discover and realize their potential — so we built coaching as a daily service, not a luxury.">אנחנו מאמינים שכל אחת ואחד ראויים לגלות ולממש את הפוטנציאל שלהם — לכן בנינו אימון כשירות יומיומי, לא מותרות.</p>
     </div>
@@ -1962,7 +1975,7 @@ button { font-family: inherit; }
         </div>
       </div>
       <div class="founders__note">
-        <p data-en="CoachMind is built on a proprietary coaching methodology we developed together with senior coaches from the world of mental coaching and NLP — not a generic chatbot.">CoachMind בנוי על מתודולוגיית אימון קניינית שפיתחנו יחד עם מאמנים בכירים מעולם האימון המנטלי וה-NLP — לא צ'אטבוט גנרי.</p>
+        <p data-en="CoachMind is built on a coaching method we developed with senior mental coaches — not just another generic chatbot.">CoachMind בנוי על שיטת אימון שפיתחנו עם מאמנים מנטליים בכירים — לא עוד צ'אטבוט כללי.</p>
       </div>
     </div>
   </section>
@@ -1994,9 +2007,9 @@ button { font-family: inherit; }
         <div class="form-card">
           <form id="waitForm" novalidate>
             <div class="form-row">
-              <label for="f-name" data-en="Full name">שם מלא</label>
-              <input class="cm-input" id="f-name" name="name" type="text" autocomplete="name" placeholder="איך קוראים לך?" data-en-ph="What's your name?" required aria-describedby="err-name" />
-              <p class="field-error" id="err-name" data-en="Please enter your full name.">נא להזין שם מלא.</p>
+              <label for="f-name" data-en="First name">שם פרטי</label>
+              <input class="cm-input" id="f-name" name="name" type="text" autocomplete="given-name" placeholder="איך קוראים לך?" data-en-ph="What's your name?" required aria-describedby="err-name" />
+              <p class="field-error" id="err-name" data-en="Please enter your first name.">נא להזין שם פרטי.</p>
             </div>
             <div class="form-row">
               <label for="f-email" data-en="Email">אימייל</label>
@@ -2021,8 +2034,18 @@ button { font-family: inherit; }
             <div class="check">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
             </div>
-            <h3 data-en="You're on the list.">את/ה ברשימה.</h3>
-            <p data-en="We'll reach out the moment early access opens. Keep an eye on your email.">ניצור איתך קשר ברגע שהגישה המוקדמת נפתחת. שים/י עין על האימייל.</p>
+            <h3 data-en="You're in! 🎉">את/ה בפנים! 🎉</h3>
+            <p data-en="We've saved your spot in the pilot. We'll reach out the moment early access opens.">שריינו לך מקום בפיילוט. ניצור איתך קשר ברגע שהגישה המוקדמת נפתחת.</p>
+            <div class="share-block">
+              <p class="share-block__title" data-en="Know someone this is perfect for? Share it:">מכיר/ה מישהו שזה בדיוק בשבילו? שתפו איתו:</p>
+              <div class="share-block__actions">
+                <a class="cm-btn cm-btn--wa" id="shareWhatsApp" href="https://wa.me/" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.96 11.96 0 005.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.9 11.9 0 00-3.487-8.42z"></path></svg>
+                  <span data-en="Share on WhatsApp">שיתוף בוואטסאפ</span>
+                </a>
+                <button type="button" class="cm-btn cm-btn--secondary" id="copyLink" data-en="Copy link">העתק קישור</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -2366,11 +2389,12 @@ button { font-family: inherit; }
         data.append('email', document.getElementById('f-email').value.trim());
         data.append('message', 'שיווקי: ' + (consentEl && consentEl.checked ? 'כן' : 'לא'));
         try {
-          fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body: data, keepalive: true });
+          fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body: data, keepalive: true }).catch(function () {});
         } catch (err) {}
 
-        // ---- conversion tracking: fire a lead event to GA4 + Clarity ----
-        try { if (window.gtag) gtag('event', 'generate_lead', { form: 'waitlist' }); } catch (err) {}
+        // ---- conversion tracking: fire a lead event to GA4 + Clarity (with UTM params) ----
+        var utm = cmGetUTMs();
+        try { if (window.gtag) gtag('event', 'generate_lead', Object.assign({ form: 'waitlist' }, utm)); } catch (err) {}
         try { if (window.clarity) clarity('event', 'lead_submitted'); } catch (err) {}
 
         form.style.display = 'none';
@@ -2391,13 +2415,74 @@ button { font-family: inherit; }
       });
     });
 
-    // ---- CTA click tracking (GA4 + Clarity) ----
+    // ---- UTM capture (attached to the lead event on submit) ----
+    function cmGetUTMs() {
+      var out = {};
+      try {
+        var p = new URLSearchParams(window.location.search);
+        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(function (k) {
+          var v = p.get(k);
+          if (v) out[k] = v;
+        });
+      } catch (e) {}
+      return out;
+    }
+
+    // ---- CTA click tracking (GA4 + Clarity); location taken from data-cta-location ----
     document.querySelectorAll('a[href="#signup"]').forEach(function (el) {
       el.addEventListener('click', function () {
-        try { if (window.gtag) gtag('event', 'cta_click', { location: 'sticky_bar' }); } catch (e) {}
-        try { if (window.clarity) clarity('event', 'cta_click'); } catch (e) {}
+        var loc = el.getAttribute('data-cta-location') || 'sticky_bar';
+        try { if (window.gtag) gtag('event', 'cta_click', { location: loc }); } catch (e) {}
+        try { if (window.clarity) clarity('event', 'cta_click', { location: loc }); } catch (e) {}
       });
     });
+
+    // ---- thank-you share block: WhatsApp link, copy-to-clipboard, tracking ----
+    (function () {
+      var SITE = 'https://idovadya.com';
+      var wa = document.getElementById('shareWhatsApp');
+      if (wa) {
+        var waMsg = 'מצאתי משהו שנראה לי בדיוק בשבילך — מאמן מנטלי אישי שזמין 24/7. יש שבוע ניסיון חינם למצטרפים לרשימת ההמתנה: ' + SITE;
+        wa.setAttribute('href', 'https://wa.me/?text=' + encodeURIComponent(waMsg));
+        wa.addEventListener('click', function () {
+          try { if (window.gtag) gtag('event', 'share', { method: 'whatsapp', location: 'thank_you' }); } catch (e) {}
+          try { if (window.clarity) clarity('event', 'share_whatsapp'); } catch (e) {}
+        });
+      }
+      var copy = document.getElementById('copyLink');
+      if (copy) {
+        var copyHe = copy.textContent;
+        var copyEn = copy.getAttribute('data-en') || 'Copy link';
+        var copyTimer = null;
+        function copied() {
+          var en = document.documentElement.lang === 'en';
+          copy.classList.add('is-copied');
+          copy.textContent = en ? 'Copied ✓' : 'הועתק ✓';
+          if (copyTimer) clearTimeout(copyTimer);
+          copyTimer = setTimeout(function () {
+            copy.classList.remove('is-copied');
+            copy.textContent = (document.documentElement.lang === 'en') ? copyEn : copyHe;
+          }, 2000);
+          try { if (window.gtag) gtag('event', 'copy_link', { location: 'thank_you' }); } catch (e) {}
+          try { if (window.clarity) clarity('event', 'copy_link'); } catch (e) {}
+        }
+        function fallbackCopy() {
+          try {
+            var ta = document.createElement('textarea');
+            ta.value = SITE; ta.setAttribute('readonly', '');
+            ta.style.position = 'absolute'; ta.style.left = '-9999px';
+            document.body.appendChild(ta); ta.select();
+            document.execCommand('copy'); document.body.removeChild(ta);
+            copied();
+          } catch (e) {}
+        }
+        copy.addEventListener('click', function () {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(SITE).then(copied).catch(fallbackCopy);
+          } else { fallbackCopy(); }
+        });
+      }
+    })();
 
     // ---- accessibility widget + statement modal ----
     (function () {

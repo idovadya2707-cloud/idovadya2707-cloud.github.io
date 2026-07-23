@@ -817,6 +817,17 @@ button { font-family: inherit; }
      (below ~480px it would be clipped by the page's overflow-x:hidden) */
   .hero__sub-line { white-space: nowrap; }
   @media (max-width: 480px) { .hero__sub-line { white-space: normal; } }
+  /* trust line above the headline (credibility signal, quiet — no filled pill) */
+  .hero__trust {
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    font-size: var(--text-sm); font-weight: var(--weight-semibold);
+    color: var(--royal-700);
+  }
+  .hero__trust svg {
+    width: 16px; height: 16px; flex: none;
+    fill: none; stroke: var(--success-500); stroke-width: 2.6;
+    stroke-linecap: round; stroke-linejoin: round;
+  }
   .hero__chips {
     list-style: none; margin: var(--space-6) 0 0; padding: 0;
     display: flex; flex-wrap: wrap; gap: var(--space-2);
@@ -1649,6 +1660,10 @@ button { font-family: inherit; }
     <div class="wrap">
       <div class="hero__grid">
         <div class="hero__text">
+          <span class="hero__trust">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
+            <span data-en="Developed with senior mental coaches">פותח עם מאמנים מנטליים בכירים</span>
+          </span>
           <h1 data-en="Personal coaching <span class=&quot;accent&quot;>in your pocket</span>">אימון אישי <span class="accent">בכף היד</span></h1>
           <p class="hero__sub" data-en="A mental coach in your pocket, available 24/7, that learns you, removes the beliefs and patterns holding you back, and leads you to results.">מאמן מנטלי בכף היד, זמין 24/7, שלומד אותך, מסיר אמונות ודפוסים מעכבים ומוביל אותך לתוצאות.</p>
           <p class="hero__offer">

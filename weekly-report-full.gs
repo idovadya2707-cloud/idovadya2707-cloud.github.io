@@ -102,6 +102,17 @@ function rows_(r) {
   return out;
 }
 
+// Escape untrusted values (lead name/phone/email come from the public form)
+// before interpolating them into the email's HTML body.
+function esc_(v) {
+  return String(v == null ? '' : v)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 function buildHtml_(leads, ga) {
   const tz = Session.getScriptTimeZone();
   const S = 'font-family:Arial,sans-serif;direction:rtl;text-align:right';
@@ -113,7 +124,7 @@ function buildHtml_(leads, ga) {
   if (leads.count) {
     h += '<ul>';
     leads.list.forEach(function (l) {
-      h += '<li>' + Utilities.formatDate(l.date, tz, 'dd/MM') + ' — ' + l.name + ' | ' + l.phone + ' | ' + l.email + '</li>';
+      h += '<li>' + Utilities.formatDate(l.date, tz, 'dd/MM') + ' — ' + esc_(l.name) + ' | ' + esc_(l.phone) + ' | ' + esc_(l.email) + '</li>';
     });
     h += '</ul>';
   }

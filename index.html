@@ -1320,6 +1320,8 @@ button { font-family: inherit; }
   .form-consent input:focus-visible { outline: none; box-shadow: var(--focus-ring); }
   .form-consent span { font-size: var(--text-xs); line-height: 1.5; color: var(--ink-600); }
   .form-consent-note { font-size: var(--text-xs); line-height: 1.5; color: var(--text-muted); margin: calc(var(--space-5) * -1 + var(--space-1)) 0 var(--space-5); padding-inline-start: calc(18px + var(--space-3)); }
+  /* Honeypot field — off-screen (not display:none, so bots still fill it) */
+  .hp-field { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
   .form-success {
     display: none; flex-direction: column; align-items: center; text-align: center; gap: var(--space-3);
     padding: var(--space-8) var(--space-4);
@@ -2021,6 +2023,11 @@ button { font-family: inherit; }
               <input class="cm-input" id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="050-0000000" data-en-ph="050-0000000" required aria-describedby="err-phone" />
               <p class="field-error" id="err-phone" data-en="Please enter a valid phone number.">נא להזין מספר טלפון תקין.</p>
             </div>
+            <!-- Honeypot: hidden from real users; bots that autofill it are rejected. Not a real field. -->
+            <div class="hp-field" aria-hidden="true">
+              <label for="f-company">Company</label>
+              <input type="text" id="f-company" name="company" tabindex="-1" autocomplete="off" />
+            </div>
             <label class="form-consent" for="f-consent">
               <input type="checkbox" id="f-consent" name="consent" />
               <span data-en="I agree to receive marketing content and updates from CoachMind.">אני מאשר/ת לקבל תכנים שיווקיים ועדכונים מטעם CoachMind.</span>
@@ -2380,6 +2387,16 @@ button { font-family: inherit; }
         });
         if (firstInvalid) { firstInvalid.focus(); return; }
 
+        // ---- honeypot: real users never fill #f-company. If filled, it's a bot:
+        //      show success but don't submit or track. ----
+        var hpEl = document.getElementById('f-company');
+        var hp = hpEl ? hpEl.value.trim() : '';
+        if (hp !== '') {
+          form.style.display = 'none';
+          success.style.display = 'flex';
+          return;
+        }
+
         // ---- real submission → Google Apps Script (idovadya.com lead sheet) ----
         var ENDPOINT = 'https://script.google.com/macros/s/AKfycby6pE7aaHBwj5WZlPOtcZTGBHUAW6TDrf6tb5LAYw2WAquCRoXGv-ssT2AQ9DosgK9B5w/exec';
         var consentEl = document.getElementById('f-consent');
@@ -2387,6 +2404,7 @@ button { font-family: inherit; }
         data.append('name', document.getElementById('f-name').value.trim());
         data.append('phone', document.getElementById('f-phone').value.trim());
         data.append('email', document.getElementById('f-email').value.trim());
+        data.append('company', hp);
         data.append('message', 'שיווקי: ' + (consentEl && consentEl.checked ? 'כן' : 'לא'));
         try {
           fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body: data, keepalive: true }).catch(function () {});

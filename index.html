@@ -813,9 +813,10 @@ button { font-family: inherit; }
     max-width: 30em;
     margin-top: var(--space-5);
   }
-  /* keep the second sentence unbroken on one line (desktop); allow wrapping on small screens */
+  /* keep the second sentence unbroken on one line; allow wrapping only on phones
+     (below ~480px it would be clipped by the page's overflow-x:hidden) */
   .hero__sub-line { white-space: nowrap; }
-  @media (max-width: 640px) { .hero__sub-line { white-space: normal; } }
+  @media (max-width: 480px) { .hero__sub-line { white-space: normal; } }
   .hero__chips {
     list-style: none; margin: var(--space-6) 0 0; padding: 0;
     display: flex; flex-wrap: wrap; gap: var(--space-2);

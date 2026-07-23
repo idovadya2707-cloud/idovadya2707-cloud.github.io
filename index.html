@@ -813,6 +813,9 @@ button { font-family: inherit; }
     max-width: 30em;
     margin-top: var(--space-5);
   }
+  /* keep the second sentence unbroken on one line (desktop); allow wrapping on small screens */
+  .hero__sub-line { white-space: nowrap; }
+  @media (max-width: 640px) { .hero__sub-line { white-space: normal; } }
   .hero__chips {
     list-style: none; margin: var(--space-6) 0 0; padding: 0;
     display: flex; flex-wrap: wrap; gap: var(--space-2);
@@ -1647,7 +1650,7 @@ button { font-family: inherit; }
         <div class="hero__text">
           <span class="eyebrow" data-en="A new world of personal growth">עולם חדש של התפתחות אישית</span>
           <h1 data-en="Personal coaching <span class=&quot;accent&quot;>in your pocket</span>">אימון אישי <span class="accent">בכף היד</span></h1>
-          <p class="hero__sub" data-en="An AI-based mental coach, developed with senior coaches. Available 24/7, learns you, and leads you from insight to action.">מאמן מנטלי מבוסס AI, שפותח עם מאמנים בכירים. זמין 24/7, לומד אותך, ומוביל אותך מתובנה לפעולה.</p>
+          <p class="hero__sub" data-en="An AI-based mental coach, developed with senior coaches. <span class=&quot;hero__sub-line&quot;>Available 24/7, learns you, and leads you from insight to action.</span>">מאמן מנטלי מבוסס AI, שפותח עם מאמנים בכירים. <span class="hero__sub-line">זמין 24/7, לומד אותך, ומוביל אותך מתובנה לפעולה.</span></p>
           <p class="hero__offer">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
             <span data-en="Free trial week · No credit card">שבוע ניסיון חינם · בלי כרטיס אשראי</span>

@@ -453,7 +453,7 @@ button { font-family: inherit; }
 .cm-btn--navy:hover:not(:disabled) { background: var(--navy-800); }
 
 .cm-btn--gradient { background: var(--brand-gradient); color: var(--text-on-brand); box-shadow: var(--shadow-sm); }
-.cm-btn--gradient:hover:not(:disabled) { box-shadow: var(--shadow-brand); }
+.cm-btn--gradient:hover:not(:disabled) { color: var(--text-on-brand); box-shadow: var(--shadow-brand); filter: brightness(0.94); }
 
 .cm-btn--secondary {
   background: var(--surface-card);
@@ -820,8 +820,10 @@ button { font-family: inherit; }
   /* trust line above the offer pill (credibility signal near the CTA, quiet — no filled pill) */
   .hero__trust {
     display: inline-flex; align-items: center; gap: var(--space-2);
-    font-size: var(--text-sm); font-weight: var(--weight-semibold);
-    color: var(--royal-700); margin-top: var(--space-5); width: fit-content;
+    margin-top: var(--space-5); padding: 8px 14px; border-radius: var(--radius-pill);
+    background: var(--royal-50); border: 1px solid var(--royal-100);
+    color: var(--royal-700); font-size: var(--text-sm); font-weight: var(--weight-semibold);
+    line-height: 1; white-space: nowrap; width: fit-content;
   }
   .hero__trust svg {
     width: 16px; height: 16px; flex: none;
@@ -1356,7 +1358,7 @@ button { font-family: inherit; }
   .share-block__actions .cm-btn { gap: var(--space-2); }
   .share-block__actions .cm-btn svg { width: 18px; height: 18px; }
   .cm-btn--wa { background: #25d366; color: #fff; border-color: transparent; }
-  .cm-btn--wa:hover:not(:disabled) { background: #1ebe5a; box-shadow: var(--shadow-sm); }
+  .cm-btn--wa:hover:not(:disabled) { color: #fff; background: #1ebe5a; box-shadow: var(--shadow-sm); }
   .cm-btn.is-copied { background: var(--success-50); color: var(--success-600); border-color: var(--success-500); }
 
   /* ============================ Footer ============================ */

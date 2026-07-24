@@ -11,19 +11,19 @@
 
 ## 0. Locked Brand Constraints (DO NOT OVERRIDE)
 
-These are non‑negotiable. Any generated palette, font, or effect that conflicts with the rules below is wrong and must be discarded.
+These are non‑negotiable. Any generated palette, font, or effect that conflicts with the rules below is wrong and must be discarded. **Brand hexes are sampled directly from the CoachMind logo.**
 
 | # | Constraint | Rule |
 |---|------------|------|
-| 1 | **Primary color** | Navy `#1a237e` |
-| 2 | **Secondary color** | Royal blue `#1565c0` and bright royal `#2962ff` |
+| 1 | **Primary color** | Navy `#023A8F` (logo gradient start) |
+| 2 | **Secondary color** | Royal blue — mid `#0147B0` and bright `#0056D7` (logo gradient end) |
 | 3 | **Heading type** | Bold, heavy sans‑serif (weight 700–900) |
 | 4 | **Body type** | Clean, minimal sans‑serif (weight 400–500) |
 | 5 | **Aesthetic** | Clean, professional, minimal, ChatGPT‑style chat UI |
 | 6 | **Forbidden** | No playful styles. No AI purple/violet. No pink. No purple↔pink gradients. No neon. No emoji as icons. |
 | 7 | **Direction** | Must support RTL (Hebrew). RTL is the primary layout; LTR is the mirror. |
 
-**Banned hues (reject on sight):** violet/purple (`#8B5CF6`, `#7C3AED`, indigo‑as‑accent), magenta/pink (`#EC4899`, `#DB2777`), and any purple→pink AI gradient. Blue‑violet is only acceptable as the deep navy primary `#1a237e` itself — never as a glowing accent.
+**Banned hues (reject on sight):** violet/purple (`#8B5CF6`, `#7C3AED`, indigo‑as‑accent), magenta/pink (`#EC4899`, `#DB2777`), and any purple→pink AI gradient. The brand blues are **pure blue** (no violet cast) — the navy `#023A8F` is a deep pure blue, never a purple.
 
 ---
 
@@ -33,24 +33,24 @@ Three‑layer model: **primitives** (raw scales) → **semantic tokens** (roles)
 
 ### 1.1 Primitive palette
 
-**Navy (primary ramp — anchored on the locked `#1a237e`)**
+**Navy (primary ramp — anchored on the logo‑sampled `#023A8F`)**
 ```css
---navy-900: #0d1140;  /* darkest — deep surfaces, footer */
---navy-800: #131a5c;
---navy-700: #1a237e;  /* ★ PRIMARY — brand anchor, dark surfaces, headings-on-light option */
---navy-600: #232c8f;
---navy-500: #2e39a8;  /* hover on navy surfaces */
+--navy-900: #01143c;  /* darkest — deep surfaces, footer */
+--navy-800: #012864;
+--navy-700: #023A8F;  /* ★ PRIMARY — brand anchor, gradient START, dark surfaces */
+--navy-600: #0a47a0;  /* hover on navy surfaces */
+--navy-500: #1e5ab8;
 ```
 
-**Royal blue (secondary ramp — anchored on locked `#1565c0` and `#2962ff`)**
+**Royal blue (secondary ramp — anchored on logo‑sampled mid `#0147B0` and bright `#0056D7`)**
 ```css
---royal-800: #0d47a1;  /* pressed / active */
---royal-700: #1565c0;  /* ★ SECONDARY — primary CTA fill, links (5.8:1 on white) */
---royal-600: #1976d2;
---royal-500: #2962ff;  /* ★ BRIGHT ROYAL — focus, active accents, selected states */
---royal-400: #5b8def;
---royal-300: #90b4f4;  /* borders on brand, disabled-on-brand */
---royal-200: #bcd3fc;  /* focus ring halo */
+--royal-800: #013a94;  /* pressed / active */
+--royal-700: #0147B0;  /* ★ SECONDARY (mid) — primary CTA fill, links (8.3:1 on white) */
+--royal-600: #0150c6;
+--royal-500: #0056D7;  /* ★ BRIGHT ROYAL — gradient END, focus, active/selected accents */
+--royal-400: #3e7ce6;
+--royal-300: #7ba5ee;  /* borders on brand, disabled-on-brand */
+--royal-200: #b4cdf7;  /* focus ring halo */
 --royal-100: #dbe7fb;
 --royal-50:  #eef4fe;  /* selected chat bubble tint, subtle brand fill */
 ```
@@ -83,10 +83,10 @@ Three‑layer model: **primitives** (raw scales) → **semantic tokens** (roles)
 ```css
 :root {
   /* Brand */
-  --color-primary:        var(--navy-700);   /* #1a237e */
+  --color-primary:        var(--navy-700);   /* #023A8F */
   --color-primary-hover:  var(--navy-600);
-  --color-secondary:      var(--royal-700);  /* #1565c0 */
-  --color-accent:         var(--royal-500);  /* #2962ff — focus/active only */
+  --color-secondary:      var(--royal-700);  /* #0147B0 */
+  --color-accent:         var(--royal-500);  /* #0056D7 — focus/active/selected */
   --color-on-primary:     #ffffff;
   --color-on-secondary:   #ffffff;
 
@@ -97,7 +97,7 @@ Three‑layer model: **primitives** (raw scales) → **semantic tokens** (roles)
   --text-muted:       var(--ink-400);
   --text-placeholder: var(--ink-300);
   --text-on-brand:    #ffffff;
-  --text-link:        var(--royal-700);      /* #1565c0, 5.8:1 on white */
+  --text-link:        var(--royal-700);      /* #0147B0, 8.3:1 on white */
 
   /* Surfaces */
   --surface-canvas:  var(--canvas);
@@ -112,7 +112,7 @@ Three‑layer model: **primitives** (raw scales) → **semantic tokens** (roles)
   --border-strong:  var(--ink-300);
   --border-brand:   var(--royal-300);
   --focus-ring:     0 0 0 3px var(--royal-200);
-  --focus-ring-strong: 0 0 0 3px rgba(41, 98, 255, 0.35);  /* #2962ff */
+  --focus-ring-strong: 0 0 0 3px rgba(0, 86, 215, 0.35);  /* #0056D7 */
 
   /* Status */
   --status-info:    var(--royal-500);
@@ -124,25 +124,28 @@ Three‑layer model: **primitives** (raw scales) → **semantic tokens** (roles)
 
 ### 1.3 Gradient policy
 
-One brand gradient only — a **navy→royal blue** sweep. Never purple, never pink, never multi‑hue.
+One brand gradient only — a **navy→royal blue** sweep, taken from the logo (start `#023A8F` → end `#0056D7`). Never purple, never pink, never multi‑hue.
 ```css
---brand-gradient:        linear-gradient(100deg, #1a237e 0%, #1565c0 55%, #2962ff 100%);
+--brand-gradient:        linear-gradient(90deg, #023A8F, #0056D7);   /* logo sweep: navy → royal */
 --brand-gradient-soft:   linear-gradient(120deg, #f4f6fb 0%, #eef4fe 100%);  /* subtle section fill */
 ```
+Optional mid‑stop when a 3‑stop ramp is needed: `linear-gradient(90deg, #023A8F 0%, #0147B0 50%, #0056D7 100%)`.
 Use gradients sparingly (hero band, one hero CTA at most). Flat fills are the default for a ChatGPT‑clean feel.
 
 ### 1.4 Contrast verification (WCAG)
 
+Recomputed for the logo‑sampled brand values.
+
 | Foreground | Background | Ratio | Verdict |
 |------------|------------|------:|---------|
-| `#ffffff` on `--navy-700` `#1a237e`  | primary surface | ~13.9:1 | AAA |
-| `#ffffff` on `--royal-700` `#1565c0` | CTA fill        | ~5.8:1  | AA (normal), AAA (large) |
-| `#ffffff` on `--royal-500` `#2962ff` | accent fill     | ~4.9:1  | AA (normal) |
-| `--text-body` `#2b3350` on `#ffffff` | body text       | ~11.6:1 | AAA |
-| `--text-secondary` `#5a6480` on `#ffffff` | secondary  | ~5.9:1  | AA |
-| `--text-link` `#1565c0` on `#ffffff` | links           | ~5.8:1  | AA |
+| `#ffffff` on `--navy-700` `#023A8F`  | primary surface | 10.48:1 | AAA |
+| `#ffffff` on `--royal-700` `#0147B0` | CTA fill        | 8.30:1  | AAA |
+| `#ffffff` on `--royal-500` `#0056D7` | accent fill     | 6.34:1  | AA (normal), AAA (large) |
+| `--text-body` `#2b3350` on `#ffffff` | body text       | 12.41:1 | AAA |
+| `--text-secondary` `#5a6480` on `#ffffff` | secondary  | 5.88:1  | AA |
+| `--text-link` `#0147B0` on `#ffffff` | links           | 8.30:1  | AAA |
 
-Rule: body text ≥ 4.5:1, large/UI glyphs ≥ 3:1. `#2962ff` is for accents/focus/large elements — do not use it for long body copy on white.
+Rule: body text ≥ 4.5:1, large/UI glyphs ≥ 3:1. `#0056D7` clears AA for normal text (6.34:1) but is reserved by **role** for accents/focus/selected/large elements — keep long body copy on `--text-body`.
 
 ---
 
@@ -245,7 +248,7 @@ Micro‑interactions 120–200ms; nothing over 320ms. Animate `transform`/`opaci
 - Generous whitespace; content‑first; let the conversation breathe.
 - Flat surfaces, thin `--border-default` hairlines, subtle shadows for elevation.
 - Neutral cool‑gray canvas (`--canvas`) with white message/card surfaces.
-- Navy for trust/structure; royal blue for action; bright royal `#2962ff` only for focus/active/selected.
+- Navy for trust/structure; royal blue for action; bright royal `#0056D7` only for focus/active/selected.
 - SVG icons only (single family, e.g. Lucide/Heroicons), 1.5–2px stroke, consistent sizing tokens.
 
 **Don't (anti‑patterns)**
@@ -293,7 +296,7 @@ A ChatGPT‑style two‑role conversation. RTL‑first.
 
 **Button — primary (CTA)**
 ```
-bg: var(--color-secondary) #1565c0 · text: #fff · weight 500 · radius: --radius-md
+bg: var(--color-secondary) #0147B0 · text: #fff · weight 500 · radius: --radius-md
 padding: 12px 20px · min-height 44px · hover: var(--royal-800) · focus: var(--focus-ring)
 active: transform: scale(.98) · disabled: opacity .5; cursor not-allowed
 ```
@@ -337,7 +340,7 @@ RTL is the **primary** layout, not an afterthought. The document root is `<html 
 
 ## 8. Accessibility Checklist (pre‑delivery)
 
-- [ ] Body text ≥ 4.5:1, UI glyphs/large text ≥ 3:1 (see §1.4). `#2962ff` not used for body copy.
+- [ ] Body text ≥ 4.5:1, UI glyphs/large text ≥ 3:1 (see §1.4). `#0056D7` reserved for accents/focus, not long body copy.
 - [ ] Visible focus ring (`--focus-ring`) on every interactive element; never removed.
 - [ ] Touch targets ≥ 44×44px with ≥ 8px spacing.
 - [ ] Inputs have visible labels; errors appear below the field with `role="alert"`/`aria-live`.

@@ -173,19 +173,24 @@ Three official logo lockups. Pick by **background**, then by whether the **sloga
 
 | File | Background | Contents | Use when |
 |------|-----------|----------|----------|
-| `CoachMind_logo____SLOGAN.png` | **Light** (white/near‑white) | Wordmark + slogan | Default. Headers, hero, footer, email, social share on light surfaces. |
-| `CoachMind_DARKMODE_logo___slogan.png` | **Dark** (navy/near‑black) | Wordmark + slogan | Full lockup on a dark surface (dark hero band, dark footer, dark‑theme header). |
-| `CoachMind_DARKMODE_logo.png` | **Dark** | Wordmark only (no slogan) | Compact placements on dark where the slogan won't fit or would clutter (nav bar, app chrome, favicons/avatars). |
+| `assets/brand/coachmind-logo-slogan-light.png` | **Light** (white/near‑white) | Wordmark + slogan | Default. Headers, hero, footer, email, social share on light surfaces. |
+| `assets/brand/coachmind-logo-slogan-dark.png` | **Dark** (navy/near‑black) | Wordmark + slogan | Full lockup on a dark surface (dark hero band, dark footer, dark‑theme header). |
+| `assets/brand/coachmind-logo-dark.png` | **Dark** | Wordmark only (no slogan) | Compact placements on dark where the slogan won't fit or would clutter (nav bar, app chrome). |
+
+**App icons** (the "C" mark — a single royal‑blue **C** on white, canonical royal `#0153D0`):
+
+| File | Contents | Use for |
+|------|----------|---------|
+| `favicon-32.png` | "C" mark, `#0153D0` on white | Browser tab / 32px favicon |
+| `apple-touch-icon.png` | "C" mark, `#0153D0` on white | iOS/Android home‑screen icon (180px) |
+| `favicon.ico` | "C" mark, `#0153D0` on white | Legacy `.ico` favicon |
 
 Rules:
 - **Match the file to the surface:** light logo on light, dark logo on dark. Do not place the light lockup on a dark band or vice‑versa.
 - **The wordmark is always LTR — even inside an RTL (Hebrew) layout.** "CoachMind" is a Latin brand name and its letter order and left‑to‑right gradient direction never flip. Wrap it in `dir="ltr"` (or render it as an image) so bidi reordering can't affect it. See §7 for how this differs from *decorative* brand gradients.
 - Preserve clear space and minimum size per the brand's logo guidelines; embed as SVG or 2× raster for crisp rendering.
 - Keep the wordmark's own navy→royal gradient fixed (it's baked into the asset); do not substitute a CSS gradient for the logo itself.
-
-> **Repo note:** these three PNGs are **not yet committed** to this repository. Add them (e.g. under `assets/brand/`) so pages can reference the official files instead of ad‑hoc icons.
->
-> **TODO — off‑brand icons:** `favicon-32.png` and `apple-touch-icon.png` currently use `#1f2c5e`, which is **not** a brand navy. Regenerate both with the canonical primary navy **`#04285E`** so the favicon/app icon match the wordmark.
+- The **app‑icon "C" mark is on‑brand:** the previous off‑brand `#1f2c5e` navy `ע` monogram has been replaced — `favicon-32.png`, `apple-touch-icon.png`, and `favicon.ico` now show the CoachMind "C" in canonical royal `#0153D0` on white.
 
 ---
 

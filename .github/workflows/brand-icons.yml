@@ -1,0 +1,37 @@
+name: Brand icon guard
+
+# Fails the build if an app icon reverts to the old off-brand navy "ע"
+# monogram (#1f2c5e) instead of the canonical CoachMind "C" mark (royal
+# #0153D0). This is the exact regression PR #44 introduced; the check runs
+# on every push and pull request so it can't slip in again.
+
+on:
+  push:
+    paths:
+      - "favicon-32.png"
+      - "favicon-96.png"
+      - "favicon-192.png"
+      - "apple-touch-icon.png"
+      - "favicon.ico"
+      - "scripts/check-brand-icons.py"
+      - ".github/workflows/brand-icons.yml"
+  pull_request:
+    paths:
+      - "favicon-32.png"
+      - "favicon-96.png"
+      - "favicon-192.png"
+      - "apple-touch-icon.png"
+      - "favicon.ico"
+      - "scripts/check-brand-icons.py"
+      - ".github/workflows/brand-icons.yml"
+
+jobs:
+  check-icons:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Verify brand icons use the royal C mark
+        run: python3 scripts/check-brand-icons.py

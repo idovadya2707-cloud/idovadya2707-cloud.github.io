@@ -4,6 +4,22 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Clickjacking protection. GitHub Pages can't send X-Frame-Options /
+     CSP frame-ancestors headers, and both are ignored in a <meta> tag,
+     so we break out of any framing at runtime. Does nothing when the page
+     is loaded normally (not inside a frame). -->
+<script>
+  (function () {
+    if (window.self === window.top) return;        // not framed → no-op
+    try {
+      window.top.location = window.self.location;   // escape the frame
+    } catch (e) {
+      // Cross-origin parent blocks the redirect → hide our content so it
+      // can't be used as a clickjacking overlay.
+      document.documentElement.style.visibility = 'hidden';
+    }
+  })();
+</script>
 <!-- Consent Mode v2 + gated analytics (no tracking cookies until the user opts in) -->
 <script>
   window.dataLayer = window.dataLayer || [];

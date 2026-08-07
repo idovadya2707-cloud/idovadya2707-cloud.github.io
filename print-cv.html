@@ -14,7 +14,7 @@
   body{
     color:var(--ink);
     font-family:"Heebo","DejaVu Sans","FreeSans",system-ui,sans-serif;
-    line-height:1.55; font-size:15px; -webkit-font-smoothing:antialiased;
+    line-height:1.7; font-size:16.5px; -webkit-font-smoothing:antialiased;
   }
   a{ color:var(--slate); text-decoration:none; }
 
@@ -26,53 +26,58 @@
   .sheet:last-child{ page-break-after:auto; }
 
   /* ---------- CV sheet ---------- */
-  .cv{ padding:14mm 15mm; }
+  .cv{ padding:16mm 15mm 14mm; display:flex; flex-direction:column; }
   .top{
-    display:flex; align-items:center; gap:22px;
-    padding-bottom:18px; border-bottom:2px solid var(--line); margin-bottom:20px;
+    display:flex; align-items:center; gap:24px;
+    padding-bottom:22px; border-bottom:2px solid var(--line); margin-bottom:30px;
   }
   .top img{
-    width:92px; height:92px; border-radius:4px; object-fit:cover;
+    width:104px; height:104px; border-radius:4px; object-fit:cover;
     object-position:center top; border:1px solid var(--border); flex:none;
   }
-  .top h1{ margin:0 0 4px; font-size:30px; font-weight:800; letter-spacing:-.3px; color:var(--navy); }
-  .top .title{ margin:0; color:var(--slate); font-weight:600; font-size:15px; }
-  .contacts{ display:flex; flex-wrap:wrap; gap:4px 18px; margin-top:11px; font-size:13px; color:var(--ink-soft); }
+  .top h1{ margin:0 0 5px; font-size:34px; font-weight:800; letter-spacing:-.3px; color:var(--navy); }
+  .top .title{ margin:0; color:var(--slate); font-weight:600; font-size:16.5px; }
+  .contacts{ display:flex; flex-wrap:wrap; gap:5px 20px; margin-top:13px; font-size:14px; color:var(--ink-soft); }
   .contacts span{ display:inline-flex; align-items:center; gap:5px; }
 
-  section{ margin:0 0 20px; }
+  .cv-body{ flex:1 1 auto; display:flex; flex-direction:column; }
+  section{ margin:0 0 30px; }
   h2{
-    font-size:12px; font-weight:800; letter-spacing:1.4px; color:var(--navy);
-    text-transform:uppercase; margin:0 0 11px; padding-bottom:6px; border-bottom:1px solid var(--border);
+    font-size:13px; font-weight:800; letter-spacing:1.5px; color:var(--navy);
+    text-transform:uppercase; margin:0 0 15px; padding-bottom:7px; border-bottom:1px solid var(--border);
   }
-  .summary{ color:var(--ink-soft); margin:0; font-size:15px; }
+  .summary{ color:var(--ink-soft); margin:0; font-size:16.5px; }
   .summary strong{ color:var(--ink); font-weight:700; }
 
-  .exp{ position:relative; padding-inline-start:20px; margin:0 0 15px; }
+  .exp{ position:relative; padding-inline-start:22px; margin:0 0 22px; }
   .exp:last-child{ margin:0; }
-  .exp::before{ content:""; position:absolute; inset-inline-start:0; top:7px; bottom:-15px; width:1px; background:var(--border); }
+  .exp::before{ content:""; position:absolute; inset-inline-start:0; top:9px; bottom:-22px; width:1px; background:var(--border); }
   .exp:last-child::before{ bottom:8px; }
-  .exp::after{ content:""; position:absolute; inset-inline-start:-3px; top:6px; width:7px; height:7px; border-radius:50%; background:var(--navy); }
+  .exp::after{ content:""; position:absolute; inset-inline-start:-3px; top:8px; width:7px; height:7px; border-radius:50%; background:var(--navy); }
   .exp-head{ display:flex; flex-wrap:wrap; align-items:baseline; gap:3px 10px; }
-  .exp-role{ font-weight:800; font-size:15.5px; color:var(--ink); }
-  .exp-org{ color:var(--slate); font-weight:600; font-size:14px; }
-  .exp-date{ margin-inline-start:auto; font-size:12px; color:var(--muted); font-weight:600; white-space:nowrap; }
-  .exp ul{ margin:5px 0 0; padding-inline-start:18px; color:var(--ink-soft); }
-  .exp li{ margin:0 0 3px; }
+  .exp-role{ font-weight:800; font-size:17px; color:var(--ink); }
+  .exp-org{ color:var(--slate); font-weight:600; font-size:15px; }
+  .exp-date{ margin-inline-start:auto; font-size:13px; color:var(--muted); font-weight:600; white-space:nowrap; }
+  .exp ul{ margin:7px 0 0; padding-inline-start:18px; color:var(--ink-soft); }
+  .exp li{ margin:0 0 5px; }
   .exp strong{ color:var(--ink); font-weight:700; }
 
-  .cols{ display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start; }
-  .col-certs section{ margin:0 0 18px; }
-  .col-certs section:last-child{ margin:0; }
-  .cert{ display:flex; gap:12px; align-items:center; margin:0 0 12px; }
-  .cert img{
-    width:50px; height:50px; border-radius:4px; object-fit:cover; object-position:center top;
-    border:1px solid var(--border); flex:none; background:#f3f5fb;
+  .chips{ display:flex; flex-wrap:wrap; gap:9px; }
+  .chip{ background:transparent; border:1px solid var(--slate); color:var(--navy); padding:6px 16px; border-radius:3px; font-weight:600; font-size:14.5px; }
+
+  /* scroll-to-certificates hint (bottom of page 1) */
+  .scroll-hint{
+    margin-top:auto; display:flex; align-items:center; justify-content:center; gap:14px;
+    background:#f2f5fb; border:1px solid var(--border); border-radius:8px;
+    padding:20px 26px; text-align:center;
   }
-  .cert b{ display:block; font-size:14px; color:var(--ink); line-height:1.35; font-weight:700; }
-  .cert small{ color:var(--muted); font-size:12px; }
-  .chips{ display:flex; flex-wrap:wrap; gap:7px; }
-  .chip{ background:transparent; border:1px solid var(--slate); color:var(--navy); padding:4px 13px; border-radius:3px; font-weight:600; font-size:13px; }
+  .scroll-hint .txt{ font-size:16px; font-weight:700; color:var(--navy); }
+  .scroll-hint .txt small{ display:block; font-size:13px; font-weight:600; color:var(--muted); margin-top:3px; }
+  .scroll-hint .arrow{
+    flex:none; width:38px; height:38px; border-radius:50%; background:var(--navy);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .scroll-hint .arrow svg{ width:20px; height:20px; display:block; }
 
   /* ---------- certificate sheets ---------- */
   .cert-sheet{ display:flex; flex-direction:column; padding:12mm 12mm 14mm; }
@@ -113,75 +118,53 @@
       </div>
     </header>
 
-    <section>
-      <h2>תקציר</h2>
-      <p class="summary">
-        יזם בן 24, מייסד ומנכ"ל <strong>CoachMind</strong>. עם ניסיון מוכח ב<strong>הקמת מוצר, בגיוס והובלת אנשים ובבניית חוויית משתמש</strong>.
-        לצד זה, שנים של פיקוד והובלת צוותים, מבצעים ומשימות הקנו לי <strong>יכולות ניהול חזקות ותפקוד תחת לחץ</strong>.
-        אני יודע לקחת חזון, להפוך אותו למוצר, ולהוביל את האנשים שמביאים אותו לשם.
-      </p>
-    </section>
+    <div class="cv-body">
+      <section>
+        <h2>תקציר</h2>
+        <p class="summary">
+          יזם בן 25, מייסד ומנכ"ל <strong>CoachMind</strong>. עם ניסיון מוכח ב<strong>הקמת מוצר, בגיוס והובלת אנשים ובבניית חוויית משתמש</strong>.
+          לצד זה, שנים של פיקוד והובלת צוותים, מבצעים ומשימות הקנו לי <strong>יכולות ניהול חזקות ותפקוד תחת לחץ</strong>.
+          אני יודע לקחת חזון, להפוך אותו למוצר, ולהוביל את האנשים שמביאים אותו לשם.
+        </p>
+      </section>
 
-    <section>
-      <h2>ניסיון</h2>
-      <div class="exp">
-        <div class="exp-head">
-          <span class="exp-role">מייסד ומנכ"ל</span>
-          <span class="exp-org">CoachMind</span>
-          <span class="exp-date">2025 – היום</span>
+      <section>
+        <h2>ניסיון</h2>
+        <div class="exp">
+          <div class="exp-head">
+            <span class="exp-role">מייסד ומנכ"ל</span>
+            <span class="exp-org">CoachMind</span>
+            <span class="exp-date">2025 – היום</span>
+          </div>
+          <ul>
+            <li>הקמת סטארט-אפ המנגיש אימון אישי 24/7, בעשירית מהעלות ובהתאמה אישית גבוהה.</li>
+            <li>אחריות על חזון, מוצר, גיוס והובלת צוות הפיתוח (כולל CTO); המערכת בפיתוח פעיל.</li>
+          </ul>
         </div>
-        <ul>
-          <li>הקמת סטארט-אפ המנגיש אימון אישי 24/7, בעשירית מהעלות ובהתאמה אישית גבוהה.</li>
-          <li>אחריות על חזון, מוצר, גיוס והובלת צוות הפיתוח (כולל CTO); המערכת בפיתוח פעיל.</li>
-        </ul>
-      </div>
-      <div class="exp">
-        <div class="exp-head">
-          <span class="exp-role">מאמן מנטלי ו-NLP</span>
-          <span class="exp-date">2024 – 2026</span>
+        <div class="exp">
+          <div class="exp-head">
+            <span class="exp-role">מאמן מנטלי ו-NLP</span>
+            <span class="exp-date">2024 – 2026</span>
+          </div>
+          <ul>
+            <li>ליווי אישי וסדנאות ל<strong>מעל 100 אנשים</strong> — פרטיים ובעלי עסקים.</li>
+            <li>הקמת אפליקציית "חיילים ביחד" — פלטפורמה חברתית לחיילים בודדים, שהתחברה עם עמותת "מצמיחים".</li>
+            <li>הנחיית הפודקאסט "לחיות את הפוטנציאל שלך".</li>
+          </ul>
         </div>
-        <ul>
-          <li>ליווי אישי וסדנאות ל<strong>מעל 100 אנשים</strong> — פרטיים ובעלי עסקים.</li>
-          <li>הקמת אפליקציית "חיילים ביחד" — פלטפורמה חברתית לחיילים בודדים, שהתחברה עם עמותת "מצמיחים".</li>
-          <li>הנחיית הפודקאסט "לחיות את הפוטנציאל שלך".</li>
-        </ul>
-      </div>
-      <div class="exp">
-        <div class="exp-head">
-          <span class="exp-role">עבר צבאי</span>
-          <span class="exp-org">יחידת מטיל"ן איו"ש</span>
-          <span class="exp-date">2019 – 2024</span>
+        <div class="exp">
+          <div class="exp-head">
+            <span class="exp-role">עבר צבאי</span>
+            <span class="exp-org">יחידת מטיל"ן איו"ש</span>
+            <span class="exp-date">2019 – 2024</span>
+          </div>
+          <ul>
+            <li>4 שנות פיקוד, הדרכה והכשרה על <strong>מעל 200 לוחמים</strong>.</li>
+            <li>סיום שירות עם <strong>מספר תעודות הצטיינות והערכה</strong>.</li>
+          </ul>
         </div>
-        <ul>
-          <li>4 שנות פיקוד, הדרכה והכשרה על <strong>מעל 200 לוחמים</strong>.</li>
-          <li>סיום שירות עם <strong>מספר תעודות הצטיינות והערכה</strong>.</li>
-        </ul>
-      </div>
-    </section>
+      </section>
 
-    <div class="cols">
-      <div class="col-certs">
-        <section>
-          <h2>הסמכות מקצועיות</h2>
-          <div class="cert">
-            <img src="cert-coaching.jpg" alt="הסמכות מקצועיות">
-            <div>
-              <b>הכשרת מאמנים אישיים ואומנות הבמה</b>
-              <small>2 הסמכות — מצורפות בעמודים הבאים ›</small>
-            </div>
-          </div>
-        </section>
-        <section>
-          <h2>תעודות מהשירות הצבאי</h2>
-          <div class="cert">
-            <img src="mil-1.jpg" alt="תעודות מהשירות הצבאי">
-            <div>
-              <b>תעודות הצטיינות, הוקרה וסיום</b>
-              <small>6 תעודות — מצורפות בעמודים הבאים ›</small>
-            </div>
-          </div>
-        </section>
-      </div>
       <section>
         <h2>חוזקות</h2>
         <div class="chips">
@@ -190,6 +173,17 @@
           <span class="chip">תקשורת בין-אישית גבוהה</span>
         </div>
       </section>
+
+      <!-- scroll hint -->
+      <div class="scroll-hint">
+        <span class="arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+        </span>
+        <span class="txt">
+          גללו מטה לצפייה בהסמכות ובתעודות
+          <small>2 הסמכות מקצועיות · 6 תעודות הצטיינות והוקרה מהשירות הצבאי</small>
+        </span>
+      </div>
     </div>
   </div>
 

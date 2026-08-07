@@ -28,8 +28,7 @@
   /* ---------- CV sheet ---------- */
   .cv{ padding:16mm 15mm 14mm; display:flex; flex-direction:column; }
   .top{
-    display:flex; align-items:center; gap:24px;
-    padding-bottom:22px; border-bottom:2px solid var(--line); margin-bottom:30px;
+    display:flex; align-items:center; gap:24px; margin-bottom:16px;
   }
   .top img{
     width:104px; height:104px; border-radius:4px; object-fit:cover;
@@ -37,7 +36,12 @@
   }
   .top h1{ margin:0 0 5px; font-size:34px; font-weight:800; letter-spacing:-.3px; color:var(--navy); }
   .top .title{ margin:0; color:var(--slate); font-weight:600; font-size:16.5px; }
-  .contacts{ display:flex; flex-wrap:wrap; gap:5px 20px; margin-top:13px; font-size:14px; color:var(--ink-soft); }
+  /* full-width single-line contact row: spans from under the photo to the left edge */
+  .contacts{
+    display:flex; flex-wrap:nowrap; align-items:center; justify-content:space-between;
+    gap:14px; font-size:14px; color:var(--ink-soft); white-space:nowrap;
+    padding-bottom:20px; border-bottom:2px solid var(--line); margin-bottom:30px;
+  }
   .contacts span{ display:inline-flex; align-items:center; gap:5px; }
 
   .cv-body{ flex:1 1 auto; display:flex; flex-direction:column; }
@@ -109,14 +113,14 @@
       <div>
         <h1>עידו עובדיה</h1>
         <p class="title">יזם · מייסד ומנכ"ל CoachMind</p>
-        <div class="contacts">
-          <span>רמת גן</span>
-          <span dir="ltr">idovadya2707@gmail.com</span>
-          <span dir="ltr">050-6380503</span>
-          <span dir="ltr">linkedin.com/in/ido-ovadya</span>
-        </div>
       </div>
     </header>
+    <div class="contacts">
+      <span>רמת גן</span>
+      <span dir="ltr">idovadya2707@gmail.com</span>
+      <span dir="ltr">050-6380503</span>
+      <span dir="ltr">linkedin.com/in/ido-ovadya</span>
+    </div>
 
     <div class="cv-body">
       <section>

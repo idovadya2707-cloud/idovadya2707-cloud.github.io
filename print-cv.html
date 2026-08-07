@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>עידו עובדיה — קורות חיים</title>
+<style>
+  @page { size: A4; margin: 0; }
+  :root{
+    --navy:#15233f; --slate:#3a4763; --ink:#16202e; --ink-soft:#48526a;
+    --card:#ffffff; --border:#d7dbe4; --line:#1c2c4d; --muted:#8a90a2;
+  }
+  *{ box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  html,body{ margin:0; padding:0; background:#ffffff; }
+  body{
+    color:var(--ink);
+    font-family:"Heebo","DejaVu Sans","FreeSans",system-ui,sans-serif;
+    line-height:1.55; font-size:15px; -webkit-font-smoothing:antialiased;
+  }
+  a{ color:var(--slate); text-decoration:none; }
+
+  /* one physical A4 sheet */
+  .sheet{
+    width:210mm; height:297mm; overflow:hidden; position:relative;
+    page-break-after:always; background:#fff;
+  }
+  .sheet:last-child{ page-break-after:auto; }
+
+  /* ---------- CV sheet ---------- */
+  .cv{ padding:14mm 15mm; }
+  .top{
+    display:flex; align-items:center; gap:22px;
+    padding-bottom:18px; border-bottom:2px solid var(--line); margin-bottom:20px;
+  }
+  .top img{
+    width:92px; height:92px; border-radius:4px; object-fit:cover;
+    object-position:center top; border:1px solid var(--border); flex:none;
+  }
+  .top h1{ margin:0 0 4px; font-size:30px; font-weight:800; letter-spacing:-.3px; color:var(--navy); }
+  .top .title{ margin:0; color:var(--slate); font-weight:600; font-size:15px; }
+  .contacts{ display:flex; flex-wrap:wrap; gap:4px 18px; margin-top:11px; font-size:13px; color:var(--ink-soft); }
+  .contacts span{ display:inline-flex; align-items:center; gap:5px; }
+
+  section{ margin:0 0 20px; }
+  h2{
+    font-size:12px; font-weight:800; letter-spacing:1.4px; color:var(--navy);
+    text-transform:uppercase; margin:0 0 11px; padding-bottom:6px; border-bottom:1px solid var(--border);
+  }
+  .summary{ color:var(--ink-soft); margin:0; font-size:15px; }
+  .summary strong{ color:var(--ink); font-weight:700; }
+
+  .exp{ position:relative; padding-inline-start:20px; margin:0 0 15px; }
+  .exp:last-child{ margin:0; }
+  .exp::before{ content:""; position:absolute; inset-inline-start:0; top:7px; bottom:-15px; width:1px; background:var(--border); }
+  .exp:last-child::before{ bottom:8px; }
+  .exp::after{ content:""; position:absolute; inset-inline-start:-3px; top:6px; width:7px; height:7px; border-radius:50%; background:var(--navy); }
+  .exp-head{ display:flex; flex-wrap:wrap; align-items:baseline; gap:3px 10px; }
+  .exp-role{ font-weight:800; font-size:15.5px; color:var(--ink); }
+  .exp-org{ color:var(--slate); font-weight:600; font-size:14px; }
+  .exp-date{ margin-inline-start:auto; font-size:12px; color:var(--muted); font-weight:600; white-space:nowrap; }
+  .exp ul{ margin:5px 0 0; padding-inline-start:18px; color:var(--ink-soft); }
+  .exp li{ margin:0 0 3px; }
+  .exp strong{ color:var(--ink); font-weight:700; }
+
+  .cols{ display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start; }
+  .col-certs section{ margin:0 0 18px; }
+  .col-certs section:last-child{ margin:0; }
+  .cert{ display:flex; gap:12px; align-items:center; margin:0 0 12px; }
+  .cert img{
+    width:50px; height:50px; border-radius:4px; object-fit:cover; object-position:center top;
+    border:1px solid var(--border); flex:none; background:#f3f5fb;
+  }
+  .cert b{ display:block; font-size:14px; color:var(--ink); line-height:1.35; font-weight:700; }
+  .cert small{ color:var(--muted); font-size:12px; }
+  .chips{ display:flex; flex-wrap:wrap; gap:7px; }
+  .chip{ background:transparent; border:1px solid var(--slate); color:var(--navy); padding:4px 13px; border-radius:3px; font-weight:600; font-size:13px; }
+
+  /* ---------- certificate sheets ---------- */
+  .cert-sheet{ display:flex; flex-direction:column; padding:12mm 12mm 14mm; }
+  .cert-cap{
+    flex:none; text-align:center; padding-bottom:9mm;
+  }
+  .cert-kicker{
+    display:inline-block; font-size:11px; font-weight:800; letter-spacing:1.6px;
+    color:#fff; background:var(--navy); padding:5px 14px; border-radius:3px; text-transform:uppercase;
+  }
+  .cert-title{ margin:11px 0 0; font-size:20px; font-weight:800; color:var(--navy); }
+  .cert-sub{ margin:5px 0 0; font-size:13px; color:var(--muted); font-weight:600; }
+  .cert-frame{
+    flex:1 1 auto; display:flex; align-items:center; justify-content:center;
+    min-height:0;
+  }
+  .cert-frame img{
+    max-width:100%; max-height:100%; object-fit:contain;
+    border:1px solid var(--border); border-radius:4px; box-shadow:0 8px 30px rgba(20,30,60,.12);
+  }
+</style>
+</head>
+<body>
+
+  <!-- ============ PAGE 1: CV ============ -->
+  <div class="sheet cv">
+    <header class="top">
+      <img src="profile-ido.jpg" alt="עידו עובדיה">
+      <div>
+        <h1>עידו עובדיה</h1>
+        <p class="title">יזם · מייסד ומנכ"ל CoachMind</p>
+        <div class="contacts">
+          <span>רמת גן</span>
+          <span dir="ltr">idovadya2707@gmail.com</span>
+          <span dir="ltr">050-6380503</span>
+          <span dir="ltr">linkedin.com/in/ido-ovadya</span>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <h2>תקציר</h2>
+      <p class="summary">
+        יזם בן 24, מייסד ומנכ"ל <strong>CoachMind</strong>. עם ניסיון מוכח ב<strong>הקמת מוצר, בגיוס והובלת אנשים ובבניית חוויית משתמש</strong>.
+        לצד זה, שנים של פיקוד והובלת צוותים, מבצעים ומשימות הקנו לי <strong>יכולות ניהול חזקות ותפקוד תחת לחץ</strong>.
+        אני יודע לקחת חזון, להפוך אותו למוצר, ולהוביל את האנשים שמביאים אותו לשם.
+      </p>
+    </section>
+
+    <section>
+      <h2>ניסיון</h2>
+      <div class="exp">
+        <div class="exp-head">
+          <span class="exp-role">מייסד ומנכ"ל</span>
+          <span class="exp-org">CoachMind</span>
+          <span class="exp-date">2025 – היום</span>
+        </div>
+        <ul>
+          <li>הקמת סטארט-אפ המנגיש אימון אישי 24/7, בעשירית מהעלות ובהתאמה אישית גבוהה.</li>
+          <li>אחריות על חזון, מוצר, גיוס והובלת צוות הפיתוח (כולל CTO); המערכת בפיתוח פעיל.</li>
+        </ul>
+      </div>
+      <div class="exp">
+        <div class="exp-head">
+          <span class="exp-role">מאמן מנטלי ו-NLP</span>
+          <span class="exp-date">2024 – 2026</span>
+        </div>
+        <ul>
+          <li>ליווי אישי וסדנאות ל<strong>מעל 100 אנשים</strong> — פרטיים ובעלי עסקים.</li>
+          <li>הקמת אפליקציית "חיילים ביחד" — פלטפורמה חברתית לחיילים בודדים, שהתחברה עם עמותת "מצמיחים".</li>
+          <li>הנחיית הפודקאסט "לחיות את הפוטנציאל שלך".</li>
+        </ul>
+      </div>
+      <div class="exp">
+        <div class="exp-head">
+          <span class="exp-role">עבר צבאי</span>
+          <span class="exp-org">יחידת מטיל"ן איו"ש</span>
+          <span class="exp-date">2019 – 2024</span>
+        </div>
+        <ul>
+          <li>4 שנות פיקוד, הדרכה והכשרה על <strong>מעל 200 לוחמים</strong>.</li>
+          <li>סיום שירות עם <strong>מספר תעודות הצטיינות והערכה</strong>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="cols">
+      <div class="col-certs">
+        <section>
+          <h2>הסמכות מקצועיות</h2>
+          <div class="cert">
+            <img src="cert-coaching.jpg" alt="הסמכות מקצועיות">
+            <div>
+              <b>הכשרת מאמנים אישיים ואומנות הבמה</b>
+              <small>2 הסמכות — מצורפות בעמודים הבאים ›</small>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>תעודות מהשירות הצבאי</h2>
+          <div class="cert">
+            <img src="mil-1.jpg" alt="תעודות מהשירות הצבאי">
+            <div>
+              <b>תעודות הצטיינות, הוקרה וסיום</b>
+              <small>6 תעודות — מצורפות בעמודים הבאים ›</small>
+            </div>
+          </div>
+        </section>
+      </div>
+      <section>
+        <h2>חוזקות</h2>
+        <div class="chips">
+          <span class="chip">ניהול ובניית תהליכים</span>
+          <span class="chip">עבודה תחת לחץ</span>
+          <span class="chip">תקשורת בין-אישית גבוהה</span>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ============ CERTIFICATE PAGES ============ -->
+
+  <div class="sheet cert-sheet">
+    <div class="cert-cap">
+      <span class="cert-kicker">הסמכה מקצועית</span>
+      <h2 class="cert-title">הכשרת מאמנים אישיים</h2>
+      <p class="cert-sub">הסמכה 1 מתוך 2</p>
+    </div>
+    <div class="cert-frame"><img src="cert-coaching.jpg" alt="הכשרת מאמנים אישיים"></div>
+  </div>
+
+  <div class="sheet cert-sheet">
+    <div class="cert-cap">
+      <span class="cert-kicker">הסמכה מקצועית</span>
+      <h2 class="cert-title">אומנות הבמה</h2>
+      <p class="cert-sub">הסמכה 2 מתוך 2</p>
+    </div>
+    <div class="cert-frame"><img src="cert-stage.jpg" alt="אומנות הבמה"></div>
+  </div>
+
+  <div class="sheet cert-sheet">
+    <div class="cert-cap">
+      <span class="cert-kicker">שירות צבאי</span>
+      <h2 class="cert-title">תעודת הצטיינות · הוקרה · סיום</h2>
+      <p class="cert-sub">תעודה 1 מתוך 6</p>
+    </div>
+    <div class="cert-frame"><img src="mil-1.jpg" alt="תעודה מהשירות הצבאי 1"></div>
+  </div>
+
+  <div class="sheet cert-sheet">
+    <div class="cert-cap">
+      <span class="cert-kicker">שירות צבאי</span>
+      <h2 class="cert-title">תעודת הצטיינות · הוקרה · סיום</h2>
+      <p class="cert-sub">תעודה 2 מתוך 6</p>
+    </div>
+    <div class="cert-frame"><img src="mil-2.jpg" alt="תעודה מהשירות הצבאי 2"></div>
+  </div>
+
+  <div class="sheet cert-sheet">
+    <div class="cert-cap">
+      <span class="cert-kicker">שירות צבאי</span>
+      <h2 class="cert-title">תעודת הצטיינות · הוקרה · סיום</h2>
+      <p class="cert-sub">תעודה 3 מתוך 6</p>
+    </div>
+    <div class="cert-frame"><img src="mil-3.jpg" alt="תעודה מהשירות הצבאי 3"></div>
+  </div>
+
+  <div class="sheet cert-sheet">
+    <div class="cert-cap">
+      <span class="cert-kicker">שירות צבאי</span>
+      <h2 class="cert-title">תעודת הצטיינות · הוקרה · סיום</h2>
+      <p class="cert-sub">תעודה 4 מתוך 6</p>
+    </div>
+    <div class="cert-frame"><img src="mil-4.jpg" alt="תעודה מהשירות הצבאי 4"></div>
+  </div>
+
+  <div class="sheet cert-sheet">
+    <div class="cert-cap">
+      <span class="cert-kicker">שירות צבאי</span>
+      <h2 class="cert-title">תעודת הצטיינות · הוקרה · סיום</h2>
+      <p class="cert-sub">תעודה 5 מתוך 6</p>
+    </div>
+    <div class="cert-frame"><img src="mil-5.jpg" alt="תעודה מהשירות הצבאי 5"></div>
+  </div>
+
+  <div class="sheet cert-sheet">
+    <div class="cert-cap">
+      <span class="cert-kicker">שירות צבאי</span>
+      <h2 class="cert-title">תעודת הצטיינות · הוקרה · סיום</h2>
+      <p class="cert-sub">תעודה 6 מתוך 6</p>
+    </div>
+    <div class="cert-frame"><img src="mil-6.jpg" alt="תעודה מהשירות הצבאי 6"></div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+---
+/**
+ * אלמנט החתימה: קו אופק דק בזהב עם חצי שמש (גרדיאנט מזהב בהיר לזהב)
+ * לפני שם המותג באנגלית.
+ */
+interface Props {
+  /** 'light' = רקע בהיר (טקסט כהה) · 'dark' = רקע כהה (טקסט קרם) */
+  tone?: 'light' | 'dark';
+  class?: string;
+}
+const { tone = 'light', class: className = '' } = Astro.props;
+const textColor = tone === 'dark' ? 'text-cream' : 'text-ink';
+---
+
+<span class:list={['inline-flex flex-col items-center gap-1.5', className]}>
+  <span class="sun-mark" aria-hidden="true"></span>
+  <span class="horizon w-28" aria-hidden="true"></span>
+  <span dir="ltr" class:list={['font-heading tracking-wide text-sm', textColor]}>
+    The Golden Hour
+  </span>
+</span>

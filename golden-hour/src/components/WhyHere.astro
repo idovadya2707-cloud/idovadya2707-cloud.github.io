@@ -1,0 +1,54 @@
+---
+// סקשן 2 — למה כאן
+const blocks = [
+  {
+    title: 'המקום כולו שלכם',
+    body: 'אירוע אחד ביום, בלי קהל אחר, בלי חלוקת חלל',
+  },
+  {
+    title: 'בר פתוח מלא',
+    body: 'בירה, יין, אלכוהול וקוקטיילים, צוות ברמנים מקצועי',
+  },
+  {
+    title: 'הפקה מוכנה',
+    body: 'הגברה, תאורה ועמדת DJ מחוברת. מספיק להביא קונטרולר',
+    dj: true,
+  },
+  {
+    title: 'בלי הפתעות',
+    body: 'מחיר לאדם שסגור מראש, חשבונית וחוזה מסודר',
+  },
+];
+---
+
+<section class="px-5 py-20 sm:py-28">
+  <div class="mx-auto max-w-5xl">
+    <h2 class="text-balance text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
+      אתם מביאים את האנשים. אנחנו דואגים לכל השאר.
+    </h2>
+    <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink/80">
+      אצלנו הכל כבר מוכן: הבר, הצוות, ההגברה, התאורה והריהוט. אתם שולחים הזמנה, מגיעים בשקיעה, ונכנסים לערב שכולו חוויה.
+    </p>
+
+    <div class="mt-14 grid gap-x-10 gap-y-10 sm:grid-cols-2">
+      {blocks.map((b) => (
+        <div class="flex gap-4">
+          <span
+            class="mt-1.5 h-3 w-3 shrink-0 rounded-full bg-gold"
+            aria-hidden="true"
+          ></span>
+          <div>
+            <h3 class="text-xl font-bold sm:text-2xl">{b.title}</h3>
+            <p class="mt-2 text-base leading-relaxed text-ink/75">
+              {b.dj ? (
+                <>הגברה, תאורה ועמדת <span dir="ltr">DJ</span> מחוברת. מספיק להביא קונטרולר</>
+              ) : (
+                b.body
+              )}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

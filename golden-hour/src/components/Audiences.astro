@@ -1,0 +1,55 @@
+---
+// סקשן 3 — פיצול קהלים
+import WhatsAppButton from './WhatsAppButton.astro';
+import { CTA } from '../config';
+---
+
+<section class="px-5 py-20 sm:py-28">
+  <div class="mx-auto max-w-5xl">
+    <h2 class="text-center text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
+      איזה ערב אתם מרימים?
+    </h2>
+
+    <div class="mt-14 grid gap-6 md:grid-cols-2">
+      <!-- כרטיס A — אירועי חברה -->
+      <article
+        id="companies"
+        class="flex scroll-mt-24 flex-col rounded-2xl border border-gold/30 bg-white/50 p-8 shadow-sm sm:p-10"
+      >
+        <div class="horizon w-16" aria-hidden="true"></div>
+        <h3 class="mt-4 text-2xl font-bold text-gold sm:text-3xl">אירועי חברה</h3>
+        <p class="mt-4 flex-1 text-base leading-relaxed text-ink/80 sm:text-lg">
+          ערב צוות, אירוע לקוחות או חגיגת אבן דרך. מרכז תל אביב, חניון צמוד, נגיש מכל משרד בעיר. מחיר לאדם וחשבונית מסודרת שעוברת ברכש בלי ויכוחים.
+        </p>
+        <WhatsAppButton
+          href={CTA.companies}
+          section="card_companies"
+          variant="primary"
+          class="mt-8 w-full"
+        >
+          קבלו הצעה לאירוע חברה
+        </WhatsAppButton>
+      </article>
+
+      <!-- כרטיס B — אירועים פרטיים -->
+      <article
+        id="private"
+        class="flex scroll-mt-24 flex-col rounded-2xl border border-gold/30 bg-white/50 p-8 shadow-sm sm:p-10"
+      >
+        <div class="horizon w-16" aria-hidden="true"></div>
+        <h3 class="mt-4 text-2xl font-bold text-gold sm:text-3xl">אירועים פרטיים</h3>
+        <p class="mt-4 flex-1 text-base leading-relaxed text-ink/80 sm:text-lg">
+          יום הולדת, אירוסין או כל סיבה לחגוג. סוגרים את הגג רק לכם ולחברים, בשעה שבה הים נראה הכי טוב.
+        </p>
+        <WhatsAppButton
+          href={CTA.private}
+          section="card_private"
+          variant="primary"
+          class="mt-8 w-full"
+        >
+          בדקו תאריך למסיבה
+        </WhatsAppButton>
+      </article>
+    </div>
+  </div>
+</section>

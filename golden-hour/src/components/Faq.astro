@@ -1,0 +1,69 @@
+---
+// סקשן 7 — שאלות נפוצות (accordion, ללא JS בעזרת <details>)
+const faqs = [
+  {
+    q: 'כמה אנשים נכנסים?',
+    a: '50 עד 150. מתחת ל 50 המתחם גדול מדי ולא נהנים ממנו.',
+  },
+  {
+    q: 'מה שעות האירוע?',
+    a: 'אנחנו ממליצים אחר הצהריים לקראת השקיעה. אבל לבחירתכם החופשית.',
+  },
+  {
+    q: 'אפשר להביא DJ משלנו?',
+    a: 'בהחלט. עמדה, חשמל וכבלים מחכים במקום. הוא מביא קונטרולר ומתחבר.',
+    dj: true,
+  },
+  {
+    q: 'יש אוכל?',
+    a: 'יש מגשי כיבוד ותחנת טאבון חיה כתוספת. בנוסף יש מחירים משתנים לפי כל צורך.',
+  },
+  {
+    q: 'איפה חונים?',
+    a: 'חניון כיכר אתרים צמוד למתחם.',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<section class="px-5 py-20 sm:py-28">
+  <div class="mx-auto max-w-3xl">
+    <h2 class="text-center text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
+      שאלות נפוצות
+    </h2>
+
+    <div class="mt-12 divide-y divide-gold/25 border-y border-gold/25">
+      {faqs.map((f) => (
+        <details class="group py-2">
+          <summary class="flex cursor-pointer items-center justify-between gap-4 py-4 text-lg font-bold sm:text-xl">
+            <span>
+              {f.dj
+                ? (<>אפשר להביא <span dir="ltr">DJ</span> משלנו?</>)
+                : f.q}
+            </span>
+            <svg
+              class="faq-chevron h-5 w-5 shrink-0 text-gold transition-transform duration-200"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path fill-rule="evenodd" d="M5.3 7.3a1 1 0 011.4 0L10 10.6l3.3-3.3a1 1 0 111.4 1.4l-4 4a1 1 0 01-1.4 0l-4-4a1 1 0 010-1.4z" clip-rule="evenodd" />
+            </svg>
+          </summary>
+          <p class="pb-4 text-base leading-relaxed text-ink/75 sm:text-lg">{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqJsonLd)} />
+</section>

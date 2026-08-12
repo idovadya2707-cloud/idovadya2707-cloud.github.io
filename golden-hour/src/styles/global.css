@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/*  Design tokens (Tailwind v4 @theme) — הפלטה והפונטים מהבריף.        */
+/* ------------------------------------------------------------------ */
+@theme {
+  --color-cream: #FAF6EE;      /* רקע ראשי */
+  --color-ink: #14130F;        /* טקסט / כהה (פוטר, סקשנים) */
+  --color-gold: #B4863C;       /* זהב — מבטא, כותרות משנה */
+  --color-gold-light: #E3C88A; /* זהב בהיר */
+
+  --font-heading: "Frank Ruhl Libre", Georgia, "Times New Roman", serif;
+  --font-body: "Heebo", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+}
+
+/* בסיס */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+}
+
+/* קו החתימה — חצי שמש עם גרדיאנט מזהב בהיר לזהב */
+.sun-mark {
+  width: 2.25rem;
+  height: 1.125rem;
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+  background-image: linear-gradient(180deg, var(--color-gold-light), var(--color-gold));
+}
+
+/* קו אופק דק בזהב */
+.horizon {
+  height: 1px;
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-gold) 20%,
+    var(--color-gold) 80%,
+    transparent
+  );
+}
+
+/* אקורדיון שאלות נפוצות — סמן פתיחה/סגירה מותאם RTL */
+details > summary { list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] .faq-chevron { transform: rotate(180deg); }
+
+/* כבוד ל-prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

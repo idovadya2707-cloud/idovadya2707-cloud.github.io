@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import WhyHere from '../components/WhyHere.astro';
+import Audiences from '../components/Audiences.astro';
+import Gallery from '../components/Gallery.astro';
+import Included from '../components/Included.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import Faq from '../components/Faq.astro';
+import FooterCta from '../components/FooterCta.astro';
+import StickyCta from '../components/StickyCta.astro';
+
+const title = 'מתחם אירועים מול הים בתל אביב | The Golden Hour, כיכר אתרים';
+const description =
+  'גג פרטי בכיכר אתרים לאירועי חברה, ימי הולדת ומסיבות. 50 עד 150 איש, בר פתוח, הפקה מלאה. שלחו הודעה לתאריכים פנויים.';
+---
+
+<Base title={title} description={description}>
+  <Hero />
+  <WhyHere />
+  <Audiences />
+  <Gallery />
+  <Included />
+  <HowItWorks />
+  <Faq />
+  <FooterCta />
+  <StickyCta />
+</Base>

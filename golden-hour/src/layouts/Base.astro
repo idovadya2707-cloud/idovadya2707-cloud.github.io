@@ -1,0 +1,138 @@
+---
+import '../styles/global.css';
+import { GA4_MEASUREMENT_ID, WHATSAPP_NUMBER, VENUE } from '../config';
+
+interface Props {
+  title: string;
+  description: string;
+  /** תמונת שיתוף (Open Graph / Twitter) — יחסית ל-public. */
+  ogImage?: string;
+  /** תמונת Hero לטעינה מוקדמת (preload). */
+  heroImage?: string;
+}
+
+const {
+  title,
+  description,
+  ogImage = '/images/og-image.jpg',
+  heroImage = '/images/hero.webp',
+} = Astro.props;
+
+const site = Astro.site ?? new URL('https://thegoldenhour.co.il');
+const canonical = new URL(Astro.url.pathname, site).href;
+const ogImageUrl = new URL(ogImage, site).href;
+
+// GA4 נטען רק כשהוגדר Measurement ID אמיתי (לא ה-placeholder).
+const gaEnabled = GA4_MEASUREMENT_ID && !GA4_MEASUREMENT_ID.includes('XXXX');
+
+// JSON-LD מסוג EventVenue
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'EventVenue',
+  name: VENUE.brand,
+  description,
+  url: site.href,
+  telephone: `+${WHATSAPP_NUMBER}`,
+  image: [
+    new URL('/images/hero.webp', site).href,
+    new URL('/images/gallery-1.webp', site).href,
+    new URL('/images/gallery-2.webp', site).href,
+    new URL('/images/gallery-3.webp', site).href,
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'כיכר אתרים, טיילת שלמה להט',
+    addressLocality: 'תל אביב',
+    addressCountry: 'IL',
+  },
+  maximumAttendeeCapacity: 150,
+  amenityFeature: [
+    { '@type': 'LocationFeatureSpecification', name: 'בר פתוח', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'חניון צמוד', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'מתחם פרטי', value: true },
+  ],
+};
+---
+
+<!doctype html>
+<html dir="rtl" lang="he">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="canonical" href={canonical} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={VENUE.brand} />
+    <meta property="og:locale" content="he_IL" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <meta name="theme-color" content="#14130F" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Fonts: Frank Ruhl Libre (כותרות) + Heebo (גוף), display=swap -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@400;500;700&display=swap"
+    />
+
+    <!-- Preload לתמונת ה-Hero -->
+    <link rel="preload" as="image" href={heroImage} fetchpriority="high" />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+
+    <!-- Google Analytics 4 -->
+    <script is:inline define:vars={{ gaId: GA4_MEASUREMENT_ID, gaEnabled }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      if (gaEnabled) {
+        gtag('config', gaId);
+        const s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+        document.head.appendChild(s);
+      }
+    </script>
+
+    <!-- מעקב אחר לחיצות וואטסאפ: אירוע whatsapp_click עם שם הסקשן -->
+    <script is:inline>
+      document.addEventListener('click', function (e) {
+        const link = e.target.closest('a[data-wa]');
+        if (!link) return;
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'whatsapp_click', {
+            section: link.getAttribute('data-section') || 'unknown',
+            link_url: link.href,
+          });
+        }
+      });
+    </script>
+  </head>
+
+  <body>
+    <slot />
+  </body>
+</html>

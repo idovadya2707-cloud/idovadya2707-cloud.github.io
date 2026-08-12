@@ -1,0 +1,39 @@
+---
+// סרגל CTA דביק במובייל — מופיע אחרי גלילה מעבר ל-Hero
+import WhatsAppButton from './WhatsAppButton.astro';
+import { CTA } from '../config';
+---
+
+<div
+  id="sticky-cta"
+  class="fixed inset-x-0 bottom-0 z-40 translate-y-full border-t border-gold/30 bg-cream/95 p-3 shadow-[0_-4px_20px_rgba(20,19,15,0.12)] backdrop-blur transition-transform duration-300 md:hidden"
+>
+  <WhatsAppButton href={CTA.primary} section="sticky_mobile" variant="primary" class="w-full">
+    בדקו תאריכים פנויים
+  </WhatsAppButton>
+</div>
+
+<script is:inline>
+  (function () {
+    var bar = document.getElementById('sticky-cta');
+    var sentinel = document.getElementById('hero-sentinel');
+    if (!bar || !sentinel || !('IntersectionObserver' in window)) {
+      if (bar) bar.classList.remove('translate-y-full');
+      return;
+    }
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          // הסנטינל בתחתית ה-Hero: לא נראה = גללנו מעבר ל-Hero
+          if (entry.isIntersecting) {
+            bar.classList.add('translate-y-full');
+          } else {
+            bar.classList.remove('translate-y-full');
+          }
+        });
+      },
+      { rootMargin: '0px' }
+    );
+    io.observe(sentinel);
+  })();
+</script>

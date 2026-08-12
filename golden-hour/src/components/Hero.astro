@@ -1,0 +1,55 @@
+---
+import SunLogo from './SunLogo.astro';
+import WhatsAppButton from './WhatsAppButton.astro';
+import { CTA } from '../config';
+---
+
+<section class="relative min-h-[100svh] flex flex-col overflow-hidden">
+  <!-- תמונת הרקע (שקיעה מלאת מסך) -->
+  <img
+    src="/images/hero.webp"
+    alt="שקיעה מעל הים ממתחם הגג בכיכר אתרים, תל אביב"
+    width="1920"
+    height="1280"
+    fetchpriority="high"
+    decoding="async"
+    class="absolute inset-0 h-full w-full object-cover"
+  />
+  <!-- overlay כהה קל -->
+  <div
+    class="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/25 to-ink/70"
+    aria-hidden="true"
+  ></div>
+
+  <!-- לוגו חתימה למעלה -->
+  <header class="relative z-10 flex justify-center pt-8">
+    <SunLogo tone="dark" />
+  </header>
+
+  <!-- תוכן ה-Hero -->
+  <div class="relative z-10 flex flex-1 flex-col items-center justify-center px-5 pb-16 text-center">
+    <h1 class="max-w-3xl text-4xl font-black leading-tight text-cream sm:text-5xl md:text-6xl">
+      השקיעה הכי טובה בתל אביב. סגורה רק לכם.
+    </h1>
+
+    <p class="mt-6 max-w-2xl text-lg leading-relaxed text-cream/90 sm:text-xl">
+      מתחם גג פרטי בכיכר אתרים, מעל חוף גורדון. אירועי חברה, ימי הולדת ומסיבות פרטיות ל<span dir="ltr">&nbsp;50&nbsp;</span>עד<span dir="ltr">&nbsp;150&nbsp;</span>איש. בר פתוח, צוות והפקה מלאה במקום.
+    </p>
+
+    <div class="mt-9 flex flex-col items-center gap-3 sm:flex-row">
+      <WhatsAppButton href={CTA.primary} section="hero_primary" variant="primary">
+        בדקו תאריכים פנויים
+      </WhatsAppButton>
+      <WhatsAppButton href={CTA.primary} section="hero_secondary" variant="ghost">
+        דברו איתנו בוואטסאפ
+      </WhatsAppButton>
+    </div>
+
+    <p class="mt-6 text-sm text-cream/80">
+      מחיר לאדם · חשבונית וחוזה מסודר · חניון צמוד
+    </p>
+  </div>
+
+  <!-- סנטינל לזיהוי יציאה מה-Hero (לסרגל ה-CTA הדביק) -->
+  <div id="hero-sentinel" class="absolute bottom-0 h-px w-full" aria-hidden="true"></div>
+</section>

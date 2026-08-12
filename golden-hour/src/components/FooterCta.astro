@@ -1,0 +1,44 @@
+---
+// סקשן 8 — פוטר / CTA סוגר (רקע כהה)
+import WhatsAppButton from './WhatsAppButton.astro';
+import SunLogo from './SunLogo.astro';
+import { CTA, PHONE_DISPLAY } from '../config';
+---
+
+<footer id="contact" class="bg-ink px-5 py-20 text-cream sm:py-28">
+  <div class="mx-auto max-w-3xl text-center">
+    <h2 class="text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
+      התאריכים הטובים נסגרים ראשונים
+    </h2>
+
+    <p class="mt-5 text-2xl font-bold text-gold-light sm:text-3xl">
+      מ<span dir="ltr">&nbsp;150&nbsp;₪&nbsp;</span>לאדם
+    </p>
+
+    <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-cream/85">
+      שלחו הודעה ונחזור אליכם עם תאריכים פנויים והצעה מדויקת.
+    </p>
+
+    <div class="mt-9 flex justify-center">
+      <WhatsAppButton href={CTA.footer} section="footer" variant="primary">
+        בדקו תאריכים פנויים
+      </WhatsAppButton>
+    </div>
+
+    <div class="mt-10 space-y-2 text-cream/80">
+      <p>
+        וואטסאפ: <a
+          href={CTA.footer}
+          data-wa
+          data-section="footer_phone"
+          class="font-semibold text-cream underline decoration-gold/60 underline-offset-4 hover:text-gold-light"
+        ><span dir="ltr">{PHONE_DISPLAY}</span></a> · עידו
+      </p>
+      <p>📍 כיכר אתרים, מעל חוף גורדון, תל אביב</p>
+    </div>
+
+    <div class="mt-14 flex justify-center">
+      <SunLogo tone="dark" />
+    </div>
+  </div>
+</footer>

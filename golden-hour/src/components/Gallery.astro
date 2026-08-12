@@ -14,8 +14,8 @@ const shots = [
     </h2>
 
     <div class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {shots.map((s, i) => (
-        <figure class:list={['group overflow-hidden rounded-2xl', i === 0 && 'sm:col-span-2 lg:col-span-1']}>
+      {shots.map((s) => (
+        <figure class="group overflow-hidden rounded-2xl">
           <div class="aspect-[4/5] overflow-hidden">
             <img
               src={s.src}

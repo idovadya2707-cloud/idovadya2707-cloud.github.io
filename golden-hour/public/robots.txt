@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thegoldenhour.co.il/sitemap-index.xml
+Sitemap: https://goldenhour-group.com/sitemap-index.xml

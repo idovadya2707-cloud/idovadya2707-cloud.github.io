@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // Public site URL. Update this to your production domain (used for sitemap,
 // canonical URL, Open Graph and JSON-LD absolute links).
-const SITE = 'https://thegoldenhour.co.il';
+const SITE = 'https://goldenhour-group.com';
 
 // https://astro.build/config
 export default defineConfig({

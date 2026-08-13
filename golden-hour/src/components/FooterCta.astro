@@ -1,11 +1,11 @@
 ---
-// סקשן 8 — פוטר / CTA סוגר (רקע בהיר, קומפקטי)
+// סקשן 8 — פוטר / CTA סוגר (רקע כהה, קומפקטי)
 import WhatsAppButton from './WhatsAppButton.astro';
 import SunLogo from './SunLogo.astro';
 import { CTA, PHONE_DISPLAY, VENUE } from '../config';
 ---
 
-<footer id="contact" class="border-t border-gold/20 bg-cream px-5 py-10 text-ink sm:py-14">
+<footer id="contact" class="bg-ink px-5 py-10 text-cream sm:py-14">
   <div class="mx-auto max-w-3xl text-center">
     <h2 class="text-xl font-bold sm:text-2xl">
       התאריכים הטובים נסגרים ראשונים
@@ -18,27 +18,27 @@ import { CTA, PHONE_DISPLAY, VENUE } from '../config';
     </div>
 
     <div class="mt-6 flex justify-center">
-      <SunLogo tone="light" />
+      <SunLogo tone="dark" />
     </div>
 
-    <div class="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm leading-snug text-ink/70">
+    <div class="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm leading-snug text-cream/70">
       <span>וואטסאפ: <a
           href={CTA.footer}
           data-wa
           data-section="footer_phone"
-          class="font-semibold text-ink underline decoration-gold/60 underline-offset-4 hover:text-gold"
+          class="font-semibold text-cream underline decoration-gold/60 underline-offset-4 hover:text-gold-light"
         ><span dir="ltr">{PHONE_DISPLAY}</span></a></span>
-      <span aria-hidden="true" class="text-ink/30">·</span>
+      <span aria-hidden="true" class="text-cream/30">·</span>
       <span>עידו</span>
-      <span aria-hidden="true" class="text-ink/30">·</span>
+      <span aria-hidden="true" class="text-cream/30">·</span>
       <span>כיכר אתרים, מעל חוף גורדון, תל אביב</span>
-      <span aria-hidden="true" class="text-ink/30">·</span>
-      <a href="/accessibility" class="underline decoration-gold/50 underline-offset-4 hover:text-ink">הצהרת נגישות</a>
-      <span aria-hidden="true" class="text-ink/30">·</span>
-      <a href="/privacy" class="underline decoration-gold/50 underline-offset-4 hover:text-ink">מדיניות פרטיות</a>
+      <span aria-hidden="true" class="text-cream/30">·</span>
+      <a href="/accessibility" class="underline decoration-gold/50 underline-offset-4 hover:text-cream">הצהרת נגישות</a>
+      <span aria-hidden="true" class="text-cream/30">·</span>
+      <a href="/privacy" class="underline decoration-gold/50 underline-offset-4 hover:text-cream">מדיניות פרטיות</a>
     </div>
 
-    <p class="mt-4 text-xs text-ink/45">
+    <p class="mt-4 text-xs text-cream/45">
       © 2026 {VENUE.brand}. כל הזכויות שמורות.
     </p>
   </div>

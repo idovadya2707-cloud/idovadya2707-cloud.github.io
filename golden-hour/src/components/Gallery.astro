@@ -1,35 +1,109 @@
 ---
-// סקשן 4 — גלריה
+// סקשן 4 — גלריה (קרוסלה: תמונה אחת בכל פעם, חצים ימינה/שמאלה)
 const shots = [
   { src: '/images/gallery-1.webp', caption: 'הבר, רגע לפני השקיעה' },
   { src: '/images/gallery-2.webp', caption: 'המתחם בשעת האירוע' },
   { src: '/images/gallery-3.webp', caption: 'ישיבה ואירוח לקבוצות' },
 ];
+const captions = shots.map((s) => s.caption);
 ---
 
 <section class="px-5 py-20 sm:py-28">
-  <div class="mx-auto max-w-6xl">
+  <div class="mx-auto max-w-md">
     <h2 class="text-center text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
       ככה זה נראה בשעה שבע
     </h2>
 
-    <div class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {shots.map((s) => (
-        <figure class="group overflow-hidden rounded-2xl">
-          <div class="aspect-[4/5] overflow-hidden">
-            <img
-              src={s.src}
-              alt={s.caption}
-              width="900"
-              height="1125"
-              loading="lazy"
-              decoding="async"
-              class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-          </div>
-          <figcaption class="mt-3 text-center text-sm text-ink/70">{s.caption}</figcaption>
-        </figure>
+    <figure class="mt-12">
+      <div id="gh-viewport" class="relative overflow-hidden rounded-2xl">
+        <div id="gh-track" dir="ltr" class="flex transition-transform duration-500 ease-out">
+          {shots.map((s) => (
+            <div class="aspect-[4/5] w-full shrink-0 overflow-hidden">
+              <img
+                src={s.src}
+                alt={s.caption}
+                width="900"
+                height="1125"
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+
+        <!-- חץ הקודם (בצד ימין) -->
+        <button
+          id="gh-prev"
+          type="button"
+          aria-label="התמונה הקודמת"
+          class="absolute start-2 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-ink/50 text-cream backdrop-blur transition-colors hover:bg-ink/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+        >
+          <svg viewBox="0 0 20 20" width="22" height="22" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M7.7 4.3a1 1 0 011.4 0l5 5a1 1 0 010 1.4l-5 5a1 1 0 11-1.4-1.4L12 10 7.7 5.7a1 1 0 010-1.4z" clip-rule="evenodd" /></svg>
+        </button>
+
+        <!-- חץ הבא (בצד שמאל) -->
+        <button
+          id="gh-next"
+          type="button"
+          aria-label="התמונה הבאה"
+          class="absolute end-2 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-ink/50 text-cream backdrop-blur transition-colors hover:bg-ink/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+        >
+          <svg viewBox="0 0 20 20" width="22" height="22" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.3 4.3a1 1 0 010 1.4L8 10l4.3 4.3a1 1 0 11-1.4 1.4l-5-5a1 1 0 010-1.4l5-5a1 1 0 011.4 0z" clip-rule="evenodd" /></svg>
+        </button>
+      </div>
+
+      <figcaption id="gh-cap" aria-live="polite" class="mt-3 text-center text-sm text-ink/70">
+        {shots[0].caption}
+      </figcaption>
+    </figure>
+
+    <div id="gh-dots" class="mt-4 flex justify-center gap-2">
+      {shots.map((s, i) => (
+        <button type="button" data-i={i} aria-label={`תמונה ${i + 1}`} class="h-2.5 w-2.5 rounded-full bg-ink/20 transition-colors"></button>
       ))}
     </div>
   </div>
+
+  <script is:inline define:vars={{ captions }}>
+    (function () {
+      var track = document.getElementById('gh-track');
+      if (!track) return;
+      var cap = document.getElementById('gh-cap');
+      var dots = Array.prototype.slice.call(document.querySelectorAll('#gh-dots button'));
+      var n = track.children.length;
+      var i = 0;
+
+      function render() {
+        track.style.transform = 'translateX(' + (-i * 100) + '%)';
+        if (cap) cap.textContent = captions[i];
+        dots.forEach(function (d, k) {
+          var on = k === i;
+          d.classList.toggle('bg-gold', on);
+          d.classList.toggle('bg-ink/20', !on);
+          d.setAttribute('aria-current', on ? 'true' : 'false');
+        });
+      }
+      function go(d) { i = (i + d + n) % n; render(); }
+
+      var prev = document.getElementById('gh-prev');
+      var next = document.getElementById('gh-next');
+      if (prev) prev.addEventListener('click', function () { go(-1); });
+      if (next) next.addEventListener('click', function () { go(1); });
+      dots.forEach(function (d, k) { d.addEventListener('click', function () { i = k; render(); }); });
+
+      // החלקה במגע (מובייל)
+      var x0 = null;
+      var vp = document.getElementById('gh-viewport');
+      vp.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+      vp.addEventListener('touchend', function (e) {
+        if (x0 === null) return;
+        var dx = e.changedTouches[0].clientX - x0;
+        if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
+        x0 = null;
+      }, { passive: true });
+
+      render();
+    })();
+  </script>
 </section>

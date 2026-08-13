@@ -1,0 +1,86 @@
+---
+// סקשן 5 — בחרו את המסלול שלכם (אקורדיון מסלולים, מבוסס על סגנון ה-FAQ)
+const tiers = [
+  {
+    name: 'מסלול 1 — קלאסי',
+    price: '150',
+    open: true,
+    items: [
+      `בר פתוח מלא: בירה, יין, וויסקי, וודקה, ג'ין, ערק, קמפרי וקוקטיילים`,
+      `צוות ברמנים ומלצרים`,
+      `הגברה, תאורה ועמדת DJ`,
+      `ריהוט מלא וצוות ניקיון`,
+    ],
+  },
+  {
+    name: 'מסלול 2 — מורחב',
+    price: '250',
+    items: [
+      `כל מה שבמסלול הקלאסי`,
+      `מגשי פירות העונה וגבינות משובחות`,
+      `מגשי מטוגנים ופינוקים`,
+    ],
+  },
+  {
+    name: 'מסלול 3 — שף',
+    price: '350',
+    items: [
+      `כל מה שבמסלול המורחב`,
+      `תחנת טאבון חיה: פיצות ופוקאצ'ות באפייה במקום`,
+      `ליווי צמוד בבניית התפריט`,
+    ],
+  },
+];
+---
+
+<section class="bg-ink px-5 py-20 text-cream sm:py-28">
+  <div class="mx-auto max-w-3xl">
+    <h2 class="text-center text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
+      בחרו את המסלול שלכם
+    </h2>
+    <p class="mx-auto mt-4 max-w-xl text-center text-lg leading-relaxed text-cream/80">
+      שלושה מסלולים, כולם כוללים את המקום, הצוות וההפקה. ההבדל הוא מה עולה על השולחן.
+    </p>
+
+    <div class="mt-12 divide-y divide-gold/30 border-y border-gold/30">
+      {tiers.map((t) => (
+        <details class="group py-2" open={t.open}>
+          <summary class="flex cursor-pointer items-center justify-between gap-4 py-4">
+            <span class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <span class="text-lg font-bold sm:text-xl">{t.name}</span>
+              <span class="font-bold text-gold-light">
+                <span dir="ltr">{t.price}&nbsp;₪</span> לאדם
+              </span>
+            </span>
+            <svg
+              class="faq-chevron h-5 w-5 shrink-0 text-gold-light transition-transform duration-200"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path fill-rule="evenodd" d="M5.3 7.3a1 1 0 011.4 0L10 10.6l3.3-3.3a1 1 0 111.4 1.4l-4 4a1 1 0 01-1.4 0l-4-4a1 1 0 010-1.4z" clip-rule="evenodd" />
+            </svg>
+          </summary>
+          <ul class="space-y-2.5 pb-5">
+            {t.items.map((item) => (
+              <li class="flex items-start gap-3">
+                <svg class="mt-1 h-5 w-5 shrink-0 text-gold-light" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0L3.3 9.7a1 1 0 111.4-1.4l3.3 3.3 6.8-6.8a1 1 0 011.4 0z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-base leading-relaxed text-cream/85 sm:text-lg">
+                  {item.includes('DJ')
+                    ? (<>{item.split('DJ')[0]}<span dir="ltr">DJ</span>{item.split('DJ')[1]}</>)
+                    : item}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </details>
+      ))}
+    </div>
+
+    <p class="mt-6 text-center text-sm text-cream/70">
+      כל המסלולים כוללים מע"מ. מינימום 50 איש.
+    </p>
+  </div>
+</section>

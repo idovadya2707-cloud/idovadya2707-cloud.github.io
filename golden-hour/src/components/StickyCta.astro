@@ -24,15 +24,18 @@ import { CTA } from '../config';
     var io = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
-          // הסנטינל בתחתית ה-Hero: לא נראה = גללנו מעבר ל-Hero
-          if (entry.isIntersecting) {
-            bar.classList.add('translate-y-full');
-          } else {
+          // הצג את הסרגל רק כשהסנטינל כבר נגלל *מעל* לראש המסך
+          // (top < 0). כך הוא לא מופיע כשהסנטינל עדיין מתחת לקיפול
+          // במסכים קצרים.
+          var scrolledPast = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+          if (scrolledPast) {
             bar.classList.remove('translate-y-full');
+          } else {
+            bar.classList.add('translate-y-full');
           }
         });
       },
-      { rootMargin: '0px' }
+      { threshold: 0 }
     );
     io.observe(sentinel);
   })();

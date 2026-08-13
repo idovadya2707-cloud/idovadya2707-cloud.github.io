@@ -2,7 +2,7 @@
 // סקשן 8 — פוטר / CTA סוגר (רקע כהה)
 import WhatsAppButton from './WhatsAppButton.astro';
 import SunLogo from './SunLogo.astro';
-import { CTA, PHONE_DISPLAY } from '../config';
+import { CTA, PHONE_DISPLAY, VENUE } from '../config';
 ---
 
 <footer id="contact" class="bg-ink px-5 py-20 text-cream sm:py-28">
@@ -37,17 +37,18 @@ import { CTA, PHONE_DISPLAY } from '../config';
       <p>📍 כיכר אתרים, מעל חוף גורדון, תל אביב</p>
     </div>
 
-    <p class="mt-8">
-      <a
-        href="/accessibility"
-        class="text-sm text-cream/70 underline decoration-gold/50 underline-offset-4 hover:text-cream"
-      >
-        הצהרת נגישות
-      </a>
-    </p>
+    <nav aria-label="קישורי מדיניות" class="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-cream/70">
+      <a href="/accessibility" class="underline decoration-gold/50 underline-offset-4 hover:text-cream">הצהרת נגישות</a>
+      <span aria-hidden="true" class="text-cream/30">·</span>
+      <a href="/privacy" class="underline decoration-gold/50 underline-offset-4 hover:text-cream">מדיניות פרטיות</a>
+    </nav>
 
     <div class="mt-8 flex justify-center">
       <SunLogo tone="dark" />
     </div>
+
+    <p class="mt-6 text-xs text-cream/50">
+      © 2026 {VENUE.brand}. כל הזכויות שמורות.
+    </p>
   </div>
 </footer>

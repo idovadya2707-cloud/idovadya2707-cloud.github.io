@@ -1,0 +1,86 @@
+---
+import Base from '../layouts/Base.astro';
+import SunLogo from '../components/SunLogo.astro';
+import { ACCESSIBILITY, PHONE_DISPLAY, VENUE } from '../config';
+
+const title = 'מדיניות פרטיות | The Golden Hour';
+const description =
+  'מדיניות הפרטיות של The Golden Hour — איזה מידע נאסף באתר, השימוש בו וזכויותיכם.';
+---
+
+<Base title={title} description={description}>
+  <main id="main" class="mx-auto max-w-3xl px-5 py-16 sm:py-20">
+    <a href="/" class="text-gold underline underline-offset-4 hover:text-ink">← חזרה לדף הבית</a>
+
+    <h1 class="mt-6 text-3xl font-bold sm:text-4xl">מדיניות פרטיות</h1>
+    <p class="mt-2 text-ink/60">עודכן לאחרונה: {ACCESSIBILITY.updated}</p>
+
+    <div class="mt-8 space-y-6 text-lg leading-relaxed text-ink/85">
+      <p>
+        אנו ב־{VENUE.brand} מכבדים את פרטיותכם. מדיניות זו מסבירה איזה מידע נאסף בעת השימוש
+        באתר, למה הוא משמש, ומהן זכויותיכם. המדיניות מנוסחת בלשון זכר מטעמי נוחות ומופנית
+        לכל המגדרים.
+      </p>
+
+      <div>
+        <h2 class="text-2xl font-bold text-ink">איזה מידע נאסף</h2>
+        <ul class="mt-3 list-disc space-y-2 pe-6">
+          <li>
+            <strong>יצירת קשר בוואטסאפ:</strong> בלחיצה על כפתורי הוואטסאפ תועברו לאפליקציית
+            <span dir="ltr">WhatsApp</span>, והשיחה מתנהלת שם בכפוף למדיניות הפרטיות של
+            <span dir="ltr">Meta</span>. איננו שומרים את פרטיכם בשרת שלנו.
+          </li>
+          <li>
+            <strong>נתוני שימוש (אנליטיקה):</strong> האתר עושה שימוש ב־<span dir="ltr">Google
+            Analytics 4</span> לאיסוף נתונים סטטיסטיים אנונימיים ברובם — עמודים שנצפו, סוג
+            מכשיר ודפדפן ואזור גאוגרפי כללי — לצורך שיפור האתר. הנתונים נאספים באמצעות קובצי
+            <span dir="ltr">Cookie</span> ומזהים ומעובדים על ידי <span dir="ltr">Google</span>.
+          </li>
+        </ul>
+        <p class="mt-3">האתר אינו כולל טפסים, אינו דורש הרשמה, ואינו סוחר במידע.</p>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-bold text-ink">קובצי Cookie</h2>
+        <p class="mt-3">
+          קובצי <span dir="ltr">Cookie</span> משמשים בעיקר את שירות האנליטיקה. ניתן לחסום או
+          למחוק אותם דרך הגדרות הדפדפן; חסימה עלולה להשפיע על חלק מהפונקציונליות.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-bold text-ink">שירותי צד שלישי</h2>
+        <p class="mt-3">
+          <span dir="ltr">Google</span> (שירותי אנליטיקה) ו־<span dir="ltr">Meta / WhatsApp</span>
+          (יצירת קשר). לשירותים אלה מדיניות פרטיות משלהם, ואנו ממליצים לעיין בה.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-bold text-ink">זכויותיכם</h2>
+        <p class="mt-3">
+          בהתאם לחוק הגנת הפרטיות, התשמ״א־1981, עומדת לכם הזכות לעיין במידע המוחזק עליכם,
+          לבקש את תיקונו או מחיקתו. לבירור או בקשה בנושא — ניתן לפנות אלינו בפרטים שלהלן.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-bold text-ink">יצירת קשר</h2>
+        <ul class="mt-3 space-y-1">
+          <li>
+            <strong>טלפון:</strong>
+            <a href={`tel:${PHONE_DISPLAY.replace(/[^0-9]/g, '')}`} class="text-gold underline underline-offset-4 hover:text-ink"><span dir="ltr">{PHONE_DISPLAY}</span></a>
+          </li>
+          <li>
+            <strong>אימייל:</strong>
+            <a href={`mailto:${ACCESSIBILITY.email}`} class="text-gold underline underline-offset-4 hover:text-ink"><span dir="ltr">{ACCESSIBILITY.email}</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-14 flex justify-center border-t border-gold/25 pt-10">
+      <SunLogo tone="light" />
+    </div>
+  </main>
+</Base>

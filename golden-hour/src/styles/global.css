@@ -83,6 +83,49 @@ summary:focus-visible,
   top: 0;
 }
 
+/* ============================================================ */
+/*  תפריט נגישות — מצבי תצוגה (מופעלים ע"י class על <html>)      */
+/* ============================================================ */
+
+/* ניגודיות גבוהה (מצב כהה בניגודיות גבוהה) */
+html.a11y-contrast body { background-color: #000 !important; }
+html.a11y-contrast section,
+html.a11y-contrast footer,
+html.a11y-contrast article,
+html.a11y-contrast [class*="bg-"] { background-color: #000 !important; }
+html.a11y-contrast :where(h1, h2, h3, h4, p, li, span, strong, summary, figcaption, label, div) {
+  color: #fff !important;
+}
+html.a11y-contrast a { color: #ffe08a !important; }
+html.a11y-contrast [data-wa],
+html.a11y-contrast .a11y-btn-primary { background-color: #ffe08a !important; color: #000 !important; }
+html.a11y-contrast img { filter: contrast(1.15); }
+
+/* הדגשת קישורים */
+html.a11y-links a {
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* עצירת אנימציות */
+html.a11y-motion *,
+html.a11y-motion *::before,
+html.a11y-motion *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+/* פונט קריא */
+html.a11y-readable,
+html.a11y-readable body,
+html.a11y-readable :where(h1, h2, h3, h4, p, li, span, a, strong, button, summary, label) {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif !important;
+  letter-spacing: 0.01em;
+}
+
 /* כבוד ל-prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import AccessibilityWidget from '../components/AccessibilityWidget.astro';
 import { GA4_MEASUREMENT_ID, WHATSAPP_NUMBER, VENUE } from '../config';
 
 interface Props {
@@ -99,6 +100,21 @@ const jsonLd = {
     <!-- Preload לתמונת ה-Hero -->
     <link rel="preload" as="image" href={heroImage} fetchpriority="high" />
 
+    <!-- החלת העדפות נגישות שנשמרו — מוקדם, למניעת הבהוב -->
+    <script is:inline>
+      (function () {
+        try {
+          var d = document.documentElement, s = window.localStorage;
+          var sizes = ['100%', '112%', '125%', '140%'];
+          var f = parseInt(s.getItem('a11y-font') || '0', 10) || 0;
+          if (f > 0 && sizes[f]) d.style.fontSize = sizes[f];
+          ['contrast', 'links', 'motion', 'readable'].forEach(function (k) {
+            if (s.getItem('a11y-' + k) === '1') d.classList.add('a11y-' + k);
+          });
+        } catch (e) {}
+      })();
+    </script>
+
     <!-- JSON-LD -->
     <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
 
@@ -134,5 +150,6 @@ const jsonLd = {
 
   <body>
     <slot />
+    <AccessibilityWidget />
   </body>
 </html>

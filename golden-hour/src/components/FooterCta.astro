@@ -1,21 +1,21 @@
 ---
-// סקשן 8 — פוטר / CTA סוגר (רקע כהה)
+// סקשן 8 — פוטר / CTA סוגר (רקע בהיר)
 import WhatsAppButton from './WhatsAppButton.astro';
 import SunLogo from './SunLogo.astro';
 import { CTA, PHONE_DISPLAY, VENUE } from '../config';
 ---
 
-<footer id="contact" class="bg-ink px-5 py-20 text-cream sm:py-28">
+<footer id="contact" class="border-t border-gold/20 bg-cream px-5 py-20 text-ink sm:py-28">
   <div class="mx-auto max-w-3xl text-center">
     <h2 class="text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
       התאריכים הטובים נסגרים ראשונים
     </h2>
 
-    <p class="mt-5 text-2xl font-bold text-gold-light sm:text-3xl">
+    <p class="mt-5 text-2xl font-bold text-gold sm:text-3xl">
       מ<span dir="ltr">&nbsp;150&nbsp;₪&nbsp;</span>לאדם
     </p>
 
-    <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-cream/85">
+    <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink/80">
       שלחו הודעה ונחזור אליכם עם תאריכים פנויים והצעה מדויקת.
     </p>
 
@@ -25,29 +25,29 @@ import { CTA, PHONE_DISPLAY, VENUE } from '../config';
       </WhatsAppButton>
     </div>
 
-    <div class="mt-10 space-y-2 text-cream/80">
+    <div class="mt-10 space-y-2 text-ink/75">
       <p>
         וואטסאפ: <a
           href={CTA.footer}
           data-wa
           data-section="footer_phone"
-          class="font-semibold text-cream underline decoration-gold/60 underline-offset-4 hover:text-gold-light"
+          class="font-semibold text-ink underline decoration-gold/60 underline-offset-4 hover:text-gold"
         ><span dir="ltr">{PHONE_DISPLAY}</span></a> · עידו
       </p>
       <p>📍 כיכר אתרים, מעל חוף גורדון, תל אביב</p>
     </div>
 
-    <nav aria-label="קישורי מדיניות" class="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-cream/70">
-      <a href="/accessibility" class="underline decoration-gold/50 underline-offset-4 hover:text-cream">הצהרת נגישות</a>
-      <span aria-hidden="true" class="text-cream/30">·</span>
-      <a href="/privacy" class="underline decoration-gold/50 underline-offset-4 hover:text-cream">מדיניות פרטיות</a>
+    <nav aria-label="קישורי מדיניות" class="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-ink/60">
+      <a href="/accessibility" class="underline decoration-gold/50 underline-offset-4 hover:text-ink">הצהרת נגישות</a>
+      <span aria-hidden="true" class="text-ink/30">·</span>
+      <a href="/privacy" class="underline decoration-gold/50 underline-offset-4 hover:text-ink">מדיניות פרטיות</a>
     </nav>
 
     <div class="mt-8 flex justify-center">
-      <SunLogo tone="dark" />
+      <SunLogo tone="light" />
     </div>
 
-    <p class="mt-6 text-xs text-cream/50">
+    <p class="mt-6 text-xs text-ink/50">
       © 2026 {VENUE.brand}. כל הזכויות שמורות.
     </p>
   </div>

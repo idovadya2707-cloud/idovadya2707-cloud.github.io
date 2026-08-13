@@ -1,32 +1,31 @@
 ---
-// סקשן 6 — איך זה עובד
+// סקשן 6 — שלושה צעדים וסגרתם (רצועה קומפקטית, 3 צעדים)
 const steps = [
-  { n: 1, title: 'שולחים הודעה', body: 'כמה אנשים, ואיזה חודש בערך' },
-  { n: 2, title: 'מקבלים הצעה', body: 'מחיר לאדם, תאריכים פנויים, הכל בכתב' },
-  { n: 3, title: 'מגיעים לראות', body: 'בשעת השקיעה, כדי להבין למה זה עובד' },
-  { n: 4, title: 'סוגרים תאריך', body: 'חוזה, מקדמה, וזהו' },
+  { n: 1, title: 'שולחים הודעה', body: 'כמה אנשים ואיזה חודש' },
+  { n: 2, title: 'מדברים', body: 'עידו חוזר אליכם עם תאריכים והצעה' },
+  { n: 3, title: 'סוגרים תאריך', body: 'חוזה קצר וזהו' },
 ];
 ---
 
-<section class="px-5 py-20 sm:py-28">
+<section class="px-5 py-12 sm:py-14">
   <div class="mx-auto max-w-5xl">
-    <h2 class="text-center text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
-      איך זה עובד
+    <h2 class="text-center text-2xl font-bold leading-tight sm:text-3xl md:text-4xl">
+      שלושה צעדים וסגרתם
     </h2>
 
-    <ol class="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+    <ol class="mt-8 grid gap-6 sm:grid-cols-3 sm:gap-8">
       {steps.map((s) => (
-        <li class="flex flex-col gap-4">
-          <span
-            class="flex h-14 w-14 items-center justify-center rounded-full border border-gold bg-gold/10 font-heading text-2xl font-bold text-gold"
-            aria-hidden="true"
-          >
-            {s.n}
-          </span>
-          <div>
-            <h3 class="text-xl font-bold sm:text-2xl">{s.title}</h3>
-            <p class="mt-2 text-base leading-relaxed text-ink/75">{s.body}</p>
+        <li>
+          <div class="flex items-center gap-3">
+            <span
+              class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-gold bg-gold/10 font-heading text-sm font-bold text-gold"
+              aria-hidden="true"
+            >
+              {s.n}
+            </span>
+            <h3 class="text-lg font-bold sm:text-xl">{s.title}</h3>
           </div>
+          <p class="mt-1 ps-11 text-sm leading-snug text-ink/70 sm:text-base">{s.body}</p>
         </li>
       ))}
     </ol>

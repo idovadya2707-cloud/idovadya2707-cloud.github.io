@@ -1,5 +1,8 @@
 ---
 // סקשן 6 — שלושה צעדים וסגרתם (רצועה מועשרת: אייקון + מספר + כותרת + שורה)
+import WhatsAppButton from './WhatsAppButton.astro';
+import { CTA } from '../config';
+
 const steps = [
   {
     n: 1,
@@ -42,5 +45,11 @@ const steps = [
         </li>
       ))}
     </ol>
+
+    <div class="mt-10 flex justify-center">
+      <WhatsAppButton href={CTA.primary} section="steps_cta" variant="primary">
+        בדקו תאריכים פנויים
+      </WhatsAppButton>
+    </div>
   </div>
 </section>

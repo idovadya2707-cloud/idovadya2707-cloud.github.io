@@ -20,14 +20,21 @@ export function wa(text: string): string {
 }
 
 /**
- * הודעות ה-CTA — נעולות לפי הבריף. אין לשנות ניסוח.
- * The pre-filled WhatsApp messages, verbatim from the brief.
+ * הודעת הוואטסאפ — הודעה אחת קבועה לכל הכפתורים.
+ * שנו כאן פעם אחת כדי לעדכן את כל ה-CTA באתר.
+ */
+export const WHATSAPP_MESSAGE =
+  'היי עידו, קראתי את הפרטים באתר ואשמח לקבוע שיחה לפרטים נוספים ותאריכים.';
+
+/**
+ * קישורי ה-CTA — כולם מובילים לאותו מספר ולאותה הודעה.
+ * (המפתחות נשמרים כדי לא לגעת בשאר הרכיבים; מעקב ה-GA4 לפי סקשן נשאר.)
  */
 export const CTA = {
-  primary: wa('היי, אשמח לבדוק תאריכים פנויים'),
-  companies: wa('היי, מעוניין באירוע חברה'),
-  private: wa('היי, מעוניין באירוע פרטי'),
-  footer: wa('היי, אשמח לקבל פרטים ותאריכים'),
+  primary: wa(WHATSAPP_MESSAGE),
+  companies: wa(WHATSAPP_MESSAGE),
+  private: wa(WHATSAPP_MESSAGE),
+  footer: wa(WHATSAPP_MESSAGE),
 };
 
 /** פרטי המקום — משמשים ל-SEO / JSON-LD / פוטר. */

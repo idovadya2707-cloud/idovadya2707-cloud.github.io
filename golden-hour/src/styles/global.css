@@ -9,7 +9,7 @@
   --color-gold: #B4863C;       /* זהב — מבטא, כותרות משנה */
   --color-gold-light: #E3C88A; /* זהב בהיר */
 
-  --font-heading: "Frank Ruhl Libre", Georgia, "Times New Roman", serif;
+  --font-heading: "Assistant", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   --font-body: "Heebo", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 }
 

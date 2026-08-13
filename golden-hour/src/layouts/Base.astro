@@ -16,7 +16,7 @@ const {
   title,
   description,
   ogImage = '/images/og-image.jpg',
-  heroImage = '/images/hero.webp',
+  heroImage = '/images/hero-v2.webp',
 } = Astro.props;
 
 const site = Astro.site ?? new URL('https://thegoldenhour.co.il');
@@ -35,7 +35,7 @@ const jsonLd = {
   url: site.href,
   telephone: `+${WHATSAPP_NUMBER}`,
   image: [
-    new URL('/images/hero.webp', site).href,
+    new URL('/images/hero-v2.webp', site).href,
     new URL('/images/gallery-1.webp', site).href,
     new URL('/images/gallery-2.webp', site).href,
     new URL('/images/gallery-3.webp', site).href,
@@ -110,7 +110,7 @@ const jsonLd = {
       rel="preload"
       as="image"
       href={heroImage}
-      imagesrcset="/images/hero-1080.webp 1080w, /images/hero.webp 1920w"
+      imagesrcset="/images/hero-v2-1080.webp 1080w, /images/hero-v2.webp 1920w"
       imagesizes="100vw"
       fetchpriority="high"
     />

@@ -58,9 +58,11 @@ const captions = shots.map((s) => s.caption);
       </figcaption>
     </figure>
 
-    <div id="gh-dots" class="mt-4 flex justify-center gap-2">
+    <div id="gh-dots" class="mt-3 flex justify-center gap-1">
       {shots.map((s, i) => (
-        <button type="button" data-i={i} aria-label={`תמונה ${i + 1}`} class="h-2.5 w-2.5 rounded-full bg-ink/20 transition-colors"></button>
+        <button type="button" data-i={i} aria-label={`תמונה ${i + 1}`} class="flex h-6 w-6 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold">
+          <span class="h-2.5 w-2.5 rounded-full bg-ink/20 transition-colors"></span>
+        </button>
       ))}
     </div>
   </div>
@@ -79,8 +81,9 @@ const captions = shots.map((s) => s.caption);
         if (cap) cap.textContent = captions[i];
         dots.forEach(function (d, k) {
           var on = k === i;
-          d.classList.toggle('bg-gold', on);
-          d.classList.toggle('bg-ink/20', !on);
+          var dot = d.firstElementChild || d;
+          dot.classList.toggle('bg-gold', on);
+          dot.classList.toggle('bg-ink/20', !on);
           d.setAttribute('aria-current', on ? 'true' : 'false');
         });
       }

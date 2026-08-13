@@ -89,16 +89,31 @@ const jsonLd = {
     <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <!-- Fonts: Assistant (כותרות) + Heebo (גוף), display=swap -->
+    <!-- Fonts: Assistant (כותרות) + Heebo (גוף) — נטען לא-חוסם רינדור -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Assistant:wght@500;600;700;800&family=Heebo:wght@400;500;700&display=swap"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Assistant:wght@500;600;700;800&family=Heebo:wght@400;500;700&display=swap"
+      />
+    </noscript>
 
     <!-- Preload לתמונת ה-Hero -->
-    <link rel="preload" as="image" href={heroImage} fetchpriority="high" />
+    <link
+      rel="preload"
+      as="image"
+      href={heroImage}
+      imagesrcset="/images/hero-1080.webp 1080w, /images/hero.webp 1920w"
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
 
     <!-- החלת העדפות נגישות שנשמרו — מוקדם, למניעת הבהוב -->
     <script is:inline>

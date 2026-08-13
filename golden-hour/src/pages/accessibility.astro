@@ -1,0 +1,84 @@
+---
+import Base from '../layouts/Base.astro';
+import SunLogo from '../components/SunLogo.astro';
+import { ACCESSIBILITY, VENUE } from '../config';
+
+const title = 'הצהרת נגישות | The Golden Hour';
+const description =
+  'הצהרת הנגישות של The Golden Hour — מתחם אירועים בכיכר אתרים, תל אביב. פרטי רכז הנגישות ודרכי פנייה.';
+---
+
+<Base title={title} description={description}>
+  <main id="main" class="mx-auto max-w-3xl px-5 py-16 sm:py-20">
+    <a href="/" class="text-gold underline underline-offset-4 hover:text-ink">← חזרה לדף הבית</a>
+
+    <h1 class="mt-6 text-3xl font-bold sm:text-4xl">הצהרת נגישות</h1>
+    <p class="mt-2 text-ink/60">עודכן לאחרונה: {ACCESSIBILITY.updated}</p>
+
+    <div class="mt-8 space-y-6 text-lg leading-relaxed text-ink/85">
+      <p>
+        ב־{VENUE.brand} אנו רואים חשיבות רבה במתן שירות שוויוני לכלל הלקוחות, ופועלים
+        להנגשת האתר והשירות לאנשים עם מוגבלות, מתוך אמונה שלכל אדם מגיעה הזכות לחוות את
+        השירות שלנו בכבוד, בעצמאות ובנוחות.
+      </p>
+
+      <div>
+        <h2 class="text-2xl font-bold text-ink">רמת הנגישות באתר</h2>
+        <p class="mt-3">
+          אתר זה נבנה בהתאם להוראות תקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות
+          לשירות), התשע״ג־2013, ובשאיפה לעמידה בתקן הישראלי <span dir="ltr">ת״י 5568</span>
+          ברמה <span dir="ltr">AA</span>, המבוסס על הנחיות <span dir="ltr">WCAG 2.0</span>
+          של ארגון <span dir="ltr">W3C</span>.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-bold text-ink">מה נעשה באתר להנגשה</h2>
+        <ul class="mt-3 list-disc space-y-2 pe-6">
+          <li>מבנה סמנטי תקין וכותרות מדורגות לניווט נוח בקורא מסך.</li>
+          <li>קישור ״דלגו לתוכן״ ואפשרות ניווט מלא באמצעות מקלדת, עם סימון מיקוד ברור.</li>
+          <li>טקסט חלופי לתמונות משמעותיות.</li>
+          <li>התאמה מלאה לכיווניות מימין לשמאל (עברית) וקריאוּת גבוהה.</li>
+          <li>ניגודיות צבעים וגודל טקסט קריא, הניתן להגדלה בדפדפן ללא שבירת התצוגה.</li>
+          <li>התחשבות בהעדפת המשתמש להפחתת אנימציות (<span dir="ltr">reduced motion</span>).</li>
+          <li>רכיבי תוכן נפתחים (שאלות נפוצות) המבוססים על רכיבים נגישים מובנים.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-bold text-ink">הסתייגות</h2>
+        <p class="mt-3">
+          אנו משקיעים מאמצים בהנגשת האתר ומשפרים אותו באופן שוטף. יחד עם זאת, ייתכן שיימצאו
+          חלקים או תכנים שטרם הונגשו במלואם. אם נתקלתם ברכיב או בעמוד שאינם נגישים, נשמח
+          שתפנו אלינו — ונפעל לתקן בהקדם.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-bold text-ink">פנייה בנושא נגישות</h2>
+        <p class="mt-3">
+          נתקלתם בבעיה, או שיש לכם הצעה לשיפור הנגישות? רכז הנגישות שלנו ישמח לעמוד לרשותכם:
+        </p>
+        <ul class="mt-4 space-y-1">
+          <li><strong>רכז הנגישות:</strong> {ACCESSIBILITY.coordinatorName}</li>
+          <li>
+            <strong>טלפון:</strong>
+            <a href={`tel:${ACCESSIBILITY.phone.replace(/[^0-9]/g, '')}`} class="text-gold underline underline-offset-4 hover:text-ink"><span dir="ltr">{ACCESSIBILITY.phone}</span></a>
+          </li>
+          <li>
+            <strong>אימייל:</strong>
+            <a href={`mailto:${ACCESSIBILITY.email}`} class="text-gold underline underline-offset-4 hover:text-ink"><span dir="ltr">{ACCESSIBILITY.email}</span></a>
+          </li>
+        </ul>
+        <p class="mt-4 text-base text-ink/70">
+          בפנייתכם נשמח אם תפרטו את הבעיה, את העמוד שבו היא הופיעה ואת סוג הדפדפן/הטכנולוגיה
+          המסייעת, כדי שנוכל לטפל במהירות.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-14 flex justify-center border-t border-gold/25 pt-10">
+      <SunLogo tone="light" />
+    </div>
+  </main>
+</Base>

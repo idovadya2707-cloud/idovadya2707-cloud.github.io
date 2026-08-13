@@ -37,3 +37,15 @@ export const VENUE = {
   areaHe: 'כיכר אתרים, מעל חוף גורדון, תל אביב',
   contactName: 'עידו',
 };
+
+/**
+ * רכז/ת הנגישות — מופיע בהצהרת הנגישות (חובה חוקית).
+ * ודאו שהפרטים נכונים; אפשר להחליף שם/טלפון/אימייל לפי הצורך.
+ */
+export const ACCESSIBILITY = {
+  coordinatorName: 'עידו',
+  phone: PHONE_DISPLAY,
+  email: 'idovadya2707@gmail.com',
+  /** תאריך עדכון אחרון של ההצהרה. */
+  updated: '13 באוגוסט 2026',
+};

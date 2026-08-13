@@ -56,6 +56,33 @@ details > summary { list-style: none; }
 details > summary::-webkit-details-marker { display: none; }
 details[open] .faq-chevron { transform: rotate(180deg); }
 
+/* מיקוד ברור לניווט במקלדת (נגישות) */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* קישור "דלג לתוכן" — מוסתר עד שמקבל מיקוד */
+.skip-link {
+  position: absolute;
+  inset-inline-start: 1rem;
+  top: -4rem;
+  z-index: 100;
+  background-color: var(--color-ink);
+  color: var(--color-cream);
+  padding: 0.6rem 1.1rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  font-weight: 600;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 0;
+}
+
 /* כבוד ל-prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

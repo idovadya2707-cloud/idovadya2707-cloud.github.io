@@ -5,20 +5,16 @@ import { CTA } from '../config';
 ---
 
 <section class="relative min-h-[100svh] flex flex-col overflow-hidden">
-  <!-- וידאו רקע: ניגון אוטומטי, בלולאה, מושתק. תמונת poster כגיבוי מיידי -->
-  <video
-    id="hero-video"
+  <!-- תמונת הרקע (שקיעה מלאת מסך) -->
+  <img
+    src="/images/hero.webp"
+    alt="שקיעה מעל הים ממתחם הגג בכיכר אתרים, תל אביב"
+    width="1920"
+    height="1072"
+    fetchpriority="high"
+    decoding="async"
     class="absolute inset-0 h-full w-full object-cover"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="auto"
-    poster="/images/hero.webp"
-    aria-hidden="true"
-  >
-    <source src="/videos/hero.mp4" type="video/mp4" />
-  </video>
+  />
   <!-- overlay כהה קל -->
   <div
     class="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/25 to-ink/70"
@@ -49,20 +45,4 @@ import { CTA } from '../config';
 
   <!-- סנטינל לזיהוי יציאה מה-Hero (לסרגל ה-CTA הדביק) -->
   <div id="hero-sentinel" class="absolute bottom-0 h-px w-full" aria-hidden="true"></div>
-
-  <script is:inline>
-    (function () {
-      var v = document.getElementById('hero-video');
-      if (!v) return;
-      v.muted = true; // הבטחת השתקה לצורך ניגון אוטומטי
-      // כיבוד העדפת המשתמש להפחתת אנימציות — משאיר את ה-poster ללא ניגון
-      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        v.removeAttribute('autoplay');
-        v.pause();
-        return;
-      }
-      var p = v.play();
-      if (p && p.catch) p.catch(function () {});
-    })();
-  </script>
 </section>

@@ -5,9 +5,9 @@ import { AFFIRMATIONS, IMAGES, START_DATE } from '@/lib/constants';
 import { getCurrentDayCount, getRandomIndex, getTodayIsraelTime } from '@/lib/utils';
 
 export default function CovenantKeeper() {
-  const [dayCount, setDayCount] = useState<number>(0);
-  const [affirmationIndex, setAffirmationIndex] = useState<number>(0);
-  const [imageIndex, setImageIndex] = useState<number>(0);
+  const [dayCount, setDayCount] = useState<number>(() => getCurrentDayCount());
+  const [affirmationIndex, setAffirmationIndex] = useState<number>(() => getRandomIndex(AFFIRMATIONS.length));
+  const [imageIndex, setImageIndex] = useState<number>(() => getRandomIndex(IMAGES.length));
   const [isAnimating, setIsAnimating] = useState(false);
   const [particles, setParticles] = useState<Array<{ id: number; x: number; y: number }>>([]);
   const [checkedInToday, setCheckedInToday] = useState(false);
@@ -21,24 +21,21 @@ export default function CovenantKeeper() {
       });
     }
 
-    const updateState = () => {
-      const todayIsrael = getTodayIsraelTime();
-      const initialDayCount = getCurrentDayCount();
-      setDayCount(initialDayCount);
-      setAffirmationIndex(getRandomIndex(AFFIRMATIONS.length));
-      setImageIndex(getRandomIndex(IMAGES.length));
+    const todayIsrael = getTodayIsraelTime();
+    const lastCheckDate = localStorage.getItem('lastCheckDate');
+    const lastCheckDay = localStorage.getItem('lastCheckDay');
 
-      const lastCheckDate = localStorage.getItem('lastCheckDate');
-      const lastCheckDay = localStorage.getItem('lastCheckDay');
-
-      setCheckedInToday(lastCheckDate === todayIsrael);
-      setMissedYesterday(!!(lastCheckDay && lastCheckDay !== todayIsrael && !checkedInToday));
-    };
-
-    updateState();
+    setCheckedInToday(lastCheckDate === todayIsrael);
+    setMissedYesterday(!!(lastCheckDay && lastCheckDay !== todayIsrael && !checkedInToday));
 
     // Check every minute for day change
-    const interval = setInterval(updateState, 60000);
+    const interval = setInterval(() => {
+      const today = getTodayIsraelTime();
+      const lastCheck = localStorage.getItem('lastCheckDate');
+      setCheckedInToday(lastCheck === today);
+      setDayCount(getCurrentDayCount());
+    }, 60000);
+
     return () => clearInterval(interval);
   }, []);
 

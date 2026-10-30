@@ -1,6 +1,0 @@
-{
-  "buildCommand": "cd covenant-keeper && npm run build",
-  "outputDirectory": "covenant-keeper/.next",
-  "framework": "nextjs",
-  "installCommand": "cd covenant-keeper && npm install"
-}

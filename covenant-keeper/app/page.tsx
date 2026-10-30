@@ -59,33 +59,36 @@ export default function CovenantKeeper() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4 safe-area-inset">
-      <div className="w-full max-w-sm">
+    <div className="min-h-screen w-full bg-black flex items-center justify-center p-6 safe-area-inset">
+      <div className="w-full max-w-2xl">
         {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2">Covenant Keeper</h1>
+        <div className="text-center mb-10">
+          <h1 className="text-6xl font-black text-white mb-1 tracking-tight">Covenant Keeper</h1>
+          <div className="h-1 w-24 bg-gradient-to-r from-orange-500 via-pink-500 to-red-500 mx-auto rounded-full"></div>
         </div>
 
-        {/* Image Card */}
-        <div className="relative mb-8 rounded-2xl overflow-hidden shadow-2xl aspect-video bg-slate-700">
+        {/* Image Card - LARGE */}
+        <div className="relative mb-10 rounded-3xl overflow-hidden shadow-2xl h-96 bg-slate-800 border border-orange-500/20">
           <img
             src={IMAGES[imageIndex]}
             alt="Inspiration"
-            className="w-full h-full object-cover transition-opacity duration-700"
+            className="w-full h-full object-cover transition-all duration-700 hover:scale-105"
           />
-          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
         </div>
 
         {/* Day Counter */}
-        <div className="text-center mb-8">
-          <div className="text-7xl font-bold text-white mb-2">{dayCount}</div>
-          <p className="text-slate-300 text-lg">days of commitment</p>
-          <p className="text-lg mt-3">{checkedInToday ? '✅ Checked in today' : '❌ Not checked in'}</p>
+        <div className="text-center mb-10">
+          <div className="text-8xl font-black text-white mb-3">{dayCount}</div>
+          <p className="text-gray-300 text-xl font-light tracking-wide">DAYS OF COMMITMENT</p>
+          <div className="mt-4 inline-block px-4 py-2 rounded-full border border-orange-500/40 bg-orange-500/5">
+            <p className="text-base font-medium">{checkedInToday ? '✅ Checked in today' : '❌ Not checked in'}</p>
+          </div>
         </div>
 
         {/* Affirmation */}
-        <div className="bg-slate-700/50 rounded-xl p-6 mb-8 backdrop-blur-sm border border-slate-600">
-          <p className="text-white text-center text-lg leading-relaxed font-medium">
+        <div className="bg-gradient-to-r from-orange-500/10 to-pink-500/10 rounded-3xl p-8 mb-10 backdrop-blur-sm border border-orange-500/20">
+          <p className="text-white text-center text-xl leading-relaxed font-light italic">
             "{AFFIRMATIONS[affirmationIndex]}"
           </p>
         </div>
@@ -96,24 +99,32 @@ export default function CovenantKeeper() {
             onClick={handleCheckIn}
             disabled={isAnimating}
             style={{
-              backgroundColor: '#ffffff',
-              color: '#000000',
-              borderRadius: '0.75rem',
-              padding: '1rem 1.5rem',
+              background: 'linear-gradient(135deg, #ff6b35, #f7931e)',
+              color: '#ffffff',
+              borderRadius: '1.5rem',
+              padding: '1.25rem 2rem',
               fontSize: '1.25rem',
-              fontWeight: 'bold',
+              fontWeight: '700',
               width: '100%',
               border: 'none',
               cursor: isAnimating ? 'not-allowed' : 'pointer',
               opacity: isAnimating ? 0.5 : 1,
-              boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
-              transition: 'all 200ms',
+              boxShadow: '0 20px 25px -5px rgba(255, 107, 53, 0.3)',
+              transition: 'all 300ms cubic-bezier(0.4, 0, 0.2, 1)',
+              letterSpacing: '0.5px',
+              textTransform: 'uppercase',
             }}
             onMouseEnter={(e) => {
-              if (!isAnimating) e.currentTarget.style.backgroundColor = '#f3f4f6';
+              if (!isAnimating) {
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 25px 35px -5px rgba(255, 107, 53, 0.4)';
+              }
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#ffffff';
+              if (!isAnimating) {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(255, 107, 53, 0.3)';
+              }
             }}
           >
             I kept the covenant today

@@ -18,14 +18,14 @@ export const AFFIRMATIONS = [
 ];
 
 export const IMAGES = [
-  'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80',
-  'https://images.unsplash.com/photo-1613395877297-05bfb1a6ba53?w=800&q=80',
-  'https://images.unsplash.com/photo-1571017614492-c89cecbf4d16?w=800&q=80',
-  'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80',
-  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80',
-  'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80',
-  'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80',
-  'https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=800&q=80',
-  'https://images.unsplash.com/photo-1519689373256-60aa4c26f5f6?w=800&q=80',
-  'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80',
+  '/images/IMG_5289.JPG',
+  '/images/IMG_5285.JPG',
+  '/images/IMG_5288.JPG',
+  '/images/IMG_5284.JPG',
+  '/images/IMG_5293.JPG',
+  '/images/IMG_5292.JPG',
+  '/images/IMG_5291.JPG',
+  '/images/IMG_5290.JPG',
+  '/images/IMG_5295.JPG',
+  '/images/IMG_5294.JPG',
 ];

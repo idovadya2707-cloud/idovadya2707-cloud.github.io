@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { AFFIRMATIONS, IMAGES } from '@/lib/constants';
 import { getCurrentDayCount, getRandomIndex } from '@/lib/utils';
-import { playCelebrationSound } from '@/lib/audio';
 
 export default function CovenantKeeper() {
   const [dayCount, setDayCount] = useState<number>(0);
@@ -11,6 +10,7 @@ export default function CovenantKeeper() {
   const [imageIndex, setImageIndex] = useState<number>(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [particles, setParticles] = useState<Array<{ id: number; x: number; y: number }>>([]);
+  const [checkedInToday, setCheckedInToday] = useState(false);
 
   useEffect(() => {
     // Register service worker
@@ -20,23 +20,20 @@ export default function CovenantKeeper() {
       });
     }
 
-    // Initialize on mount
-    const lastCheckDate = localStorage.getItem('lastCheckDate');
-    const streak = localStorage.getItem('currentStreak');
-
-    let initialDayCount = 1;
-    if (lastCheckDate) {
-      initialDayCount = getCurrentDayCount(lastCheckDate);
-    }
-
+    // Initialize on mount - calculate from start date
+    const initialDayCount = getCurrentDayCount();
     setDayCount(initialDayCount);
     setAffirmationIndex(getRandomIndex(AFFIRMATIONS.length));
     setImageIndex(getRandomIndex(IMAGES.length));
+
+    // Check if checked in today
+    const today = new Date().toISOString().split('T')[0];
+    const lastCheckDate = localStorage.getItem('lastCheckDate');
+    setCheckedInToday(lastCheckDate === today);
   }, []);
 
   const handleCheckIn = () => {
     setIsAnimating(true);
-    playCelebrationSound();
 
     // Create particles
     const newParticles = Array.from({ length: 12 }, (_, i) => ({
@@ -46,35 +43,14 @@ export default function CovenantKeeper() {
     }));
     setParticles(newParticles);
 
-    // Update streak
+    // Log the check-in
     const today = new Date().toISOString().split('T')[0];
-    const lastCheckDate = localStorage.getItem('lastCheckDate');
-    const lastStreak = parseInt(localStorage.getItem('currentStreak') || '0', 10);
-
-    let newDayCount = dayCount;
-
-    if (!lastCheckDate || lastCheckDate !== today) {
-      if (lastCheckDate) {
-        const lastDate = new Date(lastCheckDate);
-        const today2 = new Date();
-        const yesterday = new Date(today2);
-        yesterday.setDate(yesterday.getDate() - 1);
-
-        if (lastDate.toISOString().split('T')[0] === yesterday.toISOString().split('T')[0]) {
-          newDayCount = lastStreak + 1;
-        } else {
-          newDayCount = 1;
-        }
-      }
-
-      localStorage.setItem('lastCheckDate', today);
-      localStorage.setItem('currentStreak', newDayCount.toString());
-      setDayCount(newDayCount);
-    }
+    localStorage.setItem('lastCheckDate', today);
+    setCheckedInToday(true);
 
     // Rotate content
-    setAffirmationIndex((getRandomIndex(AFFIRMATIONS.length)));
-    setImageIndex((getRandomIndex(IMAGES.length)));
+    setAffirmationIndex(getRandomIndex(AFFIRMATIONS.length));
+    setImageIndex(getRandomIndex(IMAGES.length));
 
     setTimeout(() => {
       setIsAnimating(false);
@@ -88,7 +64,6 @@ export default function CovenantKeeper() {
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-white mb-2">Covenant Keeper</h1>
-          <p className="text-slate-400">Day {dayCount}</p>
         </div>
 
         {/* Image Card */}
@@ -97,7 +72,6 @@ export default function CovenantKeeper() {
             src={IMAGES[imageIndex]}
             alt="Inspiration"
             className="w-full h-full object-cover transition-opacity duration-700"
-            loading="lazy"
           />
           <div className="absolute inset-0 bg-black/20"></div>
         </div>
@@ -106,6 +80,7 @@ export default function CovenantKeeper() {
         <div className="text-center mb-8">
           <div className="text-7xl font-bold text-white mb-2">{dayCount}</div>
           <p className="text-slate-300 text-lg">days of commitment</p>
+          <p className="text-lg mt-3">{checkedInToday ? '✅ Checked in today' : '❌ Not checked in'}</p>
         </div>
 
         {/* Affirmation */}
@@ -120,7 +95,26 @@ export default function CovenantKeeper() {
           <button
             onClick={handleCheckIn}
             disabled={isAnimating}
-            className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 disabled:opacity-50 text-white font-bold py-4 px-6 rounded-xl transition-all duration-200 text-xl shadow-lg hover:shadow-xl active:scale-95 disabled:cursor-not-allowed"
+            style={{
+              backgroundColor: '#ffffff',
+              color: '#000000',
+              borderRadius: '0.75rem',
+              padding: '1rem 1.5rem',
+              fontSize: '1.25rem',
+              fontWeight: 'bold',
+              width: '100%',
+              border: 'none',
+              cursor: isAnimating ? 'not-allowed' : 'pointer',
+              opacity: isAnimating ? 0.5 : 1,
+              boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+              transition: 'all 200ms',
+            }}
+            onMouseEnter={(e) => {
+              if (!isAnimating) e.currentTarget.style.backgroundColor = '#f3f4f6';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#ffffff';
+            }}
           >
             I kept the covenant today
           </button>

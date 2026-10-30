@@ -28,12 +28,14 @@ export default function CovenantKeeper() {
     setCheckedInToday(lastCheckDate === todayIsrael);
     setMissedYesterday(!!(lastCheckDay && lastCheckDay !== todayIsrael && !checkedInToday));
 
-    // Check every minute for day change
+    // Check every minute for day change (only update when new day, not continuously)
     const interval = setInterval(() => {
       const today = getTodayIsraelTime();
       const lastCheck = localStorage.getItem('lastCheckDate');
-      setCheckedInToday(lastCheck === today);
-      setDayCount(getCurrentDayCount());
+      if (lastCheck !== today) {
+        setCheckedInToday(false);
+        setDayCount(getCurrentDayCount());
+      }
     }, 60000);
 
     return () => clearInterval(interval);

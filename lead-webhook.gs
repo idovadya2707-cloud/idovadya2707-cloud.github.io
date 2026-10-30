@@ -23,8 +23,16 @@ function doPost(e) {
     const lock = LockService.getScriptLock();
     lock.waitLock(20000);
 
-    const sheet = getSheet_();
     const p = (e && e.parameter) || {};
+
+    // Honeypot: real users never fill the hidden "company" field. If it's
+    // populated, the request is a bot — accept silently without saving.
+    if (p.company && String(p.company).trim() !== '') {
+      lock.releaseLock();
+      return json_({ ok: true });
+    }
+
+    const sheet = getSheet_();
 
     sheet.appendRow([
       new Date(),

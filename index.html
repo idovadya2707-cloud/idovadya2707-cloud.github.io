@@ -4,25 +4,98 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title data-en="CoachMind — Waitlist &amp; Early Access">CoachMind — רשימת המתנה וגישה מוקדמת</title>
-<meta name="description" content="מאמן אישי בכף היד. CoachMind — מאמן מנטלי מבוסס AI, זמין 24/7 ודיסקרטי, במערכת היברידית שמחברת אותך למאמן אנושי בעת הצורך. הצטרפו לרשימת ההמתנה לשבוע ניסיון חינם." />
+<!-- Consent Mode v2 + gated analytics (no tracking cookies until the user opts in) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  // Deny by default so Google Analytics sets no cookies until consent is granted.
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+  // Microsoft Clarity is loaded only after explicit consent.
+  window.cmLoadClarity = function () {
+    if (window.__cmClarityLoaded) return;
+    window.__cmClarityLoaded = true;
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xnvp5j5o99");
+  };
+  // Re-apply a previously stored "granted" choice as early as possible.
+  try {
+    if (localStorage.getItem('cm-cookie-consent') === 'granted') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });
+      window.cmLoadClarity();
+    }
+  } catch (e) {}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-72VSDTH8HK"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'G-72VSDTH8HK');
+</script>
+<title data-en="CoachMind: Waitlist &amp; Early Access">CoachMind: רשימת המתנה וגישה מוקדמת</title>
+<meta name="description" content="אימון אישי בכף היד. CoachMind — מאמן מנטלי מבוסס AI, זמין 24/7, שלומד אותך, מסיר אמונות ודפוסים מעכבים ומוביל אותך לתוצאות. הצטרפו לרשימת ההמתנה לשבוע ניסיון חינם." />
 <link rel="canonical" href="https://idovadya.com/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="CoachMind" />
 <meta property="og:locale" content="he_IL" />
 <meta property="og:url" content="https://idovadya.com/" />
-<meta property="og:title" content="CoachMind — מאמן אישי בכף היד" />
-<meta property="og:description" content="מאמן מנטלי מבוסס AI, זמין 24/7 ודיסקרטי, במערכת היברידית שמחברת אותך למאמן אנושי בעת הצורך. הצטרפו לרשימת ההמתנה לשבוע ניסיון חינם." />
+<meta property="og:title" content="CoachMind: אימון אישי בכף היד" />
+<meta property="og:description" content="אימון אישי בכף היד. CoachMind — מאמן מנטלי מבוסס AI, זמין 24/7, שלומד אותך, מסיר אמונות ודפוסים מעכבים ומוביל אותך לתוצאות. הצטרפו לרשימת ההמתנה לשבוע ניסיון חינם." />
 <meta property="og:image" content="https://idovadya.com/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="CoachMind" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="CoachMind — מאמן אישי בכף היד" />
-<meta name="twitter:description" content="מאמן מנטלי מבוסס AI, זמין 24/7 ודיסקרטי. הצטרפו לרשימת ההמתנה לשבוע ניסיון חינם." />
+<meta name="twitter:title" content="CoachMind: אימון אישי בכף היד" />
+<meta name="twitter:description" content="אימון אישי בכף היד. CoachMind — מאמן מנטלי מבוסס AI, זמין 24/7, שלומד אותך, מסיר אמונות ודפוסים מעכבים ומוביל אותך לתוצאות. הצטרפו לרשימת ההמתנה לשבוע ניסיון חינם." />
 <meta name="twitter:image" content="https://idovadya.com/og-image.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://idovadya.com/#organization",
+      "name": "CoachMind",
+      "alternateName": "קואצ'מיינד",
+      "url": "https://idovadya.com/",
+      "logo": "https://idovadya.com/apple-touch-icon.png",
+      "image": "https://idovadya.com/og-image.png",
+      "slogan": "Live your potential",
+      "description": "CoachMind — מאמן מנטלי מבוסס AI, זמין 24/7, שלומד אותך, מסיר אמונות ודפוסים מעכבים ומוביל אותך לתוצאות.",
+      "founder": [
+        { "@type": "Person", "name": "עידו עובדיה" },
+        { "@type": "Person", "name": "שחר מלמד" }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://idovadya.com/#website",
+      "name": "CoachMind",
+      "url": "https://idovadya.com/",
+      "inLanguage": "he-IL",
+      "publisher": { "@id": "https://idovadya.com/#organization" }
+    }
+  ]
+}
+</script>
 <link rel="icon" href="favicon.ico" sizes="any" />
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -382,7 +455,7 @@ button { font-family: inherit; }
 .cm-btn--navy:hover:not(:disabled) { background: var(--navy-800); }
 
 .cm-btn--gradient { background: var(--brand-gradient); color: var(--text-on-brand); box-shadow: var(--shadow-sm); }
-.cm-btn--gradient:hover:not(:disabled) { box-shadow: var(--shadow-brand); }
+.cm-btn--gradient:hover:not(:disabled) { color: var(--text-on-brand); box-shadow: var(--shadow-brand); filter: brightness(0.94); }
 
 .cm-btn--secondary {
   background: var(--surface-card);
@@ -742,6 +815,24 @@ button { font-family: inherit; }
     max-width: 30em;
     margin-top: var(--space-5);
   }
+  /* trust line above the offer pill (credibility signal near the CTA, quiet — no filled pill) */
+  /* trust + offer badges in one compact row */
+  .hero__badges { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-6); }
+  .hero__badges .hero__trust, .hero__badges .hero__offer { margin-top: 0; padding: 6px 11px; font-size: var(--text-xs); }
+  .hero__badges .hero__trust svg, .hero__badges .hero__offer svg { width: 14px; height: 14px; }
+  @media (max-width: 900px) { .hero__badges { justify-content: center; } }
+  .hero__trust {
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    margin-top: var(--space-5); padding: 8px 14px; border-radius: var(--radius-pill);
+    background: var(--royal-50); border: 1px solid var(--royal-100);
+    color: var(--royal-700); font-size: var(--text-sm); font-weight: var(--weight-semibold);
+    line-height: 1; white-space: nowrap; width: fit-content;
+  }
+  .hero__trust svg {
+    width: 16px; height: 16px; flex: none;
+    fill: none; stroke: var(--royal-600); stroke-width: 2.6;
+    stroke-linecap: round; stroke-linejoin: round;
+  }
   .hero__chips {
     list-style: none; margin: var(--space-6) 0 0; padding: 0;
     display: flex; flex-wrap: wrap; gap: var(--space-2);
@@ -975,8 +1066,7 @@ button { font-family: inherit; }
   .os-radar { display: flex; justify-content: center; margin: 8px 0 2px; }
   .os-radar svg { width: 218px; height: auto; }
   .os-toggle { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 4px 0 12px; font-size: 13px; font-weight: 600; color: var(--ink-700); }
-  .os-switch { width: 34px; height: 20px; border-radius: 999px; background: var(--royal-600); position: relative; flex: none; }
-  .os-switch::after { content: ""; position: absolute; top: 2px; inset-inline-end: 2px; width: 16px; height: 16px; border-radius: 50%; background: #fff; }
+  .os-switch { width: 8px; height: 8px; border-radius: 50%; background: var(--royal-600); flex: none; }
   .os-sliders { display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
   .os-scard { border: 1px solid var(--border-subtle); border-radius: 14px; padding: 11px 14px 12px; }
   .os-scard__top { display: flex; align-items: baseline; justify-content: space-between; }
@@ -1044,6 +1134,7 @@ button { font-family: inherit; }
   .hc-sec { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
   .hc-sec__title { font-family: var(--font-display); font-weight: var(--weight-bold); font-size: 15px; color: var(--ink-900); }
   .hc-sec__sub { font-size: 12px; color: var(--ink-500); }
+  .hc-demo { display: inline-flex; align-items: center; align-self: center; font-size: 10px; font-weight: var(--weight-semibold); color: var(--ink-500); background: rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.08); border-radius: 999px; padding: 2px 7px; white-space: nowrap; }
 
   .hc-list { display: flex; flex-direction: column; gap: 12px; margin-top: 12px; }
   .hc-coach { display: flex; align-items: center; gap: 12px; background: #fff; border: 1px solid var(--border-subtle); border-radius: 16px; padding: 12px; box-shadow: var(--shadow-xs); }
@@ -1163,7 +1254,7 @@ button { font-family: inherit; }
     border: var(--border-width) solid var(--border-subtle);
     box-shadow: var(--shadow-sm);
   }
-  .how__intro { font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--ink-600); margin-top: var(--space-4); max-width: 52ch; }
+  .how__intro { font-size: var(--text-lg); line-height: var(--leading-snug); color: var(--ink-900); font-weight: var(--weight-semibold); margin-top: var(--space-4); max-width: 52ch; text-wrap: balance; }
   .how__intro strong, .how__intro b { color: var(--ink-900); font-weight: var(--weight-bold); }
   .how .steps { margin-top: var(--space-10); }
   .how__note { text-align: center; font-size: var(--text-md); font-weight: var(--weight-semibold); color: var(--ink-700); margin-top: var(--space-10); }
@@ -1177,8 +1268,7 @@ button { font-family: inherit; }
   }
   .objection .wrap { position: relative; z-index: 1; max-width: var(--container-md); text-align: center; display: flex; flex-direction: column; align-items: center; }
   .objection h2 { color: #fff; }
-  .objection__sub { font-size: var(--text-lg); line-height: var(--leading-snug); font-weight: var(--weight-semibold); color: #fff; max-width: 52ch; margin-top: var(--space-5); text-wrap: balance; }
-  .objection .lead { color: rgba(255,255,255,0.82); max-width: 60ch; }
+  .objection__sub { font-size: var(--text-md); line-height: var(--leading-relaxed); font-weight: var(--weight-regular); color: rgba(255,255,255,0.85); max-width: 48ch; margin-top: var(--space-6); text-wrap: balance; }
   .objection__chips { display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: center; margin-top: var(--space-10); }
   .ochip {
     display: inline-flex; align-items: center; gap: var(--space-2);
@@ -1226,7 +1316,7 @@ button { font-family: inherit; }
   .signup { background: var(--brand-gradient-soft); }
   .signup__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(var(--space-10), 5vw, var(--space-20)); align-items: center; }
   .signup__copy h2 { font-size: clamp(1.7rem, 3.2vw, var(--text-3xl)); }
-  .signup__lead { font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--ink-600); margin-top: var(--space-5); max-width: 46ch; text-wrap: balance; }
+  .signup__lead { font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--brand-slogan); font-weight: var(--weight-semibold); margin-top: var(--space-5); max-width: 46ch; text-wrap: balance; }
   .signup__perks { list-style: none; padding: 0; margin: var(--space-8) 0 0; display: flex; flex-direction: column; gap: var(--space-4); }
   .signup__perks li { display: flex; align-items: flex-start; gap: var(--space-3); font-size: var(--text-base); color: var(--ink-700); }
   .signup__perks svg { width: 20px; height: 20px; color: var(--royal-500); flex: none; margin-top: 2px; }
@@ -1249,6 +1339,8 @@ button { font-family: inherit; }
   .form-consent input:focus-visible { outline: none; box-shadow: var(--focus-ring); }
   .form-consent span { font-size: var(--text-xs); line-height: 1.5; color: var(--ink-600); }
   .form-consent-note { font-size: var(--text-xs); line-height: 1.5; color: var(--text-muted); margin: calc(var(--space-5) * -1 + var(--space-1)) 0 var(--space-5); padding-inline-start: calc(18px + var(--space-3)); }
+  /* Honeypot field — off-screen (not display:none, so bots still fill it) */
+  .hp-field { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
   .form-success {
     display: none; flex-direction: column; align-items: center; text-align: center; gap: var(--space-3);
     padding: var(--space-8) var(--space-4);
@@ -1260,6 +1352,16 @@ button { font-family: inherit; }
   .form-success .check svg { width: 28px; height: 28px; }
   .form-success h3 { font-size: var(--text-xl); color: var(--ink-900); }
   .form-success p { font-size: var(--text-base); color: var(--ink-600); max-width: 34ch; }
+
+  /* ---- Share block (thank-you) ---- */
+  .share-block { width: 100%; margin-top: var(--space-5); padding-top: var(--space-5); border-top: 1px solid var(--border-subtle); }
+  .share-block__title { font-size: var(--text-sm); font-weight: var(--weight-semibold); color: var(--ink-700); margin: 0 0 var(--space-4); max-width: none; }
+  .share-block__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: center; }
+  .share-block__actions .cm-btn { gap: var(--space-2); }
+  .share-block__actions .cm-btn svg { width: 18px; height: 18px; }
+  .cm-btn--wa { background: #25d366; color: #fff; border-color: transparent; }
+  .cm-btn--wa:hover:not(:disabled) { color: #fff; background: #1ebe5a; box-shadow: var(--shadow-sm); }
+  .cm-btn.is-copied { background: var(--success-50); color: var(--success-600); border-color: var(--success-500); }
 
   /* ============================ Footer ============================ */
   .footer { background: var(--navy-900); color: rgba(255,255,255,0.7); padding: var(--space-6) 0; }
@@ -1374,6 +1476,31 @@ button { font-family: inherit; }
   .cta-bar.is-hidden { transform: translateY(120%); pointer-events: none; }
   /* keep the footer clear of the fixed bar (the bar is hidden at the very bottom, so a slim clearance is enough) */
   .footer { padding-block-end: calc(var(--cta-h, 78px) * 0.5); }
+
+  /* ---- Cookie consent banner ---- */
+  .cookie-banner {
+    position: fixed; z-index: 250;
+    inset-block-end: calc(var(--cta-h, 78px) + 16px);
+    inset-inline-end: 20px; inset-inline-start: auto;
+    width: min(430px, calc(100vw - 40px));
+    background: var(--paper); border: 1px solid var(--border-default);
+    border-radius: var(--radius-xl); box-shadow: var(--shadow-xl);
+    padding: var(--space-5);
+  }
+  .cookie-banner[hidden] { display: none; }
+  .cookie-banner__text {
+    font-size: var(--text-sm); line-height: var(--leading-relaxed);
+    color: var(--ink-700); margin: 0 0 var(--space-4);
+  }
+  .cookie-banner__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
+  .cookie-banner__link { font-size: var(--text-sm); color: var(--accent); margin-inline-end: auto; }
+  .cookie-banner .cm-btn { height: 40px; padding: 0 var(--space-4); font-size: var(--text-sm); }
+  @media (max-width: 560px) {
+    .cookie-banner {
+      inset-inline: 12px; width: auto;
+      inset-block-end: calc(var(--cta-h, 78px) + 74px);
+    }
+  }
 
   /* ---- Accessibility widget (FAB + menu) ---- */
   .a11y-fab {
@@ -1537,15 +1664,22 @@ button { font-family: inherit; }
     <div class="wrap">
       <div class="hero__grid">
         <div class="hero__text">
-          <span class="eyebrow" data-en="A new world of personal growth">עולם חדש של התפתחות אישית</span>
           <h1 data-en="Personal coaching <span class=&quot;accent&quot;>in your pocket</span>">אימון אישי <span class="accent">בכף היד</span></h1>
-          <p class="hero__sub" data-en="A personal mental coach, available 24/7, who learns you and connects you to a human coach when you need it.">מאמן מנטלי אישי, זמין 24/7, שלומד אותך ומחבר למאמן אנושי כשצריך.</p>
-          <p class="hero__offer">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-            <span data-en="Free trial week · No credit card">שבוע ניסיון חינם · בלי כרטיס אשראי</span>
-          </p>
+          <p class="hero__sub" data-en="An AI-based mental coach, available 24/7, that learns you, removes the beliefs and patterns holding you back, and leads you to results.">מאמן מנטלי מבוסס AI, זמין 24/7, שלומד אותך, מסיר אמונות ודפוסים מעכבים ומוביל אותך לתוצאות.</p>
+          <div class="hero__badges">
+            <span class="hero__trust">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
+              <span data-en="Developed with senior mental coaches">פותח עם מאמנים מנטליים בכירים</span>
+            </span>
+            <p class="hero__offer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
+              <span data-en="Free trial week · No credit card">שבוע ניסיון חינם · בלי כרטיס אשראי</span>
+            </p>
+          </div>
+          <div class="hero__cta">
+            <a class="cm-btn cm-btn--gradient cm-btn--lg" href="#signup" id="heroCta" data-cta-location="hero" data-en="Save my spot for the free week">שמרו לי מקום לשבוע החינם</a>
+          </div>
           <div class="hero__count">
-            <span class="avatars" aria-hidden="true"><span><img src="assets/waitlist/p1.jpg" alt="" /></span><span><img src="assets/waitlist/p2.jpg" alt="" /></span><span><img src="assets/waitlist/p3.jpg" alt="" /></span><span><img src="assets/waitlist/p4.jpg" alt="" /></span></span>
             <span data-en="Already <span class=&quot;count-num&quot;>240+</span> signed up">כבר <span class="count-num">240+</span> נרשמו</span>
           </div>
           <p class="hero__cap" data-en="The pilot is limited to 1,000 spots only">הפיילוט מוגבל ל-1,000 מקומות בלבד</p>
@@ -1698,16 +1832,16 @@ button { font-family: inherit; }
                     <div class="hc-hero">
                       <div class="hc-hero__eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg><span data-en="Smart match">התאמה חכמה</span></div>
                       <div class="hc-hero__title" data-en="Shall we find you the right coach?">שנמצא לך את המאמן הנכון?</div>
-                      <p class="hc-hero__text" data-en="Michael will analyze your conversations so far, your Wheel of Life and values — and recommend the human coach best suited to you and what you're working on right now.">מייקל ינתח את השיחות שלך עד כה, את גלגל החיים והערכים — וימליץ על המאמן האנושי שהכי מתאים לך ולמה שעליו את/ה עובד/ת כרגע.</p>
+                      <p class="hc-hero__text" data-en="Michael will analyze your conversations so far, your Wheel of Life and values, and recommend the human coach best suited to you and what you're working on right now.">מייקל ינתח את השיחות שלך עד כה, את גלגל החיים והערכים, וימליץ על המאמן האנושי שהכי מתאים לך ולמה שעליו את/ה עובד/ת כרגע.</p>
                       <button class="hc-hero__btn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H4"></path><path d="M10 6l-6 6 6 6"></path></svg><span data-en="Find my match">מצא לי התאמה</span></button>
                     </div>
                     <div>
-                      <div class="hc-sec"><span class="hc-sec__title" data-en="Recommended for you">מומלצים עבורך</span><span class="hc-sec__sub" data-en="Based on your profile">לפי הפרופיל שלך</span></div>
+                      <div class="hc-sec"><span class="hc-sec__title" data-en="Recommended for you">מומלצים עבורך</span><span class="hc-demo" data-en="Demo only">הדגמה בלבד</span><span class="hc-sec__sub" data-en="Based on your profile">לפי הפרופיל שלך</span></div>
                       <div class="hc-list">
                         <div class="hc-coach hc-coach--rec">
                           <div class="hc-coach__photo"><img src="assets/waitlist/coach-maya-opt.jpg" width="54" height="54" decoding="async" alt="" /></div>
                           <div class="hc-coach__body">
-                            <div class="hc-coach__top"><span class="hc-coach__name" data-en="Dr. Maya Levin">ד"ר מאיה לוין</span><span class="hc-match" data-en="★ 96% match">★ 96% התאמה</span></div>
+                            <div class="hc-coach__top"><span class="hc-coach__name" data-en="Dr. Emma Levin">ד"ר אמה לוין</span><span class="hc-match" data-en="★ 96% match">★ 96% התאמה</span></div>
                             <div class="hc-coach__spec" data-en="Mental coach · CBT &amp; mindfulness">מאמנת מנטלית · CBT ומיינדפולנס</div>
                             <div class="hc-coach__meta"><span class="hc-tag hc-tag--mental" data-en="Mental">מנטלי</span><span class="hc-rating"><span data-en="Rating">דירוג</span> <span class="hc-dots"><i></i><i></i><i></i><i></i><i></i></span></span></div>
                           </div>
@@ -1725,7 +1859,7 @@ button { font-family: inherit; }
                       </div>
                     </div>
                     <div>
-                      <div class="hc-sec"><span class="hc-sec__title" data-en="All coaches">כל המאמנים</span><span class="hc-sec__sub" data-en="28 available">28 זמינים</span></div>
+                      <div class="hc-sec"><span class="hc-sec__title" data-en="All coaches">כל המאמנים</span><span class="hc-demo" data-en="Demo only">הדגמה בלבד</span><span class="hc-sec__sub" data-en="28 available">28 זמינים</span></div>
                       <div class="hc-filters">
                         <span class="hc-chip hc-chip--active" data-en="All">הכל</span>
                         <span class="hc-chip" data-en="Mental coaches">מאמנים מנטליים</span>
@@ -1762,37 +1896,46 @@ button { font-family: inherit; }
     </div>
   </header>
 
+  <!-- ============================ THE PROBLEM (dark) ============================ -->
+  <section class="section objection">
+    <div class="wrap">
+      <span class="eyebrow eyebrow--on-dark" data-en="The problem">הבעיה</span>
+      <h2 data-en="Coaching works — but it's expensive, and not there in the moments that matter.">אימון עובד — אבל הוא יקר, ולא שם ברגעים שבאמת חשובים.</h2>
+      <p class="objection__sub" data-en="A single session with a human coach costs more than a full month of CoachMind.">סשן בודד עם מאמן אנושי עולה יותר מחודש שלם של CoachMind.</p>
+    </div>
+  </section>
+
   <!-- ============================ WHERE THE COACH HELPS (blue) ============================ -->
   <section class="section helps-section">
     <div class="wrap">
-      <h2 class="helps__head" data-en="How the coach helps you">במה המאמן עוזר לך</h2>
-      <ul class="helps-panel" aria-label="במה המאמן עוזר לך">
+      <h2 class="helps__head" data-en="How your coach will help you">במה המאמן יעזור לך</h2>
+      <ul class="helps-panel" aria-label="במה המאמן יעזור לך">
         <li class="help-row">
           <span class="help-row__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20l6-6 3 3 8-9"></path><path d="M14 8h6v6"></path></svg></span>
           <span class="help-row__body">
             <span class="help-row__title" data-en="Career">קריירה</span>
-            <span class="help-row__text" data-en="Pinpoints where you truly want to grow, and builds the next step with you.">מזהה לאן אתה באמת רוצה להתקדם, ובונה איתך את הצעד הבא.</span>
+            <span class="help-row__text" data-en="Pinpoints your strengths and passions, and translates them into roles and professions that truly fit you.">מזהה איתך את החוזקות והתשוקות שלך, ומתרגם אותן לתפקידים ומקצועות שבאמת מתאימים לך.</span>
           </span>
         </li>
         <li class="help-row">
           <span class="help-row__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v6"></path><path d="M12 9l-5 5"></path><path d="M12 9l5 5"></path><circle cx="7" cy="18" r="2.2"></circle><circle cx="17" cy="18" r="2.2"></circle></svg></span>
           <span class="help-row__body">
             <span class="help-row__title" data-en="Decisions">החלטות</span>
-            <span class="help-row__text" data-en="Helps you leave the back-and-forth with a decision you're at peace with.">עוזר לך לצאת מהתלבטות עם החלטה שאתה שלם איתה.</span>
+            <span class="help-row__text" data-en="Asks the questions that draw the answers out of you, so you make the right decisions in every area of life.">שואל את השאלות שמוציאות ממך את התשובות, כדי שתקבל החלטות נכונות בכל תחום בחיים.</span>
           </span>
         </li>
         <li class="help-row">
           <span class="help-row__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path><path d="M4 20h16"></path></svg></span>
           <span class="help-row__body">
             <span class="help-row__title" data-en="Habits">הרגלים</span>
-            <span class="help-row__text" data-en="Breaks goals down into skills and habits that actually stick.">מפרק מטרות ליכולות ולהרגלים שמחזיקים.</span>
+            <span class="help-row__text" data-en="Breaks the habits that hold you back, and builds ones that move you toward your goals instead.">שובר איתך את ההרגלים שעוצרים אותך, ובונה במקומם הרגלים שמקדמים אותך למטרות שלך.</span>
           </span>
         </li>
         <li class="help-row">
           <span class="help-row__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.3 4.7 5.2.8-3.8 3.7.9 5.1L12 15l-4.6 2.4.9-5.1L4.5 8.5l5.2-.8z"></path></svg></span>
           <span class="help-row__body">
             <span class="help-row__title" data-en="Self-confidence">ביטחון עצמי</span>
-            <span class="help-row__text" data-en="Works on the inner voice, so you act from confidence, not fear.">עובד איתך על הקול הפנימי, שתפעל מתוך ביטחון ולא פחד.</span>
+            <span class="help-row__text" data-en="Identifies the inner voice that stops you, and builds real confidence with you.">מזהה את הקול הפנימי שעוצר אותך, ובונה איתך ביטחון אמיתי.</span>
           </span>
         </li>
         <li class="help-row">
@@ -1810,18 +1953,17 @@ button { font-family: inherit; }
   <section class="section how">
     <div class="wrap">
       <span class="eyebrow" data-en="How it works">איך זה עובד</span>
-      <h2 data-en="From the very first conversation, you'll feel it's different.">מהשיחה הראשונה מבינים שזה משהו אחר.</h2>
-      <p class="how__intro" data-en="Michael is your personal mental coach inside the app. Here's how it works:">מייקל הוא המאמן המנטלי שלך באפליקציה. ככה זה עובד:</p>
+      <p class="how__intro" data-en="Maya or Michael — pick the mental coach who fits you, and let's begin:">מאיה או מייקל — בוחרים את המאמן/ת המנטלי/ת שמתאים/ה לך, ומתחילים:</p>
       <div class="steps">
         <div class="step cm-card cm-card--flat">
           <div class="step__num">01</div>
           <div class="step__title" data-en="Choose what to work on">בוחרים על מה לעבוד</div>
-          <p class="step__text" data-en="Career, relationships, confidence, money — and if you're not sure what's bothering you, Michael knows how to ask the questions that uncover it together with you. Define where you want to get to, and set off.">קריירה, זוגיות, ביטחון, כסף — ואם את/ה לא בטוח/ה מה מציק, מייקל יודע לשאול את השאלות שמגלות את זה יחד איתך. מגדירים לאן את/ה רוצה להגיע, ויוצאים לדרך.</p>
+          <p class="step__text" data-en="Career, relationships, confidence, money — and if you're not sure what's bothering you, your coach knows how to ask the questions that uncover it together with you. Define where you want to get to, and set off.">קריירה, זוגיות, ביטחון, כסף — ואם את/ה לא בטוח/ה מה מציק, המאמן/ת יודע/ת לשאול את השאלות שמגלות את זה יחד איתך. מגדירים לאן את/ה רוצה להגיע, ויוצאים לדרך.</p>
         </div>
         <div class="step cm-card cm-card--flat">
           <div class="step__num">02</div>
           <div class="step__title" data-en="You talk, and something shifts">מדברים, ומשהו זז</div>
-          <p class="step__text" data-en="Michael asks what no one else asked — no judgment, no explaining yourself from scratch. The conversation doesn't end with &ldquo;interesting,&rdquo; but with a new understanding and a clear next step to take.">מייקל שואל את מה שאף אחד לא שאל — בלי שיפוטיות ובלי להסביר את עצמך מהתחלה. השיחה לא נגמרת ב“מעניין”, אלא בהבנה חדשה ובצעד ברור לביצוע.</p>
+          <p class="step__text" data-en="Your coach asks what no one else asked, no judgment, no explaining yourself from scratch. The conversation doesn't end with &ldquo;interesting,&rdquo; but with a new understanding and a clear next step to take.">המאמן/ת שואל/ת את מה שאף אחד לא שאל, בלי שיפוטיות ובלי להסביר את עצמך מהתחלה. השיחה לא נגמרת ב“מעניין”, אלא בהבנה חדשה ובצעד ברור לביצוע.</p>
         </div>
         <div class="step cm-card cm-card--flat">
           <div class="step__num">03</div>
@@ -1829,7 +1971,7 @@ button { font-family: inherit; }
           <p class="step__text" data-en="Every conversation ends with a step to take, and that step doesn't disappear. The next conversation picks up exactly where you left off: what worked, where you got stuck, and what's next. That's how progress is built, conversation after conversation.">כל שיחה נגמרת בצעד לביצוע, והצעד הזה לא נעלם. השיחה הבאה נפתחת בדיוק מאיפה שעצרתם: מה עבד, איפה נתקעת, ומה הלאה. ככה התקדמות נבנית, שיחה אחרי שיחה.</p>
         </div>
       </div>
-      <p class="how__note" data-en="More knowledge won't solve your problem. Michael knows how to reach the mindset that created it.">עוד ידע לא יפתור לך את הבעיה. מייקל יודע לגעת במיינדסט שיצר אותה.</p>
+      <p class="how__note" data-en="More knowledge won't solve your problem. Your coach knows how to reach the mindset that created it.">עוד ידע לא יפתור לך את הבעיה. המאמן/ת יודע/ת לגעת במיינדסט שיצר אותה.</p>
     </div>
   </section>
 
@@ -1844,7 +1986,7 @@ button { font-family: inherit; }
           <div>
             <div class="founder__name" data-en="Ido Ovadia">עידו עובדיה</div>
             <div class="founder__role" data-en="Founder &amp; CEO">מייסד ומנכ"ל</div>
-            <p class="founder__bio" data-en="A graduate of OneLife's mental coaching program, I've guided dozens of clients through growth journeys. A former combat commander.">בוגר הכשרת מאמנים מנטליים מאת OneLife, ליווה עשרות לקוחות בתהליכי צמיחה. מפקד לוחם לשעבר.</p>
+            <p class="founder__bio" data-en="Former combat commander, graduate of OneLife's mental coaching training program and NLP practitioner. Led 100+ clients through workshops and personal development journeys. Founder of the Soldiers Together platform.">מפקד קרבי לשעבר, בוגר הכשרת מאמנים מנטליים מאת OneLife ומתרגל NLP. ליווה 100+ לקוחות בסדנאות ובתהליכי התפתחות אישית. מייסד פלטפורמת ״חיילים ביחד״.</p>
           </div>
         </div>
         <div class="founder">
@@ -1852,12 +1994,12 @@ button { font-family: inherit; }
           <div>
             <div class="founder__name" data-en="Shahar Melamed">שחר מלמד</div>
             <div class="founder__role" data-en="Co-founder &amp; CTO">מייסד וסמנכ"ל טכנולוגיות</div>
-            <p class="founder__bio" data-en="A B.Sc. engineer and graduate of OneLife's mental coaching program, bridging coaching methodology with technology.">מהנדס (B.Sc.) בוגר הכשרת מאמנים מנטליים מאת OneLife, מחבר בין מתודולוגיית אימון לטכנולוגיה.</p>
+            <p class="founder__bio" data-en="Graduate of OneLife's mental coaching training program and NLP practitioner. A mechanical engineer (B.Sc., Ben Gurion University), he led complex technical projects for global clients including Applied Materials and Samsung. A former commander in a classified intelligence unit.">בוגר הכשרת מאמנים מנטליים מאת OneLife ומתרגל NLP. מהנדס מכונות (B.Sc., אוניברסיטת בן גוריון); הוביל פרויקטים טכניים מורכבים ללקוחות גלובליים כולל Applied Materials וסמסונג. מפקד לשעבר ביחידת מודיעין מסווגת.</p>
           </div>
         </div>
       </div>
       <div class="founders__note">
-        <p data-en="We built CoachMind's methodology together with additional senior coaches from the world of mental coaching and NLP.">את המתודולוגיה של CoachMind בנינו יחד עם מאמנים בכירים נוספים מעולם האימון המנטלי וה-NLP.</p>
+        <p data-en="CoachMind was built together with senior mental coaches — not just another generic chatbot, but real professional guidance.">CoachMind נבנה יחד עם מאמנים מנטליים בכירים — לא עוד צ'אטבוט כללי, אלא ליווי מקצועי אמיתי.</p>
       </div>
     </div>
   </section>
@@ -1869,7 +2011,7 @@ button { font-family: inherit; }
         <div class="signup__copy">
           <span class="eyebrow" data-en="Leave your details">השאירו פרטים</span>
           <h2 data-en="A free trial week for everyone on the waitlist.">שבוע ניסיון ללא עלות, לנרשמי רשימת ההמתנה.</h2>
-          <p class="signup__lead" data-en="All you need to do is show up. Michael will know how to take you to your next stage.">כל מה שצריך זה להגיע. מייקל כבר ידע לקחת אותך לשלב הבא שלך.</p>
+          <p class="signup__lead" data-en="All you need to do is show up. Your coach already knows how to take you to your next stage.">כל מה שצריך זה להגיע. המאמן/ת שלך כבר יודע/ת לקחת אותך לשלב הבא שלך.</p>
           <ul class="signup__perks">
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
@@ -1889,9 +2031,9 @@ button { font-family: inherit; }
         <div class="form-card">
           <form id="waitForm" novalidate>
             <div class="form-row">
-              <label for="f-name" data-en="Full name">שם מלא</label>
-              <input class="cm-input" id="f-name" name="name" type="text" autocomplete="name" placeholder="איך קוראים לך?" data-en-ph="What's your name?" required aria-describedby="err-name" />
-              <p class="field-error" id="err-name" data-en="Please enter your full name.">נא להזין שם מלא.</p>
+              <label for="f-name" data-en="First name">שם פרטי</label>
+              <input class="cm-input" id="f-name" name="name" type="text" autocomplete="given-name" placeholder="איך קוראים לך?" data-en-ph="What's your name?" required aria-describedby="err-name" />
+              <p class="field-error" id="err-name" data-en="Please enter your first name.">נא להזין שם פרטי.</p>
             </div>
             <div class="form-row">
               <label for="f-email" data-en="Email">אימייל</label>
@@ -1902,6 +2044,11 @@ button { font-family: inherit; }
               <label for="f-phone" data-en="Phone">טלפון</label>
               <input class="cm-input" id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="050-0000000" data-en-ph="050-0000000" required aria-describedby="err-phone" />
               <p class="field-error" id="err-phone" data-en="Please enter a valid phone number.">נא להזין מספר טלפון תקין.</p>
+            </div>
+            <!-- Honeypot: hidden from real users; bots that autofill it are rejected. Not a real field. -->
+            <div class="hp-field" aria-hidden="true">
+              <label for="f-company">Company</label>
+              <input type="text" id="f-company" name="company" tabindex="-1" autocomplete="off" />
             </div>
             <label class="form-consent" for="f-consent">
               <input type="checkbox" id="f-consent" name="consent" />
@@ -1916,8 +2063,18 @@ button { font-family: inherit; }
             <div class="check">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
             </div>
-            <h3 data-en="You're on the list.">את/ה ברשימה.</h3>
-            <p data-en="We'll reach out the moment early access opens — keep an eye on your email.">ניצור איתך קשר ברגע שהגישה המוקדמת נפתחת — שים/י עין על המייל.</p>
+            <h3 data-en="You're in! 🎉">את/ה בפנים! 🎉</h3>
+            <p data-en="We've saved your spot in the pilot. We'll reach out the moment early access opens.">שריינו לך מקום בפיילוט. ניצור איתך קשר ברגע שהגישה המוקדמת נפתחת.</p>
+            <div class="share-block">
+              <p class="share-block__title" data-en="Know someone this is perfect for? Share it:">מכיר/ה מישהו שזה בדיוק בשבילו? שתפו איתו:</p>
+              <div class="share-block__actions">
+                <a class="cm-btn cm-btn--wa" id="shareWhatsApp" href="https://wa.me/" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.96 11.96 0 005.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.9 11.9 0 00-3.487-8.42z"></path></svg>
+                  <span data-en="Share on WhatsApp">שיתוף בוואטסאפ</span>
+                </a>
+                <button type="button" class="cm-btn cm-btn--secondary" id="copyLink" data-en="Copy link">העתק קישור</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1939,6 +2096,16 @@ button { font-family: inherit; }
       <small data-en="© 2026 CoachMind · All rights reserved">© 2026 CoachMind · כל הזכויות שמורות</small>
     </div>
   </footer>
+
+  <!-- ============================ COOKIE CONSENT ============================ -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="הודעת עוגיות" data-en-aria="Cookie notice" hidden>
+    <p class="cookie-banner__text" data-en="We use cookies to run the site and to measure and improve it (Google Analytics and Microsoft Clarity). You can accept or decline.">אנחנו משתמשים בעוגיות כדי להפעיל את האתר, למדוד ולשפר אותו (Google Analytics ו-Microsoft Clarity). אפשר לאשר או לדחות.</p>
+    <div class="cookie-banner__actions">
+      <a class="cookie-banner__link" href="#" id="openPrivacy3" data-en="Privacy policy">מדיניות פרטיות</a>
+      <button type="button" class="cm-btn cm-btn--ghost" id="cookieDecline" data-en="Decline">דחייה</button>
+      <button type="button" class="cm-btn cm-btn--gradient" id="cookieAccept" data-en="Accept">אישור</button>
+    </div>
+  </div>
 
   <!-- ============================ STICKY BOTTOM CTA ============================ -->
   <div class="cta-bar" id="ctaBar">
@@ -2001,7 +2168,7 @@ button { font-family: inherit; }
         אימייל: ccoachmind@gmail.com<br />
         טלפון: 050-6380503
       </p>
-      <p class="a11y-contact" data-en="Statement last updated: 09/07/2026">תאריך עדכון ההצהרה: 09/07/2026</p>
+      <p class="a11y-contact" data-en="Statement last updated: 9 July 2026">תאריך עדכון ההצהרה: 09/07/2026</p>
     </div>
   </div>
 
@@ -2012,7 +2179,7 @@ button { font-family: inherit; }
       <button type="button" class="a11y-modal__close" data-close aria-label="סגור" data-en-aria="Close">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18"></path><path d="M6 6l12 12"></path></svg>
       </button>
-      <h2 id="privacyModalTitle" data-en="Privacy Policy — CoachMind Waitlist">מדיניות פרטיות — רשימת המתנה CoachMind</h2>
+      <h2 id="privacyModalTitle" data-en="Privacy Policy: CoachMind Waitlist">מדיניות פרטיות: רשימת המתנה CoachMind</h2>
       <h3 data-en="Who is responsible for the data">מי אחראי על המידע</h3>
       <p data-en="Data controller: Ido Ovadia, founder of CoachMind. For privacy matters: <a href=&quot;mailto:ccoachmind@gmail.com&quot;>ccoachmind@gmail.com</a>, phone 050-6380503.">האחראי על המידע: עידו עובדיה, מייסד CoachMind. לפניות בנושא פרטיות: <a href="mailto:ccoachmind@gmail.com">ccoachmind@gmail.com</a>, טלפון 050-6380503.</p>
       <h3 data-en="What we collect">מה אנחנו אוספים</h3>
@@ -2242,6 +2409,16 @@ button { font-family: inherit; }
         });
         if (firstInvalid) { firstInvalid.focus(); return; }
 
+        // ---- honeypot: real users never fill #f-company. If filled, it's a bot:
+        //      show success but don't submit or track. ----
+        var hpEl = document.getElementById('f-company');
+        var hp = hpEl ? hpEl.value.trim() : '';
+        if (hp !== '') {
+          form.style.display = 'none';
+          success.style.display = 'flex';
+          return;
+        }
+
         // ---- real submission → Google Apps Script (idovadya.com lead sheet) ----
         var ENDPOINT = 'https://script.google.com/macros/s/AKfycby6pE7aaHBwj5WZlPOtcZTGBHUAW6TDrf6tb5LAYw2WAquCRoXGv-ssT2AQ9DosgK9B5w/exec';
         var consentEl = document.getElementById('f-consent');
@@ -2249,10 +2426,16 @@ button { font-family: inherit; }
         data.append('name', document.getElementById('f-name').value.trim());
         data.append('phone', document.getElementById('f-phone').value.trim());
         data.append('email', document.getElementById('f-email').value.trim());
+        data.append('company', hp);
         data.append('message', 'שיווקי: ' + (consentEl && consentEl.checked ? 'כן' : 'לא'));
         try {
-          fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body: data, keepalive: true });
+          fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body: data, keepalive: true }).catch(function () {});
         } catch (err) {}
+
+        // ---- conversion tracking: fire a lead event to GA4 + Clarity (with UTM params) ----
+        var utm = cmGetUTMs();
+        try { if (window.gtag) gtag('event', 'generate_lead', Object.assign({ form: 'waitlist' }, utm)); } catch (err) {}
+        try { if (window.clarity) clarity('event', 'lead_submitted'); } catch (err) {}
 
         form.style.display = 'none';
         success.style.display = 'flex';
@@ -2271,6 +2454,75 @@ button { font-family: inherit; }
         }
       });
     });
+
+    // ---- UTM capture (attached to the lead event on submit) ----
+    function cmGetUTMs() {
+      var out = {};
+      try {
+        var p = new URLSearchParams(window.location.search);
+        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(function (k) {
+          var v = p.get(k);
+          if (v) out[k] = v;
+        });
+      } catch (e) {}
+      return out;
+    }
+
+    // ---- CTA click tracking (GA4 + Clarity); location taken from data-cta-location ----
+    document.querySelectorAll('a[href="#signup"]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        var loc = el.getAttribute('data-cta-location') || 'sticky_bar';
+        try { if (window.gtag) gtag('event', 'cta_click', { location: loc }); } catch (e) {}
+        try { if (window.clarity) clarity('event', 'cta_click', { location: loc }); } catch (e) {}
+      });
+    });
+
+    // ---- thank-you share block: WhatsApp link, copy-to-clipboard, tracking ----
+    (function () {
+      var SITE = 'https://idovadya.com';
+      var wa = document.getElementById('shareWhatsApp');
+      if (wa) {
+        var waMsg = 'מצאתי משהו שנראה לי בדיוק בשבילך — מאמן מנטלי אישי שזמין 24/7. יש שבוע ניסיון חינם למצטרפים לרשימת ההמתנה: ' + SITE;
+        wa.setAttribute('href', 'https://wa.me/?text=' + encodeURIComponent(waMsg));
+        wa.addEventListener('click', function () {
+          try { if (window.gtag) gtag('event', 'share', { method: 'whatsapp', location: 'thank_you' }); } catch (e) {}
+          try { if (window.clarity) clarity('event', 'share_whatsapp'); } catch (e) {}
+        });
+      }
+      var copy = document.getElementById('copyLink');
+      if (copy) {
+        var copyHe = copy.textContent;
+        var copyEn = copy.getAttribute('data-en') || 'Copy link';
+        var copyTimer = null;
+        function copied() {
+          var en = document.documentElement.lang === 'en';
+          copy.classList.add('is-copied');
+          copy.textContent = en ? 'Copied ✓' : 'הועתק ✓';
+          if (copyTimer) clearTimeout(copyTimer);
+          copyTimer = setTimeout(function () {
+            copy.classList.remove('is-copied');
+            copy.textContent = (document.documentElement.lang === 'en') ? copyEn : copyHe;
+          }, 2000);
+          try { if (window.gtag) gtag('event', 'copy_link', { location: 'thank_you' }); } catch (e) {}
+          try { if (window.clarity) clarity('event', 'copy_link'); } catch (e) {}
+        }
+        function fallbackCopy() {
+          try {
+            var ta = document.createElement('textarea');
+            ta.value = SITE; ta.setAttribute('readonly', '');
+            ta.style.position = 'absolute'; ta.style.left = '-9999px';
+            document.body.appendChild(ta); ta.select();
+            document.execCommand('copy'); document.body.removeChild(ta);
+            copied();
+          } catch (e) {}
+        }
+        copy.addEventListener('click', function () {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(SITE).then(copied).catch(fallbackCopy);
+          } else { fallbackCopy(); }
+        });
+      }
+    })();
 
     // ---- accessibility widget + statement modal ----
     (function () {
@@ -2363,7 +2615,43 @@ button { font-family: inherit; }
         });
       }
       wireModal(modal, ['openA11yStatement', 'openA11yStatement2']);
-      wireModal(document.getElementById('privacyModal'), ['openPrivacy', 'openPrivacy2']);
+      wireModal(document.getElementById('privacyModal'), ['openPrivacy', 'openPrivacy2', 'openPrivacy3']);
+    })();
+
+    // ---- cookie consent banner ----
+    (function () {
+      var banner = document.getElementById('cookieBanner');
+      if (!banner) return;
+      var KEY = 'cm-cookie-consent';
+      var stored;
+      try { stored = localStorage.getItem(KEY); } catch (e) { stored = null; }
+      // Show the banner only when the visitor hasn't chosen yet.
+      if (stored !== 'granted' && stored !== 'denied') { banner.hidden = false; }
+
+      function save(choice) { try { localStorage.setItem(KEY, choice); } catch (e) {} }
+
+      var acceptBtn = document.getElementById('cookieAccept');
+      var declineBtn = document.getElementById('cookieDecline');
+
+      if (acceptBtn) acceptBtn.addEventListener('click', function () {
+        save('granted');
+        if (typeof gtag === 'function') {
+          gtag('consent', 'update', {
+            'ad_storage': 'granted',
+            'ad_user_data': 'granted',
+            'ad_personalization': 'granted',
+            'analytics_storage': 'granted'
+          });
+        }
+        if (typeof window.cmLoadClarity === 'function') window.cmLoadClarity();
+        banner.hidden = true;
+      });
+
+      if (declineBtn) declineBtn.addEventListener('click', function () {
+        save('denied');
+        // consent stays denied (set as default in <head>); Clarity is never loaded.
+        banner.hidden = true;
+      });
     })();
 
     // ---- sticky bottom CTA bar: measure height, hide while the signup form is visible ----

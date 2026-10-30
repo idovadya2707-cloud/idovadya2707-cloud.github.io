@@ -1,2 +1,4 @@
 .DS_Store
 פרופיל_AI.png
+__pycache__/
+*.pyc

@@ -32,7 +32,7 @@ export default function CovenantKeeper() {
       const lastCheckDay = localStorage.getItem('lastCheckDay');
 
       setCheckedInToday(lastCheckDate === todayIsrael);
-      setMissedYesterday(lastCheckDay && lastCheckDay !== todayIsrael && !checkedInToday);
+      setMissedYesterday(!!(lastCheckDay && lastCheckDay !== todayIsrael && !checkedInToday));
     };
 
     updateState();

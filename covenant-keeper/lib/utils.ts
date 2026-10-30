@@ -15,3 +15,12 @@ export function getCurrentDayCount(): number {
 export function getRandomIndex(max: number): number {
   return Math.floor(Math.random() * max);
 }
+
+export function getTodayIsraelTime(): string {
+  const date = new Date();
+  const israelDate = new Date(date.toLocaleString('en-US', { timeZone: 'Asia/Jerusalem' }));
+  const year = israelDate.getFullYear();
+  const month = String(israelDate.getMonth() + 1).padStart(2, '0');
+  const day = String(israelDate.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}

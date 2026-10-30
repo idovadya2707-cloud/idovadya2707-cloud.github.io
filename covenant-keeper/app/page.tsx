@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { AFFIRMATIONS, IMAGES } from '@/lib/constants';
-import { getCurrentDayCount, getRandomIndex } from '@/lib/utils';
+import { AFFIRMATIONS, IMAGES, START_DATE } from '@/lib/constants';
+import { getCurrentDayCount, getRandomIndex, getTodayIsraelTime } from '@/lib/utils';
 
 export default function CovenantKeeper() {
   const [dayCount, setDayCount] = useState<number>(0);
@@ -11,6 +11,7 @@ export default function CovenantKeeper() {
   const [isAnimating, setIsAnimating] = useState(false);
   const [particles, setParticles] = useState<Array<{ id: number; x: number; y: number }>>([]);
   const [checkedInToday, setCheckedInToday] = useState(false);
+  const [missedYesterday, setMissedYesterday] = useState(false);
 
   useEffect(() => {
     // Register service worker
@@ -20,16 +21,25 @@ export default function CovenantKeeper() {
       });
     }
 
-    // Initialize on mount - calculate from start date
-    const initialDayCount = getCurrentDayCount();
-    setDayCount(initialDayCount);
-    setAffirmationIndex(getRandomIndex(AFFIRMATIONS.length));
-    setImageIndex(getRandomIndex(IMAGES.length));
+    const updateState = () => {
+      const todayIsrael = getTodayIsraelTime();
+      const initialDayCount = getCurrentDayCount();
+      setDayCount(initialDayCount);
+      setAffirmationIndex(getRandomIndex(AFFIRMATIONS.length));
+      setImageIndex(getRandomIndex(IMAGES.length));
 
-    // Check if checked in today
-    const today = new Date().toISOString().split('T')[0];
-    const lastCheckDate = localStorage.getItem('lastCheckDate');
-    setCheckedInToday(lastCheckDate === today);
+      const lastCheckDate = localStorage.getItem('lastCheckDate');
+      const lastCheckDay = localStorage.getItem('lastCheckDay');
+
+      setCheckedInToday(lastCheckDate === todayIsrael);
+      setMissedYesterday(lastCheckDay && lastCheckDay !== todayIsrael && !checkedInToday);
+    };
+
+    updateState();
+
+    // Check every minute for day change
+    const interval = setInterval(updateState, 60000);
+    return () => clearInterval(interval);
   }, []);
 
   const handleCheckIn = () => {
@@ -43,10 +53,12 @@ export default function CovenantKeeper() {
     }));
     setParticles(newParticles);
 
-    // Log the check-in
-    const today = new Date().toISOString().split('T')[0];
-    localStorage.setItem('lastCheckDate', today);
+    // Log the check-in with Israel timezone
+    const todayIsrael = getTodayIsraelTime();
+    localStorage.setItem('lastCheckDate', todayIsrael);
+    localStorage.setItem('lastCheckDay', todayIsrael);
     setCheckedInToday(true);
+    setMissedYesterday(false);
 
     // Rotate content
     setAffirmationIndex(getRandomIndex(AFFIRMATIONS.length));
@@ -59,29 +71,39 @@ export default function CovenantKeeper() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-black flex flex-col items-center justify-start p-4 pt-4 safe-area-inset">
-      <div className="w-full max-w-sm">
-        {/* Image Card - TOP */}
-        <div className="relative mb-4 rounded-2xl overflow-hidden shadow-2xl h-64 bg-slate-800 border border-orange-500/20">
+    <div className="w-full bg-black flex flex-col items-center justify-between p-3 safe-area-inset" style={{ minHeight: '100vh' }}>
+      <div className="w-full max-w-sm flex flex-col gap-2">
+        {/* Start Date */}
+        <p className="text-center text-gray-400 text-xs">Started: {START_DATE.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</p>
+
+        {/* Image Card */}
+        <div className="relative rounded-xl overflow-hidden shadow-xl h-48 bg-slate-800 border border-orange-500/20">
           <img
             src={IMAGES[imageIndex]}
             alt="Inspiration"
-            className="w-full h-full object-cover transition-all duration-700 hover:scale-105"
+            className="w-full h-full object-cover transition-all duration-700"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
         </div>
 
         {/* Day Counter */}
-        <div className="text-center mb-3">
-          <div className="text-6xl font-black text-white mb-1">{dayCount}</div>
+        <div className="text-center">
+          <div className="text-7xl font-black text-white">{dayCount}</div>
           <p className="text-gray-300 text-sm font-light tracking-wide">DAYS OF COMMITMENT</p>
-          <div className="mt-2 inline-block px-3 py-1 rounded-full border border-orange-500/40 bg-orange-500/5">
-            <p className="text-xs font-medium">{checkedInToday ? '✅ Checked in' : '❌ Not checked in'}</p>
+          <div className="mt-2 flex gap-2 justify-center flex-wrap">
+            <div className="inline-block px-3 py-1 rounded-full border border-orange-500/40 bg-orange-500/5">
+              <p className="text-xs font-medium">{checkedInToday ? '✅ TODAY' : '❌ NOT TODAY'}</p>
+            </div>
+            {missedYesterday && (
+              <div className="inline-block px-3 py-1 rounded-full border border-red-500/40 bg-red-500/5">
+                <p className="text-xs font-medium">⚠️ MISSED YESTERDAY</p>
+              </div>
+            )}
           </div>
         </div>
 
         {/* Affirmation */}
-        <div className="bg-gradient-to-r from-orange-500/10 to-pink-500/10 rounded-xl p-4 mb-4 backdrop-blur-sm border border-orange-500/20">
+        <div className="bg-gradient-to-r from-orange-500/10 to-pink-500/10 rounded-lg p-3 backdrop-blur-sm border border-orange-500/20">
           <p className="text-white text-center text-sm leading-relaxed font-light italic">
             "{AFFIRMATIONS[affirmationIndex]}"
           </p>

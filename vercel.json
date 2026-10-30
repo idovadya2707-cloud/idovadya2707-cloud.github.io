@@ -1,10 +1,6 @@
 {
-  "projects": {
-    "covenant-keeper": {
-      "settings": {
-        "framework": "nextjs",
-        "rootDirectory": "covenant-keeper"
-      }
-    }
-  }
+  "buildCommand": "cd covenant-keeper && npm run build",
+  "outputDirectory": "covenant-keeper/.next",
+  "framework": "nextjs",
+  "installCommand": "cd covenant-keeper && npm install"
 }

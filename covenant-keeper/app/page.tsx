@@ -70,8 +70,8 @@ export default function CovenantKeeper() {
   };
 
   return (
-    <div className="w-full bg-black flex flex-col items-center justify-between p-3 safe-area-inset" style={{ minHeight: '100vh' }}>
-      <div className="w-full max-w-sm flex flex-col gap-2">
+    <div className="w-screen h-screen bg-black flex flex-col items-center justify-between p-4 safe-area-inset overflow-hidden">
+      <div className="w-full flex-1 flex flex-col items-center justify-center gap-3 max-w-sm">
         {/* Start Date */}
         <p className="text-center text-gray-400 text-xs">Started: {START_DATE.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</p>
 

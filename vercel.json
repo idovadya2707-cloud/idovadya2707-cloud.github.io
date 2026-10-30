@@ -1,0 +1,10 @@
+{
+  "projects": {
+    "covenant-keeper": {
+      "settings": {
+        "framework": "nextjs",
+        "rootDirectory": "covenant-keeper"
+      }
+    }
+  }
+}

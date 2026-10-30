@@ -59,16 +59,10 @@ export default function CovenantKeeper() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-black flex items-center justify-center p-6 safe-area-inset">
-      <div className="w-full max-w-2xl">
-        {/* Header */}
-        <div className="text-center mb-10">
-          <h1 className="text-6xl font-black text-white mb-1 tracking-tight">Covenant Keeper</h1>
-          <div className="h-1 w-24 bg-gradient-to-r from-orange-500 via-pink-500 to-red-500 mx-auto rounded-full"></div>
-        </div>
-
-        {/* Image Card - LARGE */}
-        <div className="relative mb-10 rounded-3xl overflow-hidden shadow-2xl h-96 bg-slate-800 border border-orange-500/20">
+    <div className="min-h-screen w-full bg-black flex flex-col items-center justify-start p-4 pt-4 safe-area-inset">
+      <div className="w-full max-w-sm">
+        {/* Image Card - TOP */}
+        <div className="relative mb-4 rounded-2xl overflow-hidden shadow-2xl h-64 bg-slate-800 border border-orange-500/20">
           <img
             src={IMAGES[imageIndex]}
             alt="Inspiration"
@@ -78,17 +72,17 @@ export default function CovenantKeeper() {
         </div>
 
         {/* Day Counter */}
-        <div className="text-center mb-10">
-          <div className="text-8xl font-black text-white mb-3">{dayCount}</div>
-          <p className="text-gray-300 text-xl font-light tracking-wide">DAYS OF COMMITMENT</p>
-          <div className="mt-4 inline-block px-4 py-2 rounded-full border border-orange-500/40 bg-orange-500/5">
-            <p className="text-base font-medium">{checkedInToday ? '✅ Checked in today' : '❌ Not checked in'}</p>
+        <div className="text-center mb-3">
+          <div className="text-6xl font-black text-white mb-1">{dayCount}</div>
+          <p className="text-gray-300 text-sm font-light tracking-wide">DAYS OF COMMITMENT</p>
+          <div className="mt-2 inline-block px-3 py-1 rounded-full border border-orange-500/40 bg-orange-500/5">
+            <p className="text-xs font-medium">{checkedInToday ? '✅ Checked in' : '❌ Not checked in'}</p>
           </div>
         </div>
 
         {/* Affirmation */}
-        <div className="bg-gradient-to-r from-orange-500/10 to-pink-500/10 rounded-3xl p-8 mb-10 backdrop-blur-sm border border-orange-500/20">
-          <p className="text-white text-center text-xl leading-relaxed font-light italic">
+        <div className="bg-gradient-to-r from-orange-500/10 to-pink-500/10 rounded-xl p-4 mb-4 backdrop-blur-sm border border-orange-500/20">
+          <p className="text-white text-center text-sm leading-relaxed font-light italic">
             "{AFFIRMATIONS[affirmationIndex]}"
           </p>
         </div>
@@ -101,9 +95,9 @@ export default function CovenantKeeper() {
             style={{
               background: 'linear-gradient(135deg, #ff6b35, #f7931e)',
               color: '#ffffff',
-              borderRadius: '1.5rem',
-              padding: '1.25rem 2rem',
-              fontSize: '1.25rem',
+              borderRadius: '1rem',
+              padding: '0.9rem 1.5rem',
+              fontSize: '1rem',
               fontWeight: '700',
               width: '100%',
               border: 'none',

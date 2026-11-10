@@ -6,8 +6,10 @@ import { getCurrentDayCount, getRandomIndex, getTodayIsraelTime } from '@/lib/ut
 
 export default function CovenantKeeper() {
   const [dayCount, setDayCount] = useState<number>(() => getCurrentDayCount());
-  const [affirmationIndex, setAffirmationIndex] = useState<number>(() => getRandomIndex(AFFIRMATIONS.length));
-  const [imageIndex, setImageIndex] = useState<number>(() => getRandomIndex(IMAGES.length));
+  // Fixed on the server and the first client render to avoid a hydration mismatch;
+  // randomized client-side right after mount in the effect below.
+  const [affirmationIndex, setAffirmationIndex] = useState<number>(0);
+  const [imageIndex, setImageIndex] = useState<number>(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [particles, setParticles] = useState<Array<{ id: number; x: number; y: number }>>([]);
   const [checkedInToday, setCheckedInToday] = useState(false);
@@ -20,6 +22,10 @@ export default function CovenantKeeper() {
         // Service worker registration failed, app will still work
       });
     }
+
+    // Randomize client-side only, after hydration, to avoid a server/client mismatch.
+    setAffirmationIndex(getRandomIndex(AFFIRMATIONS.length));
+    setImageIndex(getRandomIndex(IMAGES.length));
 
     const todayIsrael = getTodayIsraelTime();
     const lastCheckDate = localStorage.getItem('lastCheckDate');
@@ -112,6 +118,7 @@ export default function CovenantKeeper() {
         <div className="relative">
           <button
             onClick={handleCheckIn}
+            onTouchStart={handleCheckIn}
             disabled={isAnimating}
             style={{
               background: 'linear-gradient(135deg, #ff6b35, #f7931e)',
@@ -128,6 +135,8 @@ export default function CovenantKeeper() {
               transition: 'all 300ms cubic-bezier(0.4, 0, 0.2, 1)',
               letterSpacing: '0.5px',
               textTransform: 'uppercase',
+              WebkitTouchCallout: 'none',
+              WebkitUserSelect: 'none',
             }}
             onMouseEnter={(e) => {
               if (!isAnimating) {

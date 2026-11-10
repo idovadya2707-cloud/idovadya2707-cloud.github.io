@@ -50,7 +50,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#0f172a" />
         <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect fill='%230f172a' width='180' height='180'/><text x='90' y='135' font-size='110' font-weight='bold' text-anchor='middle' fill='white'>✓</text></svg>" />
       </head>
-      <body className="min-h-screen flex flex-col">
+      <body className="h-screen flex flex-col m-0 p-0 overflow-hidden">
         {children}
       </body>
     </html>

@@ -356,9 +356,13 @@
   @media (max-width:900px){
     .hero-banner-media{aspect-ratio:4/5;}
     .hero-banner-media img{object-position:62% 16%;}
-    .hero-banner-media::after{display:none;}
-    .hero-content{position:static;padding:28px 0 0;justify-content:center;}
+    .hero-banner-media::after{
+      background:linear-gradient(to bottom, rgba(10,10,11,0) 72%, var(--bg) 100%);
+    }
+    .hero-content{position:static;padding:28px 24px 0;justify-content:center;}
     .hero-content-inner{max-width:100%;text-align:center;}
+    .hero-content .tagline{font-size:16.5px;line-height:1.6;}
+    .hero-content .tagline::before{inset:-10px -14px;}
     .hero-actions{justify-content:center;}
   }
 
@@ -471,7 +475,7 @@
     <main>
 
       <section class="story-section" id="story">
-        <p class="story-label" data-he="מהרעיון לביצוע" data-en="From idea to execution">מהרעיון לביצוע</p>
+        <p class="story-label" data-he="עסקים ומוצרים קודמים" data-en="Past businesses &amp; products">עסקים ומוצרים קודמים</p>
 
         <article class="story-station">
           <div class="story-media">

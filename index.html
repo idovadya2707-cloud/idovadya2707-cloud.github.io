@@ -1,2692 +1,629 @@
-<!-- @template name="Waitlist landing — CoachMind" description="RTL Hebrew early-access waitlist page: hero with chat mockup, pain, how-it-works, founders, signup form" -->
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<!-- Consent Mode v2 + gated analytics (no tracking cookies until the user opts in) -->
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  // Deny by default so Google Analytics sets no cookies until consent is granted.
-  gtag('consent', 'default', {
-    'ad_storage': 'denied',
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied',
-    'analytics_storage': 'denied',
-    'wait_for_update': 500
-  });
-  // Microsoft Clarity is loaded only after explicit consent.
-  window.cmLoadClarity = function () {
-    if (window.__cmClarityLoaded) return;
-    window.__cmClarityLoaded = true;
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "xnvp5j5o99");
-  };
-  // Re-apply a previously stored "granted" choice as early as possible.
-  try {
-    if (localStorage.getItem('cm-cookie-consent') === 'granted') {
-      gtag('consent', 'update', {
-        'ad_storage': 'granted',
-        'ad_user_data': 'granted',
-        'ad_personalization': 'granted',
-        'analytics_storage': 'granted'
-      });
-      window.cmLoadClarity();
-    }
-  } catch (e) {}
-</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-72VSDTH8HK"></script>
-<script>
-  gtag('js', new Date());
-  gtag('config', 'G-72VSDTH8HK');
-</script>
-<title data-en="CoachMind: Waitlist &amp; Early Access">CoachMind: רשימת המתנה וגישה מוקדמת</title>
-<meta name="description" content="אימון אישי בכף היד. CoachMind — מאמן מנטלי מבוסס AI, זמין 24/7, שלומד אותך, מסיר אמונות ודפוסים מעכבים ומוביל אותך לתוצאות. הצטרפו לרשימת ההמתנה לשבוע ניסיון חינם." />
-<link rel="canonical" href="https://idovadya.com/" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="CoachMind" />
-<meta property="og:locale" content="he_IL" />
-<meta property="og:url" content="https://idovadya.com/" />
-<meta property="og:title" content="CoachMind: אימון אישי בכף היד" />
-<meta property="og:description" content="אימון אישי בכף היד. CoachMind — מאמן מנטלי מבוסס AI, זמין 24/7, שלומד אותך, מסיר אמונות ודפוסים מעכבים ומוביל אותך לתוצאות. הצטרפו לרשימת ההמתנה לשבוע ניסיון חינם." />
-<meta property="og:image" content="https://idovadya.com/og-image.png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="CoachMind" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="CoachMind: אימון אישי בכף היד" />
-<meta name="twitter:description" content="אימון אישי בכף היד. CoachMind — מאמן מנטלי מבוסס AI, זמין 24/7, שלומד אותך, מסיר אמונות ודפוסים מעכבים ומוביל אותך לתוצאות. הצטרפו לרשימת ההמתנה לשבוע ניסיון חינם." />
-<meta name="twitter:image" content="https://idovadya.com/og-image.png" />
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://idovadya.com/#organization",
-      "name": "CoachMind",
-      "alternateName": "קואצ'מיינד",
-      "url": "https://idovadya.com/",
-      "logo": "https://idovadya.com/apple-touch-icon.png",
-      "image": "https://idovadya.com/og-image.png",
-      "slogan": "Live your potential",
-      "description": "CoachMind — מאמן מנטלי מבוסס AI, זמין 24/7, שלומד אותך, מסיר אמונות ודפוסים מעכבים ומוביל אותך לתוצאות.",
-      "founder": [
-        { "@type": "Person", "name": "עידו עובדיה" },
-        { "@type": "Person", "name": "שחר מלמד" }
-      ]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://idovadya.com/#website",
-      "name": "CoachMind",
-      "url": "https://idovadya.com/",
-      "inLanguage": "he-IL",
-      "publisher": { "@id": "https://idovadya.com/#organization" }
-    }
-  ]
-}
-</script>
-<link rel="icon" href="favicon.ico" sizes="any" />
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
-<link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png" />
-<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
-<link rel="apple-touch-icon" href="apple-touch-icon.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" />
-<style id="cm-ds-inline">
-/* ===== tokens/colors.css ===== */
-/* ============================================================
-   CoachMind — Color tokens
-   Brand world: classic, credible blue. Navy + royal blue, calm
-   cool-gray neutrals. Not colorful, not playful. Generous white
-   space; color is used sparingly and with intent.
-   ============================================================ */
-
-:root {
-  /* --- Brand: Navy ("Coach") — pure deep blue, per brand sheet -- */
-  --navy-900: #021a3d;
-  --navy-800: #03224f;
-  --navy-700: #04285e;   /* Coach anchor — brand dot 1 (deep navy) */
-  --navy-600: #06316f;
-  --navy-500: #0a3d85;
-
-  /* --- Brand: Royal Blue ("Mind") — pure, less violet ---------- */
-  --royal-800: #023d96;  /* brand dot 2 — mid royal (slogan color) */
-  --royal-700: #0247aa;
-  --royal-600: #0153d0;  /* Mind anchor — brand dot 3 (bright royal) / accent */
-  --royal-500: #1565e8;
-  --royal-400: #4d8cf5;
-  --royal-300: #88b2fa;
-  --royal-200: #bcd3fc;
-  --royal-100: #ddeafe;
-  --royal-50:  #eef5ff;
-
-  /* The signature wordmark / hero gradient — navy -> mid -> bright,
-     traced from the official brand lockup (the 3 brand dots). */
-  --brand-gradient: linear-gradient(100deg, #04285e 0%, #023d96 50%, #0153d0 100%); /* @kind color */
-  --brand-gradient-soft: linear-gradient(120deg, #f3f6fc 0%, #eef5ff 100%); /* @kind color */
-  /* Wordmark gradient lifted for dark surfaces (navy stays legible on near-black). */
-  --brand-gradient-on-dark: linear-gradient(100deg, #1f5bb0 0%, #1565e8 50%, #5a9bff 100%); /* @kind color */
-
-  /* --- Neutrals: cool gray-blue ------------------------------- */
-  --ink-900: #11162b;   /* near-black, headings on light */
-  --ink-800: #1c2238;
-  --ink-700: #2b3350;   /* primary body text */
-  --ink-600: #404a6b;
-  --ink-500: #5a6480;   /* "dark gray blue" — slogan, secondary text */
-  --ink-400: #828daa;   /* muted / captions */
-  --ink-300: #aab2c8;   /* placeholder, disabled text */
-  --ink-250: #c6cddd;
-  --ink-200: #d9deeb;   /* default borders */
-  --ink-150: #e4e8f1;
-  --ink-100: #edf0f7;   /* hairlines, dividers */
-  --ink-50:  #f4f6fb;   /* subtle fill */
-  --paper:   #ffffff;
-  --canvas:  #fafbfe;   /* app background, faintly cool */
-
-  /* --- Feedback (restrained, professional) -------------------- */
-  --success-600: #1f7a52;
-  --success-500: #1f8a5b;
-  --success-50:  #e8f5ee;
-  --warning-600: #a86717;
-  --warning-500: #c07d1f;
-  --warning-50:  #fbf2e2;
-  --danger-600:  #b23b3b;
-  --danger-500:  #cf4747;
-  --danger-50:   #fbecec;
-  --info-500:    var(--royal-500);
-  --info-50:     var(--royal-50);
-
-  /* ============================================================
-     Semantic aliases — reach for these in components
-     ============================================================ */
-
-  /* Brand */
-  --brand-navy: var(--navy-700);      /* Coach */
-  --brand-royal: var(--royal-600);    /* Mind  */
-  --brand-slogan: var(--royal-800);   /* "Live your potential" — mid royal */
-  --accent: var(--royal-600);
-  --accent-hover: var(--royal-700);
-  --accent-soft: var(--royal-50);
-
-  /* Text */
-  --text-strong: var(--ink-900);
-  --text-body: var(--ink-700);
-  --text-secondary: var(--ink-500);
-  --text-muted: var(--ink-400);
-  --text-placeholder: var(--ink-300);
-  --text-on-brand: #ffffff;
-  --text-link: var(--royal-600);
-
-  /* Surfaces */
-  --surface-canvas: var(--canvas);
-  --surface-card: var(--paper);
-  --surface-subtle: var(--ink-50);
-  --surface-raised: var(--paper);
-  --surface-brand: var(--navy-700);
-  --surface-accent-soft: var(--royal-50);
-
-  /* Borders */
-  --border-subtle: var(--ink-100);
-  --border-default: var(--ink-200);
-  --border-strong: var(--ink-300);
-  --border-brand: var(--royal-300);
-
-  /* Interaction */
-  --focus-ring: 0 0 0 3px var(--royal-200);
-  --focus-ring-strong: 0 0 0 3px rgba(1, 83, 208, 0.35);
-}
-
-
-/* ===== tokens/typography.css ===== */
-/* ============================================================
-   CoachMind — Typography tokens
-   One family (Heebo) carries the whole system. Hierarchy comes
-   from weight, size and tracking — never from a second typeface.
-   - Wordmark / display: 800–900, tight tracking
-   - Headings: 700
-   - Body: 400 / 500
-   - Slogan & eyebrows: 300–400, WIDE tracking, gray-blue
-   Works identically in Hebrew (RTL) and Latin (LTR).
-   ============================================================ */
-
-:root {
-  /* Families */
-  --font-sans: "Heebo", "Segoe UI", "Helvetica Neue", Arial, system-ui, sans-serif;
-  --font-display: "Heebo", "Segoe UI", system-ui, sans-serif;
-  --font-mono: "SFMono-Regular", "Menlo", "Consolas", monospace;
-
-  /* Weights */
-  --weight-light: 300;
-  --weight-regular: 400;
-  --weight-medium: 500;
-  --weight-semibold: 600;
-  --weight-bold: 700;
-  --weight-extrabold: 800;
-  --weight-black: 900;
-
-  /* Type scale (px) — fluid-friendly, RTL-safe */
-  --text-2xs: 0.6875rem;  /* 11 */
-  --text-xs:  0.75rem;    /* 12 */
-  --text-sm:  0.875rem;   /* 14 */
-  --text-base:1rem;       /* 16 */
-  --text-md:  1.125rem;   /* 18 */
-  --text-lg:  1.375rem;   /* 22 */
-  --text-xl:  1.75rem;    /* 28 */
-  --text-2xl: 2.25rem;    /* 36 */
-  --text-3xl: 3rem;       /* 48 */
-  --text-4xl: 4rem;       /* 64 */
-  --text-5xl: 5.5rem;     /* 88 — hero wordmark */
-
-  /* Line heights */
-  --leading-tight: 1.1;
-  --leading-snug: 1.25;
-  --leading-normal: 1.5;
-  --leading-relaxed: 1.7;
-
-  /* Letter spacing */
-  --tracking-tighter: -0.03em;  /* big display / wordmark */
-  --tracking-tight: -0.01em;
-  --tracking-normal: 0;
-  --tracking-wide: 0.08em;
-  --tracking-wider: 0.18em;     /* slogan, eyebrows */
-  --tracking-widest: 0.28em;
-
-  /* ---- Semantic role tokens ---- */
-  --font-wordmark: var(--weight-black) var(--text-2xl)/1 var(--font-display);
-  --font-display-1: var(--weight-extrabold) var(--text-4xl)/var(--leading-tight) var(--font-display);
-  --font-display-2: var(--weight-extrabold) var(--text-3xl)/var(--leading-tight) var(--font-display);
-  --font-heading-1: var(--weight-bold) var(--text-2xl)/var(--leading-snug) var(--font-sans);
-  --font-heading-2: var(--weight-bold) var(--text-xl)/var(--leading-snug) var(--font-sans);
-  --font-heading-3: var(--weight-semibold) var(--text-lg)/var(--leading-snug) var(--font-sans);
-  --font-body-lg: var(--weight-regular) var(--text-md)/var(--leading-relaxed) var(--font-sans);
-  --font-body: var(--weight-regular) var(--text-base)/var(--leading-normal) var(--font-sans);
-  --font-body-sm: var(--weight-regular) var(--text-sm)/var(--leading-normal) var(--font-sans);
-  --font-caption: var(--weight-medium) var(--text-xs)/var(--leading-normal) var(--font-sans);
-}
-
-
-/* ===== tokens/spacing.css ===== */
-/* ============================================================
-   CoachMind — Spacing, radii, shadows, motion, layout
-   Calm and generous. 4px base grid. Soft, cool-tinted shadows.
-   Moderate radii — rounded enough to feel humane, never bubbly.
-   ============================================================ */
-
-:root {
-  /* Spacing — 4px base */
-  --space-0: 0;
-  --space-1: 0.25rem;   /* 4  */
-  --space-2: 0.5rem;    /* 8  */
-  --space-3: 0.75rem;   /* 12 */
-  --space-4: 1rem;      /* 16 */
-  --space-5: 1.25rem;   /* 20 */
-  --space-6: 1.5rem;    /* 24 */
-  --space-8: 2rem;      /* 32 */
-  --space-10: 2.5rem;   /* 40 */
-  --space-12: 3rem;     /* 48 */
-  --space-14: 3.5rem;   /* 56 */
-  --space-16: 4rem;     /* 64 */
-  --space-20: 5rem;     /* 80 */
-  --space-24: 6rem;     /* 96 */
-
-  /* Radii — moderate, never bubbly */
-  --radius-xs: 6px;
-  --radius-sm: 8px;
-  --radius-md: 12px;    /* buttons, inputs */
-  --radius-lg: 16px;    /* cards */
-  --radius-xl: 24px;    /* panels, large surfaces */
-  --radius-2xl: 32px;
-  --radius-pill: 999px; /* chips, avatars, voice orb */
-
-  /* Borders */
-  --border-width: 1px;
-  --border-width-strong: 1.5px;
-
-  /* Shadows — soft, navy-tinted, low-spread. Used sparingly. */
-  --shadow-xs: 0 1px 2px rgba(17, 22, 43, 0.05);
-  --shadow-sm: 0 1px 3px rgba(17, 22, 43, 0.06), 0 1px 2px rgba(17, 22, 43, 0.04);
-  --shadow-md: 0 4px 12px rgba(17, 22, 43, 0.07), 0 2px 4px rgba(17, 22, 43, 0.04);
-  --shadow-lg: 0 12px 32px rgba(17, 22, 43, 0.10), 0 4px 8px rgba(17, 22, 43, 0.05);
-  --shadow-xl: 0 24px 60px rgba(17, 22, 43, 0.14), 0 8px 16px rgba(17, 22, 43, 0.06);
-  /* Brand glow for the voice / focus moments */
-  --shadow-brand: 0 8px 30px rgba(41, 98, 255, 0.22);
-
-  /* Motion — calm, no bounce. Confident ease, never springy. */
-  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
-  --ease-in: cubic-bezier(0.4, 0, 1, 1); /* @kind other */
-  --duration-fast: 120ms; /* @kind other */
-  --duration-base: 200ms; /* @kind other */
-  --duration-slow: 320ms; /* @kind other */
-  --duration-slowest: 600ms; /* @kind other */
-
-  /* Layout */
-  --container-sm: 640px;
-  --container-md: 820px;
-  --container-lg: 1100px;
-  --container-xl: 1280px;
-  --reading-measure: 68ch;
-  --conversation-measure: 720px;  /* chat column max width */
-}
-
-
-/* ===== tokens/base.css ===== */
-/* ============================================================
-   CoachMind — Base layer
-   A light reset plus document defaults. RTL-first: the product is
-   Hebrew-first, so logical properties are used everywhere and
-   `dir="rtl"` is the expected default. Set dir="ltr" on a subtree
-   for English.
-   ============================================================ */
-
-*, *::before, *::after { box-sizing: border-box; }
-
-html {
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-
-body {
-  margin: 0;
-  font: var(--font-body);
-  color: var(--text-body);
-  background: var(--surface-canvas);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-}
-
-/* Hebrew-first defaults. Latin subtrees opt out with dir="ltr". */
-:root { --flow-direction: rtl; /* @kind other */ }
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-  color: var(--text-strong);
-  font-family: var(--font-sans);
-  line-height: var(--leading-snug);
-  text-wrap: balance;
-}
-p { margin: 0; text-wrap: pretty; }
-
-a {
-  color: var(--text-link);
-  text-decoration: none;
-  transition: color var(--duration-fast) var(--ease-standard);
-}
-a:hover { color: var(--accent-hover); }
-
-button { font-family: inherit; }
-
-:where(button, a, input, textarea, select):focus-visible {
-  outline: none;
-  box-shadow: var(--focus-ring);
-  border-radius: var(--radius-sm);
-}
-
-::selection { background: var(--royal-200); color: var(--ink-900); }
-
-/* The signature wordmark gradient text utility. */
-.cm-gradient-text {
-  background: var(--brand-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-  }
-}
-
-
-/* ===== components.css ===== */
-/* ============================================================
-   CoachMind — Component styles
-   Shipped to consumers. Classes consumed by the React primitives
-   in /components. RTL-first: logical properties throughout
-   (margin-inline, inset-inline, padding-inline) so the same
-   classes serve Hebrew (rtl) and English (ltr).
-   ============================================================ */
-
-/* ---------- Button ---------- */
-.cm-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  font-family: var(--font-sans);
-  font-weight: var(--weight-semibold);
-  font-size: var(--text-sm);
-  line-height: 1;
-  border: var(--border-width) solid transparent;
-  border-radius: var(--radius-md);
-  padding: 0 var(--space-5);
-  height: 44px;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background var(--duration-fast) var(--ease-standard),
-              color var(--duration-fast) var(--ease-standard),
-              border-color var(--duration-fast) var(--ease-standard),
-              box-shadow var(--duration-fast) var(--ease-standard),
-              transform var(--duration-fast) var(--ease-standard);
-  -webkit-user-select: none;
-  user-select: none;
-}
-.cm-btn:active { transform: translateY(0.5px) scale(0.99); }
-.cm-btn:disabled,
-.cm-btn[aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; transform: none; }
-.cm-btn svg { width: 18px; height: 18px; flex: none; }
-
-.cm-btn--primary { background: var(--accent); color: var(--text-on-brand); }
-.cm-btn--primary:hover:not(:disabled) { background: var(--accent-hover); }
-
-.cm-btn--navy { background: var(--navy-700); color: var(--text-on-brand); }
-.cm-btn--navy:hover:not(:disabled) { background: var(--navy-800); }
-
-.cm-btn--gradient { background: var(--brand-gradient); color: var(--text-on-brand); box-shadow: var(--shadow-sm); }
-.cm-btn--gradient:hover:not(:disabled) { color: var(--text-on-brand); box-shadow: var(--shadow-brand); filter: brightness(0.94); }
-
-.cm-btn--secondary {
-  background: var(--surface-card);
-  color: var(--ink-800);
-  border-color: var(--border-default);
-}
-.cm-btn--secondary:hover:not(:disabled) { border-color: var(--border-strong); background: var(--ink-50); }
-
-.cm-btn--ghost { background: transparent; color: var(--accent); }
-.cm-btn--ghost:hover:not(:disabled) { background: var(--accent-soft); }
-
-.cm-btn--quiet { background: transparent; color: var(--ink-600); }
-.cm-btn--quiet:hover:not(:disabled) { background: var(--ink-50); color: var(--ink-800); }
-
-.cm-btn--sm { height: 36px; font-size: var(--text-xs); padding: 0 var(--space-4); border-radius: var(--radius-sm); }
-.cm-btn--lg { height: 52px; font-size: var(--text-base); padding: 0 var(--space-8); }
-.cm-btn--block { width: 100%; }
-.cm-btn--pill { border-radius: var(--radius-pill); }
-
-/* ---------- Icon button ---------- */
-.cm-iconbtn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px; height: 40px;
-  border-radius: var(--radius-md);
-  border: var(--border-width) solid transparent;
-  background: transparent;
-  color: var(--ink-600);
-  cursor: pointer;
-  transition: background var(--duration-fast) var(--ease-standard),
-              color var(--duration-fast) var(--ease-standard),
-              border-color var(--duration-fast) var(--ease-standard);
-}
-.cm-iconbtn:hover:not(:disabled) { background: var(--ink-50); color: var(--ink-900); }
-.cm-iconbtn:disabled { opacity: 0.4; cursor: not-allowed; }
-.cm-iconbtn svg { width: 20px; height: 20px; }
-.cm-iconbtn--solid { background: var(--accent); color: #fff; }
-.cm-iconbtn--solid:hover:not(:disabled) { background: var(--accent-hover); }
-.cm-iconbtn--bordered { border-color: var(--border-default); }
-.cm-iconbtn--sm { width: 32px; height: 32px; border-radius: var(--radius-sm); }
-.cm-iconbtn--sm svg { width: 16px; height: 16px; }
-.cm-iconbtn--lg { width: 48px; height: 48px; }
-
-/* ---------- Input / Textarea ---------- */
-.cm-field { display: flex; flex-direction: column; gap: var(--space-2); }
-.cm-field__label { font-size: var(--text-sm); font-weight: var(--weight-medium); color: var(--ink-700); }
-.cm-field__hint { font-size: var(--text-xs); color: var(--text-muted); }
-.cm-field__hint--error { color: var(--danger-600); }
-
-.cm-input, .cm-textarea {
-  font-family: var(--font-sans);
-  font-size: var(--text-base);
-  color: var(--ink-900);
-  background: var(--surface-card);
-  border: var(--border-width) solid var(--border-default);
-  border-radius: var(--radius-md);
-  padding: 0 var(--space-4);
-  height: 48px;
-  width: 100%;
-  transition: border-color var(--duration-fast) var(--ease-standard),
-              box-shadow var(--duration-fast) var(--ease-standard);
-}
-.cm-textarea { padding: var(--space-3) var(--space-4); height: auto; min-height: 96px; line-height: var(--leading-normal); resize: vertical; }
-.cm-input::placeholder, .cm-textarea::placeholder { color: var(--text-placeholder); }
-.cm-input:hover, .cm-textarea:hover { border-color: var(--border-strong); }
-.cm-input:focus, .cm-textarea:focus { outline: none; border-color: var(--royal-400); box-shadow: var(--focus-ring); }
-.cm-input--error, .cm-textarea--error { border-color: var(--danger-500); }
-.cm-input:disabled, .cm-textarea:disabled { background: var(--ink-50); color: var(--text-muted); cursor: not-allowed; }
-
-/* ---------- Card ---------- */
-.cm-card {
-  background: var(--surface-card);
-  border: var(--border-width) solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: var(--space-6);
-}
-.cm-card--raised { box-shadow: var(--shadow-md); border-color: transparent; }
-.cm-card--flat { box-shadow: none; }
-.cm-card--accent { border-color: var(--border-brand); background: var(--accent-soft); }
-.cm-card--interactive { cursor: pointer; transition: box-shadow var(--duration-base) var(--ease-standard), transform var(--duration-base) var(--ease-standard), border-color var(--duration-base) var(--ease-standard); }
-.cm-card--interactive:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); border-color: var(--border-default); }
-
-/* ---------- Badge ---------- */
-.cm-badge {
-  display: inline-flex; align-items: center; gap: var(--space-1);
-  font-size: var(--text-xs); font-weight: var(--weight-semibold);
-  line-height: 1; padding: var(--space-1) var(--space-3); height: 24px;
-  border-radius: var(--radius-pill);
-  letter-spacing: var(--tracking-tight);
-}
-.cm-badge--neutral { background: var(--ink-100); color: var(--ink-600); }
-.cm-badge--brand { background: var(--royal-50); color: var(--royal-700); }
-.cm-badge--navy { background: var(--navy-700); color: #fff; }
-.cm-badge--success { background: var(--success-50); color: var(--success-600); }
-.cm-badge--warning { background: var(--warning-50); color: var(--warning-600); }
-.cm-badge--outline { background: transparent; border: var(--border-width) solid var(--border-default); color: var(--ink-600); }
-.cm-badge__dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
-
-/* ---------- Chip (suggestion / prompt) ---------- */
-.cm-chip {
-  display: inline-flex; align-items: center; gap: var(--space-2);
-  font-size: var(--text-sm); font-weight: var(--weight-medium);
-  color: var(--ink-700); background: var(--surface-card);
-  border: var(--border-width) solid var(--border-default);
-  border-radius: var(--radius-pill);
-  padding: var(--space-2) var(--space-4); height: 38px;
-  cursor: pointer;
-  transition: border-color var(--duration-fast) var(--ease-standard),
-              background var(--duration-fast) var(--ease-standard),
-              color var(--duration-fast) var(--ease-standard);
-}
-.cm-chip:hover { border-color: var(--royal-300); background: var(--royal-50); color: var(--royal-700); }
-.cm-chip svg { width: 16px; height: 16px; color: var(--royal-500); }
-
-/* ---------- Avatar ---------- */
-.cm-avatar {
-  display: inline-flex; align-items: center; justify-content: center;
-  border-radius: var(--radius-pill); overflow: hidden;
-  font-weight: var(--weight-bold); color: #fff; flex: none;
-  background: var(--brand-gradient);
-  width: 40px; height: 40px; font-size: var(--text-sm);
-}
-.cm-avatar img { width: 100%; height: 100%; object-fit: cover; }
-.cm-avatar--sm { width: 28px; height: 28px; font-size: var(--text-xs); }
-.cm-avatar--lg { width: 56px; height: 56px; font-size: var(--text-md); }
-.cm-avatar--navy { background: var(--navy-700); }
-.cm-avatar--user { background: var(--ink-200); color: var(--ink-700); }
-
-/* ---------- Switch ---------- */
-.cm-switch { position: relative; display: inline-flex; align-items: center; cursor: pointer; }
-.cm-switch input { position: absolute; opacity: 0; width: 0; height: 0; }
-.cm-switch__track {
-  width: 44px; height: 26px; border-radius: var(--radius-pill);
-  background: var(--ink-200); transition: background var(--duration-base) var(--ease-standard);
-}
-.cm-switch__thumb {
-  position: absolute; top: 3px; inset-inline-start: 3px;
-  width: 20px; height: 20px; border-radius: 50%; background: #fff;
-  box-shadow: var(--shadow-sm);
-  transition: inset-inline-start var(--duration-base) var(--ease-out);
-}
-.cm-switch input:checked + .cm-switch__track { background: var(--accent); }
-.cm-switch input:checked + .cm-switch__track + .cm-switch__thumb { inset-inline-start: 21px; }
-.cm-switch input:focus-visible + .cm-switch__track { box-shadow: var(--focus-ring); }
-
-/* ---------- Message bubble ---------- */
-.cm-msg { display: flex; gap: var(--space-3); max-width: 100%; }
-.cm-msg__body { max-width: 78%; }
-.cm-msg__bubble {
-  font-size: var(--text-md);
-  line-height: var(--leading-relaxed);
-  padding: var(--space-4) var(--space-5);
-  border-radius: var(--radius-lg);
-}
-.cm-msg__meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: var(--space-2); }
-
-/* Coach: soft, calm, on the start side */
-.cm-msg--coach .cm-msg__bubble {
-  background: var(--surface-card);
-  color: var(--ink-800);
-  border: var(--border-width) solid var(--border-subtle);
-  border-start-start-radius: var(--radius-xs);
-}
-/* User: royal, on the end side */
-.cm-msg--user { flex-direction: row-reverse; }
-.cm-msg--user .cm-msg__bubble {
-  background: var(--royal-500);
-  color: #fff;
-  border-start-end-radius: var(--radius-xs);
-}
-.cm-msg--user .cm-msg__meta { text-align: end; }
-
-/* ---------- Composer ---------- */
-.cm-composer {
-  display: flex; align-items: flex-end; gap: var(--space-2);
-  background: var(--surface-card);
-  border: var(--border-width) solid var(--border-default);
-  border-radius: var(--radius-xl);
-  padding: var(--space-2) var(--space-2) var(--space-2) var(--space-3);
-  box-shadow: var(--shadow-sm);
-  transition: border-color var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard);
-}
-.cm-composer:focus-within { border-color: var(--royal-400); box-shadow: var(--focus-ring); }
-.cm-composer__input {
-  flex: 1; border: none; outline: none; resize: none; background: transparent;
-  font-family: var(--font-sans); font-size: var(--text-md); color: var(--ink-900);
-  line-height: var(--leading-normal); padding: var(--space-3) var(--space-2);
-  max-height: 160px;
-}
-.cm-composer__input::placeholder { color: var(--text-placeholder); }
-
-/* ---------- Voice orb ---------- */
-.cm-voice-orb {
-  display: inline-flex; align-items: center; justify-content: center;
-  border-radius: var(--radius-pill); color: #fff; border: none; cursor: pointer;
-  width: 72px; height: 72px; background: var(--brand-gradient);
-  box-shadow: var(--shadow-brand);
-  position: relative;
-}
-.cm-voice-orb svg { width: 28px; height: 28px; }
-.cm-voice-orb--lg { width: 120px; height: 120px; }
-.cm-voice-orb--lg svg { width: 44px; height: 44px; }
-.cm-voice-orb--listening::before,
-.cm-voice-orb--listening::after {
-  content: ""; position: absolute; inset: 0; border-radius: 50%;
-  border: 2px solid var(--royal-400); opacity: 0;
-  animation: cm-pulse var(--duration-slowest) var(--ease-out) infinite;
-}
-.cm-voice-orb--listening::after { animation-delay: 300ms; }
-@keyframes cm-pulse {
-  0% { transform: scale(1); opacity: 0.6; }
-  100% { transform: scale(1.7); opacity: 0; }
-}
-
-/* ---------- Wordmark ---------- */
-.cm-wordmark {
-  font-family: var(--font-display);
-  font-weight: var(--weight-black);
-  letter-spacing: var(--tracking-tighter);
-  line-height: 1;
-  display: inline-block;
-}
-.cm-wordmark--gradient {
-  background: var(--brand-gradient);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-.cm-wordmark--gradient.cm-wordmark--on-dark {
-  background: var(--brand-gradient-on-dark);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-.cm-wordmark__coach { color: var(--navy-700); }
-.cm-wordmark__mind { color: var(--royal-600); }
-.cm-tagline {
-  font-weight: var(--weight-light);
-  letter-spacing: 0.3em;
-  color: var(--brand-slogan);
-  white-space: nowrap;
-}
-
-/* Brand lockup: wordmark with the wide-tracked tagline sitting directly
-   beneath it (the canonical signature, per the brand sheet). Size the tagline
-   so its tracked width sits close to the wordmark width. */
-.cm-lockup {
-  display: inline-flex; flex-direction: column; align-items: flex-start;
-  gap: 0.4em; line-height: 1; text-decoration: none;
-}
-.cm-lockup--on-dark .cm-tagline { color: var(--royal-300); }
-
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>עידו עובדיה - תצוגה מקדימה (פנימי, לא לפרסום)</title>
+<script>if('scrollRestoration' in history){ history.scrollRestoration='manual'; }</script>
 <style>
-  /* ---- critical defaults (prevent flash before DS css loads) ---- */
-  :root { --canvas: #fafbfe; }
-  html, body { margin: 0; background: #fafbfe; overflow-x: hidden; }
-  * { -webkit-tap-highlight-color: transparent; }
-  body { font-family: "Heebo", "Segoe UI", system-ui, sans-serif; color: #2b3350; }
+  :root{
+    --bg:#0A0A0B;
+    --ink:#F2F1EC;
+    --ink-dim:#9B9992;
+    --line:rgba(242,241,236,0.14);
+    --accent:#6E9C93;
+    --scrim:#0A0A0B;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;max-width:100%;overflow-x:hidden;}
+  html{scroll-behavior:smooth;scroll-padding-top:90px;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Heebo","Segoe UI","Arial Hebrew","Arial",sans-serif;
+    line-height:1.65;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  a:focus-visible,summary:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+  }
+  img{max-width:100%;display:block;}
+  hr{border:none;border-top:1px solid var(--line);margin:0;}
 
-  /* ============================ Layout ============================ */
-  .wrap { max-width: var(--container-lg); margin-inline: auto; padding-inline: var(--space-6); }
-  .wrap--narrow { max-width: var(--container-md); }
-  section { position: relative; }
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+  .bleed{width:100vw;margin-inline-start:calc(50% - 50vw);margin-inline-end:calc(50% - 50vw);}
 
-  /* ---- Eyebrow label ---- */
-  .eyebrow {
-    font-weight: var(--weight-semibold);
-    font-size: var(--text-sm);
-    letter-spacing: var(--tracking-wide);
-    color: var(--royal-600);
+  /* hero banner */
+  .hero-banner{position:relative;}
+  .hero-banner-media{
+    position:relative;
+    overflow:hidden;
+    aspect-ratio:2.15/1;
   }
-  .eyebrow--muted { color: var(--ink-400); }
-  .eyebrow--on-dark { color: var(--royal-300); }
-
-  /* ============================ Nav ============================ */
-  .nav {
-    position: sticky; top: 0; z-index: 50;
-    background: color-mix(in srgb, var(--paper) 82%, transparent);
-    backdrop-filter: saturate(140%) blur(12px);
-    border-bottom: 1px solid var(--border-subtle);
+  .hero-banner-media img{
+    width:100%;height:100%;object-fit:cover;object-position:center 20%;
   }
-  .nav__inner {
-    max-width: var(--container-lg); margin-inline: auto;
-    padding: var(--space-4) var(--space-6);
-    display: flex; align-items: center; justify-content: space-between; gap: var(--space-4);
-  }
-  .nav .cm-wordmark { font-size: 23px; }
-  .nav .cm-tagline { font-size: 8px; letter-spacing: 0.305em; }
-  .nav__actions { display: flex; align-items: center; gap: var(--space-3); }
-
-  /* Language switcher: a pill in the nav bar, flush left, opposite the CoachMind lockup */
-  .lang-dd { position: relative; z-index: 45; }
-  .lang-dd__trigger {
-    appearance: none; cursor: pointer;
-    display: inline-flex; align-items: center; gap: 6px;
-    border: 1px solid var(--royal-200);
-    background: var(--royal-50);
-    color: var(--royal-700); font-family: var(--font-body); font-weight: var(--weight-semibold);
-    font-size: var(--text-sm); line-height: 1; letter-spacing: .02em;
-    padding: 8px 12px; border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-    transition: background .15s, color .15s, border-color .15s;
-  }
-  .lang-dd__trigger:hover { background: var(--royal-100); color: var(--royal-800); border-color: var(--royal-300); }
-  .lang-dd__trigger:focus-visible { outline: 2px solid var(--royal-600); outline-offset: 2px; }
-  .lang-dd__globe { width: 15px; height: 15px; flex: none; }
-  .lang-dd__chevron { width: 11px; height: 11px; flex: none; transition: transform .18s; }
-  .lang-dd[data-open] .lang-dd__chevron { transform: rotate(180deg); }
-
-  .lang-dd__menu {
-    position: absolute; top: calc(100% + 6px); left: 0; right: auto;
-    min-width: 138px;
-    background: var(--paper); border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md); box-shadow: var(--shadow-lg);
-    padding: 5px; display: flex; flex-direction: column; gap: 2px;
-    opacity: 0; transform: translateY(-6px); pointer-events: none;
-    transition: opacity .16s, transform .16s;
-  }
-  .lang-dd[data-open] .lang-dd__menu { opacity: 1; transform: translateY(0); pointer-events: auto; }
-  .lang-dd__opt {
-    appearance: none; cursor: pointer; text-align: start;
-    display: flex; align-items: center; gap: 8px;
-    border: none; background: transparent;
-    color: var(--ink-700); font-family: var(--font-body); font-weight: var(--weight-medium);
-    font-size: var(--text-sm); line-height: 1;
-    padding: 9px 10px; border-radius: var(--radius-sm);
-    transition: background .12s, color .12s;
-  }
-  .lang-dd__opt:hover { background: var(--ink-50); }
-  .lang-dd__opt[aria-current="true"] { color: var(--royal-600); font-weight: var(--weight-semibold); }
-  .lang-dd__opt:focus-visible { outline: 2px solid var(--royal-600); outline-offset: 1px; }
-  .lang-dd__check { width: 14px; height: 14px; flex: none; margin-inline-start: auto; opacity: 0; }
-  .lang-dd__opt[aria-current="true"] .lang-dd__check { opacity: 1; }
-
-  /* ============================ Hero ============================ */
-  .hero { padding: clamp(var(--space-12), 7vw, var(--space-24)) 0 var(--space-20); overflow: hidden; }
-  .hero__grid {
-    display: grid; grid-template-columns: 1.05fr 0.95fr;
-    gap: clamp(var(--space-10), 6vw, var(--space-24)); align-items: center;
-    row-gap: clamp(var(--space-14), 5vw, var(--space-20));
-  }
-  .hero__grid > .hero__text { grid-column: 1; grid-row: 1; }
-  .hero__grid > .phone-stage { grid-column: 2; grid-row: 1; }
-  .hero h1 {
-    font-family: var(--font-display);
-    font-weight: var(--weight-extrabold);
-    font-size: clamp(2rem, 4.6vw, var(--text-4xl));
-    line-height: 1.08;
-    letter-spacing: var(--tracking-tight);
-    color: var(--ink-900);
-    margin-top: var(--space-5);
-    text-wrap: balance;
-  }
-  .hero h1 .accent { color: var(--royal-600); }
-  .hero__sub {
-    font-size: var(--text-md);
-    line-height: var(--leading-relaxed);
-    color: var(--ink-600);
-    max-width: 30em;
-    margin-top: var(--space-5);
-  }
-  /* trust line above the offer pill (credibility signal near the CTA, quiet — no filled pill) */
-  /* trust + offer badges in one compact row */
-  .hero__badges { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-6); }
-  .hero__badges .hero__trust, .hero__badges .hero__offer { margin-top: 0; padding: 6px 11px; font-size: var(--text-xs); }
-  .hero__badges .hero__trust svg, .hero__badges .hero__offer svg { width: 14px; height: 14px; }
-  @media (max-width: 900px) { .hero__badges { justify-content: center; } }
-  .hero__trust {
-    display: inline-flex; align-items: center; gap: var(--space-2);
-    margin-top: var(--space-5); padding: 8px 14px; border-radius: var(--radius-pill);
-    background: var(--royal-50); border: 1px solid var(--royal-100);
-    color: var(--royal-700); font-size: var(--text-sm); font-weight: var(--weight-semibold);
-    line-height: 1; white-space: nowrap; width: fit-content;
-  }
-  .hero__trust svg {
-    width: 16px; height: 16px; flex: none;
-    fill: none; stroke: var(--royal-600); stroke-width: 2.6;
-    stroke-linecap: round; stroke-linejoin: round;
-  }
-  .hero__chips {
-    list-style: none; margin: var(--space-6) 0 0; padding: 0;
-    display: flex; flex-wrap: wrap; gap: var(--space-2);
-  }
-  .hero__chip {
-    display: inline-flex; align-items: center; gap: 6px;
-    padding: 7px 12px; border-radius: var(--radius-pill);
-    background: var(--royal-50); border: 1px solid var(--royal-100);
-    color: var(--royal-700); font-size: var(--text-sm); font-weight: var(--weight-semibold);
-    line-height: 1; white-space: nowrap;
-  }
-  .hero__chip svg {
-    width: 15px; height: 15px; flex: none;
-    fill: none; stroke: var(--royal-500); stroke-width: 1.9;
-    stroke-linecap: round; stroke-linejoin: round;
-  }
-  .hero__offer {
-    display: inline-flex; align-items: center; gap: var(--space-2);
-    margin-top: var(--space-5); padding: 8px 14px; border-radius: var(--radius-pill);
-    background: var(--royal-50); border: 1px solid var(--royal-100);
-    color: var(--royal-700); font-size: var(--text-sm); font-weight: var(--weight-semibold);
-    line-height: 1; white-space: nowrap; width: fit-content;
-  }
-  .hero__offer svg {
-    width: 16px; height: 16px; flex: none;
-    fill: none; stroke: var(--royal-600); stroke-width: 2.4;
-    stroke-linecap: round; stroke-linejoin: round;
-  }
-  .hero__cta { display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; margin-top: var(--space-8); }
-  .hero__count {
-    display: flex; align-items: center; gap: var(--space-3);
-    font-size: var(--text-sm); color: var(--ink-500); margin-top: var(--space-5);
-  }
-  .avatars { display: flex; }
-  .avatars span {
-    width: 30px; height: 30px; border-radius: 50%;
-    border: 2px solid var(--paper); margin-inline-start: -10px;
-    overflow: hidden; flex: none;
+  .hero-banner-media::after{
+    content:"";
+    position:absolute;inset:0;
     background:
-      repeating-linear-gradient(135deg, var(--royal-100) 0 5px, var(--royal-50) 5px 10px);
-    box-shadow: var(--shadow-xs);
+      linear-gradient(90deg, rgba(10,10,11,0) 28%, rgba(10,10,11,0.6) 62%, rgba(10,10,11,0.88) 100%),
+      linear-gradient(0deg, rgba(10,10,11,0.55) 0%, rgba(10,10,11,0) 40%),
+      linear-gradient(to bottom, rgba(10,10,11,0) 82%, var(--bg) 100%);
+    pointer-events:none;
   }
-  .avatars span img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; display: block; }
-  .avatars span:first-child { margin-inline-start: 0; }
-  .avatars span:last-child:not(:has(img)) { background: var(--brand-gradient); }
-  .count-num { font-weight: var(--weight-bold); color: var(--ink-800); }
-  .hero__count { display: flex; align-items: center; gap: var(--space-2); }
-  .hero__cap {
-    margin-top: var(--space-2);
-    font-size: var(--text-sm); font-weight: var(--weight-semibold);
-    color: var(--royal-700);
+  .hero-content{
+    position:absolute;inset:0;
+    display:flex;align-items:center;justify-content:flex-end;
+    padding:0 min(7vw,72px);
   }
-  .count-dot { width: 9px; height: 9px; border-radius: 50%; flex: none; background: var(--success-500); box-shadow: 0 0 0 4px var(--success-50); }
-
-  /* ---- Hero ambient glow ---- */
-  .hero__glow {
-    position: absolute; inset-inline-start: -10%; top: -20%;
-    width: 60%; height: 80%;
-    background: radial-gradient(closest-side, rgba(41,98,255,0.10), transparent 70%);
-    pointer-events: none; z-index: 0;
+  .hero-content-inner{
+    position:relative;
+    max-width:520px;text-align:right;transform:translateY(42px);
   }
-
-  /* ============================ Phone mockup ============================ */
-  .phone-stage { display: flex; justify-content: center; position: relative; }
-  .phone-stage::after {
-    content: ""; position: absolute; inset: 6% 8% -6% 8%;
-    background: radial-gradient(closest-side, rgba(26,35,126,0.18), transparent 72%);
-    filter: blur(28px); z-index: 0;
+  .hero-content h1{
+    font-size:clamp(54px,8.5vw,96px);
+    font-weight:800;
+    letter-spacing:-0.01em;
+    line-height:1.05;
+    margin:0 0 18px;
+    direction:ltr;
+    white-space:nowrap;
+    text-shadow:0 2px 24px rgba(0,0,0,0.5);
   }
-  .phone {
-    position: relative; z-index: 1;
-    width: 312px; background: #0d1240;
-    border-radius: 44px; padding: 12px;
-    box-shadow: var(--shadow-xl), 0 0 0 1px rgba(13,18,64,0.6);
+  .hero-content .tagline{
+    position:relative;
+    color:var(--ink-dim);
+    font-size:22px;
+    line-height:1.7;
+    margin:0 0 24px;
+    text-shadow:0 1px 16px rgba(0,0,0,0.6);
   }
-  .phone__screen {
-    background: var(--canvas); border-radius: 33px; overflow: hidden;
-    display: flex; flex-direction: column; height: 600px;
+  .hero-content .tagline::before{
+    content:"";
+    position:absolute;
+    inset:-16px -28px;
+    background:rgba(10,10,11,0.28);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    mask-image:radial-gradient(ellipse 75% 80% at center, #000 35%, transparent 95%);
+    -webkit-mask-image:radial-gradient(ellipse 75% 80% at center, #000 35%, transparent 95%);
+    z-index:-1;
+    pointer-events:none;
   }
-  .phone__notch {
-    position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
-    width: 116px; height: 26px; background: #0d1240; border-radius: 0 0 16px 16px; z-index: 3;
+  .hero-actions{display:flex;gap:26px;flex-wrap:wrap;align-items:baseline;justify-content:flex-end;}
+  .cta-primary{
+    font-size:16px;
+    font-weight:700;
+    border-bottom:2px solid var(--accent);
+    padding-bottom:3px;
   }
-  .ph-statusbar {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 12px 22px 6px; font-size: 12px; font-weight: 600; color: var(--ink-700);
-  }
-  .ph-statusbar .dots { display: flex; gap: 4px; align-items: center; }
-  .ph-statusbar .dots span { width: 14px; height: 9px; border-radius: 2px; background: var(--ink-400); display: inline-block; }
-  .ph-header {
-    display: flex; align-items: center; gap: 10px;
-    padding: 8px 16px 12px; border-bottom: 1px solid var(--border-subtle); background: var(--paper);
-  }
-  .ph-header__name { font-weight: var(--weight-bold); font-size: 14px; color: var(--ink-900); line-height: 1.2; }
-  .ph-header__pic { width: 34px; height: 34px; border-radius: 50%; overflow: hidden; flex: none; background: var(--royal-100); }
-  .ph-header__pic img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; transform: scale(1.12); display: block; }
-  .ph-header__status { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--text-muted); }
-  .ph-header__status .live { width: 6px; height: 6px; border-radius: 50%; background: var(--success-500); }
-
-  /* segmented mode toggle */
-  .ph-modes { display: flex; gap: 4px; padding: 10px 14px 4px; background: var(--paper); }
-  .ph-modes button {
-    flex: 1; border: none; cursor: pointer; font-family: inherit; font-weight: 600; font-size: 12px;
-    padding: 7px 0; border-radius: var(--radius-pill); background: transparent; color: var(--ink-500);
-    transition: background var(--duration-base) var(--ease-standard), color var(--duration-base) var(--ease-standard);
-  }
-  .ph-modes button[aria-selected="true"] { background: var(--royal-50); color: var(--royal-700); }
-
-  .ph-thread {
-    flex: 1; overflow: hidden; padding: 16px 14px; display: flex; flex-direction: column; gap: 14px;
-    background: var(--canvas);
-  }
-  .ph-thread .cm-msg__bubble { font-size: 13.5px; line-height: 1.55; padding: 10px 13px; border-radius: 14px; }
-  .ph-thread .cm-msg__body { max-width: 82%; }
-  .ph-thread .cm-avatar--sm { width: 26px; height: 26px; font-size: 11px; }
-  .ph-thread .cm-msg__meta { font-size: 10.5px; margin-top: 5px; }
-
-  /* voice mode panel */
-  .ph-voice {
-    flex: 1; display: none; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
-    background: var(--canvas); padding: 24px;
-  }
-  .ph-voice .label { font-size: 13px; color: var(--ink-500); text-align: center; }
-  .ph-voice .live-q { font-size: 15px; font-weight: 600; color: var(--ink-800); text-align: center; line-height: 1.5; max-width: 22ch; }
-  /* coach portrait in voice mode */
-  .ph-coach { position: relative; width: 128px; height: 128px; }
-  .ph-coach img {
-    width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block;
-    box-shadow: 0 10px 28px rgba(13,18,64,0.18);
-  }
-  .ph-coach::before {
-    content: ""; position: absolute; inset: -7px; border-radius: 50%;
-    border: 2px solid var(--royal-300);
-    animation: coachpulse 2.6s ease-out infinite;
-  }
-  @keyframes coachpulse { 0% { transform: scale(1); opacity: .6; } 70% { transform: scale(1.16); opacity: 0; } 100% { opacity: 0; } }
-  @media (prefers-reduced-motion: reduce) { .ph-coach::before { animation: none; opacity: .5; } }
-  .ph-coach__badge {
-    position: absolute; inset-block-end: 4px; inset-inline-end: 4px;
-    width: 32px; height: 32px; border-radius: 50%; background: var(--brand-gradient);
-    display: flex; align-items: center; justify-content: center; border: 3px solid var(--canvas);
-  }
-  .ph-coach__badge svg { width: 15px; height: 15px; color: #fff; }
-  .ph-wave { display: flex; align-items: center; gap: 4px; height: 30px; }
-  .ph-wave span {
-    width: 4px; border-radius: 2px; background: var(--royal-400);
-    animation: phwave 1.1s ease-in-out infinite;
-  }
-  @keyframes phwave { 0%,100% { height: 8px; } 50% { height: 28px; } }
-
-  .ph-composer {
-    display: flex; align-items: center; gap: 8px; padding: 10px 14px 16px; background: var(--paper);
-    border-top: 1px solid var(--border-subtle);
-  }
-  .ph-composer__field {
-    flex: 1; background: var(--ink-50); border: 1px solid var(--border-subtle); border-radius: var(--radius-pill);
-    padding: 9px 14px; font-size: 12.5px; color: var(--text-placeholder);
-  }
-  .ph-composer__mic {
-    width: 38px; height: 38px; border-radius: 50%; border: none; flex: none; cursor: pointer;
-    background: var(--brand-gradient); color: #fff; display: inline-flex; align-items: center; justify-content: center;
-    box-shadow: var(--shadow-brand);
-  }
-  .ph-composer__mic svg { width: 18px; height: 18px; }
-
-  /* ============================ Phone carousel ============================ */
-  .phone-carousel { position: relative; z-index: 1; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 20px; }
-  .phone-deck { position: relative; width: 100%; height: 624px; display: flex; align-items: center; justify-content: center; }
-  .phone-deck .phone {
-    position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    transition: transform .55s var(--ease-standard), opacity .55s var(--ease-standard), filter .55s var(--ease-standard);
-    will-change: transform, opacity;
-  }
-  .phone-deck .phone[data-pos="0"]  { z-index: 3; opacity: 1; filter: none; }
-  .phone-deck .phone[data-pos="-1"] { z-index: 2; opacity: .5; filter: blur(1.2px); transform: translate(-50%, -50%) translateX(-122px) scale(.62); cursor: pointer; }
-  .phone-deck .phone[data-pos="1"]  { z-index: 2; opacity: .5; filter: blur(1.2px); transform: translate(-50%, -50%) translateX(122px) scale(.62); cursor: pointer; }
-  .phone-deck .phone[data-pos="hide"] { z-index: 1; opacity: 0; pointer-events: none; transform: translate(-50%, -50%) scale(.5); }
-  .carousel-dots { display: flex; gap: 8px; }
-  .carousel-dots button {
-    width: 8px; height: 8px; border-radius: 999px; border: none; padding: 0; cursor: pointer;
-    background: var(--ink-200);
-    transition: width var(--duration-base) var(--ease-standard), background var(--duration-base) var(--ease-standard);
-  }
-  .carousel-dots button.active { width: 22px; background: var(--brand-gradient); }
-  .carousel-playpause { display: none; }
-
-  /* ============================ Splash screen ============================ */
-  .ph-splash { background: #fff; display: flex; flex-direction: column; }
-  .sp-body { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
-  .sp-mark { font-family: var(--font-display); font-weight: var(--weight-extrabold); font-size: 42px; letter-spacing: -0.03em; line-height: 1; background: var(--brand-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .sp-tag { font-size: 18px; font-weight: var(--weight-semibold); color: var(--royal-600); letter-spacing: 0.01em; }
-  .sp-foot { padding: 0 22px 26px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
-  .sp-foot .cm-btn { width: 100%; font-size: 15px; padding: 14px; }
-  .sp-link { font-size: 14px; font-weight: var(--weight-semibold); color: var(--royal-600); }
-
-  /* ============================ Onboarding screens (new mockups) ============================ */
-  .os-screen { background: #fff; }
-  .os-status { display: flex; align-items: center; justify-content: space-between; padding: 16px 22px 4px; }
-  .os-status__time { font-size: 12px; font-weight: 700; color: var(--ink-900); letter-spacing: .01em; }
-  .os-status__icons { display: flex; align-items: center; gap: 5px; color: var(--ink-900); }
-  .os-status__icons svg { display: block; }
-  .os-body { flex: 1; display: flex; flex-direction: column; padding: 4px 20px 0; overflow: hidden; }
-  .os-title { font-family: var(--font-display); font-weight: var(--weight-extrabold); font-size: 22px; color: var(--ink-900); letter-spacing: var(--tracking-tight); margin: 10px 0 6px; }
-  .os-sub { font-size: 13px; line-height: 1.5; color: var(--ink-500); margin: 0; }
-  .os-continue { padding: 12px 20px 20px; }
-  .os-continue .cm-btn { width: 100%; font-size: 15px; padding: 14px; border-radius: 14px; }
-
-  /* ---- Voice mode ---- */
-  .os-voice__head { text-align: center; padding: 10px 0 0; }
-  .os-voice__name { font-weight: var(--weight-bold); font-size: 17px; color: var(--ink-900); }
-  .os-voice__status { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--royal-600); margin-top: 4px; }
-  .os-voice__status .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--royal-500); }
-  .os-voice__center { flex: 1; display: flex; align-items: center; justify-content: center; }
-  .os-orb { position: relative; width: 152px; height: 152px; border-radius: 50%;
-    background: radial-gradient(circle at 38% 32%, #f2f7ff 0%, #d3e5ff 22%, #9cc2f6 52%, #5896ee 78%, #3a83e8 100%);
-    box-shadow: 0 18px 44px rgba(58,131,232,0.38); }
-  .os-orb::before { content: ""; position: absolute; inset: -44px; border-radius: 50%; z-index: -1;
-    background: radial-gradient(closest-side, rgba(88,150,238,0.42), rgba(88,150,238,0) 70%);
-    animation: osPulse 2.8s ease-in-out infinite; }
-  @keyframes osPulse { 0%,100% { transform: scale(1); opacity: .7; } 50% { transform: scale(1.14); opacity: 1; } }
-  @media (prefers-reduced-motion: reduce) { .os-orb::before { animation: none; } }
-  .os-voice__foot { text-align: center; padding: 0 8px 22px; }
-  .os-voice__quote { font-size: 15px; color: var(--ink-500); margin: 0 0 20px; }
-  .os-voice__controls { display: flex; align-items: center; justify-content: center; gap: 16px; }
-  .os-ctrl { width: 56px; height: 56px; border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; background: #fff; box-shadow: 0 4px 14px rgba(13,18,64,0.12); color: var(--ink-800); }
-  .os-ctrl svg { width: 22px; height: 22px; }
-  .os-ctrl--end { background: #fdecec; color: #e5484d; }
-
-  /* ---- Wheel of life ---- */
-  .os-radar { display: flex; justify-content: center; margin: 8px 0 2px; }
-  .os-radar svg { width: 218px; height: auto; }
-  .os-toggle { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 4px 0 12px; font-size: 13px; font-weight: 600; color: var(--ink-700); }
-  .os-switch { width: 8px; height: 8px; border-radius: 50%; background: var(--royal-600); flex: none; }
-  .os-sliders { display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
-  .os-scard { border: 1px solid var(--border-subtle); border-radius: 14px; padding: 11px 14px 12px; }
-  .os-scard__top { display: flex; align-items: baseline; justify-content: space-between; }
-  .os-scard__label { font-size: 15px; font-weight: var(--weight-bold); color: var(--ink-900); }
-  .os-scard__val { font-size: 15px; font-weight: var(--weight-bold); color: var(--royal-600); }
-  .os-track { position: relative; height: 6px; border-radius: 999px; background: var(--ink-100); margin: 13px 0 5px; }
-  .os-track__fill { position: absolute; top: 0; bottom: 0; inset-inline-start: 0; border-radius: 999px; background: var(--royal-300); }
-  .os-track__knob { position: absolute; top: 50%; width: 18px; height: 18px; border-radius: 50%; background: #fff; border: 2px solid var(--royal-500); transform: translate(50%, -50%); box-shadow: 0 1px 4px rgba(0,0,0,.18); }
-  .os-scard__cap { font-size: 11px; color: var(--ink-400); }
-
-  /* ---- Coaching type ---- */
-  .os-opts { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
-  .os-opt { display: flex; align-items: center; gap: 10px; border: 1.5px solid var(--border-subtle); border-radius: 16px; padding: 14px; background: #fff; }
-  .os-opt--sel { border-color: var(--royal-500); background: var(--royal-50); }
-  .os-opt__group { display: flex; align-items: center; gap: 12px; flex: 1; }
-  .os-opt__text { flex: 1; text-align: right; }
-  .os-opt__label { font-size: 15px; font-weight: var(--weight-bold); color: var(--ink-900); }
-  .os-opt__desc { font-size: 12px; line-height: 1.45; color: var(--ink-500); margin-top: 3px; }
-  .os-opt__icon { width: 44px; height: 44px; border-radius: 12px; flex: none; display: flex; align-items: center; justify-content: center; background: var(--royal-50); color: var(--royal-600); }
-  .os-opt__icon svg { width: 22px; height: 22px; }
-  .os-opt__icon--sel { background: var(--navy-800); color: #fff; }
-  .os-opt__radio { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--ink-300); flex: none; }
-  .os-opt__radio--sel { border-color: var(--royal-600); position: relative; }
-  .os-opt__radio--sel::after { content: ""; position: absolute; inset: 3px; border-radius: 50%; background: var(--royal-600); }
-
-  /* ============================ Voice-call screen ============================ */
-  .ph-voicecall { background: var(--canvas); }
-  .vc-top { display: flex; align-items: center; gap: 8px; padding: 6px 16px 0; }
-  .vc-icon { width: 28px; height: 28px; border: none; background: transparent; color: var(--ink-400); display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0; }
-  .vc-icon svg { width: 20px; height: 20px; }
-  .vc-eyebrow { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: .03em; color: var(--royal-700); }
-  .vc-eyebrow .live { width: 6px; height: 6px; border-radius: 50%; background: var(--success-500); }
-  .vc-center { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; padding: 12px 24px; }
-  .vc-orb { position: relative; width: 152px; height: 152px; }
-  .vc-orb img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; position: relative; z-index: 1; box-shadow: 0 12px 32px rgba(13,18,64,.18); }
-  .vc-orb::before { content: ""; position: absolute; inset: -12px; border-radius: 50%; background: var(--brand-gradient); opacity: .16; filter: blur(8px); z-index: 0; }
-  .vc-orb::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 2px solid var(--royal-300); animation: coachpulse 2.6s ease-out infinite; z-index: 0; }
-  .vc-wave { display: flex; align-items: center; gap: 4px; height: 30px; }
-  .vc-wave span { width: 4px; height: 14px; border-radius: 2px; background: var(--royal-400); animation: phwave 1.1s ease-in-out infinite; }
-  .vc-quote { font-size: 15px; font-weight: 600; color: var(--ink-800); text-align: center; line-height: 1.5; max-width: 22ch; }
-  .vc-composer { display: flex; align-items: center; gap: 8px; padding: 10px 14px 16px; background: var(--paper); border-top: 1px solid var(--border-subtle); }
-  .vc-plus, .vc-end { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border-subtle); background: var(--paper); color: var(--ink-500); flex: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
-  .vc-plus { font-size: 20px; font-weight: 400; line-height: 1; }
-  .vc-end svg { width: 15px; height: 15px; }
-  .vc-field { flex: 1; background: var(--ink-50); border: 1px solid var(--border-subtle); border-radius: var(--radius-pill); padding: 9px 14px; font-size: 12.5px; color: var(--text-placeholder); }
-  .vc-mic { width: 38px; height: 38px; border-radius: 50%; border: none; flex: none; cursor: pointer; background: var(--brand-gradient); color: #fff; display: inline-flex; align-items: center; justify-content: center; box-shadow: var(--shadow-brand); }
-  .vc-mic svg { width: 18px; height: 18px; }
-
-  /* ============================ Human-coaches screen ============================ */
-  .ph-coaches { background: var(--paper); display: flex; flex-direction: column; }
-  .hc-nav { display: flex; align-items: center; justify-content: space-between; padding: 4px 18px 14px; }
-  .hc-nav__title { font-family: var(--font-display); font-weight: var(--weight-bold); font-size: 16px; color: var(--ink-900); letter-spacing: var(--tracking-tight); }
-  .hc-nav__ico { width: 22px; height: 22px; color: var(--ink-700); display: flex; align-items: center; justify-content: center; }
-  .hc-nav__ico svg { width: 20px; height: 20px; }
-  .hc-scroll { flex: 1; overflow: hidden; padding: 2px 14px 16px; display: flex; flex-direction: column; gap: 16px; }
-
-  .hc-hero { border-radius: 18px; padding: 18px; color: #fff; background: linear-gradient(150deg, var(--navy-800) 0%, var(--royal-700) 60%, var(--royal-600) 100%); box-shadow: var(--shadow-md); }
-  .hc-hero__eyebrow { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: var(--weight-semibold); color: rgba(255,255,255,0.82); }
-  .hc-hero__eyebrow svg { width: 14px; height: 14px; }
-  .hc-hero__title { font-family: var(--font-display); font-weight: var(--weight-extrabold); font-size: 19px; line-height: 1.25; margin-top: 12px; }
-  .hc-hero__text { font-size: 12px; line-height: 1.55; color: rgba(255,255,255,0.86); margin-top: 8px; }
-  .hc-hero__btn { margin-top: 16px; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; background: #fff; color: var(--royal-700); border: none; border-radius: 999px; padding: 12px; font-family: inherit; font-weight: var(--weight-bold); font-size: 13px; cursor: pointer; box-shadow: var(--shadow-sm); }
-  .hc-hero__btn svg { width: 15px; height: 15px; }
-
-  .hc-sec { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
-  .hc-sec__title { font-family: var(--font-display); font-weight: var(--weight-bold); font-size: 15px; color: var(--ink-900); }
-  .hc-sec__sub { font-size: 12px; color: var(--ink-500); }
-  .hc-demo { display: inline-flex; align-items: center; align-self: center; font-size: 10px; font-weight: var(--weight-semibold); color: var(--ink-500); background: rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.08); border-radius: 999px; padding: 2px 7px; white-space: nowrap; }
-
-  .hc-list { display: flex; flex-direction: column; gap: 12px; margin-top: 12px; }
-  .hc-coach { display: flex; align-items: center; gap: 12px; background: #fff; border: 1px solid var(--border-subtle); border-radius: 16px; padding: 12px; box-shadow: var(--shadow-xs); }
-  .hc-coach--rec { background: linear-gradient(180deg, var(--royal-50), #fff); border-color: var(--royal-100); }
-  .hc-coach__photo { width: 54px; height: 54px; border-radius: 50%; overflow: hidden; flex: none; background: var(--ink-100); }
-  .hc-coach__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .hc-coach__body { flex: 1; min-width: 0; }
-  .hc-coach__top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-  .hc-coach__name { font-weight: var(--weight-bold); font-size: 14px; color: var(--ink-900); }
-  .hc-match { display: inline-flex; align-items: center; gap: 3px; font-size: 10.5px; font-weight: var(--weight-bold); color: var(--success-700); background: var(--success-50); border-radius: 999px; padding: 3px 8px; }
-  .hc-coach__spec { font-size: 12px; color: var(--ink-600); margin-top: 4px; }
-  .hc-coach__meta { display: flex; align-items: center; gap: 8px; margin-top: 9px; }
-  .hc-rating { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--ink-500); }
-  .hc-dots { display: flex; gap: 3px; }
-  .hc-dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--royal-600); display: block; }
-  .hc-dots i.off { background: var(--ink-200); }
-  .hc-tag { font-size: 10.5px; font-weight: var(--weight-semibold); border-radius: 999px; padding: 3px 9px; }
-  .hc-tag--mental { color: var(--royal-700); background: var(--royal-50); }
-  .hc-tag--nlp { color: #6d28d9; background: #f1ecfe; }
-  .hc-tag--emo { color: #0e7c66; background: #e3f6f0; }
-  .hc-chev { flex: none; color: var(--ink-300); display: flex; align-items: center; }
-  .hc-chev svg { width: 16px; height: 16px; }
-
-  .hc-filters { display: flex; gap: 8px; margin-top: 12px; }
-  .hc-chip { font-size: 12px; font-weight: var(--weight-semibold); padding: 8px 14px; border-radius: 999px; border: 1px solid var(--border-subtle); color: var(--ink-700); background: #fff; white-space: nowrap; }
-  .hc-chip--active { background: var(--royal-600); color: #fff; border-color: transparent; }
-
-  /* ============================ Generic section heads ============================ */
-  .section { padding: clamp(var(--space-16), 8vw, var(--space-24)) 0; }
-  .section--soft { background: var(--brand-gradient-soft); }
-  .section h2 {
-    font-family: var(--font-display); font-weight: var(--weight-extrabold);
-    font-size: clamp(1.6rem, 3.4vw, var(--text-3xl)); line-height: 1.14;
-    letter-spacing: var(--tracking-tight); color: var(--ink-900); text-wrap: balance;
-    margin-top: var(--space-4);
-  }
-  .lead {
-    font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--ink-600);
-    max-width: 56ch; margin-top: var(--space-6);
+  .cta-secondary{
+    font-size:14.5px;
+    color:var(--ink-dim);
+    border-bottom:1px solid var(--line);
+    padding-bottom:3px;
   }
 
-  /* ============================ Pain ============================ */
-  .pain { text-align: center; }
-  .pain .wrap { display: flex; flex-direction: column; align-items: center; }
-  .pain .lead { max-width: 58ch; }
-
-  /* ============================ How it works ============================ */
-  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); margin-top: var(--space-12); }
-  .step { position: relative; padding: var(--space-8) var(--space-6) var(--space-6); }
-  .step__num {
-    font-family: var(--font-display); font-weight: var(--weight-black); font-size: var(--text-3xl);
-    line-height: 1; color: transparent; background: var(--brand-gradient);
-    -webkit-background-clip: text; background-clip: text; letter-spacing: -0.02em;
+  /* stats strip */
+  .stats-strip{
+    display:flex;
+    justify-content:center;
+    gap:64px;
+    flex-wrap:wrap;
+    padding:48px 0 28px;
+    border-bottom:1px solid var(--line);
   }
-  .step__title { font-weight: var(--weight-bold); font-size: var(--text-lg); color: var(--ink-900); margin-top: var(--space-4); }
-  .step__text { font-size: var(--text-base); line-height: var(--leading-relaxed); color: var(--ink-600); margin-top: var(--space-3); }
-  .step__line {
-    position: absolute; top: calc(var(--space-8) + 18px); inset-inline-start: -1px; width: 1px; height: 0;
+  .stat{text-align:center;}
+  .stat-num{
+    font-size:36px;
+    font-weight:800;
+    color:var(--accent);
+    line-height:1;
   }
-
-  /* ============================ What's inside (features) ============================ */
-  .inside__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6); margin-top: var(--space-12); }
-  .feature { padding: var(--space-8); }
-  .feature__icon {
-    width: 48px; height: 48px; border-radius: var(--radius-lg); flex: none;
-    display: flex; align-items: center; justify-content: center;
-    background: var(--royal-50); color: var(--royal-600);
+  .stat-label{
+    font-size:13px;
+    color:var(--ink-dim);
+    margin-top:8px;
   }
-  .feature__icon svg { width: 24px; height: 24px; }
-  .feature__title { font-weight: var(--weight-bold); font-size: var(--text-lg); color: var(--ink-900); margin-top: var(--space-5); }
-  .feature__text { font-size: var(--text-base); line-height: var(--leading-relaxed); color: var(--ink-600); margin-top: var(--space-3); }
-  .feature__list { list-style: none; margin: var(--space-3) 0 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-2); }
-  .feature__list li { display: flex; align-items: flex-start; gap: var(--space-2); font-size: var(--text-base); line-height: var(--leading-relaxed); color: var(--ink-600); }
-  .feature__list svg { width: 18px; height: 18px; flex: none; margin-top: 4px; color: var(--royal-600); }
-  @media (max-width: 880px) { .inside__grid { grid-template-columns: 1fr; gap: var(--space-6); } }
-  .inside__note { text-align: center; font-size: var(--text-md); font-weight: var(--weight-semibold); color: var(--ink-800); margin-top: var(--space-10); text-wrap: balance; }
-
-  /* ============================ Helps (compact blue panel, inside hero) ============================ */
-  .helps-section {
-    background: var(--brand-gradient); color: #fff;
-    position: relative; overflow: hidden; text-align: center;
-  }
-  .helps-section .helps__head {
-    font-family: var(--font-display); font-weight: var(--weight-bold);
-    font-size: var(--text-2xl); line-height: 1.2; letter-spacing: var(--tracking-tight);
-    color: #fff; text-wrap: balance; margin: 0 auto;
-  }
-  .helps-panel {
-    list-style: none; margin: var(--space-10) auto 0; padding: 0;
-    max-width: 620px; display: grid; gap: var(--space-3);
-  }
-  .help-row {
-    list-style: none; display: flex; align-items: center; gap: var(--space-3);
-    text-align: start; background: var(--paper); border-radius: var(--radius-lg);
-    padding: var(--space-4) var(--space-5);
-    box-shadow: 0 14px 34px -22px rgba(3,20,60,0.5);
-  }
-  .help-row__icon {
-    width: 34px; height: 34px; border-radius: 50%; flex: none;
-    display: flex; align-items: center; justify-content: center;
-    background: var(--royal-50); color: var(--royal-600);
-  }
-  .help-row__icon svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
-  .help-row__body { display: flex; align-items: baseline; gap: var(--space-3); flex: 1; }
-  .help-row__title { font-weight: var(--weight-bold); font-size: var(--text-base); color: var(--ink-900); flex: none; width: 92px; }
-  .help-row__text { font-size: var(--text-sm); line-height: var(--leading-snug); color: var(--ink-600); }
-  @media (max-width: 520px) {
-    .help-row { align-items: flex-start; }
-    .help-row__body { flex-direction: column; align-items: flex-start; gap: 2px; }
-    .help-row__title { width: auto; }
+  .stats-note{
+    font-size:12.5px;
+    color:var(--ink-dim);
+    text-align:center;
+    margin:16px 0 0;
   }
 
-  /* ============================ How it works — dark ============================ */
-  .how { background: var(--paper); position: relative; overflow: hidden; }
-  .how .step {
-    background: var(--surface-card);
-    border: var(--border-width) solid var(--border-subtle);
-    box-shadow: var(--shadow-sm);
+  /* story section ("מהרעיון לביצוע") */
+  .story-section{padding:72px 0 64px;}
+  .story-label{
+    font-size:13px;
+    letter-spacing:.06em;
+    color:var(--ink-dim);
+    text-transform:uppercase;
+    margin:0 0 48px;
   }
-  .how__intro { font-size: var(--text-lg); line-height: var(--leading-snug); color: var(--ink-900); font-weight: var(--weight-semibold); margin-top: var(--space-4); max-width: 52ch; text-wrap: balance; }
-  .how__intro strong, .how__intro b { color: var(--ink-900); font-weight: var(--weight-bold); }
-  .how .steps { margin-top: var(--space-10); }
-  .how__note { text-align: center; font-size: var(--text-md); font-weight: var(--weight-semibold); color: var(--ink-700); margin-top: var(--space-10); }
+  .story-station{
+    display:flex;
+    align-items:center;
+    gap:56px;
+    padding:48px 0;
+    border-top:1px solid var(--line);
+  }
+  .story-station:first-of-type{border-top:none;padding-top:0;}
+  .story-station.reverse{flex-direction:row-reverse;}
+  .story-media{flex:0 0 40%;}
+  .story-media img{width:100%;aspect-ratio:4/3;object-fit:cover;}
+  /* photo collage (real project material) */
+  .story-collage{position:relative;width:100%;aspect-ratio:1/1.02;}
+  .story-collage .photo{
+    position:absolute;
+    border-radius:10px;
+    border:5px solid var(--bg);
+    box-shadow:0 16px 34px rgba(0,0,0,0.5);
+    object-fit:cover;
+    background:var(--bg);
+  }
+  .story-collage-3 .photo-1{width:58%;aspect-ratio:9/16;top:0;right:0;transform:rotate(-4deg);z-index:2;}
+  .story-collage-3 .photo-2{width:48%;aspect-ratio:4/3;bottom:0;left:0;transform:rotate(5deg);z-index:3;}
+  .story-collage-3 .photo-3{width:34%;aspect-ratio:3/4;top:30%;left:28%;transform:rotate(-9deg);z-index:1;}
+  /* army collage: move the 3rd photo into the open top-left corner so it never gets fully hidden behind the other two */
+  .story-collage-army .photo-3{width:38%;aspect-ratio:3/4;top:0;left:2%;transform:rotate(-7deg);z-index:1;}
+  .photo.obj-top{object-position:top;}
+  .photo.obj-right{object-position:85% center;}
+  .story-collage-2 .photo-1{width:66%;aspect-ratio:3/4;top:0;left:0;transform:rotate(-3deg);z-index:1;}
+  .story-collage-2 .photo-2{width:54%;aspect-ratio:4/3;bottom:0;right:0;transform:rotate(5deg);z-index:2;}
+  .story-graphic{
+    width:100%;
+    aspect-ratio:4/3;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    gap:10px;
+    padding:28px;
+    background:linear-gradient(135deg, rgba(110,156,147,0.16), rgba(242,241,236,0.03));
+    border:1px solid var(--line);
+  }
+  .story-graphic-name{font-size:22px;font-weight:800;color:var(--ink);}
+  .story-graphic-stat{font-size:15px;color:var(--accent);font-weight:600;}
+  .story-content{flex:1;min-width:0;}
+  .story-period{
+    font-size:13px;
+    letter-spacing:.04em;
+    color:var(--ink-dim);
+    margin:0 0 10px;
+    direction:ltr;
+    text-align:right;
+  }
+  .story-content h3{
+    font-size:clamp(24px,3vw,32px);
+    font-weight:800;
+    margin:0 0 16px;
+  }
+  .story-content p{
+    margin:0 0 12px;
+    color:var(--ink);
+    font-size:15.5px;
+    line-height:1.75;
+  }
+  .story-content p:last-child{margin-bottom:0;}
+  .story-flag{
+    display:inline-block;
+    font-size:11.5px;
+    font-weight:700;
+    color:var(--accent);
+    border:1px solid var(--accent);
+    padding:2px 8px;
+    margin-inline-start:8px;
+    vertical-align:middle;
+  }
+  /* personal note section */
+  .personal-note{
+    max-width:720px;
+    margin:0 auto;
+    padding:64px 0 72px;
+    border-top:1px solid var(--line);
+    text-align:center;
+  }
+  .personal-note h3{
+    font-size:clamp(22px,3vw,28px);
+    font-weight:800;
+    margin:0 0 16px;
+  }
+  .personal-note p{
+    font-size:15.5px;
+    line-height:1.75;
+    color:var(--ink);
+    margin:0;
+  }
+  .now-section{
+    background:var(--ink);
+    color:var(--bg);
+    padding:80px 0;
+  }
+  .now-inner{
+    max-width:720px;
+    margin:0 auto;
+    padding:0 24px;
+    text-align:center;
+  }
+  .now-section h3{
+    font-size:clamp(26px,3.5vw,34px);
+    font-weight:800;
+    margin:0 0 16px;
+  }
+  .now-section p{
+    font-size:18px;
+    line-height:1.75;
+    margin:0;
+  }
+  .now-section .cta-primary{display:inline-block;margin-top:24px;cursor:pointer;background:none;border:none;font-family:inherit;}
 
-  /* ============================ Objection (dark) ============================ */
-  .objection { background: var(--navy-800); color: #fff; overflow: hidden; }
-  .objection::before {
-    content: ""; position: absolute; inset: 0;
-    background: radial-gradient(120% 90% at 85% 0%, rgba(41,98,255,0.30), transparent 60%);
-    pointer-events: none;
+  /* talk modal (glassmorphic) */
+  .modal-overlay{
+    position:fixed;
+    inset:0;
+    z-index:200;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    background:rgba(10,10,11,0.55);
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .25s ease;
   }
-  .objection .wrap { position: relative; z-index: 1; max-width: var(--container-md); text-align: center; display: flex; flex-direction: column; align-items: center; }
-  .objection h2 { color: #fff; }
-  .objection__sub { font-size: var(--text-md); line-height: var(--leading-relaxed); font-weight: var(--weight-regular); color: rgba(255,255,255,0.85); max-width: 48ch; margin-top: var(--space-6); text-wrap: balance; }
-  .objection__chips { display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: center; margin-top: var(--space-10); }
-  .ochip {
-    display: inline-flex; align-items: center; gap: var(--space-2);
-    font-size: var(--text-sm); font-weight: var(--weight-medium); color: rgba(255,255,255,0.92);
-    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.16);
-    border-radius: var(--radius-pill); padding: var(--space-2) var(--space-5);
+  .modal-overlay.is-open{opacity:1;visibility:visible;}
+  .modal-box{
+    width:min(92vw,420px);
+    background:rgba(242,241,236,0.1);
+    backdrop-filter:blur(26px);
+    -webkit-backdrop-filter:blur(26px);
+    border:1px solid rgba(242,241,236,0.18);
+    border-radius:18px;
+    padding:40px 32px;
+    text-align:center;
+    position:relative;
+    box-shadow:0 24px 60px rgba(0,0,0,0.5);
   }
-  .ochip .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--royal-300); }
+  .modal-close{
+    position:absolute;
+    top:12px;
+    inset-inline-end:14px;
+    background:none;
+    border:none;
+    color:var(--ink);
+    font-size:24px;
+    line-height:1;
+    cursor:pointer;
+    padding:4px 8px;
+  }
+  .modal-box h3{font-size:21px;font-weight:800;margin:0 0 10px;color:var(--ink);}
+  .modal-box p{font-size:14.5px;color:var(--ink-dim);margin:0 0 24px;}
+  .whatsapp-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:#25D366;
+    color:#06130d;
+    font-weight:700;
+    font-size:15px;
+    padding:12px 24px;
+    border-radius:999px;
+  }
+  .whatsapp-btn.is-placeholder{opacity:.45;pointer-events:none;}
 
-  /* ============================ Founders ============================ */
-  .founders__grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); margin-top: var(--space-12); }
-  .founder { display: flex; gap: var(--space-5); align-items: flex-start; }
-  .founder__photo {
-    width: 112px; height: 112px; border-radius: var(--radius-lg); flex: none; overflow: hidden;
-    background: var(--ink-100);
-    border: 1px solid var(--border-subtle);
+  /* contact bar */
+  .contact-bar{
+    border-top:1px solid var(--line);
+    background:rgba(255,255,255,0.02);
+    padding:30px 0;
   }
-  .founder__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 12%; display: block; }
-  .founder__name { font-weight: var(--weight-bold); font-size: var(--text-md); color: var(--ink-900); }
-  .founder__role { font-size: var(--text-sm); color: var(--royal-600); font-weight: var(--weight-semibold); margin-top: 2px; }
-  .founder__bio { font-size: var(--text-sm); line-height: var(--leading-relaxed); color: var(--ink-600); margin-top: var(--space-3); }
-  .founders__note {
-    max-width: 56ch; margin: var(--space-12) auto 0; text-align: center;
+  .contact-bar-inner{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:48px;
+    flex-wrap:wrap;
   }
-  .founders__note p {
-    margin: 0; font-size: var(--text-md); color: var(--navy-800);
-    font-weight: var(--weight-semibold); line-height: var(--leading-relaxed); text-wrap: balance;
+  .contact-bar-inner a{font-size:15.5px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:8px;}
+  .contact-bar-inner svg{width:18px;height:18px;flex-shrink:0;}
+  .contact-bar-caption{
+    text-align:center;
+    font-size:13px;
+    color:var(--ink-dim);
+    margin:0 0 20px;
   }
+  .legal-bar{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-top:24px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+    font-size:12.5px;
+    color:var(--ink-dim);
+  }
+  .legal-bar p{margin:0;}
+  .legal-bar a{color:var(--ink-dim);text-decoration:underline;text-underline-offset:3px;}
 
-  /* ---- Founders on dark navy (restores the alternating section rhythm) ---- */
-  .founders { background: var(--navy-800); color: #fff; position: relative; overflow: hidden; }
-  .founders::before {
-    content: ""; position: absolute; inset: 0; pointer-events: none;
-    background: radial-gradient(120% 90% at 15% 0%, rgba(41,98,255,0.30), transparent 60%);
-  }
-  .founders .wrap { position: relative; z-index: 1; }
-  .founders .eyebrow { color: var(--royal-300); }
-  .founders h2 { color: #fff; }
-  .founders .founder__name { color: #fff; }
-  .founders .founder__role { color: var(--royal-300); }
-  .founders .founder__bio { color: rgba(255,255,255,0.72); }
-  .founders .founders__note p { color: rgba(255,255,255,0.88); }
-
-  /* ============================ Form ============================ */
-  .signup { background: var(--brand-gradient-soft); }
-  .signup__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(var(--space-10), 5vw, var(--space-20)); align-items: center; }
-  .signup__copy h2 { font-size: clamp(1.7rem, 3.2vw, var(--text-3xl)); }
-  .signup__lead { font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--brand-slogan); font-weight: var(--weight-semibold); margin-top: var(--space-5); max-width: 46ch; text-wrap: balance; }
-  .signup__perks { list-style: none; padding: 0; margin: var(--space-8) 0 0; display: flex; flex-direction: column; gap: var(--space-4); }
-  .signup__perks li { display: flex; align-items: flex-start; gap: var(--space-3); font-size: var(--text-base); color: var(--ink-700); }
-  .signup__perks svg { width: 20px; height: 20px; color: var(--royal-500); flex: none; margin-top: 2px; }
-  .form-card { background: var(--paper); border-radius: var(--radius-xl); padding: clamp(var(--space-6), 3vw, var(--space-10)); box-shadow: var(--shadow-lg); border: 1px solid var(--border-subtle); }
-  .form-row { display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-5); }
-  .form-row label { font-size: var(--text-sm); font-weight: var(--weight-medium); color: var(--ink-700); }
-  .cm-select {
-    font-family: var(--font-sans); font-size: var(--text-base); color: var(--ink-900);
-    background: var(--surface-card); border: 1px solid var(--border-default); border-radius: var(--radius-md);
-    padding: 0 var(--space-4); height: 48px; width: 100%; cursor: pointer;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235a6480' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-    background-repeat: no-repeat; background-position: left var(--space-4) center;
-    appearance: none; -webkit-appearance: none;
-  }
-  .cm-select:focus { outline: none; border-color: var(--royal-400); box-shadow: var(--focus-ring); }
-  .form-fine { font-size: var(--text-xs); color: var(--text-muted); text-align: center; margin-top: var(--space-4); }
-  .form-consent { display: flex; align-items: flex-start; gap: var(--space-3); margin-bottom: var(--space-5); cursor: pointer; }
-  .form-consent input { appearance: none; -webkit-appearance: none; flex: none; margin: 1px 0 0; width: 18px; height: 18px; border: 1.5px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--paper); cursor: pointer; position: relative; transition: border-color var(--ease-out) var(--dur-1), background var(--ease-out) var(--dur-1); }
-  .form-consent input:checked { background: var(--brand-gradient); border-color: transparent; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E"), var(--brand-gradient); background-size: 13px, cover; background-position: center, center; background-repeat: no-repeat; }
-  .form-consent input:focus-visible { outline: none; box-shadow: var(--focus-ring); }
-  .form-consent span { font-size: var(--text-xs); line-height: 1.5; color: var(--ink-600); }
-  .form-consent-note { font-size: var(--text-xs); line-height: 1.5; color: var(--text-muted); margin: calc(var(--space-5) * -1 + var(--space-1)) 0 var(--space-5); padding-inline-start: calc(18px + var(--space-3)); }
-  /* Honeypot field — off-screen (not display:none, so bots still fill it) */
-  .hp-field { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
-  .form-success {
-    display: none; flex-direction: column; align-items: center; text-align: center; gap: var(--space-3);
-    padding: var(--space-8) var(--space-4);
-  }
-  .form-success .check {
-    width: 56px; height: 56px; border-radius: 50%; background: var(--success-50); color: var(--success-600);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .form-success .check svg { width: 28px; height: 28px; }
-  .form-success h3 { font-size: var(--text-xl); color: var(--ink-900); }
-  .form-success p { font-size: var(--text-base); color: var(--ink-600); max-width: 34ch; }
-
-  /* ---- Share block (thank-you) ---- */
-  .share-block { width: 100%; margin-top: var(--space-5); padding-top: var(--space-5); border-top: 1px solid var(--border-subtle); }
-  .share-block__title { font-size: var(--text-sm); font-weight: var(--weight-semibold); color: var(--ink-700); margin: 0 0 var(--space-4); max-width: none; }
-  .share-block__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: center; }
-  .share-block__actions .cm-btn { gap: var(--space-2); }
-  .share-block__actions .cm-btn svg { width: 18px; height: 18px; }
-  .cm-btn--wa { background: #25d366; color: #fff; border-color: transparent; }
-  .cm-btn--wa:hover:not(:disabled) { color: #fff; background: #1ebe5a; box-shadow: var(--shadow-sm); }
-  .cm-btn.is-copied { background: var(--success-50); color: var(--success-600); border-color: var(--success-500); }
-
-  /* ============================ Footer ============================ */
-  .footer { background: var(--navy-900); color: rgba(255,255,255,0.7); padding: var(--space-6) 0; }
-  .footer__inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); flex-wrap: wrap; }
-  .footer .cm-wordmark__coach { color: #fff; }
-  .footer .cm-wordmark__mind { color: var(--royal-400); }
-  .footer__tag { font-size: 9px; letter-spacing: 0.30em; }
-  .footer small { font-size: var(--text-xs); color: rgba(255,255,255,0.45); }
-  .footer__links { display: flex; gap: var(--space-4); }
-  .footer__links a { font-size: var(--text-sm); color: rgba(255,255,255,0.8); text-decoration: none; }
-  .footer__links a:hover { color: #fff; text-decoration: underline; }
-
-  /* ============================ Responsive ============================ */
-  @media (max-width: 880px) {
-    .hero__grid { grid-template-columns: 1fr; gap: var(--space-12); }
-    .hero__grid > .hero__text,
-    .hero__grid > .phone-stage { grid-column: auto; grid-row: auto; }
-    .steps { grid-template-columns: 1fr; gap: var(--space-6); }
-    .founders__grid { grid-template-columns: 1fr; gap: var(--space-10); }
-    .signup__grid { grid-template-columns: 1fr; }
-    .hero__text { text-align: center; display: flex; flex-direction: column; align-items: center; }
-    .hero__sub { margin-inline: auto; }
-    .hero__cta { justify-content: center; }
-    /* stacked: let the carousel span the full column width so the active phone centers */
-    .phone-stage { display: block; }
-  }
-  @media (max-width: 640px) {
-    .wrap { padding-inline: var(--space-5); }
-    .nav__inner { padding-inline: var(--space-5); }
-    .nav .cm-wordmark { font-size: 20px; }
-    .nav__inner .nav-cta { padding-inline: var(--space-4); font-size: var(--text-sm); }
-    .hero { padding-block: var(--space-6) var(--space-14); }
-    /* first fold: the intro owns most of the viewport, so only the top of the phone peeks in low to invite a scroll */
-    .hero__grid { gap: var(--space-8); }
-    .hero__text { min-height: 54vh; justify-content: center; }
-    .hero__cta .cm-btn { width: 100%; text-align: center; justify-content: center; }
-    .hero__count { justify-content: center; }
-    .hero__cap { text-align: center; }
-    .section { padding-block: var(--space-14); }
-    .section h2 { margin-top: var(--space-3); }
-    .founders__note { margin-top: var(--space-10); }
-    .signup__perks { margin-top: var(--space-6); }
-  }
-  @media (max-width: 520px) {
-    .phone { width: 268px; }
-    .phone__screen { height: 560px; }
-    .phone-deck { height: 590px; }
-    /* single clean phone on narrow screens: the crammed flanking phones looked cluttered */
-    .phone-deck .phone[data-pos="-1"],
-    .phone-deck .phone[data-pos="1"] { opacity: 0; pointer-events: none; }
-    .founder { flex-direction: row; }
-    .founder__photo { width: 84px; height: 84px; }
-    /* compact horizontal footer: spread across the width instead of a tall stack */
-    .footer { padding-block: var(--space-5); }
-    .footer__inner { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--space-3) var(--space-5); text-align: center; }
-    .footer .cm-lockup { flex-basis: 100%; display: flex; flex-direction: column; align-items: center; }
-    .footer__links { justify-content: center; }
-    .footer small { flex-basis: 100%; }
-    .a11y-fab { inset-block-end: calc(var(--cta-h, 74px) + 12px); inset-inline-start: 14px; width: 46px; height: 46px; }
-    .a11y-fab svg { width: 22px; height: 22px; }
-  }
-  @media (max-width: 380px) {
-    .wrap { padding-inline: var(--space-4); }
-    .phone { width: 250px; }
-    .phone__screen { height: 528px; }
-    .phone-deck { height: 558px; }
-  }
-
-  /* ============================ Accessibility ============================ */
-  /* Skip link */
-  .skip-link {
-    position: fixed; inset-block-start: 8px; inset-inline-start: 50%; transform: translate(-50%, -140%);
-    z-index: 200; background: var(--navy-800); color: #fff; font-weight: var(--weight-bold);
-    font-size: var(--text-base); padding: 12px 22px; border-radius: var(--radius-md);
-    box-shadow: var(--shadow-lg); text-decoration: none;
-    transition: transform var(--duration-base) var(--ease-standard);
-  }
-  .skip-link:focus { transform: translate(-50%, 0); outline: 3px solid var(--royal-300); outline-offset: 2px; }
-
-  /* Visible keyboard focus everywhere */
-  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible,
-  textarea:focus-visible, [tabindex]:focus-visible {
-    outline: 3px solid var(--royal-500); outline-offset: 2px; border-radius: var(--radius-sm);
-  }
-  main:focus { outline: none; }
-
-  /* Form error messaging (not colour-only: icon + text) */
-  .field-error {
-    display: none; align-items: center; gap: 6px; margin-top: var(--space-1);
-    font-size: var(--text-sm); font-weight: var(--weight-medium); color: var(--danger-600);
-  }
-  .field-error::before {
-    content: ""; width: 16px; height: 16px; flex: none;
-    background: no-repeat center / contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b23b3b' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 8v5'/%3E%3Cpath d='M12 16.5v.5'/%3E%3C/svg%3E");
-  }
-  .form-row.is-invalid .field-error { display: flex; }
-  .cm-input[aria-invalid="true"], .cm-select[aria-invalid="true"] { border-color: var(--danger-500); box-shadow: 0 0 0 3px var(--danger-50); }
-
-  /* ---- Sticky bottom CTA bar (follows the user down the page) ---- */
-  .cta-bar {
-    position: fixed; inset-inline: 0; inset-block-end: 0; z-index: 140;
-    display: flex; justify-content: center;
-    padding: 10px var(--space-4);
-    padding-block-end: calc(10px + env(safe-area-inset-bottom, 0px));
-    background: color-mix(in srgb, var(--paper) 88%, transparent);
-    backdrop-filter: saturate(140%) blur(12px);
-    border-top: 1px solid var(--border-subtle);
-    transition: transform var(--duration-base) var(--ease-standard), opacity var(--duration-base) var(--ease-standard);
-  }
-  .cta-bar .cm-btn { width: 100%; max-width: 560px; }
-  /* slide it away while the signup form itself is on screen — its own button takes over */
-  .cta-bar.is-hidden { transform: translateY(120%); pointer-events: none; }
-  /* keep the footer clear of the fixed bar (the bar is hidden at the very bottom, so a slim clearance is enough) */
-  .footer { padding-block-end: calc(var(--cta-h, 78px) * 0.5); }
-
-  /* ---- Cookie consent banner ---- */
-  .cookie-banner {
-    position: fixed; z-index: 250;
-    inset-block-end: calc(var(--cta-h, 78px) + 16px);
-    inset-inline-end: 20px; inset-inline-start: auto;
-    width: min(430px, calc(100vw - 40px));
-    background: var(--paper); border: 1px solid var(--border-default);
-    border-radius: var(--radius-xl); box-shadow: var(--shadow-xl);
-    padding: var(--space-5);
-  }
-  .cookie-banner[hidden] { display: none; }
-  .cookie-banner__text {
-    font-size: var(--text-sm); line-height: var(--leading-relaxed);
-    color: var(--ink-700); margin: 0 0 var(--space-4);
-  }
-  .cookie-banner__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
-  .cookie-banner__link { font-size: var(--text-sm); color: var(--accent); margin-inline-end: auto; }
-  .cookie-banner .cm-btn { height: 40px; padding: 0 var(--space-4); font-size: var(--text-sm); }
-  @media (max-width: 560px) {
-    .cookie-banner {
-      inset-inline: 12px; width: auto;
-      inset-block-end: calc(var(--cta-h, 78px) + 74px);
-    }
+  @media (max-width:900px){
+    .hero-banner-media{aspect-ratio:4/5;}
+    .hero-banner-media img{object-position:62% 16%;}
+    .hero-banner-media::after{display:none;}
+    .hero-content{position:static;padding:28px 0 0;justify-content:center;}
+    .hero-content-inner{max-width:100%;text-align:center;}
+    .hero-actions{justify-content:center;}
   }
 
-  /* ---- Accessibility widget (FAB + menu) ---- */
-  .a11y-fab {
-    position: fixed; inset-block-end: calc(var(--cta-h, 78px) + 16px); inset-inline-start: 20px; z-index: 150;
-    width: 52px; height: 52px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.85);
-    background: var(--navy-800); color: #fff; cursor: pointer;
-    display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-lg);
-    transition: transform var(--duration-base) var(--ease-standard);
-  }
-  .a11y-fab:hover { transform: scale(1.06); }
-  .a11y-fab svg { width: 26px; height: 26px; }
-  .a11y-panel {
-    position: fixed; inset-block-end: calc(var(--cta-h, 78px) + 80px); inset-inline-start: 20px; z-index: 151;
-    width: 288px; max-width: calc(100vw - 40px); background: var(--paper);
-    border: 1px solid var(--border-default); border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-xl); padding: var(--space-5); display: none;
-  }
-  .a11y-panel[data-open="true"] { display: block; }
-  .a11y-panel h2 { font-size: var(--text-md); font-weight: var(--weight-bold); color: var(--ink-900); margin: 0 0 var(--space-1); }
-  .a11y-panel .a11y-sub { font-size: var(--text-xs); color: var(--ink-500); margin: 0 0 var(--space-4); }
-  .a11y-group { margin-bottom: var(--space-4); }
-  .a11y-group__label { display: block; font-size: var(--text-sm); font-weight: var(--weight-semibold); color: var(--ink-700); margin-bottom: var(--space-2); }
-  .a11y-seg { display: flex; gap: 6px; }
-  .a11y-seg button, .a11y-toggle {
-    font-family: inherit; cursor: pointer; border: 1px solid var(--border-default); background: var(--surface-card);
-    color: var(--ink-700); border-radius: var(--radius-md); font-size: var(--text-sm); font-weight: var(--weight-medium);
-    padding: 9px 10px;
-  }
-  .a11y-seg button { flex: 1; }
-  .a11y-seg button[aria-pressed="true"], .a11y-toggle[aria-pressed="true"] {
-    background: var(--royal-50); border-color: var(--royal-400); color: var(--royal-700);
-  }
-  .a11y-toggle { width: 100%; display: flex; align-items: center; justify-content: space-between; text-align: start; }
-  .a11y-toggle .state { font-size: var(--text-xs); color: var(--ink-400); }
-  .a11y-toggle[aria-pressed="true"] .state { color: var(--royal-600); }
-  .a11y-toggle + .a11y-toggle { margin-top: 6px; }
-  .a11y-panel__foot { display: flex; flex-direction: column; gap: var(--space-2); margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--border-subtle); }
-  .a11y-reset { border: none; background: none; color: var(--ink-600); font-family: inherit; font-size: var(--text-sm); font-weight: var(--weight-medium); cursor: pointer; text-align: start; padding: 0; text-decoration: underline; }
-  .a11y-panel__foot a { font-size: var(--text-sm); color: var(--royal-600); }
+  @media (max-width:760px){
+    .wrap{padding:0 18px;}
 
-  /* ---- Text-size levels (scale rem tokens) ---- */
-  html.a11y-text-1 { font-size: 112.5%; }
-  html.a11y-text-2 { font-size: 125%; }
-  html.a11y-text-3 { font-size: 140%; }
+    .stats-strip{gap:32px;padding:32px 0 20px;}
+    .stat-num{font-size:28px;}
+    .story-section{padding:48px 0;}
+    .story-label{margin-bottom:32px;}
+    .story-station,.story-station.reverse{flex-direction:column;gap:24px;padding:32px 0;}
+    .story-content{order:1;}
+    .story-media{order:2;flex:none;width:100%;}
+    .story-collage{aspect-ratio:1/1.12;max-width:360px;margin:0 auto;}
 
-  /* ---- Highlight links ---- */
-  html.a11y-links a:not(.cm-btn):not(.skip-link) { text-decoration: underline !important; text-underline-offset: 3px; font-weight: var(--weight-semibold); }
-  html.a11y-links a.cm-btn { outline: 2px solid currentColor; outline-offset: 2px; }
+    .personal-note{padding:40px 0 48px;}
 
-  /* ---- Stop animations (widget toggle) ---- */
-  html.a11y-noanim *, html.a11y-noanim *::before, html.a11y-noanim *::after {
-    animation-duration: 0.001ms !important; animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important; scroll-behavior: auto !important;
+    .contact-bar-inner{gap:28px;flex-direction:column;}
+    .now-section{padding:56px 0;}
+    .now-inner{padding:0 18px;}
+    .legal-bar{justify-content:center;text-align:center;}
   }
 
-  /* ---- High contrast ---- */
-  html.a11y-contrast, html.a11y-contrast body { background: #000 !important; }
-  html.a11y-contrast .nav, html.a11y-contrast .section, html.a11y-contrast .signup,
-  html.a11y-contrast .section--soft, html.a11y-contrast .hero, html.a11y-contrast .form-card,
-  html.a11y-contrast .step, html.a11y-contrast .objection, html.a11y-contrast .footer,
-  html.a11y-contrast .a11y-panel { background: #000 !important; }
-  html.a11y-contrast .nav { border-bottom: 1px solid #fff !important; backdrop-filter: none !important; }
-  html.a11y-contrast h1, html.a11y-contrast h2, html.a11y-contrast h3,
-  html.a11y-contrast p, html.a11y-contrast span, html.a11y-contrast li,
-  html.a11y-contrast label, html.a11y-contrast .eyebrow, html.a11y-contrast small,
-  html.a11y-contrast .step__title, html.a11y-contrast .founder__name,
-  html.a11y-contrast .hero h1 .accent, html.a11y-contrast .hero__sub,
-  html.a11y-contrast .lead, html.a11y-contrast .step__text, html.a11y-contrast .founder__bio,
-  html.a11y-contrast .a11y-group__label, html.a11y-contrast .a11y-toggle,
-  html.a11y-contrast .a11y-panel h2, html.a11y-contrast .a11y-sub { color: #fff !important; }
-  html.a11y-contrast .step__num, html.a11y-contrast .cm-wordmark,
-  html.a11y-contrast .cm-wordmark__coach, html.a11y-contrast .cm-wordmark__mind { -webkit-text-fill-color: #ffe600 !important; color: #ffe600 !important; background: none !important; }
-  html.a11y-contrast .cm-btn, html.a11y-contrast .cm-btn--gradient {
-    background: #ffe600 !important; color: #000 !important; border: 2px solid #fff !important; box-shadow: none !important;
+  /* top bar */
+  .topbar{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:100;
+    background:rgba(10,10,11,0.35);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(242,241,236,0.08);
   }
-  html.a11y-contrast a:not(.cm-btn) { color: #ffe600 !important; text-decoration: underline !important; }
-  html.a11y-contrast .cm-input, html.a11y-contrast .cm-select, html.a11y-contrast .form-consent input {
-    background: #000 !important; color: #fff !important; border: 2px solid #fff !important;
+  .topbar-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px min(6vw,56px);
+    direction:ltr;
   }
-  html.a11y-contrast .ochip { background: #000 !important; border: 1px solid #fff !important; color: #fff !important; }
-  html.a11y-contrast .a11y-fab { background: #000 !important; border-color: #ffe600 !important; color: #ffe600 !important; }
-  html.a11y-contrast .a11y-panel { border: 2px solid #fff !important; }
+  .topbar-name{
+    color:var(--ink);
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:0.22em;
+    direction:ltr;
+  }
+  .topbar-links{
+    display:flex;
+    align-items:center;
+    gap:22px;
+  }
+  .topbar-link{
+    color:var(--ink);
+    font-size:14px;
+    font-weight:600;
+  }
+  .lang-toggle{
+    background:rgba(242,241,236,0.08);
+    border:1px solid var(--line);
+    color:var(--ink);
+    font-size:13px;
+    font-weight:700;
+    font-family:inherit;
+    padding:6px 14px;
+    border-radius:999px;
+    cursor:pointer;
+  }
+  .lang-toggle:hover{border-color:var(--accent);}
 
-  /* ---- Accessibility statement modal ---- */
-  .a11y-modal { position: fixed; inset: 0; z-index: 300; display: none; align-items: center; justify-content: center; padding: var(--space-6); }
-  .a11y-modal[data-open="true"] { display: flex; }
-  .a11y-modal__backdrop { position: absolute; inset: 0; background: rgba(13,18,64,0.55); backdrop-filter: blur(2px); }
-  .a11y-modal__card {
-    position: relative; z-index: 1; background: var(--paper); border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-xl); max-width: 620px; width: 100%; max-height: 86vh; overflow-y: auto;
-    padding: clamp(var(--space-6), 4vw, var(--space-10));
+  @media (max-width:760px){
+    .topbar-inner{padding:14px 18px;}
+    .topbar-name{font-size:13px;letter-spacing:0.16em;}
+    .topbar-links{gap:14px;}
+    .topbar-link{font-size:13px;}
   }
-  .a11y-modal__card h2 { font-family: var(--font-display); font-weight: var(--weight-extrabold); font-size: var(--text-2xl); color: var(--ink-900); margin: 0 0 var(--space-5); }
-  .a11y-modal__card h3 { font-size: var(--text-base); font-weight: var(--weight-bold); color: var(--ink-900); margin: var(--space-5) 0 var(--space-2); }
-  .a11y-modal__card p { font-size: var(--text-base); line-height: var(--leading-relaxed); color: var(--ink-700); margin: 0 0 var(--space-3); }
-  .a11y-modal__card ul { margin: 0 0 var(--space-3); padding-inline-start: 1.2em; color: var(--ink-700); font-size: var(--text-base); line-height: var(--leading-relaxed); }
-  .a11y-modal__close {
-    position: absolute; inset-block-start: var(--space-4); inset-inline-end: var(--space-4);
-    width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border-default);
-    background: var(--surface-card); color: var(--ink-600); cursor: pointer; display: flex; align-items: center; justify-content: center;
-  }
-  .a11y-modal__close svg { width: 20px; height: 20px; }
-  .a11y-contact { font-size: var(--text-sm); color: var(--ink-600); line-height: 1.9; }
 </style>
 </head>
 <body>
 
-  <template id="__bundler_thumbnail">
-    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <rect width="100" height="100" rx="20" fill="#04285e"/>
-      <rect width="100" height="100" rx="20" fill="url(#g)"/>
-      <defs>
-        <linearGradient id="g" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stop-color="#04285e"/>
-          <stop offset="0.5" stop-color="#023d96"/>
-          <stop offset="1" stop-color="#0153d0"/>
-        </linearGradient>
-      </defs>
-      <text x="50" y="50" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-family="Heebo, Arial, sans-serif" font-weight="900" font-size="46">C</text>
-    </svg>
-  </template>
-
-  <a class="skip-link" href="#main-content" data-en="Skip to main content">דלג לתוכן הראשי</a>
-
-  <!-- ============================ NAV ============================ -->
-  <nav class="nav">
-    <div class="nav__inner">
-      <span class="cm-lockup" dir="ltr">
-        <span class="cm-wordmark cm-wordmark--gradient">CoachMind</span>
-        <span class="cm-tagline">Live your potential</span>
-      </span>
-    <div class="lang-dd" id="langDD">
-      <button type="button" class="lang-dd__trigger" id="langDDTrigger" aria-haspopup="true" aria-expanded="false" aria-label="בחר/י שפה" data-en-aria="Choose language">
-        <svg class="lang-dd__globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-          <circle cx="12" cy="12" r="9"/>
-          <path d="M3 12h18M12 3c2.5 2.5 2.5 15.5 0 18M12 3c-2.5 2.5-2.5 15.5 0 18"/>
-        </svg>
-        <span class="lang-dd__label" id="langDDLabel" dir="auto">עברית</span>
-        <svg class="lang-dd__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
-          <path d="M6 9l6 6 6-6"/>
-        </svg>
-      </button>
-      <div class="lang-dd__menu" role="menu" aria-labelledby="langDDTrigger">
-        <button type="button" class="lang-dd__opt" role="menuitemradio" data-lang="he" dir="rtl">
-          <span>עברית</span>
-          <svg class="lang-dd__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5 9-11"/></svg>
-        </button>
-        <button type="button" class="lang-dd__opt" role="menuitemradio" data-lang="en" dir="ltr">
-          <span>English</span>
-          <svg class="lang-dd__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5 9-11"/></svg>
-        </button>
+  <nav class="topbar">
+    <div class="topbar-inner">
+      <span class="topbar-name">Ido Ovadia</span>
+      <div class="topbar-links">
+        <a class="topbar-link" href="https://drive.google.com/file/d/1FxUEun95-5oAyXmoNkvgj2PGV9WPpDRg/view" target="_blank" rel="noopener" data-he="קורות חיים" data-en="Resume">קורות חיים</a>
+        <a class="topbar-link" href="#contact" data-he="יצירת קשר" data-en="Contact">יצירת קשר</a>
+        <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Switch language">EN</button>
       </div>
-    </div>
     </div>
   </nav>
 
-  <main id="main-content" tabindex="-1">
-  <!-- ============================ HERO ============================ -->
-  <header class="hero">
-    <div class="hero__glow"></div>
-    <div class="wrap">
-      <div class="hero__grid">
-        <div class="hero__text">
-          <h1 data-en="Personal coaching <span class=&quot;accent&quot;>in your pocket</span>">אימון אישי <span class="accent">בכף היד</span></h1>
-          <p class="hero__sub" data-en="An AI-based mental coach, available 24/7, that learns you, removes the beliefs and patterns holding you back, and leads you to results.">מאמן מנטלי מבוסס AI, זמין 24/7, שלומד אותך, מסיר אמונות ודפוסים מעכבים ומוביל אותך לתוצאות.</p>
-          <div class="hero__badges">
-            <span class="hero__trust">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span data-en="Developed with senior mental coaches">פותח עם מאמנים מנטליים בכירים</span>
-            </span>
-            <p class="hero__offer">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span data-en="Free trial week · No credit card">שבוע ניסיון חינם · בלי כרטיס אשראי</span>
-            </p>
-          </div>
-          <div class="hero__cta">
-            <a class="cm-btn cm-btn--gradient cm-btn--lg" href="#signup" id="heroCta" data-cta-location="hero" data-en="Save my spot for the free week">שמרו לי מקום לשבוע החינם</a>
-          </div>
-          <div class="hero__count">
-            <span data-en="Already <span class=&quot;count-num&quot;>240+</span> signed up">כבר <span class="count-num">240+</span> נרשמו</span>
-          </div>
-          <p class="hero__cap" data-en="The pilot is limited to 1,000 spots only">הפיילוט מוגבל ל-1,000 מקומות בלבד</p>
-        </div>
-
-        <!-- Phone mockups carousel -->
-        <div class="phone-stage" aria-hidden="true">
-          <div class="phone-carousel">
-            <button type="button" class="carousel-playpause" id="phonePlayPause" aria-label="השהה מצגת מסכים">
-              <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg>
-              <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
-            </button>
-            <div class="phone-deck" id="phoneDeck">
-              <!-- Splash screen -->
-              <div class="phone" data-slide="0">
-                <div class="phone__notch"></div>
-                <div class="phone__screen os-screen ph-splash">
-                  <div class="os-status">
-                    <span class="os-status__time">9:41</span>
-                    <span class="os-status__icons">
-                      <svg width="26" height="13" viewBox="0 0 26 13" fill="none"><rect x="1" y="1" width="21" height="11" rx="3" stroke="currentColor" stroke-width="1.2" opacity=".4"></rect><rect x="2.5" y="2.5" width="16" height="8" rx="1.6" fill="currentColor"></rect><rect x="23.4" y="4.5" width="1.6" height="4" rx=".8" fill="currentColor" opacity=".4"></rect></svg>
-                    </span>
-                  </div>
-                  <div class="sp-body">
-                    <div class="sp-mark">CoachMind</div>
-                    <div class="sp-tag">Live your potential</div>
-                  </div>
-                  <div class="sp-foot">
-                    <button class="cm-btn cm-btn--gradient cm-btn--block" type="button" data-en="Start">התחל</button>
-                    <a class="sp-link" href="#" data-en="I already have an account">כבר יש לי חשבון</a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Wheel of life screen -->
-              <div class="phone" data-slide="1">
-                <div class="phone__notch"></div>
-                <div class="phone__screen os-screen os-wheel">
-                  <div class="os-status">
-                    <span class="os-status__time">9:41</span>
-                    <span class="os-status__icons">
-                      <svg width="26" height="13" viewBox="0 0 26 13" fill="none"><rect x="1" y="1" width="21" height="11" rx="3" stroke="currentColor" stroke-width="1.2" opacity=".4"></rect><rect x="2.5" y="2.5" width="16" height="8" rx="1.6" fill="currentColor"></rect><rect x="23.4" y="4.5" width="1.6" height="4" rx=".8" fill="currentColor" opacity=".4"></rect></svg>
-                    </span>
-                  </div>
-                  <div class="os-body">
-                    <h4 class="os-title" data-en="Wheel of Life">גלגל החיים</h4>
-                    <p class="os-sub" data-en="Rate each area of your life as it is right now.">סמנו לכל תחום בחייכם את הציון שאתם נותנים לעצמכם במצב הנוכחי.</p>
-                    <div class="os-radar">
-                      <svg viewBox="0 0 230 195" xmlns="http://www.w3.org/2000/svg">
-                        <g fill="none" stroke="#d5dbe8" stroke-width="1">
-                          <polygon points="115,25 175.6,60 175.6,130 115,165 54.4,130 54.4,60"></polygon>
-                          <polygon points="115,48.3 155.4,71.7 155.4,118.3 115,141.7 74.6,118.3 74.6,71.7"></polygon>
-                          <polygon points="115,71.7 135.2,83.3 135.2,106.7 115,118.3 94.8,106.7 94.8,83.3"></polygon>
-                          <line x1="115" y1="95" x2="115" y2="25"></line>
-                          <line x1="115" y1="95" x2="175.6" y2="60"></line>
-                          <line x1="115" y1="95" x2="175.6" y2="130"></line>
-                          <line x1="115" y1="95" x2="115" y2="165"></line>
-                          <line x1="115" y1="95" x2="54.4" y2="130"></line>
-                          <line x1="115" y1="95" x2="54.4" y2="60"></line>
-                        </g>
-                        <polygon points="115,53 163.5,67 169.6,126.5 115,130 96.8,105.5 72.6,70.5" fill="rgba(41,98,255,0.16)" stroke="var(--royal-600)" stroke-width="2" stroke-linejoin="round"></polygon>
-                        <g fill="var(--royal-600)">
-                          <circle cx="115" cy="53" r="3"></circle><circle cx="163.5" cy="67" r="3"></circle><circle cx="169.6" cy="126.5" r="3"></circle><circle cx="115" cy="130" r="3"></circle><circle cx="96.8" cy="105.5" r="3"></circle><circle cx="72.6" cy="70.5" r="3"></circle>
-                        </g>
-                        <g fill="#6b7590" font-family="Heebo, sans-serif" font-size="9.5" font-weight="600" text-anchor="middle">
-                          <text x="115" y="16" data-en="Career">קריירה</text>
-                          <text x="188" y="58" data-en="Health">בריאות</text>
-                          <text x="178" y="140" data-en="Relationships">מערכות יחסים</text>
-                          <text x="115" y="182" data-en="Money">כסף</text>
-                          <text x="48" y="140" data-en="Leisure">פנאי</text>
-                          <text x="46" y="58" data-en="Self">אני</text>
-                        </g>
-                      </svg>
-                    </div>
-                    <div class="os-toggle"><span data-en="Current">נוכחי</span><span class="os-switch"></span></div>
-                    <div class="os-sliders">
-                      <div class="os-scard">
-                        <div class="os-scard__top"><span class="os-scard__label" data-en="Career">קריירה</span><span class="os-scard__val">4</span></div>
-                        <div class="os-track"><span class="os-track__fill" style="width:40%"></span><span class="os-track__knob" style="inset-inline-start:40%"></span></div>
-                        <span class="os-scard__cap" data-en="Current">נוכחי</span>
-                      </div>
-                      <div class="os-scard">
-                        <div class="os-scard__top"><span class="os-scard__label" data-en="Health">בריאות</span><span class="os-scard__val">7</span></div>
-                        <div class="os-track"><span class="os-track__fill" style="width:70%"></span><span class="os-track__knob" style="inset-inline-start:70%"></span></div>
-                        <span class="os-scard__cap" data-en="Current">נוכחי</span>
-                      </div>
-                      <div class="os-scard">
-                        <div class="os-scard__top"><span class="os-scard__label" data-en="Relationships">מערכות יחסים</span><span class="os-scard__val">9</span></div>
-                        <div class="os-track"><span class="os-track__fill" style="width:90%"></span><span class="os-track__knob" style="inset-inline-start:90%"></span></div>
-                        <span class="os-scard__cap" data-en="Current">נוכחי</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="os-continue">
-                    <button class="cm-btn cm-btn--gradient" type="button" data-en="Continue">המשך</button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Voice mode screen -->
-              <div class="phone" data-slide="2">
-                <div class="phone__notch"></div>
-                <div class="phone__screen os-screen os-voice">
-                  <div class="os-status">
-                    <span class="os-status__time">9:41</span>
-                    <span class="os-status__icons">
-                      <svg width="26" height="13" viewBox="0 0 26 13" fill="none"><rect x="1" y="1" width="21" height="11" rx="3" stroke="currentColor" stroke-width="1.2" opacity=".4"></rect><rect x="2.5" y="2.5" width="16" height="8" rx="1.6" fill="currentColor"></rect><rect x="23.4" y="4.5" width="1.6" height="4" rx=".8" fill="currentColor" opacity=".4"></rect></svg>
-                    </span>
-                  </div>
-                  <div class="os-voice__head">
-                    <div class="os-voice__name" data-en="Michael">מייקל</div>
-                    <div class="os-voice__status" data-en="&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Listening"><span class="dot"></span>מקשיב</div>
-                  </div>
-                  <div class="os-voice__center">
-                    <div class="os-orb"></div>
-                  </div>
-                  <div class="os-voice__foot">
-                    <p class="os-voice__quote" data-en="How will you know you've arrived?">איך תדע שהגעת לשם?</p>
-                    <div class="os-voice__controls">
-                      <button class="os-ctrl os-ctrl--end" type="button" aria-label="סיים" data-en-aria="End">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
-                      </button>
-                      <button class="os-ctrl" type="button" aria-label="השהה" data-en-aria="Pause">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><rect x="7" y="6" width="3.4" height="12" rx="1.4"></rect><rect x="13.6" y="6" width="3.4" height="12" rx="1.4"></rect></svg>
-                      </button>
-                      <button class="os-ctrl" type="button" aria-label="השתק" data-en-aria="Mute">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M5 11a7 7 0 0 0 14 0"></path><path d="M12 18v4"></path><path d="M3 3l18 18"></path></svg>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Human coaches screen -->
-              <div class="phone" data-slide="3">
-                <div class="phone__notch"></div>
-                <div class="phone__screen os-screen ph-coaches">
-                  <div class="os-status">
-                    <span class="os-status__time">9:41</span>
-                    <span class="os-status__icons">
-                      <svg width="26" height="13" viewBox="0 0 26 13" fill="none"><rect x="1" y="1" width="21" height="11" rx="3" stroke="currentColor" stroke-width="1.2" opacity=".4"></rect><rect x="2.5" y="2.5" width="16" height="8" rx="1.6" fill="currentColor"></rect><rect x="23.4" y="4.5" width="1.6" height="4" rx=".8" fill="currentColor" opacity=".4"></rect></svg>
-                    </span>
-                  </div>
-                  <div class="hc-nav">
-                    <span class="hc-nav__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path></svg></span>
-                    <span class="hc-nav__title" data-en="Human coaches">מאמנים אנושיים</span>
-                    <span class="hc-nav__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></span>
-                  </div>
-                  <div class="hc-scroll">
-                    <div class="hc-hero">
-                      <div class="hc-hero__eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg><span data-en="Smart match">התאמה חכמה</span></div>
-                      <div class="hc-hero__title" data-en="Shall we find you the right coach?">שנמצא לך את המאמן הנכון?</div>
-                      <p class="hc-hero__text" data-en="Michael will analyze your conversations so far, your Wheel of Life and values, and recommend the human coach best suited to you and what you're working on right now.">מייקל ינתח את השיחות שלך עד כה, את גלגל החיים והערכים, וימליץ על המאמן האנושי שהכי מתאים לך ולמה שעליו את/ה עובד/ת כרגע.</p>
-                      <button class="hc-hero__btn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H4"></path><path d="M10 6l-6 6 6 6"></path></svg><span data-en="Find my match">מצא לי התאמה</span></button>
-                    </div>
-                    <div>
-                      <div class="hc-sec"><span class="hc-sec__title" data-en="Recommended for you">מומלצים עבורך</span><span class="hc-demo" data-en="Demo only">הדגמה בלבד</span><span class="hc-sec__sub" data-en="Based on your profile">לפי הפרופיל שלך</span></div>
-                      <div class="hc-list">
-                        <div class="hc-coach hc-coach--rec">
-                          <div class="hc-coach__photo"><img src="assets/waitlist/coach-maya-opt.jpg" width="54" height="54" decoding="async" alt="" /></div>
-                          <div class="hc-coach__body">
-                            <div class="hc-coach__top"><span class="hc-coach__name" data-en="Dr. Emma Levin">ד"ר אמה לוין</span><span class="hc-match" data-en="★ 96% match">★ 96% התאמה</span></div>
-                            <div class="hc-coach__spec" data-en="Mental coach · CBT &amp; mindfulness">מאמנת מנטלית · CBT ומיינדפולנס</div>
-                            <div class="hc-coach__meta"><span class="hc-tag hc-tag--mental" data-en="Mental">מנטלי</span><span class="hc-rating"><span data-en="Rating">דירוג</span> <span class="hc-dots"><i></i><i></i><i></i><i></i><i></i></span></span></div>
-                          </div>
-                          <span class="hc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></span>
-                        </div>
-                        <div class="hc-coach hc-coach--rec">
-                          <div class="hc-coach__photo"><img src="assets/waitlist/p1.jpg" alt="" /></div>
-                          <div class="hc-coach__body">
-                            <div class="hc-coach__top"><span class="hc-coach__name" data-en="Yonatan Bar">יונתן בר</span><span class="hc-match" data-en="★ 91% match">★ 91% התאמה</span></div>
-                            <div class="hc-coach__spec" data-en="NLP therapist · thought patterns &amp; decisions">מטפל NLP · דפוסי חשיבה והחלטות</div>
-                            <div class="hc-coach__meta"><span class="hc-tag hc-tag--nlp">NLP</span><span class="hc-rating"><span data-en="Rating">דירוג</span> <span class="hc-dots"><i></i><i></i><i></i><i></i><i class="off"></i></span></span></div>
-                          </div>
-                          <span class="hc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></span>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <div class="hc-sec"><span class="hc-sec__title" data-en="All coaches">כל המאמנים</span><span class="hc-demo" data-en="Demo only">הדגמה בלבד</span><span class="hc-sec__sub" data-en="28 available">28 זמינים</span></div>
-                      <div class="hc-filters">
-                        <span class="hc-chip hc-chip--active" data-en="All">הכל</span>
-                        <span class="hc-chip" data-en="Mental coaches">מאמנים מנטליים</span>
-                        <span class="hc-chip">NLP</span>
-                      </div>
-                      <div class="hc-list">
-                        <div class="hc-coach">
-                          <div class="hc-coach__photo"><img src="assets/waitlist/p4.jpg" alt="" /></div>
-                          <div class="hc-coach__body">
-                            <div class="hc-coach__top"><span class="hc-coach__name" data-en="Noa Shalev">נועה שלו</span></div>
-                            <div class="hc-coach__spec" data-en="Emotional therapist · EFT &amp; couples therapy">מטפלת רגשית · EFT וטיפול בזוגיות</div>
-                            <div class="hc-coach__meta"><span class="hc-tag hc-tag--emo" data-en="Emotional">רגשי</span><span class="hc-rating"><span data-en="Rating">דירוג</span> <span class="hc-dots"><i></i><i></i><i></i><i></i><i></i></span></span></div>
-                          </div>
-                          <span class="hc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              </div>
-
-            </div>
-            <div class="carousel-dots" id="phoneDots">
-              <button type="button" class="active" data-go="0" aria-label="פתיחה" data-en-aria="Intro"></button>
-              <button type="button" data-go="1" aria-label="גלגל החיים" data-en-aria="Wheel of Life"></button>
-              <button type="button" data-go="2" aria-label="שיחה קולית" data-en-aria="Voice call"></button>
-              <button type="button" data-go="3" aria-label="מאמנים אנושיים" data-en-aria="Human coaches"></button>
-            </div>
-          </div>
-        </div>
+  <header class="hero-banner bleed">
+    <div class="hero-banner-media">
+      <img src="assets/hero-banner.jpg" alt="עידו עובדיה מדבר בפני קהל">
+    </div>
+    <div class="hero-content">
+      <div class="hero-content-inner">
+        <h1 data-he="Ido Ovadia" data-en="Ido Ovadia">Ido Ovadia</h1>
+        <p class="tagline" data-he="בשלוש השנים האחרונות יזמתי והובלתי שני מיזמים, בהם מיזם AI בתחום ה־Mental Wellness. לאורך הדרך גיבשתי צוותים ויועצים, בחנתי צרכים מול קהלי יעד והובלתי את פיתוח המוצרים, כולל ביצוע פיילוטים. אני אוהב לחבר אנשים סביב חזון גדול ולהוביל את העבודה המשותפת שהופכת אותו למציאות." data-en="Over the past three years, I've founded and led two ventures, including an AI venture in mental wellness. Along the way I built teams and advisors, tested needs against target audiences, and led product development, including running pilots. I love connecting people around a big vision and leading the shared work that turns it into reality.">
+          בשלוש השנים האחרונות יזמתי והובלתי שני מיזמים, בהם מיזם AI בתחום ה־Mental Wellness.
+          לאורך הדרך גיבשתי צוותים ויועצים, בחנתי צרכים מול קהלי יעד והובלתי את פיתוח המוצרים, כולל ביצוע פיילוטים.
+          אני אוהב לחבר אנשים סביב חזון גדול ולהוביל את העבודה המשותפת שהופכת אותו למציאות.
+        </p>
       </div>
     </div>
   </header>
 
-  <!-- ============================ THE PROBLEM (dark) ============================ -->
-  <section class="section objection">
-    <div class="wrap">
-      <span class="eyebrow eyebrow--on-dark" data-en="The problem">הבעיה</span>
-      <h2 data-en="Coaching works — but it's expensive, and not there in the moments that matter.">אימון עובד — אבל הוא יקר, ולא שם ברגעים שבאמת חשובים.</h2>
-      <p class="objection__sub" data-en="A single session with a human coach costs more than a full month of CoachMind.">סשן בודד עם מאמן אנושי עולה יותר מחודש שלם של CoachMind.</p>
-    </div>
-  </section>
+  <div class="wrap">
 
-  <!-- ============================ WHERE THE COACH HELPS (blue) ============================ -->
-  <section class="section helps-section">
-    <div class="wrap">
-      <h2 class="helps__head" data-en="How your coach will help you">במה המאמן יעזור לך</h2>
-      <ul class="helps-panel" aria-label="במה המאמן יעזור לך">
-        <li class="help-row">
-          <span class="help-row__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20l6-6 3 3 8-9"></path><path d="M14 8h6v6"></path></svg></span>
-          <span class="help-row__body">
-            <span class="help-row__title" data-en="Career">קריירה</span>
-            <span class="help-row__text" data-en="Pinpoints your strengths and passions, and translates them into roles and professions that truly fit you.">מזהה איתך את החוזקות והתשוקות שלך, ומתרגם אותן לתפקידים ומקצועות שבאמת מתאימים לך.</span>
-          </span>
-        </li>
-        <li class="help-row">
-          <span class="help-row__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v6"></path><path d="M12 9l-5 5"></path><path d="M12 9l5 5"></path><circle cx="7" cy="18" r="2.2"></circle><circle cx="17" cy="18" r="2.2"></circle></svg></span>
-          <span class="help-row__body">
-            <span class="help-row__title" data-en="Decisions">החלטות</span>
-            <span class="help-row__text" data-en="Asks the questions that draw the answers out of you, so you make the right decisions in every area of life.">שואל את השאלות שמוציאות ממך את התשובות, כדי שתקבל החלטות נכונות בכל תחום בחיים.</span>
-          </span>
-        </li>
-        <li class="help-row">
-          <span class="help-row__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path><path d="M4 20h16"></path></svg></span>
-          <span class="help-row__body">
-            <span class="help-row__title" data-en="Habits">הרגלים</span>
-            <span class="help-row__text" data-en="Breaks the habits that hold you back, and builds ones that move you toward your goals instead.">שובר איתך את ההרגלים שעוצרים אותך, ובונה במקומם הרגלים שמקדמים אותך למטרות שלך.</span>
-          </span>
-        </li>
-        <li class="help-row">
-          <span class="help-row__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.3 4.7 5.2.8-3.8 3.7.9 5.1L12 15l-4.6 2.4.9-5.1L4.5 8.5l5.2-.8z"></path></svg></span>
-          <span class="help-row__body">
-            <span class="help-row__title" data-en="Self-confidence">ביטחון עצמי</span>
-            <span class="help-row__text" data-en="Identifies the inner voice that stops you, and builds real confidence with you.">מזהה את הקול הפנימי שעוצר אותך, ובונה איתך ביטחון אמיתי.</span>
-          </span>
-        </li>
-        <li class="help-row">
-          <span class="help-row__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"></path><path d="M10 21h4"></path><path d="M12 3a6 6 0 0 1 4 10.5c-.7.6-1 1.2-1 2.1H9c0-.9-.3-1.5-1-2.1A6 6 0 0 1 12 3z"></path></svg></span>
-          <span class="help-row__body">
-            <span class="help-row__title" data-en="Beliefs &amp; patterns">אמונות ודפוסים</span>
-            <span class="help-row__text" data-en="Shifts your mindset from within and breaks old beliefs.">משנה לך את המיינדסט מבפנים ושובר אמונות ישנות.</span>
-          </span>
-        </li>
-      </ul>
-    </div>
-  </section>
+    <main>
 
-  <!-- ============================ HOW IT WORKS ============================ -->
-  <section class="section how">
-    <div class="wrap">
-      <span class="eyebrow" data-en="How it works">איך זה עובד</span>
-      <p class="how__intro" data-en="Maya or Michael — pick the mental coach who fits you, and let's begin:">מאיה או מייקל — בוחרים את המאמן/ת המנטלי/ת שמתאים/ה לך, ומתחילים:</p>
-      <div class="steps">
-        <div class="step cm-card cm-card--flat">
-          <div class="step__num">01</div>
-          <div class="step__title" data-en="Choose what to work on">בוחרים על מה לעבוד</div>
-          <p class="step__text" data-en="Career, relationships, confidence, money — and if you're not sure what's bothering you, your coach knows how to ask the questions that uncover it together with you. Define where you want to get to, and set off.">קריירה, זוגיות, ביטחון, כסף — ואם את/ה לא בטוח/ה מה מציק, המאמן/ת יודע/ת לשאול את השאלות שמגלות את זה יחד איתך. מגדירים לאן את/ה רוצה להגיע, ויוצאים לדרך.</p>
-        </div>
-        <div class="step cm-card cm-card--flat">
-          <div class="step__num">02</div>
-          <div class="step__title" data-en="You talk, and something shifts">מדברים, ומשהו זז</div>
-          <p class="step__text" data-en="Your coach asks what no one else asked, no judgment, no explaining yourself from scratch. The conversation doesn't end with &ldquo;interesting,&rdquo; but with a new understanding and a clear next step to take.">המאמן/ת שואל/ת את מה שאף אחד לא שאל, בלי שיפוטיות ובלי להסביר את עצמך מהתחלה. השיחה לא נגמרת ב“מעניין”, אלא בהבנה חדשה ובצעד ברור לביצוע.</p>
-        </div>
-        <div class="step cm-card cm-card--flat">
-          <div class="step__num">03</div>
-          <div class="step__title" data-en="A process that remembers you. Not a one-off conversation.">תהליך שזוכר אותך. לא שיחה חד פעמית.</div>
-          <p class="step__text" data-en="Every conversation ends with a step to take, and that step doesn't disappear. The next conversation picks up exactly where you left off: what worked, where you got stuck, and what's next. That's how progress is built, conversation after conversation.">כל שיחה נגמרת בצעד לביצוע, והצעד הזה לא נעלם. השיחה הבאה נפתחת בדיוק מאיפה שעצרתם: מה עבד, איפה נתקעת, ומה הלאה. ככה התקדמות נבנית, שיחה אחרי שיחה.</p>
-        </div>
-      </div>
-      <p class="how__note" data-en="More knowledge won't solve your problem. Your coach knows how to reach the mindset that created it.">עוד ידע לא יפתור לך את הבעיה. המאמן/ת יודע/ת לגעת במיינדסט שיצר אותה.</p>
-    </div>
-  </section>
+      <section class="story-section" id="story">
+        <p class="story-label" data-he="מהרעיון לביצוע" data-en="From idea to execution">מהרעיון לביצוע</p>
 
-  <!-- ============================ FOUNDERS ============================ -->
-  <section class="section founders">
-    <div class="wrap">
-      <span class="eyebrow" data-en="Who's behind CoachMind">מי מאחורי CoachMind</span>
-      <h2 data-en="Meet the founders">הכירו את המייסדים</h2>
-      <div class="founders__grid">
-        <div class="founder">
-          <div class="founder__photo"><img src="assets/founders/ido.jpg" width="240" height="320" loading="lazy" decoding="async" alt="עידו עובדיה" /></div>
-          <div>
-            <div class="founder__name" data-en="Ido Ovadia">עידו עובדיה</div>
-            <div class="founder__role" data-en="Founder &amp; CEO">מייסד ומנכ"ל</div>
-            <p class="founder__bio" data-en="Former combat commander, graduate of OneLife's mental coaching training program and NLP practitioner. Led 100+ clients through workshops and personal development journeys. Founder of the Soldiers Together platform.">מפקד קרבי לשעבר, בוגר הכשרת מאמנים מנטליים מאת OneLife ומתרגל NLP. ליווה 100+ לקוחות בסדנאות ובתהליכי התפתחות אישית. מייסד פלטפורמת ״חיילים ביחד״.</p>
-          </div>
-        </div>
-        <div class="founder">
-          <div class="founder__photo"><img src="assets/founders/shahar.jpg" width="226" height="320" loading="lazy" decoding="async" alt="שחר מלמד" /></div>
-          <div>
-            <div class="founder__name" data-en="Shahar Melamed">שחר מלמד</div>
-            <div class="founder__role" data-en="Co-founder &amp; CTO">מייסד וסמנכ"ל טכנולוגיות</div>
-            <p class="founder__bio" data-en="Graduate of OneLife's mental coaching training program and NLP practitioner. A mechanical engineer (B.Sc., Ben Gurion University), he led complex technical projects for global clients including Applied Materials and Samsung. A former commander in a classified intelligence unit.">בוגר הכשרת מאמנים מנטליים מאת OneLife ומתרגל NLP. מהנדס מכונות (B.Sc., אוניברסיטת בן גוריון); הוביל פרויקטים טכניים מורכבים ללקוחות גלובליים כולל Applied Materials וסמסונג. מפקד לשעבר ביחידת מודיעין מסווגת.</p>
-          </div>
-        </div>
-      </div>
-      <div class="founders__note">
-        <p data-en="CoachMind was built together with senior mental coaches — not just another generic chatbot, but real professional guidance.">CoachMind נבנה יחד עם מאמנים מנטליים בכירים — לא עוד צ'אטבוט כללי, אלא ליווי מקצועי אמיתי.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================ SIGNUP ============================ -->
-  <section class="section signup" id="signup">
-    <div class="wrap">
-      <div class="signup__grid">
-        <div class="signup__copy">
-          <span class="eyebrow" data-en="Leave your details">השאירו פרטים</span>
-          <h2 data-en="A free trial week for everyone on the waitlist.">שבוע ניסיון ללא עלות, לנרשמי רשימת ההמתנה.</h2>
-          <p class="signup__lead" data-en="All you need to do is show up. Your coach already knows how to take you to your next stage.">כל מה שצריך זה להגיע. המאמן/ת שלך כבר יודע/ת לקחת אותך לשלב הבא שלך.</p>
-          <ul class="signup__perks">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span data-en="A full trial week at no cost.">שבוע ניסיון מלא ללא עלות.</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span data-en="No commitment and no credit card.">בלי התחייבות ובלי כרטיס אשראי.</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
-              <span data-en="First access to the system, before the public launch.">גישה ראשונה למערכת, לפני הפתיחה לציבור.</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="form-card">
-          <form id="waitForm" novalidate>
-            <div class="form-row">
-              <label for="f-name" data-en="First name">שם פרטי</label>
-              <input class="cm-input" id="f-name" name="name" type="text" autocomplete="given-name" placeholder="איך קוראים לך?" data-en-ph="What's your name?" required aria-describedby="err-name" />
-              <p class="field-error" id="err-name" data-en="Please enter your first name.">נא להזין שם פרטי.</p>
-            </div>
-            <div class="form-row">
-              <label for="f-email" data-en="Email">אימייל</label>
-              <input class="cm-input" id="f-email" name="email" type="email" autocomplete="email" placeholder="name@example.com" required aria-describedby="err-email" />
-              <p class="field-error" id="err-email" data-en="Please enter a valid email address.">נא להזין כתובת אימייל תקינה.</p>
-            </div>
-            <div class="form-row">
-              <label for="f-phone" data-en="Phone">טלפון</label>
-              <input class="cm-input" id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="050-0000000" data-en-ph="050-0000000" required aria-describedby="err-phone" />
-              <p class="field-error" id="err-phone" data-en="Please enter a valid phone number.">נא להזין מספר טלפון תקין.</p>
-            </div>
-            <!-- Honeypot: hidden from real users; bots that autofill it are rejected. Not a real field. -->
-            <div class="hp-field" aria-hidden="true">
-              <label for="f-company">Company</label>
-              <input type="text" id="f-company" name="company" tabindex="-1" autocomplete="off" />
-            </div>
-            <label class="form-consent" for="f-consent">
-              <input type="checkbox" id="f-consent" name="consent" />
-              <span data-en="I agree to receive marketing content and updates from CoachMind.">אני מאשר/ת לקבל תכנים שיווקיים ועדכונים מטעם CoachMind.</span>
-            </label>
-            <p class="form-consent-note" data-en="Optional. You can withdraw consent at any time.">לא חובה. אפשר להסיר את ההסכמה בכל עת.</p>
-            <button class="cm-btn cm-btn--gradient cm-btn--lg cm-btn--block" type="submit" data-en="Save my spot for the free week">שמרו לי מקום לשבוע החינם</button>
-            <p class="form-fine"><span data-en="The details you provide will be used to contact you about early access to CoachMind and won't be shared with third parties. ">הפרטים שיימסרו ישמשו ליצירת קשר לגבי הגישה המוקדמת ל-CoachMind ולא יועברו לגורם שלישי. </span><a href="#" id="openPrivacy" data-en="Privacy policy">מדיניות פרטיות</a></p>
-          </form>
-
-          <div class="form-success" id="formSuccess" role="status" aria-live="polite">
-            <div class="check">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
-            </div>
-            <h3 data-en="You're in! 🎉">את/ה בפנים! 🎉</h3>
-            <p data-en="We've saved your spot in the pilot. We'll reach out the moment early access opens.">שריינו לך מקום בפיילוט. ניצור איתך קשר ברגע שהגישה המוקדמת נפתחת.</p>
-            <div class="share-block">
-              <p class="share-block__title" data-en="Know someone this is perfect for? Share it:">מכיר/ה מישהו שזה בדיוק בשבילו? שתפו איתו:</p>
-              <div class="share-block__actions">
-                <a class="cm-btn cm-btn--wa" id="shareWhatsApp" href="https://wa.me/" target="_blank" rel="noopener">
-                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.96 11.96 0 005.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.9 11.9 0 00-3.487-8.42z"></path></svg>
-                  <span data-en="Share on WhatsApp">שיתוף בוואטסאפ</span>
-                </a>
-                <button type="button" class="cm-btn cm-btn--secondary" id="copyLink" data-en="Copy link">העתק קישור</button>
-              </div>
+        <article class="story-station">
+          <div class="story-media">
+            <div class="story-collage story-collage-2">
+              <img class="photo photo-1" src="assets/coachmind-presenting.jpg" alt="עידו עובדיה מציג נתונים מתוך CoachMind בפני צוות">
+              <img class="photo photo-2 obj-top" src="assets/coachmind-onepager.jpg" alt="One pager של CoachMind">
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  </main>
+          <div class="story-content">
+            <p class="story-period" data-he="2025 - 2026" data-en="2025 - 2026">2025 - 2026</p>
+            <h3 data-he="CoachMind | כשאימון מנטלי פגש AI" data-en="CoachMind | When Mental Coaching Met AI">CoachMind | כשאימון מנטלי פגש AI</h3>
+            <p data-he="ב־CoachMind חיברתי בין שני עולמות שמעסיקים אותי: אימון מנטלי וטכנולוגיה. גייסתי CTO, שני מאמנים בכירים ושלושה יועצים, וניהלתי את העבודה על המוצר. לאורך הדרך קיימתי יותר מ־100 פגישות עם קהל היעד, ביצעתי שלושה סבבי ולידציה והובלתי פיילוט עם עשרה משתמשים." data-en="At CoachMind, I connected two worlds that drive me: mental coaching and technology. I recruited a CTO, two senior coaches, and three advisors, and managed the work on the product. Along the way I held more than 100 meetings with the target audience, ran three validation rounds, and led a pilot with ten users.">ב־CoachMind חיברתי בין שני עולמות שמעסיקים אותי: אימון מנטלי וטכנולוגיה. גייסתי CTO, שני מאמנים בכירים ושלושה יועצים, וניהלתי את העבודה על המוצר. לאורך הדרך קיימתי יותר מ־100 פגישות עם קהל היעד, ביצעתי שלושה סבבי ולידציה והובלתי פיילוט עם עשרה משתמשים.</p>
+            <p data-he="הבדיקות הראו לי שהמוצר נשאר בגדר Nice to Have ולא פתר בעיה משמעותית מספיק. בחרתי לסגור את המיזם, ולקחתי ממנו הבנה עמוקה יותר של איך לבצע ולידציה אמיתית, ודרכה לזהות את הבעיה של קהל היעד." data-en="The tests showed me the product remained a nice-to-have and didn't solve a significant enough problem. I chose to shut the venture down, and took from it a deeper understanding of how to run real validation, and through it, how to identify the target audience's real problem.">הבדיקות הראו לי שהמוצר נשאר בגדר Nice to Have ולא פתר בעיה משמעותית מספיק. בחרתי לסגור את המיזם, ולקחתי ממנו הבנה עמוקה יותר של איך לבצע ולידציה אמיתית, ודרכה לזהות את הבעיה של קהל היעד.</p>
+          </div>
+        </article>
 
-  <!-- ============================ FOOTER ============================ -->
-  <footer class="footer">
-    <div class="wrap footer__inner">
-      <span class="cm-lockup cm-lockup--on-dark" dir="ltr">
-        <span class="cm-wordmark cm-wordmark--gradient cm-wordmark--on-dark" style="font-size:25px;">CoachMind</span>
-        <span class="cm-tagline footer__tag">Live your potential</span>
-      </span>
-      <nav class="footer__links" aria-label="קישורי תחתית" data-en-aria="Footer links">
-        <a href="#" id="openPrivacy2" data-en="Privacy policy">מדיניות פרטיות</a>
-        <a href="#" id="openA11yStatement" data-en="Accessibility statement">הצהרת נגישות</a>
-      </nav>
-      <small data-en="© 2026 CoachMind · All rights reserved">© 2026 CoachMind · כל הזכויות שמורות</small>
+        <article class="story-station reverse">
+          <div class="story-media">
+            <div class="story-collage story-collage-3">
+              <img class="photo photo-1" src="assets/soldiers-app-home.jpg" alt="מסך הבית של אפליקציית חיילים ביחד">
+              <img class="photo photo-2 obj-top" src="assets/soldiers-app-support.jpg" alt="מסך מרכז הסיוע באפליקציית חיילים ביחד, עם רשימת עמותות המסייעות לחיילים בודדים">
+              <img class="photo photo-3" src="assets/soldiers-app-groups.jpg" alt="מסך קבוצות עירוניות באפליקציית חיילים ביחד">
+            </div>
+          </div>
+          <div class="story-content">
+            <p class="story-period" data-he="2024 - 2026" data-en="2024 - 2026">2024 - 2026</p>
+            <h3 data-he="חיילים ביחד | משיחה עם חייל למיזם חברתי" data-en="Soldiers Together | From a Conversation with a Soldier to a Social Venture">חיילים ביחד | משיחה עם חייל למיזם חברתי</h3>
+            <p data-he="כשהייתי מפקד צוות, חייל בודד שלי סיפר לי על הבדידות שהוא חווה מחוץ לבסיס. התחלנו לחשוב יחד על פתרון ובדקנו את הצורך מול כ־200 חיילים בודדים. מתוך זה הקמתי את ״חיילים ביחד״, מיזם ללא מטרות רווח לחיבור בין חיילים בודדים בקרבת מקום. גיבשתי צוות והובלנו פיילוט עם יותר מ־70 חיילים. כדי להרחיב את הפעילות חיפשתי משאבים ושותפים, ובהמשך העברתי אותה לעמותת מצמיחים." data-en="When I was a team commander, one of my lone soldiers told me about the loneliness he felt outside the base. We started thinking about a solution together and tested the need with about 200 lone soldiers. From that, I founded 'Soldiers Together,' a non-profit venture connecting lone soldiers near one another. I built a team and we ran a pilot with more than 70 soldiers. To scale the activity I looked for resources and partners, and later transferred it to the Matzmichim non-profit.">כשהייתי מפקד צוות, חייל בודד שלי סיפר לי על הבדידות שהוא חווה מחוץ לבסיס. התחלנו לחשוב יחד על פתרון ובדקנו את הצורך מול כ־200 חיילים בודדים. מתוך זה הקמתי את ״חיילים ביחד״, מיזם ללא מטרות רווח לחיבור בין חיילים בודדים בקרבת מקום. גיבשתי צוות והובלנו פיילוט עם יותר מ־70 חיילים. כדי להרחיב את הפעילות חיפשתי משאבים ושותפים, ובהמשך העברתי אותה לעמותת מצמיחים.</p>
+          </div>
+        </article>
+
+        <article class="story-station">
+          <div class="story-media">
+            <div class="story-collage story-collage-2">
+              <img class="photo photo-1" src="assets/mental-coaching-talk.jpg" alt="עידו עובדיה מרצה בפני קהל בערב">
+              <img class="photo photo-2" src="assets/mental-coaching-session.jpg" alt="עידו עובדיה בסדנת אימון מנטלי">
+            </div>
+          </div>
+          <div class="story-content">
+            <p class="story-period" data-he="2024 - 2025" data-en="2024 - 2025">2024 - 2025</p>
+            <h3 data-he="אימון מנטלי | לעבוד עם האדם שמולי" data-en="Mental Coaching | Working with the Person in Front of Me">אימון מנטלי | לעבוד עם האדם שמולי</h3>
+            <p data-he="כמאמן מנטלי מוסמך ו־NLP Practitioner בהסמכה בינלאומית, הקמתי עסק שבו ליוויתי עשרות לקוחות בתהליכים אישיים ובסדנאות. העבודה הזו לימדה אותי להקשיב, לראות את האדם שמולי ולהבין את הצרכים שלו. לצד הליווי ניהלתי את העסק והגעתי למחזור חודשי יציב של מעל 30 אלף ש״ח." data-en="As a certified mental coach and internationally certified NLP Practitioner, I built a business in which I guided dozens of clients through personal processes and workshops. That work taught me to listen, to truly see the person in front of me, and to understand their needs. Alongside the coaching, I ran the business and reached a stable monthly revenue of over NIS 30,000.">כמאמן מנטלי מוסמך ו־NLP Practitioner בהסמכה בינלאומית, הקמתי עסק שבו ליוויתי עשרות לקוחות בתהליכים אישיים ובסדנאות. העבודה הזו לימדה אותי להקשיב, לראות את האדם שמולי ולהבין את הצרכים שלו. לצד הליווי ניהלתי את העסק והגעתי למחזור חודשי יציב של מעל 30 אלף ש״ח.</p>
+          </div>
+        </article>
+
+        <article class="story-station reverse">
+          <div class="story-media">
+            <div class="story-collage story-collage-3 story-collage-army">
+              <img class="photo photo-1 obj-right" src="assets/gallery-6.jpg" alt="עידו עובדיה בשירות הצבאי, עם קסדה וציוד קרבי בשטח">
+              <img class="photo photo-2" src="assets/army-unit-flags.jpg" alt="עידו עובדיה עם צוות הלוחמים, תמונה קבוצתית בשטח">
+              <img class="photo photo-3" src="assets/army-briefing.jpg" alt="עידו עובדיה מתדרך את הצוות בשטח">
+            </div>
+          </div>
+          <div class="story-content">
+            <p class="story-period" data-he="2019 - 2024" data-en="2019 - 2024">2019 - 2024</p>
+            <h3 data-he="שירות צבאי" data-en="Military Service">שירות צבאי</h3>
+            <p data-he="שירתי כמעט חמש שנים בצבא, רובן בתפקידי פיקוד. התחלתי בהכשרה ובהדרכה של טירונים כמפקד וכסמל, ואחר כך השתתפתי בהקמת יחידה מסווגת באיו״ש, שבה פיקדתי במשך שנתיים על צוות של 25 לוחמים." data-en="I served nearly five years in the military, most of them in command roles. I started by training new recruits as a commander and sergeant, then helped establish a classified unit in the West Bank, where I commanded a team of 25 fighters for two years.">שירתי כמעט חמש שנים בצבא, רובן בתפקידי פיקוד. התחלתי בהכשרה ובהדרכה של טירונים כמפקד וכסמל, ואחר כך השתתפתי בהקמת יחידה מסווגת באיו״ש, שבה פיקדתי במשך שנתיים על צוות של 25 לוחמים.</p>
+            <p data-he="במהלך השירות סיימתי קורס פיקודי כמצטיין קורס וקיבלתי יותר משש תעודות הצטיינות." data-en="During my service I graduated as an outstanding cadet from a command course and received more than six commendations.">במהלך השירות סיימתי קורס פיקודי כמצטיין קורס וקיבלתי יותר משש תעודות הצטיינות.</p>
+          </div>
+        </article>
+
+      </section>
+
+      <section class="personal-note">
+        <h3 data-he="בנימה אישית | הלמידה שמלווה אותי" data-en="A Personal Note | The Learning That Stays With Me">בנימה אישית | הלמידה שמלווה אותי</h3>
+        <p data-he="בנוסף להכשרות המקצועיות שלי, השתתפתי בסדנאות להתפתחות אישית בארץ ובעולם, העמקתי בסדנאות על סגנונות תקשורת ועברתי קורס עמידה מול קהל. לצד אלה קראתי עשרות ספרים בתחומי העסקים וההתפתחות האישית. כל אלה עזרו לי להכיר את עצמי טוב יותר ולהיות אדם וחבר טוב יותר, וגם עובד, מנהל ויזם טוב יותר." data-en="Beyond my professional training, I've taken part in personal-development workshops in Israel and abroad, gone deep into workshops on communication styles, and completed a public-speaking course. Alongside that, I've read dozens of books on business and personal growth. All of it has helped me know myself better and become a better person and friend — and a better employee, manager, and entrepreneur.">בנוסף להכשרות המקצועיות שלי, השתתפתי בסדנאות להתפתחות אישית בארץ ובעולם, העמקתי בסדנאות על סגנונות תקשורת ועברתי קורס עמידה מול קהל. לצד אלה קראתי עשרות ספרים בתחומי העסקים וההתפתחות האישית. כל אלה עזרו לי להכיר את עצמי טוב יותר ולהיות אדם וחבר טוב יותר, וגם עובד, מנהל ויזם טוב יותר.</p>
+      </section>
+
+      <section class="now-section bleed">
+        <div class="now-inner">
+          <h3 data-he="היום" data-en="Today">היום</h3>
+          <p data-he="אני בוחן מספר רעיונות ומיזמים חדשים, ופתוח להכיר אנשים וחברות מעולמות התוכנה והמוצר. אני פתוח להזדמנויות עסקיות, לשותפויות ולאפשרויות להשתלב בחברה שבה אוכל לתרום מהניסיון שלי בהובלת אנשים, בדיקת צרכים והוצאה לפועל." data-en="I'm exploring several new ideas and ventures, and open to meeting people and companies from the software and product world. I'm open to business opportunities, partnerships, and the chance to join a company where I can contribute my experience in leading people, validating needs, and execution.">אני בוחן מספר רעיונות ומיזמים חדשים, ופתוח להכיר אנשים וחברות מעולמות התוכנה והמוצר. אני פתוח להזדמנויות עסקיות, לשותפויות ולאפשרויות להשתלב בחברה שבה אוכל לתרום מהניסיון שלי בהובלת אנשים, בדיקת צרכים והוצאה לפועל.</p>
+          <button type="button" class="cta-primary" id="talk-btn" data-he="בואו נדבר" data-en="Let's talk">בואו נדבר</button>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <div class="modal-overlay" id="talk-modal" aria-hidden="true">
+    <div class="modal-box">
+      <button type="button" class="modal-close" id="talk-modal-close" aria-label="סגור">&times;</button>
+      <h3 data-he="דברו איתי בוואטסאפ" data-en="Message me on WhatsApp">דברו איתי בוואטסאפ</h3>
+      <p data-he="הדרך הכי מהירה ליצור קשר." data-en="The fastest way to reach me.">הדרך הכי מהירה ליצור קשר.</p>
+      <a class="whatsapp-btn" id="whatsapp-link" href="https://wa.me/972506380503" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12.04 2c-5.52 0-10 4.48-10 10 0 1.76.46 3.45 1.33 4.95L2 22l5.2-1.36a9.95 9.95 0 0 0 4.84 1.23h.01c5.52 0 10-4.48 10-10s-4.49-9.87-10.01-9.87zm0 18.17h-.01a8.2 8.2 0 0 1-4.17-1.14l-.3-.18-3.09.81.82-3-.19-.31a8.19 8.19 0 0 1-1.26-4.37c0-4.53 3.69-8.22 8.21-8.22 2.19 0 4.25.86 5.8 2.41a8.14 8.14 0 0 1 2.4 5.81c0 4.53-3.68 8.19-8.21 8.19zm4.5-6.14c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.47-.01-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.05 0 1.21.88 2.38 1 2.54.12.17 1.74 2.66 4.22 3.73.59.25 1.05.4 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.47-.28z"></path></svg>
+        <span data-he="פתיחת וואטסאפ" data-en="Open WhatsApp">פתיחת וואטסאפ</span>
+      </a>
+    </div>
+  </div>
+
+  <footer class="contact-bar" id="contact">
+    <p class="contact-bar-caption" data-he="הישארו מעודכנים והתחברו אליי ברשתות" data-en="Stay updated and connect with me on social media">הישארו מעודכנים והתחברו אליי ברשתות</p>
+    <div class="wrap contact-bar-inner">
+      <a href="mailto:idovadya2707@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        <span>idovadya2707@gmail.com</span>
+      </a>
+      <a class="linkedin" href="https://www.linkedin.com/in/ido-ovadya-923ab0380/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="4"></rect><line x1="7" y1="10" x2="7" y2="17"></line><circle cx="7" cy="6.8" r="0.6" fill="currentColor" stroke="none"></circle><path d="M11 17v-4.5a2.3 2.3 0 0 1 4.6 0V17"></path><line x1="11" y1="10.3" x2="11" y2="17"></line></svg>
+        <span>LinkedIn</span>
+      </a>
+      <a href="https://www.instagram.com/ido.ovadya/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        <span>Instagram</span>
+      </a>
+      <a href="https://www.facebook.com/share/1d8EJuLJcS/?mibextid=wwXIfr" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        <span>Facebook</span>
+      </a>
+      <a href="https://www.tiktok.com/@idovadya?_r=1&_t=ZS-9BNEi70UV5p" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+        <span>TikTok</span>
+      </a>
+    </div>
+    <div class="wrap legal-bar">
+      <p data-he="© 2026 עידו עובדיה. כל הזכויות שמורות" data-en="© 2026 Ido Ovadia. All rights reserved.">© 2026 עידו עובדיה. כל הזכויות שמורות</p>
+      <a href="/accessibility/" data-he="הצהרת נגישות" data-en="Accessibility statement">הצהרת נגישות</a>
     </div>
   </footer>
 
-  <!-- ============================ COOKIE CONSENT ============================ -->
-  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="הודעת עוגיות" data-en-aria="Cookie notice" hidden>
-    <p class="cookie-banner__text" data-en="We use cookies to run the site and to measure and improve it (Google Analytics and Microsoft Clarity). You can accept or decline.">אנחנו משתמשים בעוגיות כדי להפעיל את האתר, למדוד ולשפר אותו (Google Analytics ו-Microsoft Clarity). אפשר לאשר או לדחות.</p>
-    <div class="cookie-banner__actions">
-      <a class="cookie-banner__link" href="#" id="openPrivacy3" data-en="Privacy policy">מדיניות פרטיות</a>
-      <button type="button" class="cm-btn cm-btn--ghost" id="cookieDecline" data-en="Decline">דחייה</button>
-      <button type="button" class="cm-btn cm-btn--gradient" id="cookieAccept" data-en="Accept">אישור</button>
-    </div>
-  </div>
-
-  <!-- ============================ STICKY BOTTOM CTA ============================ -->
-  <div class="cta-bar" id="ctaBar">
-    <a class="cm-btn cm-btn--gradient cm-btn--lg cm-btn--block" href="#signup" data-en="Save my spot →">שמרו לי מקום →</a>
-  </div>
-
-  <!-- ============================ ACCESSIBILITY WIDGET ============================ -->
-  <button class="a11y-fab" id="a11yFab" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="a11yPanel" aria-label="תפריט נגישות" data-en-aria="Accessibility menu">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="3.6" r="1.9"></circle><path d="M4 7.5c2.6.9 5.2 1.3 8 1.3s5.4-.4 8-1.3" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"></path><path d="M12 8.2v5.3m0 0l-2.6 6.8m2.6-6.8l2.6 6.8" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"></path></svg>
-  </button>
-
-  <div class="a11y-panel" id="a11yPanel" role="dialog" aria-modal="false" aria-labelledby="a11yPanelTitle">
-    <h2 id="a11yPanelTitle" data-en="Accessibility settings">הגדרות נגישות</h2>
-    <p class="a11y-sub" data-en="Settings are saved for the current visit only.">ההגדרות נשמרות למשך הביקור הנוכחי בלבד.</p>
-
-    <div class="a11y-group">
-      <span class="a11y-group__label" id="a11yTextLbl" data-en="Text size">גודל טקסט</span>
-      <div class="a11y-seg" role="group" aria-labelledby="a11yTextLbl">
-        <button type="button" data-text="0" aria-pressed="true" data-en="Normal">רגיל</button>
-        <button type="button" data-text="1" aria-pressed="false" data-en="Large">גדול</button>
-        <button type="button" data-text="2" aria-pressed="false" data-en="Larger">גדול יותר</button>
-        <button type="button" data-text="3" aria-pressed="false" data-en="Largest">הכי גדול</button>
-      </div>
-    </div>
-
-    <div class="a11y-group">
-      <button type="button" class="a11y-toggle" data-toggle="a11y-contrast" aria-pressed="false"><span data-en="High contrast">ניגודיות גבוהה</span> <span class="state">כבוי</span></button>
-      <button type="button" class="a11y-toggle" data-toggle="a11y-links" aria-pressed="false"><span data-en="Highlight links">הדגשת קישורים</span> <span class="state">כבוי</span></button>
-      <button type="button" class="a11y-toggle" data-toggle="a11y-noanim" aria-pressed="false"><span data-en="Stop animations">עצירת אנימציות</span> <span class="state">כבוי</span></button>
-    </div>
-
-    <div class="a11y-panel__foot">
-      <button type="button" class="a11y-reset" id="a11yReset" data-en="Reset all settings">איפוס כל ההגדרות</button>
-      <a href="#" id="openA11yStatement2" data-en="Full accessibility statement">הצהרת הנגישות המלאה</a>
-    </div>
-  </div>
-
-  <!-- ============================ ACCESSIBILITY STATEMENT MODAL ============================ -->
-  <div class="a11y-modal" id="a11yModal" role="dialog" aria-modal="true" aria-labelledby="a11yModalTitle">
-    <div class="a11y-modal__backdrop" data-close></div>
-    <div class="a11y-modal__card">
-      <button type="button" class="a11y-modal__close" data-close aria-label="סגור" data-en-aria="Close">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18"></path><path d="M6 6l12 12"></path></svg>
-      </button>
-      <h2 id="a11yModalTitle" data-en="Accessibility statement">הצהרת נגישות</h2>
-      <p data-en="At CoachMind we place great importance on providing an equal and accessible service to all users, including people with disabilities. This site was made accessible in accordance with the Israeli Equal Rights for Persons with Disabilities Regulations (Service Accessibility Adjustments), 5773-2013, and the Israeli Standard SI 5568 at level AA, based on the WCAG guidelines.">אנו ב-CoachMind רואים חשיבות רבה במתן שירות שוויוני ונגיש לכלל המשתמשים, ובכלל זה אנשים עם מוגבלות. אתר זה הונגש בהתאם לתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע"ג 2013, ולתקן הישראלי ת"י 5568 ברמה AA, המבוסס על הנחיות WCAG.</p>
-      <h3 data-en="Accessibility features on this site">התאמות הנגישות באתר</h3>
-      <ul>
-        <li data-en="Full keyboard navigation support">תמיכה מלאה בניווט מקלדת</li>
-        <li data-en="Screen reader compatibility">תאימות לקוראי מסך</li>
-        <li data-en="Standard color contrast">ניגודיות צבעים תקנית</li>
-        <li data-en="Text enlargement option">אפשרות הגדלת טקסט</li>
-        <li data-en="Dedicated accessibility menu">תפריט נגישות ייעודי</li>
-        <li data-en="Accessible forms with clear labels and error messages">טפסים נגישים עם תוויות והודעות שגיאה ברורות</li>
-      </ul>
-      <h3 data-en="Encountered an accessibility issue?">נתקלתם בבעיית נגישות?</h3>
-      <p data-en="We'd be glad to hear about it and fix it. You can contact our accessibility coordinator:">נשמח לשמוע ולתקן. ניתן לפנות לרכז הנגישות שלנו:</p>
-      <p class="a11y-contact" data-en="Name: Ido Ovadia<br>Email: ccoachmind@gmail.com<br>Phone: 050-6380503">
-        שם: עידו עובדיה<br />
-        אימייל: ccoachmind@gmail.com<br />
-        טלפון: 050-6380503
-      </p>
-      <p class="a11y-contact" data-en="Statement last updated: 9 July 2026">תאריך עדכון ההצהרה: 09/07/2026</p>
-    </div>
-  </div>
-
-  <!-- ============================ PRIVACY POLICY MODAL ============================ -->
-  <div class="a11y-modal" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyModalTitle">
-    <div class="a11y-modal__backdrop" data-close></div>
-    <div class="a11y-modal__card">
-      <button type="button" class="a11y-modal__close" data-close aria-label="סגור" data-en-aria="Close">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18"></path><path d="M6 6l12 12"></path></svg>
-      </button>
-      <h2 id="privacyModalTitle" data-en="Privacy Policy: CoachMind Waitlist">מדיניות פרטיות: רשימת המתנה CoachMind</h2>
-      <h3 data-en="Who is responsible for the data">מי אחראי על המידע</h3>
-      <p data-en="Data controller: Ido Ovadia, founder of CoachMind. For privacy matters: <a href=&quot;mailto:ccoachmind@gmail.com&quot;>ccoachmind@gmail.com</a>, phone 050-6380503.">האחראי על המידע: עידו עובדיה, מייסד CoachMind. לפניות בנושא פרטיות: <a href="mailto:ccoachmind@gmail.com">ccoachmind@gmail.com</a>, טלפון 050-6380503.</p>
-      <h3 data-en="What we collect">מה אנחנו אוספים</h3>
-      <p data-en="Name, email address, and phone number. Providing these details is not legally required and depends solely on your choice.">שם, כתובת אימייל ומספר טלפון. מסירת הפרטים אינה חובה על פי חוק ותלויה ברצונך בלבד.</p>
-      <h3 data-en="Why">למה</h3>
-      <p data-en="To update you about the opening of early access to CoachMind. Marketing content will be sent only if you checked consent in the form, and you can withdraw consent at any time by contacting us or via the unsubscribe link in every message.">כדי לעדכן אותך על פתיחת הגישה המוקדמת ל-CoachMind. תכנים שיווקיים יישלחו רק אם סימנת הסכמה בטופס, ואפשר להסיר את ההסכמה בכל עת בפנייה אלינו או בקישור ההסרה שבכל הודעה.</p>
-      <h3 data-en="Where it is stored">איפה זה נשמר</h3>
-      <p data-en="In a secure database in the European Union. The details are not sold and not transferred to third parties for their own purposes, except for service providers acting on our behalf for storage and mailing.">במאגר מאובטח באיחוד האירופי. הפרטים לא נמכרים ולא מועברים לצדדים שלישיים למטרותיהם, למעט ספקי שירות הפועלים מטעמנו לצורך אחסון ודיוור.</p>
-      <h3 data-en="Transfer of data outside Israel">העברת מידע מחוץ לישראל</h3>
-      <p data-en="The data is stored on servers in the European Union, which is subject to a level of privacy protection recognized as adequate. By leaving your details you approve their transfer and storage as described.">המידע נשמר בשרתים באיחוד האירופי, הכפוף לרמת הגנה על פרטיות המוכרת כנאותה. בהשארת הפרטים את/ה מאשר/ת את העברתם ואחסונם כמתואר.</p>
-      <h3 data-en="How long">כמה זמן</h3>
-      <p data-en="Until the product launches or until you ask to be deleted, whichever comes first.">עד השקת המוצר או עד שתבקש/י להימחק, המוקדם מביניהם.</p>
-      <h3 data-en="Your rights">הזכויות שלך</h3>
-      <p data-en="At any stage you can request to review your details, correct them, or delete them entirely, by contacting <a href=&quot;mailto:ccoachmind@gmail.com&quot;>ccoachmind@gmail.com</a>. We will respond promptly.">בכל שלב אפשר לבקש לעיין בפרטים, לתקן אותם או למחוק אותם לגמרי, בפנייה ל-<a href="mailto:ccoachmind@gmail.com">ccoachmind@gmail.com</a>. נענה בהקדם.</p>
-      <h3 data-en="Cookies and analytics">עוגיות ומדידה</h3>
-      <p data-en="The site may use cookies and basic analytics tools to operate and improve the page. You can block cookies through your browser settings.">האתר עשוי לעשות שימוש בעוגיות (cookies) ובכלי מדידה בסיסיים לצורך תפעול הדף ושיפורו. אפשר לחסום עוגיות דרך הגדרות הדפדפן.</p>
-      <h3 data-en="Minors">קטינים</h3>
-      <p data-en="The service is intended for adults (age 18 and over). We do not knowingly collect details of minors.">השירות מיועד לבגירים (גיל 18 ומעלה). איננו אוספים ביודעין פרטים של קטינים.</p>
-      <h3 data-en="Changes to this policy">שינויים במדיניות</h3>
-      <p data-en="This policy may be updated from time to time. The updated version will be displayed on this page, and the update date will be noted at the bottom.">ניתן לעדכן מדיניות זו מעת לעת. הנוסח המעודכן יוצג בעמוד זה, ומועד העדכון יצוין בתחתיתו.</p>
-      <p class="a11y-contact" data-en="Updated: July 2026">עודכן: יולי 2026</p>
-    </div>
-  </div>
-
   <script>
-    // ---- always open at the top: stop the browser from restoring a previous scroll position ----
-    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-    window.addEventListener('load', function () { window.scrollTo(0, 0); });
-
-    // ---- i18n: Hebrew ⇄ English ----
-    var CM_I18N = {
-      he: { pause: 'השהה מצגת מסכים', play: 'הפעל מצגת מסכים', on: 'פעיל', off: 'כבוי', label: 'עברית' },
-      en: { pause: 'Pause screen slideshow', play: 'Play screen slideshow', on: 'On', off: 'Off', label: 'English' }
-    };
-    function cmLang() { return document.documentElement.lang === 'en' ? 'en' : 'he'; }
-    function cmT(k) { return CM_I18N[cmLang()][k]; }
-    (function () {
-      var dd = document.getElementById('langDD');
-      var trigger = document.getElementById('langDDTrigger');
-      var label = document.getElementById('langDDLabel');
-      var opts = dd ? Array.prototype.slice.call(dd.querySelectorAll('.lang-dd__opt')) : [];
-      function apply(lang) {
-        var en = lang === 'en';
-        var root = document.documentElement;
-        root.lang = en ? 'en' : 'he';
-        root.dir = en ? 'ltr' : 'rtl';
-        document.querySelectorAll('[data-en]').forEach(function (el) {
-          if (!el.hasAttribute('data-he')) el.setAttribute('data-he', el.innerHTML);
-          el.innerHTML = en ? el.getAttribute('data-en') : el.getAttribute('data-he');
-        });
-        document.querySelectorAll('[data-en-ph]').forEach(function (el) {
-          if (!el.hasAttribute('data-he-ph')) el.setAttribute('data-he-ph', el.getAttribute('placeholder') || '');
-          el.setAttribute('placeholder', en ? el.getAttribute('data-en-ph') : el.getAttribute('data-he-ph'));
-        });
-        document.querySelectorAll('[data-en-aria]').forEach(function (el) {
-          if (!el.hasAttribute('data-he-aria')) el.setAttribute('data-he-aria', el.getAttribute('aria-label') || '');
-          el.setAttribute('aria-label', en ? el.getAttribute('data-en-aria') : el.getAttribute('data-he-aria'));
-        });
-        // keep the a11y toggle state labels in the current language
-        document.querySelectorAll('.a11y-toggle').forEach(function (t) {
-          var st = t.querySelector('.state');
-          if (st) st.textContent = t.getAttribute('aria-pressed') === 'true' ? cmT('on') : cmT('off');
-        });
-        if (label) { label.textContent = cmT('label'); label.setAttribute('dir', en ? 'ltr' : 'rtl'); }
-        opts.forEach(function (o) {
-          var cur = o.getAttribute('data-lang') === lang;
-          if (cur) { o.setAttribute('aria-current', 'true'); o.setAttribute('aria-checked', 'true'); }
-          else { o.removeAttribute('aria-current'); o.setAttribute('aria-checked', 'false'); }
-        });
-        try { localStorage.setItem('cm-lang', lang); } catch (e) {}
-        if (typeof window.cmRefreshCarousel === 'function') window.cmRefreshCarousel();
-      }
-      window.cmApplyLang = apply;
-
-      function closeDD() { if (dd) { dd.removeAttribute('data-open'); if (trigger) trigger.setAttribute('aria-expanded', 'false'); } }
-      function openDD() { if (dd) { dd.setAttribute('data-open', ''); if (trigger) trigger.setAttribute('aria-expanded', 'true'); } }
-      if (trigger) {
-        trigger.addEventListener('click', function (e) {
-          e.stopPropagation();
-          if (dd.hasAttribute('data-open')) closeDD(); else openDD();
-        });
-      }
-      opts.forEach(function (o) {
-        o.addEventListener('click', function () { apply(o.getAttribute('data-lang')); closeDD(); });
+  if('scrollRestoration' in history){ history.scrollRestoration='manual'; }
+  if(!window.location.hash){ window.scrollTo(0,0); }
+  (function(){
+    var btn=document.getElementById('lang-toggle');
+    var current='he';
+    function apply(lang){
+      document.querySelectorAll('[data-he]').forEach(function(el){
+        el.textContent = lang==='en' ? el.getAttribute('data-en') : el.getAttribute('data-he');
+        el.style.direction = lang==='en' ? 'ltr' : '';
+        el.style.textAlign = lang==='en' ? 'right' : '';
       });
-      document.addEventListener('click', function (e) { if (dd && !dd.contains(e.target)) closeDD(); });
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDD(); });
-
-      var saved = null;
-      try { saved = localStorage.getItem('cm-lang'); } catch (e) {}
-      apply(saved === 'en' ? 'en' : 'he');
-    })();
-
-    // ---- phone carousel (chat / voice / …) ----
-    (function () {
-      const deck = document.getElementById('phoneDeck');
-      if (!deck) return;
-      const carousel = deck.closest('.phone-carousel');
-      const phones = Array.prototype.slice.call(deck.querySelectorAll('.phone'));
-      const dots = Array.prototype.slice.call(document.querySelectorAll('#phoneDots button'));
-      const playBtn = document.getElementById('phonePlayPause');
-      const n = phones.length;
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      let active = 0;
-      let timer = null;
-      let interacted = false;         // permanent stop after a nav interaction
-      let paused = false;             // manual pause via the play/pause button
-      let hovering = false;
-      let visible = true;             // corrected by IntersectionObserver below
-
-      function render() {
-        phones.forEach(function (p, i) {
-          let rel = ((i - active) % n + n) % n;
-          if (rel > n / 2) rel -= n;
-          let pos;
-          if (rel === 0) pos = '0';
-          else if (rel === -1) pos = '-1';
-          else if (rel === 1) pos = '1';
-          else pos = 'hide';
-          p.setAttribute('data-pos', pos);
-          p.setAttribute('aria-hidden', rel === 0 ? 'false' : 'true');
-        });
-        dots.forEach(function (d, i) { d.classList.toggle('active', i === active); });
-      }
-
-      function engaged() { return !reduceMotion && !interacted && !paused; }
-      function shouldRun() { return engaged() && !hovering && visible; }
-      function schedule() {
-        if (timer) { clearInterval(timer); timer = null; }
-        if (shouldRun()) timer = setInterval(function () { active = (active + 1) % n; render(); }, 4000);
-        if (playBtn) {
-          playBtn.classList.toggle('is-paused', !engaged());
-          playBtn.setAttribute('aria-label', engaged() ? cmT('pause') : cmT('play'));
-        }
-      }
-
-      // any direct nav interaction stops the autoplay permanently
-      function stopForever() { interacted = true; schedule(); }
-      function go(dir) { active = (active + dir + n) % n; render(); }
-
-      phones.forEach(function (p, i) {
-        p.addEventListener('click', function () { stopForever(); if (i !== active) { active = i; render(); } });
-      });
-      dots.forEach(function (d, i) {
-        d.addEventListener('click', function () { stopForever(); active = i; render(); });
-      });
-
-      // swipe / drag navigation (in order)
-      let startX = null;
-      function onStart(x) { startX = x; }
-      function onEnd(x) {
-        if (startX === null) return;
-        var dx = x - startX; startX = null;
-        if (Math.abs(dx) < 40) return;
-        stopForever();
-        // RTL: swipe left → next, swipe right → prev
-        go(dx < 0 ? 1 : -1);
-      }
-      deck.addEventListener('touchstart', function (e) { onStart(e.touches[0].clientX); }, { passive: true });
-      deck.addEventListener('touchend', function (e) { onEnd(e.changedTouches[0].clientX); }, { passive: true });
-      deck.addEventListener('pointerdown', function (e) { if (e.pointerType === 'mouse') onStart(e.clientX); });
-      deck.addEventListener('pointerup', function (e) { if (e.pointerType === 'mouse') onEnd(e.clientX); });
-
-      // keyboard: arrows switch screen when the carousel is focused
-      deck.setAttribute('tabindex', '0');
-      deck.addEventListener('keydown', function (e) {
-        if (e.key === 'ArrowRight') { stopForever(); go(-1); e.preventDefault(); }
-        else if (e.key === 'ArrowLeft') { stopForever(); go(1); e.preventDefault(); }
-      });
-
-      // hover pauses (resumes on leave, unless permanently stopped)
-      if (carousel) {
-        carousel.addEventListener('mouseenter', function () { hovering = true; schedule(); });
-        carousel.addEventListener('mouseleave', function () { hovering = false; schedule(); });
-      }
-
-      // play/pause button — explicit control; play also overrides a permanent stop
-      if (playBtn) {
-        if (reduceMotion) playBtn.style.display = 'none';
-        playBtn.addEventListener('click', function () {
-          if (engaged()) { paused = true; }
-          else { paused = false; interacted = false; }
-          schedule();
-        });
-      }
-
-      // only rotate while the carousel is on screen (any part visible)
-      if ('IntersectionObserver' in window) {
-        const io = new IntersectionObserver(function (entries) {
-          visible = entries[0].isIntersecting;
-          schedule();
-        }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
-        io.observe(deck);
-      }
-
-      window.cmRefreshCarousel = schedule;
-      render();
-      schedule();
-    })();
-
-    // ---- waitlist form (accessible validation) ----
-    (function () {
-      const form = document.getElementById('waitForm');
-      const success = document.getElementById('formSuccess');
-      const fields = [
-        { el: document.getElementById('f-name'), test: function (v) { return v.trim().length > 0; } },
-        { el: document.getElementById('f-email'), test: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); } },
-        { el: document.getElementById('f-phone'), test: function (v) { return /^0\d{8,9}$/.test(v.replace(/[\s-]/g, '')); } }
-      ];
-      function setError(field, invalid) {
-        const row = field.el.closest('.form-row');
-        row.classList.toggle('is-invalid', invalid);
-        if (invalid) field.el.setAttribute('aria-invalid', 'true');
-        else field.el.removeAttribute('aria-invalid');
-      }
-      fields.forEach(function (f) {
-        f.el.addEventListener('input', function () { if (f.el.getAttribute('aria-invalid') === 'true') setError(f, !f.test(f.el.value)); });
-        f.el.addEventListener('change', function () { if (f.el.getAttribute('aria-invalid') === 'true') setError(f, !f.test(f.el.value)); });
-      });
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        let firstInvalid = null;
-        fields.forEach(function (f) {
-          const bad = !f.test(f.el.value);
-          setError(f, bad);
-          if (bad && !firstInvalid) firstInvalid = f.el;
-        });
-        if (firstInvalid) { firstInvalid.focus(); return; }
-
-        // ---- honeypot: real users never fill #f-company. If filled, it's a bot:
-        //      show success but don't submit or track. ----
-        var hpEl = document.getElementById('f-company');
-        var hp = hpEl ? hpEl.value.trim() : '';
-        if (hp !== '') {
-          form.style.display = 'none';
-          success.style.display = 'flex';
-          return;
-        }
-
-        // ---- real submission → Google Apps Script (idovadya.com lead sheet) ----
-        var ENDPOINT = 'https://script.google.com/macros/s/AKfycby6pE7aaHBwj5WZlPOtcZTGBHUAW6TDrf6tb5LAYw2WAquCRoXGv-ssT2AQ9DosgK9B5w/exec';
-        var consentEl = document.getElementById('f-consent');
-        var data = new URLSearchParams();
-        data.append('name', document.getElementById('f-name').value.trim());
-        data.append('phone', document.getElementById('f-phone').value.trim());
-        data.append('email', document.getElementById('f-email').value.trim());
-        data.append('company', hp);
-        data.append('message', 'שיווקי: ' + (consentEl && consentEl.checked ? 'כן' : 'לא'));
-        try {
-          fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body: data, keepalive: true }).catch(function () {});
-        } catch (err) {}
-
-        // ---- conversion tracking: fire a lead event to GA4 + Clarity (with UTM params) ----
-        var utm = cmGetUTMs();
-        try { if (window.gtag) gtag('event', 'generate_lead', Object.assign({ form: 'waitlist' }, utm)); } catch (err) {}
-        try { if (window.clarity) clarity('event', 'lead_submitted'); } catch (err) {}
-
-        form.style.display = 'none';
-        success.style.display = 'flex';
-      });
-    })();
-
-    // ---- smooth scroll for in-page anchors ----
-    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-      a.addEventListener('click', function (e) {
-        const href = a.getAttribute('href');
-        if (!href || href === '#') return;
-        const target = document.querySelector(href);
-        if (target) {
-          e.preventDefault();
-          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' });
-        }
-      });
-    });
-
-    // ---- UTM capture (attached to the lead event on submit) ----
-    function cmGetUTMs() {
-      var out = {};
-      try {
-        var p = new URLSearchParams(window.location.search);
-        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(function (k) {
-          var v = p.get(k);
-          if (v) out[k] = v;
-        });
-      } catch (e) {}
-      return out;
+      document.documentElement.setAttribute('lang', lang);
+      btn.textContent = lang==='en' ? 'עברית' : 'EN';
+      current=lang;
     }
-
-    // ---- CTA click tracking (GA4 + Clarity); location taken from data-cta-location ----
-    document.querySelectorAll('a[href="#signup"]').forEach(function (el) {
-      el.addEventListener('click', function () {
-        var loc = el.getAttribute('data-cta-location') || 'sticky_bar';
-        try { if (window.gtag) gtag('event', 'cta_click', { location: loc }); } catch (e) {}
-        try { if (window.clarity) clarity('event', 'cta_click', { location: loc }); } catch (e) {}
-      });
-    });
-
-    // ---- thank-you share block: WhatsApp link, copy-to-clipboard, tracking ----
-    (function () {
-      var SITE = 'https://idovadya.com';
-      var wa = document.getElementById('shareWhatsApp');
-      if (wa) {
-        var waMsg = 'מצאתי משהו שנראה לי בדיוק בשבילך — מאמן מנטלי אישי שזמין 24/7. יש שבוע ניסיון חינם למצטרפים לרשימת ההמתנה: ' + SITE;
-        wa.setAttribute('href', 'https://wa.me/?text=' + encodeURIComponent(waMsg));
-        wa.addEventListener('click', function () {
-          try { if (window.gtag) gtag('event', 'share', { method: 'whatsapp', location: 'thank_you' }); } catch (e) {}
-          try { if (window.clarity) clarity('event', 'share_whatsapp'); } catch (e) {}
-        });
-      }
-      var copy = document.getElementById('copyLink');
-      if (copy) {
-        var copyHe = copy.textContent;
-        var copyEn = copy.getAttribute('data-en') || 'Copy link';
-        var copyTimer = null;
-        function copied() {
-          var en = document.documentElement.lang === 'en';
-          copy.classList.add('is-copied');
-          copy.textContent = en ? 'Copied ✓' : 'הועתק ✓';
-          if (copyTimer) clearTimeout(copyTimer);
-          copyTimer = setTimeout(function () {
-            copy.classList.remove('is-copied');
-            copy.textContent = (document.documentElement.lang === 'en') ? copyEn : copyHe;
-          }, 2000);
-          try { if (window.gtag) gtag('event', 'copy_link', { location: 'thank_you' }); } catch (e) {}
-          try { if (window.clarity) clarity('event', 'copy_link'); } catch (e) {}
-        }
-        function fallbackCopy() {
-          try {
-            var ta = document.createElement('textarea');
-            ta.value = SITE; ta.setAttribute('readonly', '');
-            ta.style.position = 'absolute'; ta.style.left = '-9999px';
-            document.body.appendChild(ta); ta.select();
-            document.execCommand('copy'); document.body.removeChild(ta);
-            copied();
-          } catch (e) {}
-        }
-        copy.addEventListener('click', function () {
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(SITE).then(copied).catch(fallbackCopy);
-          } else { fallbackCopy(); }
-        });
-      }
-    })();
-
-    // ---- accessibility widget + statement modal ----
-    (function () {
-      const root = document.documentElement;
-      const fab = document.getElementById('a11yFab');
-      const panel = document.getElementById('a11yPanel');
-      const modal = document.getElementById('a11yModal');
-      const focusable = 'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])';
-
-      function trap(container, e) {
-        if (e.key !== 'Tab') return;
-        const items = Array.prototype.slice.call(container.querySelectorAll(focusable)).filter(function (n) { return n.offsetParent !== null; });
-        if (!items.length) return;
-        const first = items[0], last = items[items.length - 1];
-        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-      }
-
-      // --- panel open/close ---
-      let panelOpen = false, lastFocus = null;
-      function openPanel() {
-        panelOpen = true; panel.setAttribute('data-open', 'true'); fab.setAttribute('aria-expanded', 'true');
-        lastFocus = fab;
-        const f = panel.querySelector(focusable); if (f) f.focus();
-      }
-      function closePanel() {
-        panelOpen = false; panel.removeAttribute('data-open'); fab.setAttribute('aria-expanded', 'false');
-        if (lastFocus) lastFocus.focus();
-      }
-      fab.addEventListener('click', function () { panelOpen ? closePanel() : openPanel(); });
-      panel.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') { closePanel(); }
-        else { trap(panel, e); }
-      });
-      document.addEventListener('click', function (e) {
-        if (panelOpen && !panel.contains(e.target) && e.target !== fab && !fab.contains(e.target)) closePanel();
-      });
-
-      // --- text size ---
-      const textBtns = panel.querySelectorAll('[data-text]');
-      textBtns.forEach(function (b) {
-        b.addEventListener('click', function () {
-          const lvl = b.getAttribute('data-text');
-          root.classList.remove('a11y-text-1', 'a11y-text-2', 'a11y-text-3');
-          if (lvl !== '0') root.classList.add('a11y-text-' + lvl);
-          textBtns.forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
-        });
-      });
-
-      // --- toggles ---
-      const toggles = panel.querySelectorAll('[data-toggle]');
-      toggles.forEach(function (t) {
-        t.addEventListener('click', function () {
-          const cls = t.getAttribute('data-toggle');
-          const on = root.classList.toggle(cls);
-          t.setAttribute('aria-pressed', String(on));
-          const st = t.querySelector('.state'); if (st) st.textContent = on ? cmT('on') : cmT('off');
-        });
-      });
-
-      // --- reset ---
-      document.getElementById('a11yReset').addEventListener('click', function () {
-        root.classList.remove('a11y-text-1', 'a11y-text-2', 'a11y-text-3', 'a11y-contrast', 'a11y-links', 'a11y-noanim');
-        textBtns.forEach(function (x) { x.setAttribute('aria-pressed', String(x.getAttribute('data-text') === '0')); });
-        toggles.forEach(function (t) { t.setAttribute('aria-pressed', 'false'); const st = t.querySelector('.state'); if (st) st.textContent = cmT('off'); });
-      });
-
-      // --- statement + privacy modals ---
-      let modalPrevFocus = null;
-      function openAModal(m, e) {
-        if (e) e.preventDefault();
-        modalPrevFocus = document.activeElement;
-        m.setAttribute('data-open', 'true');
-        if (panelOpen) closePanel();
-        const c = m.querySelector('.a11y-modal__close'); if (c) c.focus();
-      }
-      function closeAModal(m) {
-        m.removeAttribute('data-open');
-        if (modalPrevFocus) modalPrevFocus.focus();
-      }
-      function wireModal(m, openerIds) {
-        openerIds.forEach(function (id) {
-          const o = document.getElementById(id);
-          if (o) o.addEventListener('click', function (e) { openAModal(m, e); });
-        });
-        m.querySelectorAll('[data-close]').forEach(function (el) { el.addEventListener('click', function () { closeAModal(m); }); });
-        m.addEventListener('keydown', function (e) {
-          if (e.key === 'Escape') closeAModal(m);
-          else trap(m, e);
-        });
-      }
-      wireModal(modal, ['openA11yStatement', 'openA11yStatement2']);
-      wireModal(document.getElementById('privacyModal'), ['openPrivacy', 'openPrivacy2', 'openPrivacy3']);
-    })();
-
-    // ---- cookie consent banner ----
-    (function () {
-      var banner = document.getElementById('cookieBanner');
-      if (!banner) return;
-      var KEY = 'cm-cookie-consent';
-      var stored;
-      try { stored = localStorage.getItem(KEY); } catch (e) { stored = null; }
-      // Show the banner only when the visitor hasn't chosen yet.
-      if (stored !== 'granted' && stored !== 'denied') { banner.hidden = false; }
-
-      function save(choice) { try { localStorage.setItem(KEY, choice); } catch (e) {} }
-
-      var acceptBtn = document.getElementById('cookieAccept');
-      var declineBtn = document.getElementById('cookieDecline');
-
-      if (acceptBtn) acceptBtn.addEventListener('click', function () {
-        save('granted');
-        if (typeof gtag === 'function') {
-          gtag('consent', 'update', {
-            'ad_storage': 'granted',
-            'ad_user_data': 'granted',
-            'ad_personalization': 'granted',
-            'analytics_storage': 'granted'
-          });
-        }
-        if (typeof window.cmLoadClarity === 'function') window.cmLoadClarity();
-        banner.hidden = true;
-      });
-
-      if (declineBtn) declineBtn.addEventListener('click', function () {
-        save('denied');
-        // consent stays denied (set as default in <head>); Clarity is never loaded.
-        banner.hidden = true;
-      });
-    })();
-
-    // ---- sticky bottom CTA bar: measure height, hide while the signup form is visible ----
-    (function () {
-      var bar = document.getElementById('ctaBar');
-      if (!bar) return;
-      function measure() {
-        document.documentElement.style.setProperty('--cta-h', bar.offsetHeight + 'px');
-      }
-      measure();
-      window.addEventListener('resize', measure);
-      if (window.ResizeObserver) new ResizeObserver(measure).observe(bar);
-      // hide the bar while the signup form is on screen so it doesn't cover the form's own submit
-      var signup = document.getElementById('signup');
-      var ticking = false;
-      var hidden = false;
-      function update() {
-        ticking = false;
-        if (!signup) return;
-        var r = signup.getBoundingClientRect();
-        var vh = window.innerHeight;
-        // hysteresis: hide once the form is well into view, reveal only after it clearly leaves.
-        // the gap between the two thresholds stops the bar from flickering on the boundary.
-        if (!hidden) {
-          if (r.top < vh * 0.55 && r.bottom > 120) hidden = true;
-        } else {
-          if (r.top > vh * 0.72 || r.bottom < 80) hidden = false;
-        }
-        bar.classList.toggle('is-hidden', hidden);
-      }
-      function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
-      window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', onScroll);
-      update();
-    })();
+    btn.addEventListener('click', function(){ apply(current==='he'?'en':'he'); });
+  })();
+  (function(){
+    var openBtn=document.getElementById('talk-btn');
+    var overlay=document.getElementById('talk-modal');
+    var closeBtn=document.getElementById('talk-modal-close');
+    if(!openBtn || !overlay) return;
+    function open(){ overlay.classList.add('is-open'); overlay.setAttribute('aria-hidden','false'); }
+    function close(){ overlay.classList.remove('is-open'); overlay.setAttribute('aria-hidden','true'); }
+    openBtn.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    overlay.addEventListener('click', function(e){ if(e.target===overlay){ close(); } });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ close(); } });
+  })();
   </script>
 
 </body>

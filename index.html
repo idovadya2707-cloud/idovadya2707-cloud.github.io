@@ -82,6 +82,7 @@
     margin:0 0 24px;
     text-shadow:0 1px 16px rgba(0,0,0,0.6);
   }
+  .hero-subtitle{display:none;}
   .hero-content .tagline::before{
     content:"";
     position:absolute;
@@ -145,6 +146,7 @@
     text-transform:uppercase;
     margin:0 0 48px;
   }
+  .story-divider{display:none;}
   .story-station{
     display:flex;
     align-items:center;
@@ -354,16 +356,33 @@
   .legal-bar a{color:var(--ink-dim);text-decoration:underline;text-underline-offset:3px;}
 
   @media (max-width:900px){
-    .hero-banner-media{aspect-ratio:4/5;}
-    .hero-banner-media img{object-position:62% 16%;}
+    .hero-banner-media{aspect-ratio:5/2;}
+    .hero-banner-media img{object-position:center 0%;}
     .hero-banner-media::after{
-      background:linear-gradient(to bottom, rgba(10,10,11,0) 72%, var(--bg) 100%);
+      background:linear-gradient(to bottom, rgba(10,10,11,0) 55%, var(--bg) 92%);
     }
-    .hero-content{position:static;padding:28px 24px 0;justify-content:center;}
+    .hero-content{position:static;padding:24px 24px 0;justify-content:center;}
     .hero-content-inner{max-width:100%;text-align:center;}
+    .hero-subtitle{
+      display:block;
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.1em;
+      color:var(--accent);
+      margin:10px 0 18px;
+    }
     .hero-content .tagline{font-size:16.5px;line-height:1.6;}
     .hero-content .tagline::before{inset:-10px -14px;}
     .hero-actions{justify-content:center;}
+    .story-divider{
+      display:block;
+      text-align:center;
+      font-size:22px;
+      font-weight:800;
+      margin:0 0 32px;
+      padding-top:36px;
+      border-top:1px solid var(--line);
+    }
   }
 
   @media (max-width:760px){
@@ -461,6 +480,7 @@
     <div class="hero-content">
       <div class="hero-content-inner">
         <h1 data-he="Ido Ovadia" data-en="Ido Ovadia">Ido Ovadia</h1>
+        <p class="hero-subtitle" data-he="יזם · מנהל · יועץ" data-en="Founder · Manager · Consultant">יזם · מנהל · יועץ</p>
         <p class="tagline" data-he="בשלוש השנים האחרונות יזמתי והובלתי שני מיזמים, בהם מיזם AI בתחום ה־Mental Wellness. לאורך הדרך גיבשתי צוותים ויועצים, בחנתי צרכים מול קהלי יעד והובלתי את פיתוח המוצרים, כולל ביצוע פיילוטים. אני אוהב לחבר אנשים סביב חזון גדול ולהוביל את העבודה המשותפת שהופכת אותו למציאות." data-en="Over the past three years, I've founded and led two ventures, including an AI venture in mental wellness. Along the way I built teams and advisors, tested needs against target audiences, and led product development, including running pilots. I love connecting people around a big vision and leading the shared work that turns it into reality.">
           בשלוש השנים האחרונות יזמתי והובלתי שני מיזמים, בהם מיזם AI בתחום ה־Mental Wellness.
           לאורך הדרך גיבשתי צוותים ויועצים, בחנתי צרכים מול קהלי יעד והובלתי את פיתוח המוצרים, כולל ביצוע פיילוטים.
@@ -475,6 +495,7 @@
     <main>
 
       <section class="story-section" id="story">
+        <h2 class="story-divider" data-he="מיזמים ועסקים" data-en="Ventures &amp; Businesses">מיזמים ועסקים</h2>
         <p class="story-label" data-he="עסקים ומוצרים קודמים" data-en="Past businesses &amp; products">עסקים ומוצרים קודמים</p>
 
         <article class="story-station">

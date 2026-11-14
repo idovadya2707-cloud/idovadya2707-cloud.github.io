@@ -146,7 +146,6 @@
     text-transform:uppercase;
     margin:0 0 48px;
   }
-  .story-divider{display:none;}
   .story-station{
     display:flex;
     align-items:center;
@@ -356,7 +355,7 @@
   .legal-bar a{color:var(--ink-dim);text-decoration:underline;text-underline-offset:3px;}
 
   @media (max-width:900px){
-    .hero-banner-media{aspect-ratio:5/2;}
+    .hero-banner-media{aspect-ratio:5/2;margin-top:60px;}
     .hero-banner-media img{object-position:center 0%;}
     .hero-banner-media::after{
       background:linear-gradient(to bottom, rgba(10,10,11,0) 55%, var(--bg) 92%);
@@ -374,11 +373,13 @@
     .hero-content .tagline{font-size:16.5px;line-height:1.6;}
     .hero-content .tagline::before{inset:-10px -14px;}
     .hero-actions{justify-content:center;}
-    .story-divider{
-      display:block;
+    .story-label{
       text-align:center;
+      text-transform:none;
       font-size:22px;
       font-weight:800;
+      letter-spacing:normal;
+      color:var(--ink);
       margin:0 0 32px;
       padding-top:36px;
       border-top:1px solid var(--line);
@@ -495,7 +496,6 @@
     <main>
 
       <section class="story-section" id="story">
-        <h2 class="story-divider" data-he="מיזמים ועסקים" data-en="Ventures &amp; Businesses">מיזמים ועסקים</h2>
         <p class="story-label" data-he="עסקים ומוצרים קודמים" data-en="Past businesses &amp; products">עסקים ומוצרים קודמים</p>
 
         <article class="story-station">

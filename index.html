@@ -398,6 +398,7 @@
     .story-media{order:2;flex:none;width:100%;}
     .story-collage{aspect-ratio:1/1.12;max-width:360px;margin:0 auto;}
     .story-content h3{font-size:19px;white-space:nowrap;}
+    html[lang="en"] .story-content h3{white-space:normal;}
 
     .personal-note{padding:40px 0 48px;}
 
@@ -627,10 +628,17 @@
     var btn=document.getElementById('lang-toggle');
     var current='he';
     function apply(lang){
+      var isMobile = window.innerWidth <= 900;
       document.querySelectorAll('[data-he]').forEach(function(el){
         el.textContent = lang==='en' ? el.getAttribute('data-en') : el.getAttribute('data-he');
         el.style.direction = lang==='en' ? 'ltr' : '';
-        el.style.textAlign = lang==='en' ? 'right' : '';
+        if(lang==='en'){
+          if(el.closest('.contact-bar-caption')){ el.style.textAlign = ''; }
+          else if(el.closest('.hero-content-inner')){ el.style.textAlign = isMobile ? '' : 'left'; }
+          else { el.style.textAlign = 'left'; }
+        } else {
+          el.style.textAlign = '';
+        }
       });
       document.documentElement.setAttribute('lang', lang);
       btn.textContent = lang==='en' ? 'עברית' : 'EN';
